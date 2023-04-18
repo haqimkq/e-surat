@@ -55,6 +55,12 @@ if (!isset($_SESSION['nama'])) {
                                                 alamat</th>
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 Jenis Kelamin</th>
+                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
+                                                Agama</th>
+                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
+                                                No Telepon</th>
+                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
+                                                Foto</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -86,11 +92,14 @@ if (!isset($_SESSION['nama'])) {
                                             </td>
                                             <td align="left"><?= $i++ ?></td>
                                             <td><?= $row['nm_pegawai']; ?></td>
-                                            <td><?= $row['nik']; ?></td>
+                                            <td><?= $row['nip']; ?></td>
                                             <td><?= $row['tmpt_lahir']; ?></td>
                                             <td><?= $row['tgl_lahir']; ?></td>
                                             <td><?= $row['alamat']; ?></td>
                                             <td><?= $row['jk']; ?></td>
+                                            <td><?= $row['agama']; ?></td>
+                                            <td><?= $row['no_tlp']; ?></td>
+                                            <td><?= $row['foto']; ?></td>
                                         </tr>
                                         <?php
                                     }

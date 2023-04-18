@@ -1,17 +1,3 @@
-<!--
-=========================================================
-* Material Dashboard 2 - v3.0.4
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,6 +52,10 @@
                                 </div>
                                 <div class="card-body">
                                     <form action="" method="post">
+                                        <div class="input-group input-group-outline mb-3">
+                                            <input name="nm_lengkap" type="text" class="form-control"
+                                                placeholder="Nama Lengkap">
+                                        </div>
                                         <div class="input-group input-group-outline mb-3">
                                             <input name="username" type="text" class="form-control"
                                                 placeholder="Username">
@@ -126,7 +116,7 @@
 include '../db/koneksi.php';
 
 if (isset($_POST['register'])) {
-
+    $nm_lengkap = $_POST['nm_lengkap'];
     $username = $_POST['username'];
     $password = $_POST['password'];
     $password2 = $_POST['konfirmasi'];
@@ -134,27 +124,27 @@ if (isset($_POST['register'])) {
     $result = mysqli_query($link, "SELECT * FROM users WHERE username = '$username'");
     if (mysqli_fetch_assoc($result)) {
         echo "<script>alert ('username sudah terdaftar!')</script>";
-        echo "<meta http-equiv='refresh' content='0; url=sign-up.php'>";
+        echo "<meta http-equiv='refresh' content='0; url=signup-msy.php'>";
         return false;
     }
     if ($password !== $password2) {
         echo "<script>
             alert('konfirmasi password tidak sesuai!');
             </script>";
-        echo "<meta http-equiv='refresh' content='0; url=sign-up.php'>";
+        echo "<meta http-equiv='refresh' content='0; url=signup-msy.php'>";
         return false;
     }
     $pass = md5($password);
 
 
-    $simpan = $link->query("INSERT INTO users (username, password, level) VALUES ('$username', '$pass', '$level')");
+    $simpan = $link->query("INSERT INTO users (nm_lengkap, username, password, level) VALUES ('$nm_lengkap','$username', '$pass', '$level')");
 
     if ($simpan) {
         echo "<script>alert('Data berhasil disimpan')</script>";
-        echo "<meta http-equiv='refresh' content='0; url=index.php'>";
+        echo "<meta http-equiv='refresh' content='0; url=../indexLoginMsy.php'>";
     } else {
         echo "Data anda gagal disimpan. Ulangi sekali lagi";
-        echo "<meta http-equiv='refresh' content='0; url=sign-up.php'>";
+        echo "<meta http-equiv='refresh' content='0; url=signup-msy.php'>";
     }
 }
 ?>

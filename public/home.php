@@ -20,29 +20,36 @@ if (!isset($_SESSION['nama'])) {
         include "../public/dashboard.php";
         break;
 
-        // case "data_pegawai";
-        // include "../admin/pegawai/data.php";
-        // break;
+        case "data_pegawai";
+        include "../admin/pegawai/data.php";
+        break;
         
         case "data_profile";
         include "../admin/profile/data.php";
         break;
 
 
+        case "data_golongan";
+        include "../admin/golongan/data.php";
+            break;
+
+
+
         case "data_user";
         include "../admin/user/data.php";
-        break;
-        
-        case "tambah_user";
+            break;
+            case "tambah_user";
         include "../admin/user/add.php";
-        break;
-        
-        // case "hapus_user";
-        //     include "../admin/user/delete.php";
-        //     break;
-        // case "edit_user";
-        //     include "admin/user/edit.php";
-        //     break;
+            break;
+        case "edit_user";
+            include "../admin/user/edit.php";
+            break;
+        case "edit_user_password";
+            include "../admin/user/edit_password.php";
+            break; 
+        case "hapus_user";
+            include "../admin/user/delete.php";
+            break;
 
     }
     ?>
