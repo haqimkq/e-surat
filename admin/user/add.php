@@ -5,9 +5,7 @@ if (!isset($_SESSION['nama'])) {
     echo "<script> alert('Silahkan login terlebih dahulu'); </script>";
     echo "<meta http-equiv='refresh' content='0; url=../aev/index.php'>";
 } else {
-    $id = $_SESSION['id_user'];
-    $query = mysqli_query($link, "SELECT * FROM users WHERE id_user = '$id' ");
-    $data = $query->fetch_array();
+
 ?>
 
 <div class="container-fluid py-4">
@@ -73,7 +71,7 @@ if (!isset($_SESSION['nama'])) {
                                                             <div class="input-group input-group-dynamic mb-4">
                                                                 <label class="form-label">Nama Lengkap</label>
                                                                 <input class="form-control" aria-label="Nama Lengkap"
-                                                                    type="text" name="nm_pegawai" data-minlength="4"
+                                                                    type="text" name="nm_lengkap" data-minlength="4"
                                                                     data-error="Tidak Boleh Kurang dari 4" required>
                                                                 <div class="help-block with-errors"></div>
                                                             </div>
@@ -121,7 +119,7 @@ if (!isset($_SESSION['nama'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
         $level = $_POST['level'];
-        $nama_lengkap = $_POST['nm_pegawai'];
+        $nama_lengkap = $_POST['nm_lengkap'];
         
         $result = mysqli_query($link, "SELECT * FROM users WHERE username = '$username'");
         if (mysqli_fetch_assoc($result)) {
@@ -132,7 +130,7 @@ if (!isset($_SESSION['nama'])) {
         $pass = md5($password);
 
 
-        $simpan = $link->query("INSERT INTO users (username, password, level, nm_pegawai) VALUES ('$username', '$pass', '$level', '$nama_lengkap')");
+        $simpan = $link->query("INSERT INTO users (username, password, level, nm_lengkap) VALUES ('$username', '$pass', '$level', '$nama_lengkap')");
 
         if ($simpan) {
             echo "<script>alert('Data berhasil disimpan')</script>";
