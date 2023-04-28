@@ -19,22 +19,32 @@ if (!isset($_SESSION['nama'])) {
 
         include "../public/dashboard.php";
         break;
-
+        
+// PEGAWAI
         case "data_pegawai";
         include "../admin/pegawai/data.php";
-        break;
-        
+            break;
+        case "tambah_pegawai";
+        include "../admin/pegawai/add.php";
+            break;
+
+// PROFILE
         case "data_profile";
         include "../admin/profile/data.php";
         break;
 
-
+// GOLONGAN
         case "data_golongan";
         include "../admin/golongan/data.php";
             break;
 
+// JABATAN
+        case "data_jabatan";
+        include "../admin/jabatan/data.php";
+            break;
 
 
+// USERS
         case "data_user";
         include "../admin/user/data.php";
             break;

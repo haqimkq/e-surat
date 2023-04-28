@@ -7,7 +7,7 @@ if (!isset($_SESSION['nama'])) {
     echo "<meta http-equiv='refresh' content='0; url=../aev/index.php'>";
 } else {
     $id = $_SESSION['id_user'];
-    $query = mysqli_query($link, "SELECT * FROM pegawai WHERE id_user = '$id' ");
+    $query = mysqli_query($link, "SELECT * FROM pegawai WHERE id_pegawai = '$id' ");
     $data = $query->fetch_array();
 ?>
 
@@ -29,7 +29,7 @@ if (!isset($_SESSION['nama'])) {
                 </div>
                 <div class="card-body p-3">
                     <div class="col-2 ">
-                        <a href="?page=tambah_user" class="btn btn-info">Tambah Data</a>
+                        <a href="?page=tambah_pegawai" class="btn btn-info">Tambah Data</a>
                     </div>
                     <!-- <hr class="horizontal dark"> -->
                     <div class="row">
@@ -61,6 +61,9 @@ if (!isset($_SESSION['nama'])) {
                                                 No Telepon</th>
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 Foto</th>
+                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
+                                                Instagram</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -100,6 +103,8 @@ if (!isset($_SESSION['nama'])) {
                                             <td><?= $row['agama']; ?></td>
                                             <td><?= $row['no_tlp']; ?></td>
                                             <td><?= $row['foto']; ?></td>
+                                            <td><?= $row['instagram']; ?></td>
+
                                         </tr>
                                         <?php
                                     }
