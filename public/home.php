@@ -19,7 +19,8 @@ if (!isset($_SESSION['nama'])) {
 
         include "../public/dashboard.php";
         break;
-        
+
+// START ADMIN PAGE
 // PEGAWAI
         case "data_pegawai";
         include "../admin/pegawai/data.php";
@@ -60,6 +61,19 @@ if (!isset($_SESSION['nama'])) {
         case "hapus_user";
             include "../admin/user/delete.php";
             break;
+// END ADMIN PAGE
+
+// START  PAGAWAI PAGE
+
+// PEGAWAI
+case "dataPegawai";
+include "../pegawai/pegawai/data.php";
+break;
+case "tambahPegawai";
+include "../pegawai/pegawai/add.php";
+    break;
+
+// END PEGAWAI PAGE
 
     }
     ?>

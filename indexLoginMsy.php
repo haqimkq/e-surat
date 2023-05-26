@@ -65,7 +65,7 @@
                             </div>
                             <div class="card-body">
                                 <h6 class="text-white font-weight-bolder text-center mt-2 mb-0 text-uppercase">LOGIN
-                                    Masyarakat</h6>
+                                </h6>
                                 <form action="db/cek_login.php" method="post">
                                     <div class=" input-group input-group-outline my-3">
                                         <input name="username" type="text " class="form-control text-light"

@@ -14,7 +14,7 @@ if (!isset($_SESSION['nama'])) {
             <div class="card mb-4">
                 <div class=" position-relative mt-n4 mx-3 ps-0  ">
                     <div class="bg-gradient-info shadow border-radius-lg pt-3 pb-3 ">
-                        <h3 class=" text-white text-capitalize text-center ">Form Tambah Data Pegawai</h3>
+                        <h3 class=" text-white text-capitalize text-center py-1 ">Tambah Data Pegawai</h3>
                     </div>
                 </div>
                 <div class="card-body p-3">

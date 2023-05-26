@@ -286,7 +286,7 @@
                                     </div>
                                     <span class="nav-link-text ms-1">Users</span>
                                 </a>
-                                <a class="nav-link text-white " href="?page=data_pegawai">
+                                <a class="nav-link text-white " href="?page=dataPegawai">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">people</i>
