@@ -17,66 +17,69 @@ if (!isset($_SESSION['nama'])) {
     switch ($_GET['page']) {
         default:
 
-        include "../public/dashboard.php";
-        break;
+            include "../public/dashboard.php";
+            break;
 
-// START ADMIN PAGE
-// PEGAWAI
+            // START ADMIN PAGE
+            // PEGAWAI
         case "data_pegawai";
-        include "../admin/pegawai/data.php";
+            include "../admin/pegawai/data.php";
             break;
         case "tambah_pegawai";
-        include "../admin/pegawai/add.php";
+            include "../admin/pegawai/add.php";
             break;
 
-// PROFILE
+            // PROFILE
         case "data_profile";
-        include "../admin/profile/data.php";
-        break;
+            include "../admin/profile/data.php";
+            break;
 
-// GOLONGAN
+            // GOLONGAN
         case "data_golongan";
-        include "../admin/golongan/data.php";
+            include "../admin/golongan/data.php";
             break;
 
-// JABATAN
+            // JABATAN
         case "data_jabatan";
-        include "../admin/jabatan/data.php";
+            include "../admin/jabatan/data.php";
             break;
 
 
-// USERS
+            // USERS
         case "data_user";
-        include "../admin/user/data.php";
+            include "../admin/user/data.php";
             break;
-            case "tambah_user";
-        include "../admin/user/add.php";
+        case "tambah_user";
+            include "../admin/user/add.php";
             break;
         case "edit_user";
             include "../admin/user/edit.php";
             break;
         case "edit_user_password";
             include "../admin/user/edit_password.php";
-            break; 
+            break;
         case "hapus_user";
             include "../admin/user/delete.php";
             break;
-// END ADMIN PAGE
+            // END ADMIN PAGE
 
-// START  PAGAWAI PAGE
+            // START  PAGAWAI PAGE
 
-// PEGAWAI
-case "dataPegawai";
-include "../pegawai/pegawai/data.php";
-break;
-case "tambahPegawai";
-include "../pegawai/pegawai/add.php";
-    break;
+            // PEGAWAI
+        case "dataPegawai";
+            include "../pegawai/pegawai/data.php";
+            break;
+        case "tambahPegawai";
+            include "../pegawai/pegawai/add.php";
+            break;
+        case "editPegawai";
+            include "../pegawai/pegawai/edit.php";
+            break;
 
-// END PEGAWAI PAGE
+            // END PEGAWAI PAGE
 
     }
-    ?>
+?>
 
 <?php
     include '../layouts/footer.php';

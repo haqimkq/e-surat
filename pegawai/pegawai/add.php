@@ -404,7 +404,7 @@ function upload()
     $namaFileBaru .= '.';
     $namaFileBaru .= $ekstensiGambar;
 
-    move_uploaded_file($tmpName, '../bpkad/img/' . $namaFileBaru);
+    move_uploaded_file($tmpName, '../aev/img/' . $namaFileBaru);
 
     return $namaFileBaru;
 }
