@@ -5,7 +5,7 @@
         <?php
         $level = $_SESSION['level'];
         if ($level == 0) {
-        $years = range(2000, strftime("%Y", time()));
+            $years = range(2000, strftime("%Y", time()));
         ?>
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
@@ -252,10 +252,10 @@
         <hr class="horizontal light mt-0 mb-2 " />
         <div class="text-light text-center mb-2">
             <?php
-                include "../db/koneksi.php";
-                $id = $_SESSION['id_user'];
-                $query = mysqli_query($link, "SELECT * FROM users WHERE id_user = '$id' ");
-                $data = $query->fetch_array(); ?>
+            include "../db/koneksi.php";
+            $id = $_SESSION['id_user'];
+            $query = mysqli_query($link, "SELECT * FROM users WHERE id_user = '$id' ");
+            $data = $query->fetch_array(); ?>
             <span class="ms-1 text-black"><?= $data['username'] ?></span>
         </div>
         <hr class="horizontal light mt-0 mb-2 nav-link-text text-center ms-1" />

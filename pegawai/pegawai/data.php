@@ -57,7 +57,8 @@ if (!isset($_SESSION['nama'])) {
                                         </thead>
                                         <tbody>
                                             <?php $no = 1;
-                                            $query = mysqli_query($link, "SELECT * FROM pegawai");
+                                            $id = $_SESSION['id_user'];
+                                            $query = mysqli_query($link, "SELECT * FROM pegawai WHERE id_user = '$id'");
                                             $i = 1;
                                             while ($row = $query->fetch_array()) { ?>
                                                 <tr>
@@ -85,8 +86,8 @@ if (!isset($_SESSION['nama'])) {
                                                     <td><?= $row['nip']; ?></td>
                                                     <td><?= $row['tmpt_lahir']; ?></td>
                                                     <td><?= $row['tgl_lahir']; ?></td>
-                                                    <td align="center">
-                                                        <?php echo "<img src='../img/$row[foto]' width='70' height='90' />"; ?>
+                                                    <td align="left">
+                                                        <?php echo "<img src='$row[foto]' width='70' height='70' style='border-radius: 50%;' />"; ?>
                                                     </td>
                                                     <td align="center">
                                                         <a href="?page=data_profile&id=<?= $row[0]; ?>" class="btn btn-sm btn-success" title="Detail">Detail</a>

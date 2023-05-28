@@ -28,6 +28,9 @@ if (!isset($_SESSION['nama'])) {
         case "tambah_pegawai";
             include "../admin/pegawai/add.php";
             break;
+        case "detailPegawai";
+            include "../admin/pegawai/detail.php";
+            break;
 
             // PROFILE
         case "data_profile";
@@ -74,6 +77,9 @@ if (!isset($_SESSION['nama'])) {
             break;
         case "editPegawai";
             include "../pegawai/pegawai/edit.php";
+            break;
+        case "hapusPegawai";
+            include "../pegawai/pegawai/delete.php";
             break;
 
             // END PEGAWAI PAGE

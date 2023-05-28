@@ -7,10 +7,9 @@ if (!isset($_SESSION['nama'])) {
     echo "<meta http-equiv='refresh' content='0; url=../aev/index.php'>";
 } else {
 
-    $id = $_SESSION['id_user'];
-    $query = mysqli_query($link, "SELECT * FROM pegawai p JOIN jabatan j ON j.id_jabatan = p.id_jabatan JOIN golongan g ON p.id_golongan = g.id_golongan WHERE id_user = '$id' ");
+    $id = $_GET['id'];
+    $query = $link->query("SELECT * FROM pegawai p join jabatan j on j.id_jabatan = p.id_jabatan join golongan g on p.id_golongan = g.id_golongan WHERE id_pegawai = '$id'");
     $data = $query->fetch_array();
-
 
 
 ?>
@@ -63,7 +62,7 @@ if (!isset($_SESSION['nama'])) {
                         </div>
                     </div>
                     <div class="card-body">
-                        <p class="text-uppercase text-sm">Informasi Lengkap Pegawai</p>
+                        <p class="text-uppercase text-sm">Informasi Lengkap</p>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="input-group input-group-dynamic">

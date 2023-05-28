@@ -207,8 +207,12 @@ if (!isset($_SESSION['nama'])) {
                                                         <div class="col-md-4">
                                                             <div class="input-group input-group-dynamic">
                                                                 <div class="input-group input-group-dynamic mb-4">
-                                                                    <label class="form-label">Jenis Kelamin</label>
-                                                                    <input class="form-control" aria-label="Jenis Kelamin" type="text" name="jk" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
+                                                                    <!-- <label class="form-label">Jenis Kelamin</label> -->
+                                                                    <select name="jk" class="form-control">
+                                                                        <option>-- PILIH --</option>
+                                                                        <option value="Laki-Laki">Laki-Laki</option>
+                                                                        <option value="Perempuan">Perempuan</option>
+                                                                    </select>
                                                                     <div class="help-block with-errors"></div>
                                                                 </div>
                                                             </div>
@@ -343,11 +347,36 @@ if (!isset($_SESSION['nama'])) {
         $status = $_POST['status'];
         $agama = $_POST['agama'];
         $no_tlp = $_POST['no_tlp'];
-        $foto = upload();
-        if (!$foto) {
-            echo "<script>alert('Gagal Upload foto ')</script>";
-            return false;
+
+        // Proses pembaruan data
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Menerima data form
+            $uploadedFile = $_FILES['foto'];
+            // $foto = $_FILES['foto']['name'];
+            $foto_lama = $_POST['foto_lama'];
+
+            // Cek apakah pengguna mengunggah foto baru
+            if ($uploadedFile['error'] === 4) {
+                // Tidak ada file foto baru yang diunggah, gunakan foto lama
+                $foto = $foto_lama;
+            } else {
+                // Ada file foto baru yang diunggah, proses unggah foto
+                $uploadedFilePath = upload($uploadedFile);
+                if ($uploadedFilePath) {
+                    // File berhasil diunggah
+                    $foto = $uploadedFilePath;
+                } else {
+                    // Gagal mengunggah file
+                    echo "Gagal mengunggah file.";
+                    // Lakukan tindakan yang sesuai jika gagal mengunggah file, seperti menampilkan pesan error atau menghentikan pembaruan data.
+                    // Misalnya: die("Gagal mengunggah file. Pembaruan data dibatalkan.");
+                }
+            }
+
+            echo "Data berhasil diperbarui.";
         }
+
+
         $instagram = $_POST['instagram'];
         $email = $_POST['email'];
 
@@ -382,31 +411,37 @@ if (!isset($_SESSION['nama'])) {
 }
 
 
-function upload()
+
+function upload($file)
 {
-    $namaFile = $_FILES['foto']['name'];
-    $ukuranFile = $_FILES['foto']['size'];
-    $error = $_FILES['foto']['error'];
-    $tmpName = $_FILES['foto']['tmp_name'];
+    // Tentukan folder penyimpanan file
+    $targetDir = '../img/';
 
-    $ekstensiGambarValid1 = ['jpg', 'jpeg', 'png'];
-    $ekstensiGambar = explode('.', $namaFile);
-    $ekstensiGambar = strtolower(end($ekstensiGambar));
+    // Mendapatkan nama file asli
+    $fileName = basename($file['name']);
 
+    // Mendapatkan path file tujuan
+    $targetPath = $targetDir . $fileName;
 
+    // Mendapatkan ekstensi file
+    $fileExtension = pathinfo($targetPath, PATHINFO_EXTENSION);
 
-    if ($ukuranFile > 5000000) {
-        echo "<script>alert('ukuran gambar terlalu besar')</script>";
+    // Daftar ekstensi file yang diperbolehkan
+    $allowedExtensions = array('jpg', 'jpeg', 'png');
+
+    // Cek apakah ekstensi file valid
+    if (in_array($fileExtension, $allowedExtensions)) {
+        // Pindahkan file ke folder tujuan
+        if (move_uploaded_file($file['tmp_name'], $targetPath)) {
+            // Jika berhasil diunggah, kembalikan path file
+            return $targetPath;
+        } else {
+            // Jika gagal mengunggah
+            return false;
+        }
+    } else {
+        // Jika ekstensi file tidak valid
         return false;
     }
-
-    $namaFileBaru = uniqid();
-    $namaFileBaru .= '.';
-    $namaFileBaru .= $ekstensiGambar;
-
-    move_uploaded_file($tmpName, '../aev/img/' . $namaFileBaru);
-
-    return $namaFileBaru;
 }
-
 ?>
