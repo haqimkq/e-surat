@@ -29,6 +29,12 @@ if (!isset($_SESSION['nama'])) {
         case "tambah_berita";
             include "../admin/news/add.php";
             break;
+        case "edit_berita";
+            include "../admin/news/edit.php";
+            break;
+        case "hapus_berita";
+            include "../admin/news/delete.php";
+            break;
 
             // PEGAWAI
         case "data_pegawai";

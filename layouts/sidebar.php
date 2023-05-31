@@ -56,21 +56,21 @@
                                 <a class="nav-link text-white " href="?page=data_golongan">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">people</i>
+                                        <i class="material-icons opacity-10">assignment</i>
                                     </div>
                                     <span class="nav-link-text ms-1">Data Golongan</span>
                                 </a>
                                 <a class="nav-link text-white " href="?page=data_jabatan">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">people</i>
+                                        <i class="material-icons opacity-10">assignment</i>
                                     </div>
                                     <span class="nav-link-text ms-1">Data Jabatan</span>
                                 </a>
                                 <a class="nav-link text-white " href="?page=data_pegawai">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">people</i>
+                                        <i class="material-icons opacity-10">assignment_ind</i>
                                     </div>
                                     <span class="nav-link-text ms-1">Data Pegawai</span>
                                 </a>
@@ -81,7 +81,7 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="?page=data_masyarakat">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">dashboard</i>
+                            <i class="material-icons opacity-10">group_add</i>
                         </div>
                         <span class="nav-link-text ms-1">Data Masyarakat</span>
                     </a>
@@ -89,7 +89,7 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="?page=data_berita">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">dashboard</i>
+                            <i class="material-icons opacity-10">fiber_new</i>
                         </div>
                         <span class="nav-link-text ms-1">Data Portal Berita</span>
                     </a>
