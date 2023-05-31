@@ -21,6 +21,15 @@ if (!isset($_SESSION['nama'])) {
             break;
 
             // START ADMIN PAGE
+            //PORTAL BERITA
+
+        case "data_berita";
+            include "../admin/news/data.php";
+            break;
+        case "tambah_berita";
+            include "../admin/news/add.php";
+            break;
+
             // PEGAWAI
         case "data_pegawai";
             include "../admin/pegawai/data.php";
@@ -41,10 +50,22 @@ if (!isset($_SESSION['nama'])) {
         case "data_golongan";
             include "../admin/golongan/data.php";
             break;
+        case "edit_golongan";
+            include "../admin/golongan/edit.php";
+            break;
+        case "hapus_golongan";
+            include "../admin/golongan/delete.php";
+            break;
 
             // JABATAN
         case "data_jabatan";
             include "../admin/jabatan/data.php";
+            break;
+        case "edit_jabatan";
+            include "../admin/jabatan/edit.php";
+            break;
+        case "hapus_jabatan";
+            include "../admin/jabatan/delete.php";
             break;
 
 

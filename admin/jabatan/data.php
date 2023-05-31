@@ -48,11 +48,11 @@ if (!isset($_SESSION['nama'])) {
                                     </thead>
                                     <tbody>
                                         <?php
-                                    $no = 1;
-                                    $query = mysqli_query($link, "SELECT * FROM jabatan");
-                                    $i = 1;
-                                    while ($row = $query->fetch_array()) {
-                                    ?>
+                                            $no = 1;
+                                            $query = mysqli_query($link, "SELECT * FROM jabatan");
+                                            $i = 1;
+                                            while ($row = $query->fetch_array()) {
+                                            ?>
                                         <tr>
                                             <td class="w-5">
                                                 <div class=" mt-3 ">
@@ -64,11 +64,11 @@ if (!isset($_SESSION['nama'])) {
                                                     <ul class="dropdown-menu shadow-lg mt-2  dropdown-menu-end px-2 py-2 me-sm-n4"
                                                         role="menu">
                                                         <li><a class="dropdown-item border-radius-md"
-                                                                href="?page=edit_pegawai&id=<?= $row[0]; ?>"><i
+                                                                href="?page=edit_jabatan&id=<?= $row[0]; ?>"><i
                                                                     class="fa fa-edit"></i> Edit Data</a></li>
                                                         <li><a class="dropdown-item border-radius-md"
                                                                 onclick="return confirm ('Anda yakin ingin menghapus data ?');"
-                                                                href="?page=hapus_pegawai&id=<?= $row[0]; ?>"><i
+                                                                href="?page=hapus_jabatan&id=<?= $row[0]; ?>"><i
                                                                     class="fa fa-trash-o"></i> Hapus</a></li>
                                                     </ul>
                                                 </div>
@@ -77,8 +77,8 @@ if (!isset($_SESSION['nama'])) {
                                             <td><?= $row['nm_jabatan']; ?></td>
                                         </tr>
                                         <?php
-                                    }
-                                    ?>
+                                            }
+                                            ?>
                                     </tbody>
                             </table>
                         </div>
@@ -98,13 +98,13 @@ if (!isset($_SESSION['nama'])) {
                     <section>
                         <div class="container py-4">
                             <div class="row">
-                                <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column">
+                                <div class="col-lg-7 mx-auto d-flex  flex-column">
                                     <form data-toggle="validator" action="" method="POST" enctype="multipart/form-data">
                                         <div class="card-body">
                                             <div class="row">
                                                 <?php
-                                    if ($status) {
-                                    ?>
+                                                    if ($status) {
+                                                    ?>
                                                 <div class="alert alert-danger alert-dismissible">
                                                     <button class="close" type="button" data-dismiss="alert"
                                                         ariahidden="true">&times;
@@ -113,9 +113,9 @@ if (!isset($_SESSION['nama'])) {
                                                     <?php echo $status; ?>
                                                 </div>
                                                 <?php
-                                    }
-                                    ?>
-                                                <div class="col-md-12">
+                                                    }
+                                                    ?>
+                                                <div class="col-lg-12">
                                                     <div class="input-group input-group-dynamic">
                                                         <div class="input-group input-group-dynamic mb-4">
                                                             <label class="form-label">Nama Jabatan</label>
@@ -144,12 +144,12 @@ if (!isset($_SESSION['nama'])) {
 </div>
 
 
-<?php 
+<?php
     if (isset($_POST['simpan'])) {
 
         $nm_jabatan = $_POST['nm_jabatan'];
-        
-        
+
+
         $result = mysqli_query($link, "SELECT * FROM jabatan WHERE nm_jabatan = '$nm_jabatan'");
         if (mysqli_fetch_assoc($result)) {
             echo "<script>alert ('username sudah terdaftar!')</script>";

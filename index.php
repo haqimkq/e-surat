@@ -92,12 +92,16 @@
             <div class="row ">
                 <div class="col-lg-3 mb-4 mb-lg-0 text-center mb-6 mb-lg-0 text-lg-start ">
                     <div class="heading-content" data-aos="fade-up">
-                        <h2>Pelayanan <span class="d-block">Kami</span></h2>
+                        <h2 class="text-center mt-5">Pelayanan Kami</h2>
                         <p class="text-center">Untuk mewujudkan layanan bagi masyarakat secara transparan, profesional,
                             efektif & efisien serta di era digitalisasi saat ini adalah menjadi sebuah tuntutan dengan
                             menhadirkan inovasi pelayanan yang berbasis Tehnologi Informasi.</p>
-                        <p class="my-4" data-aos="fade-up" data-aos-delay="300"><a href="indexLoginMsy.php"
-                                class="btn btn-warning text-black ">Login ..</a></p>
+                        <!-- <p class="my-4" data-aos="fade-up" data-aos-delay="300"><a href="indexLoginMsy.php"
+                                class="btn btn-warning text-black ">Login ..</a></p> -->
+                        <!-- <a href="indexLoginMsy.php" class="more d-flex align-items-center float-start">
+                            <span class="label">Login ..</span> -->
+                        <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-9">
@@ -165,24 +169,85 @@
                 </div>
             </div>
             <div class="row align-items-stretch">
+                <?php
+                $host = "localhost";
+                $user = "root";
+                $pass = "";
+                $DB = "db_pelayanan";
+                $link = new mysqli($host, $user, $pass, $DB);
+                if ($link->connect_error) {
+                    echo "Gagal Koneksi MySQL";
+                }
+                function tgl($tanggal)
+                {
+                    $bulan = array(
+                        1 =>   'Januari',
+                        'Februari',
+                        'Maret',
+                        'April',
+                        'Mei',
+                        'Juni',
+                        'Juli',
+                        'Agustus',
+                        'September',
+                        'Oktober',
+                        'November',
+                        'Desember'
+                    );
+                    $pecahkan = explode('-', $tanggal);
+
+                    // variabel pecahkan 0 = tanggal
+                    // variabel pecahkan 1 = bulan
+                    // variabel pecahkan 2 = tahun
+
+                    return $pecahkan[2] . ' ' . $bulan[(int) $pecahkan[1]] . ' ' . $pecahkan[0];
+                }
+                $no = 1;
+                $query = mysqli_query($link, "SELECT * FROM news order by idNews DESC LIMIT 10 ");
+                $i = 1;
+                while ($row = $query->fetch_array()) {
+                ?>
+
                 <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="media-entry">
-                        <a href="#">
-                            <img src="image/gal_1.jpg" alt="Image" class="img-fluid">
-                        </a>
+                        <div class="text-center">
+                            <?php echo "<img src='aev/$row[foto]' width='280' height='280' style='border-radius: 5%;' />"; ?>
+                        </div>
                         <div class="bg-white m-body">
-                            <span class="date">May 14, 2020</span>
-                            <h3><a href="#">Far far away, behind the word mountains</a></h3>
-                            <p>Vokalia and Consonantia, there live the blind texts. Separated they live.</p>
+                            <span class="date"><?= tgl($row['tanggal']) ?></span>
+                            <h3><a href="#"><?php
+                                                $newsText = $row['title'];
+                                                $maxtitle = 250; // Tentukan panjang maksimum yang diinginkan
+                                                if (strlen($newsText) > $maxtitle) {
+                                                    $trimmedText = substr($newsText, 0, $maxtitle) . ' ...';
+                                                    echo $trimmedText;
+                                                } else {
+                                                    echo $newsText;
+                                                }
+                                                ?></a></h3>
+                            <p> <?php
+                                    $newsText = $row['newsText'];
+                                    $maxLength = 250; // Tentukan panjang maksimum yang diinginkan
+                                    if (strlen($newsText) > $maxLength) {
+                                        $trimmedText = substr($newsText, 0, $maxLength) . ' ...';
+                                        echo $trimmedText;
+                                    } else {
+                                        echo $newsText;
+                                    }
+                                    ?>.</p>
 
-                            <a href="single.html" class="more d-flex align-items-center float-start">
+                            <!-- <a href="single.html" class="more d-flex align-items-center float-start">
                                 <span class="label">Read More</span>
                                 <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+
+                <?php
+                }
+                ?>
+                <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="media-entry">
                         <a href="#">
                             <img src="images/gal_2.jpg" alt="Image" class="img-fluid">
@@ -230,7 +295,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
