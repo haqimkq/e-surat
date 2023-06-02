@@ -79,23 +79,23 @@ if (!isset($_SESSION['nama'])) {
                                                         <div class="input-group input-group-dynamic">
                                                             <div class="input-group input-group-dynamic mb-4">
                                                                 <textarea class="form-control" name="newsText"
-                                                                    id="newsText" cols="20" rows="15" data-minlength="4"
+                                                                    id="newsText" cols="20" rows="10" data-minlength="4"
                                                                     data-error="Tidak Boleh Kurang dari 4"
                                                                     required><?= $data['newsText'] ?> </textarea>
                                                                 <div class="help-block with-errors"></div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class=" col-md-6 text-center ">
+                                                    <div class="col-md-8 text-end mt-3 ">
                                                         <?php
                                                             if (!empty($data['foto'])) {
-                                                                echo "<img src='../img/" . $data['foto'] . "' width='70' height='70' style='border-radius: 50%;'>";
+                                                                echo "<img src='../img/" . $data['foto'] . "' width='250' height='250' style='border-radius: 10%;'>";
                                                             }
                                                             ?>
-                                                        <div class="input-group input-group-dynamic m-5 ">
+                                                        <div class="input-group input-group-dynamic m-5 mt-5">
                                                             <label class="text-bold">Foto Cover Berita :</label>
-                                                            <div class="input-group input-group-dynamic ">
-                                                                <input class="form-control" aria-label="Foto Pegawai :"
+                                                            <div class="input-group input-group-dynamic">
+                                                                <input class="form-control" aria-label="Foto Cover :"
                                                                     type="file" name="foto" data-minlength="4"
                                                                     data-error="Tidak Boleh Kurang dari 4">
                                                                 <div class="help-block with-errors"></div>
@@ -105,10 +105,12 @@ if (!isset($_SESSION['nama'])) {
                                                             value="<?= $data['foto'] ?>">
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col ms-4">
-                                                <input type="submit" class="btn btn-primary" value="Edit" name="edit">
-                                                <input type="reset" class="btn btn-danger" value="Reset" name="reset">
+                                                <div class="col ms-4">
+                                                    <input type="submit" class="btn btn-primary" value="Edit"
+                                                        name="edit">
+                                                    <input type="reset" class="btn btn-danger" value="Reset"
+                                                        name="reset">
+                                                </div>
                                             </div>
                                         </form>
                                     </div>
@@ -124,18 +126,8 @@ if (!isset($_SESSION['nama'])) {
 
 <?php
     if (isset($_POST['edit'])) {
-        $id_user = $_POST['id_user'];
-        $jabatan = $_POST['id_jabatan'];
-        $golongan = $_POST['id_golongan'];
-        $namaPegawai = $_POST['nm_pegawai'];
-        $nip = $_POST['nip'];
-        $tempatLahir = $_POST['tmpt_lahir'];
-        $tglLahir = $_POST['tgl_lahir'];
-        $alamat = $_POST['alamat'];
-        $jenisKelamin = $_POST['jk'];
-        $stts = $_POST['status'];
-        $agama = $_POST['agama'];
-        $noTelepon = $_POST['no_tlp'];
+        $title = $_POST['title'];
+        $newsText = $_POST['newsText'];
 
         // Proses pembaruan data
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -166,39 +158,24 @@ if (!isset($_SESSION['nama'])) {
         }
 
 
-
-
-        $instagram = $_POST['instagram'];
-        $email = $_POST['email'];
+        $tanggal = $_POST['tanggal'];
 
 
 
-
-        $edit = $link->query("UPDATE pegawai SET 
-id_user = '$id_user',
-id_jabatan = '$jabatan',
-id_golongan = '$golongan',
-nm_pegawai = '$namaPegawai', 
-nip = '$nip', 
-tmpt_lahir = '$tempatLahir',
-tgl_lahir = '$tglLahir',
-alamat = '$alamat',
-jk = '$jenisKelamin',
-status = '$stts',
-agama = '$agama',
-no_tlp = '$noTelepon',
+        $edit = $link->query("UPDATE news SET 
+title = '$title',
+newsText = '$newsText', 
 foto = '$foto',
-instagram = '$instagram',
-email = '$email'
+tanggal = '$tanggal'
 
-WHERE id_pegawai = '$id'");
+WHERE idNews = '$id'");
 
         if ($edit) {
             echo "<script>alert('Data berhasil diedit')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=dataPegawai'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=data_berita'>";
         } else {
             echo "<script>alert('Data anda gagal diedit. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=editPegawai'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=edit_berita'>";
         }
     }
 }
@@ -208,7 +185,7 @@ WHERE id_pegawai = '$id'");
 function upload($file)
 {
     // Tentukan folder penyimpanan file
-    $targetDir = '../img/';
+    $targetDir = '../img/imgnews/';
 
     // Mendapatkan nama file asli
     $fileName = basename($file['name']);

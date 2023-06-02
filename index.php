@@ -203,7 +203,7 @@
                     return $pecahkan[2] . ' ' . $bulan[(int) $pecahkan[1]] . ' ' . $pecahkan[0];
                 }
                 $no = 1;
-                $query = mysqli_query($link, "SELECT * FROM news order by idNews DESC LIMIT 10 ");
+                $query = mysqli_query($link, "SELECT * FROM news order by tanggal DESC LIMIT 10 ");
                 $i = 1;
                 while ($row = $query->fetch_array()) {
                 ?>

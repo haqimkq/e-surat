@@ -22,7 +22,6 @@ if (!isset($_SESSION['nama'])) {
 
             // START ADMIN PAGE
             //PORTAL BERITA
-
         case "data_berita";
             include "../admin/news/data.php";
             break;
@@ -74,6 +73,19 @@ if (!isset($_SESSION['nama'])) {
             include "../admin/jabatan/delete.php";
             break;
 
+            // MASYARAKAT
+        case "data_masyarakat";
+            include "../admin/masyarakat/data.php";
+            break;
+        case "tambah_masyarakat";
+            include "../admin/masyarakat/add.php";
+            break;
+        case "detail_masyarakat";
+            include "../admin/masyarakat/detail.php";
+            break;
+        case "edit_masyarakat";
+            include "../admin/masyarakat/edit.php";
+            break;
 
             // USERS
         case "data_user";

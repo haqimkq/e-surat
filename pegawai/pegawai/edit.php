@@ -188,7 +188,7 @@ if (!isset($_SESSION['nama'])) {
                                             <div class="col-md-3 text-center me-7 mt-4">
                                                 <?php
                                                     if (!empty($data['foto'])) {
-                                                        echo "<img src='../img/" . $data['foto'] . "' width='70' height='70' style='border-radius: 50%;'>";
+                                                        echo "<img src='../img/" . $data['foto'] . "' width='170' height='170' style='border-radius: 20%;'>";
                                                     }
                                                     ?>
                                                 <div class="input-group input-group-dynamic m-5">
