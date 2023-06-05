@@ -126,6 +126,18 @@ if (!isset($_SESSION['nama'])) {
 
             // END PEGAWAI PAGE
 
+            // START MASYARAKAT PAGE
+            // MASYARAKAT
+        case "dataMasyarakat";
+            include "../pages/other/masyarakat/data.php";
+            break;
+        case "tambahMasyarakat";
+            include "../pages/other/masyarakat/add.php";
+            break;
+        case "HapusMasyarakat";
+            include "../pages/other/masyarakat/delete.php";
+            break;
+            //END MASYARAKAT PAGE
     }
 ?>
 
