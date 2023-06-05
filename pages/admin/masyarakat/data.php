@@ -81,7 +81,7 @@ if (!isset($_SESSION['nama'])) {
                                                         <li>
                                                             <a class="dropdown-item border-radius-md"
                                                                 onclick="return confirm ('Anda yakin ingin menghapus data ?');"
-                                                                href="?page=hapusPegawai&id=<?= $row[0]; ?>">
+                                                                href="?page=hapus_masyarakat&id=<?= $row[0]; ?>">
                                                                 <i class="fa fa-trash-o"></i>
                                                                 Hapus</a>
                                                         </li>

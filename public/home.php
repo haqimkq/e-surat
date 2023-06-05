@@ -23,85 +23,88 @@ if (!isset($_SESSION['nama'])) {
             // START ADMIN PAGE
             //PORTAL BERITA
         case "data_berita";
-            include "../admin/news/data.php";
+            include "../pages/admin/news/data.php";
             break;
         case "tambah_berita";
-            include "../admin/news/add.php";
+            include "../pages/admin/news/add.php";
             break;
         case "edit_berita";
-            include "../admin/news/edit.php";
+            include "../pages/admin/news/edit.php";
             break;
         case "hapus_berita";
-            include "../admin/news/delete.php";
+            include "../pages/admin/news/delete.php";
             break;
 
             // PEGAWAI
         case "data_pegawai";
-            include "../admin/pegawai/data.php";
+            include "../pages/admin/pegawai/data.php";
             break;
         case "tambah_pegawai";
-            include "../admin/pegawai/add.php";
+            include "../pages/admin/pegawai/add.php";
             break;
         case "detailPegawai";
-            include "../admin/pegawai/detail.php";
+            include "../pages/admin/pegawai/detail.php";
             break;
 
             // PROFILE
         case "data_profile";
-            include "../admin/profile/data.php";
+            include "../pages/admin/profile/data.php";
             break;
 
             // GOLONGAN
         case "data_golongan";
-            include "../admin/golongan/data.php";
+            include "../pages/admin/golongan/data.php";
             break;
         case "edit_golongan";
-            include "../admin/golongan/edit.php";
+            include "../pages/admin/golongan/edit.php";
             break;
         case "hapus_golongan";
-            include "../admin/golongan/delete.php";
+            include "../pages/admin/golongan/delete.php";
             break;
 
             // JABATAN
         case "data_jabatan";
-            include "../admin/jabatan/data.php";
+            include "../pages/admin/jabatan/data.php";
             break;
         case "edit_jabatan";
-            include "../admin/jabatan/edit.php";
+            include "../pages/admin/jabatan/edit.php";
             break;
         case "hapus_jabatan";
-            include "../admin/jabatan/delete.php";
+            include "../pages/admin/jabatan/delete.php";
             break;
 
             // MASYARAKAT
         case "data_masyarakat";
-            include "../admin/masyarakat/data.php";
+            include "../pages/admin/masyarakat/data.php";
             break;
         case "tambah_masyarakat";
-            include "../admin/masyarakat/add.php";
+            include "../pages/admin/masyarakat/add.php";
             break;
         case "detail_masyarakat";
-            include "../admin/masyarakat/detail.php";
+            include "../pages/admin/masyarakat/detail.php";
             break;
         case "edit_masyarakat";
-            include "../admin/masyarakat/edit.php";
+            include "../apages/dmin/masyarakat/edit.php";
+            break;
+        case "hapus_masyarakat";
+            include "../pages/admin/masyarakat/delete.php";
             break;
 
             // USERS
         case "data_user";
-            include "../admin/user/data.php";
+            include "../pages/admin/user/data.php";
             break;
         case "tambah_user";
-            include "../admin/user/add.php";
+            include "../pages/admin/user/add.php";
             break;
         case "edit_user";
-            include "../admin/user/edit.php";
+            include "../pages/admin/user/edit.php";
             break;
         case "edit_user_password";
-            include "../admin/user/edit_password.php";
+            include "../pages/admin/user/edit_password.php";
             break;
         case "hapus_user";
-            include "../admin/user/delete.php";
+            include "../pages/admin/user/delete.php";
             break;
             // END ADMIN PAGE
 
@@ -109,16 +112,16 @@ if (!isset($_SESSION['nama'])) {
 
             // PEGAWAI
         case "dataPegawai";
-            include "../pegawai/pegawai/data.php";
+            include "../pages/other/pegawai/data.php";
             break;
         case "tambahPegawai";
-            include "../pegawai/pegawai/add.php";
+            include "../pages/other/pegawai/add.php";
             break;
         case "editPegawai";
-            include "../pegawai/pegawai/edit.php";
+            include "../pages/other/pegawai/edit.php";
             break;
         case "hapusPegawai";
-            include "../pegawai/pegawai/delete.php";
+            include "../pages/other/pegawai/delete.php";
             break;
 
             // END PEGAWAI PAGE
