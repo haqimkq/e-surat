@@ -7,7 +7,7 @@ if (!isset($_SESSION['nama'])) {
     echo "<meta http-equiv='refresh' content='0; url=../aev/index.php'>";
 } else {
     // $id = $_SESSION['id_user'];WHERE id_msy = '$id'
-    $query = mysqli_query($link, "SELECT * FROM masyarakat  ");
+    $query = mysqli_query($link, "SELECT * FROM masyarakat ");
     $data = $query->fetch_array();
 ?>
 
@@ -72,12 +72,12 @@ if (!isset($_SESSION['nama'])) {
                                                     </button>
                                                     <ul class="dropdown-menu shadow-lg mt-2  dropdown-menu-end px-2 py-2 me-sm-n4"
                                                         role="menu">
-                                                        <li>
+                                                        <!-- <li>
                                                             <a class="dropdown-item border-radius-md"
                                                                 href="?page=edit_masyarakat&id=<?= $row[0]; ?>">
                                                                 <i class="fa fa-edit"></i>
                                                                 Edit Data</a>
-                                                        </li>
+                                                        </li> -->
                                                         <li>
                                                             <a class="dropdown-item border-radius-md"
                                                                 onclick="return confirm ('Anda yakin ingin menghapus data ?');"

@@ -134,8 +134,14 @@ if (!isset($_SESSION['nama'])) {
         case "tambahMasyarakat";
             include "../pages/other/masyarakat/add.php";
             break;
-        case "HapusMasyarakat";
+        case "editMasyarakat";
+            include "../pages/other/masyarakat/edit.php";
+            break;
+        case "hapusMasyarakat";
             include "../pages/other/masyarakat/delete.php";
+            break;
+        case "detailMasyarakat";
+            include "../pages/other/masyarakat/detail.php";
             break;
             //END MASYARAKAT PAGE
     }

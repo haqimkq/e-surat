@@ -7,8 +7,8 @@ if (!isset($_SESSION['nama'])) {
     echo "<meta http-equiv='refresh' content='0; url=../aev/index.php'>";
 } else {
 
-    $id = $_GET['id'];
-    $query = $link->query("SELECT * FROM masyarakat WHERE id_msy = '$id'");
+    $id = $_SESSION['id_user'];
+    $query = $link->query("SELECT * FROM masyarakat WHERE id_user = '$id'");
     $data = $query->fetch_array();
 
 

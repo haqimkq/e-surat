@@ -75,14 +75,14 @@ if (!isset($_SESSION['nama'])) {
                                                         role="menu">
                                                         <li>
                                                             <a class="dropdown-item border-radius-md"
-                                                                href="?page=edit_masyarakat&id=<?= $row[0]; ?>">
+                                                                href="?page=editMasyarakat&id=<?= $row[0]; ?>">
                                                                 <i class="fa fa-edit"></i>
                                                                 Edit Data</a>
                                                         </li>
                                                         <li>
                                                             <a class="dropdown-item border-radius-md"
                                                                 onclick="return confirm ('Anda yakin ingin menghapus data ?');"
-                                                                href="?page=hapus_masyarakat&id=<?= $row[0]; ?>">
+                                                                href="?page=hapusMasyarakat&id=<?= $row[0]; ?>">
                                                                 <i class="fa fa-trash-o"></i>
                                                                 Hapus</a>
                                                         </li>
@@ -95,7 +95,7 @@ if (!isset($_SESSION['nama'])) {
                                             <td><?= $row['tmpt_lhr']; ?></td>
                                             <td><?= $row['tgl_lhr']; ?></td>
                                             <td align="left">
-                                                <a href="?page=detail_masyarakat&id=<?= $row[0]; ?>"
+                                                <a href="?page=detailMasyarakat&id=<?= $row[0]; ?>"
                                                     class="btn btn-sm btn-success" title="Detail">Detail</a>
                                             </td>
                                         </tr>
