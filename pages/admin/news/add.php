@@ -45,7 +45,7 @@ if (!isset($_SESSION['nama'])) {
                                                     <!-- <hr class="horizontal dark"> -->
                                                     <br>
                                                     <br>
-                                                    <div class="col-md-5">
+                                                    <div class="col-md-12">
                                                         <div class="input-group input-group-dynamic">
                                                             <div class="input-group input-group-dynamic mb-4">
                                                                 <label class="form-label">Judul </label>

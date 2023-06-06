@@ -56,11 +56,11 @@ if (!isset($_SESSION['nama'])) {
                                     </thead>
                                     <tbody>
                                         <?php
-                                    $no = 1;
-                                    $query = mysqli_query($link, "SELECT * FROM users");
-                                    $i = 1;
-                                    while ($row = $query->fetch_array()) {
-                                    ?>
+                                            $no = 1;
+                                            $query = mysqli_query($link, "SELECT * FROM users");
+                                            $i = 1;
+                                            while ($row = $query->fetch_array()) {
+                                            ?>
                                         <tr>
                                             <td class="w-5">
                                                 <div class=" mt-3">
@@ -87,22 +87,24 @@ if (!isset($_SESSION['nama'])) {
                                             <td class="w-0" align="left"><?= $i++ ?></td>
                                             <td class="w-5" align="left">
                                                 <?php
-                                                if ($row['level'] == 0) {
-                                                    echo "Admin";
-                                                } elseif ($row['level'] == 1) {
-                                                    echo "Pegawai";
-                                                } elseif ($row['level'] == 3) {
-                                                    echo "Camat";
-                                                }
-                                                ?>
+                                                        if ($row['level'] == 0) {
+                                                            echo "Admin";
+                                                        } elseif ($row['level'] == 1) {
+                                                            echo "Pegawai";
+                                                        } elseif ($row['level'] == 2) {
+                                                            echo "Masyarakat";
+                                                        } elseif ($row['level'] == 3) {
+                                                            echo "Camat";
+                                                        }
+                                                        ?>
                                             </td>
                                             <td class="w-30"><?= $row['nm_lengkap']; ?></td>
                                             <td class="w-5" align="left"><?= $row['username']; ?></td>
                                             <td><?= $row['password']; ?></td>
                                         </tr>
                                         <?php
-                                    }
-                                    ?>
+                                            }
+                                            ?>
                                     </tbody>
                             </table>
                         </div>
@@ -113,6 +115,6 @@ if (!isset($_SESSION['nama'])) {
     </div>
 </div>
 
-<?php 
+<?php
 }
 ?>
