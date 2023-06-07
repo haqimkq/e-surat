@@ -95,7 +95,7 @@
                         <h2 class="text-center mt-5">Pelayanan Kami</h2>
                         <p class="text-center">Untuk mewujudkan layanan bagi masyarakat secara transparan, profesional,
                             efektif & efisien serta di era digitalisasi saat ini adalah menjadi sebuah tuntutan dengan
-                            menhadirkan inovasi pelayanan yang berbasis Tehnologi Informasi.</p>
+                            menghadirkan inovasi pelayanan yang berbasis Teknologi Informasi</p>
                         <!-- <p class="my-4" data-aos="fade-up" data-aos-delay="300"><a href="indexLoginMsy.php"
                                 class="btn btn-warning text-black ">Login ..</a></p> -->
                         <!-- <a href="indexLoginMsy.php" class="more d-flex align-items-center float-start">

@@ -7,12 +7,15 @@
         if ($level == 0) {
             $years = range(2000, strftime("%Y", time()));
         ?>
-        <div class="sidenav-header">
+        <div class="sidenav-header mb-2">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href="" target="_blank">
-                <img src="/aev/image/aev.png" class="navbar-brand-img h-100 bg-white ms-1 border-radius-md" alt="" />
-                <span class="ms-4 font-weight-bold text-white  ">Aevar Tech</span>
+            <a class="navbar-brand" href="" target="_blank">
+                <img src="<?php echo "../image/bjm.png" ?>" class="navbar-brand-img h-100" alt="main_logo" />
+                <span class=" font-weight-bold  text-white ms-3 "> Pelayanan Terpadu<br><i class="ms-2"> Kecamatan
+                        Banjarmasin
+                        Utara</i>
+                </span>
             </a>
         </div>
         <hr class="horizontal light mt-0 mb-2 " />
@@ -96,7 +99,9 @@
                 </li>
             </ul>
         </div>
+
     </aside>
+
 
 
     <main class="main-content border-radius-lg">
@@ -232,6 +237,7 @@
                         </li>
                     </ul>
                 </div>
+
             </div>
         </nav>
         <!-- End Navbar -->
@@ -249,12 +255,15 @@
     if ($level == 1) {
         $years = range(2000, strftime("%Y", time()));
     ?>
-        <div class="sidenav-header">
+        <div class="sidenav-header mb-2">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href="" target="_blank">
-                <img src="/aev/image/aev.png" class="navbar-brand-img h-100 bg-white ms-1 border-radius-md" alt="" />
-                <span class="ms-4 font-weight-bold text-white  ">Aevar Tech</span>
+            <a class="navbar-brand" href="" target="_blank">
+                <img src="<?php echo "../image/bjm.png" ?>" class="navbar-brand-img h-100" alt="main_logo" />
+                <span class=" font-weight-bold  text-white ms-3 "> Pelayanan Terpadu<br><i class="ms-2"> Kecamatan
+                        Banjarmasin
+                        Utara</i>
+                </span>
             </a>
         </div>
         <hr class="horizontal light mt-0 mb-2 " />
@@ -307,6 +316,16 @@
                 </li>
             </ul>
         </div>
+        <!-- <div class="row align-items-center justify-content-start mt-8 px-3">
+            <div class="col-lg-12 mb-lg-2 ">
+                <div class="copyright text-center text-sm text-muted text-lg-start">
+                    © <script>
+                    document.write(new Date().getFullYear())
+                    </script></i> by
+                    Annisa Yuliani | Skripsi Pelayanan.
+                </div>
+            </div>
+        </div> -->
         </aside>
 
 
@@ -460,13 +479,15 @@
         if ($level == 2) {
             $years = range(2000, strftime("%Y", time()));
         ?>
-            <div class="sidenav-header">
+            <div class="sidenav-header mb-2">
                 <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                     aria-hidden="true" id="iconSidenav"></i>
-                <a class="navbar-brand m-0" href="" target="_blank">
-                    <img src="/aev/image/aev.png" class="navbar-brand-img h-100 bg-white ms-1 border-radius-md"
-                        alt="" />
-                    <span class="ms-4 font-weight-bold text-white  ">Aevar Tech</span>
+                <a class="navbar-brand" href="" target="_blank">
+                    <img src="<?php echo "../image/bjm.png" ?>" class="navbar-brand-img h-100" alt="main_logo" />
+                    <span class=" font-weight-bold  text-white ms-3 "> Pelayanan Terpadu<br><i class="ms-2"> Kecamatan
+                            Banjarmasin
+                            Utara</i>
+                    </span>
                 </a>
             </div>
             <hr class="horizontal light mt-0 mb-2 " />

@@ -52,13 +52,14 @@
                             <div class=" p-0 position-relative mt-n4 mx-3 z-index-2">
                                 <div class="bg-gradient-info border-radius-lg py-3 pe-1">
                                     <div style="text-align: center;">
-                                        <img src="image/rv.png" width="170px" height="170px" alt="Logo">
+                                        <img src="<?php echo "image/bjm.png" ?>" width="150px" height="170px"
+                                            alt="Logo">
                                     </div>
-                                    <div class="row mt-0">
-                                        <h6 class="text-white font-weight-bolder text-center"> DASHBOARD FOR
-                                            YOUR BUSINESS </h6>
-                                        <h6 class="text-white font-weight-bolder text-center mt-2 mb-0"> BE PATNER WHIT
-                                            US </h6>
+                                    <div class="row mt-0 text-center">
+                                        <h4 class="text-white font-weight-bolder text-center mt-3 ">
+                                            Pelayanan Terpadu </h4>
+                                        <h6 class="text-white font-weight-bolder text-center ">Kecamatan
+                                            Banjarmasin Timur</h6>
                                         <!-- <h6 class="text-white font-weight-bolder text-center mt-2 mb-0"> DASHBOARD FOR YOUR BUSINESS </h6> -->
                                     </div>
                                 </div>

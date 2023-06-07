@@ -6,7 +6,7 @@
                     © <script>
                     document.write(new Date().getFullYear())
                     </script></i> by
-                    AEVAR | Your patner DevTech.
+                    Annisa Yuliani | Skripsi Pelayanan.
                 </div>
             </div>
             <div class="col-lg-6">
