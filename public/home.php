@@ -130,6 +130,20 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/other/pegawai/delete.php";
             break;
 
+            //PERJALANAN DINAS
+        case "dataPerjalananDinas";
+            include "../pages/other/perjalanan-dinas/data.php";
+            break;
+        case "tambahPerjalananDinas";
+            include "../pages/other/perjalanan-dinas/add.php";
+            break;
+        case "editPerjalananDinas";
+            include "../pages/other/perjalanan-dinas/edit.php";
+            break;
+        case "hapusPerjalananDinas";
+            include "../pages/other/perjalanan-dinas/delete.php";
+            break;
+
             // END PEGAWAI PAGE
 
             // START MASYARAKAT PAGE

@@ -333,7 +333,7 @@
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">square</i>
                         </div>
-                        <span class="nav-link-text ms-1">Data Master</span>
+                        <span class="nav-link-text ms-1">Data Kepegawaian</span>
                     </a>
                     <div class="collapse" id="data-master">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -350,7 +350,21 @@
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">people</i>
                                     </div>
-                                    <span class="nav-link-text ms-1">Data Pegawai</span>
+                                    <span class="nav-link-text ms-1">Data Pribadi</span>
+                                </a>
+                                <a class="nav-link text-white " href="?page=dataPerjalananDinas">
+                                    <div
+                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <i class="material-icons opacity-10">directions_car</i>
+                                    </div>
+                                    <span class="nav-link-text ms-1">Perjalanan Dinas</span>
+                                </a>
+                                <a class="nav-link text-white " href="?page=dataPerjalananDinas">
+                                    <div
+                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <i class="material-icons opacity-10">equalizer</i>
+                                    </div>
+                                    <span class="nav-link-text ms-1">Penilaian Kinerja</span>
                                 </a>
                             </li>
                         </ul>
