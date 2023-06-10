@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <link rel="apple-touch-icon" sizes="76x76" href="../aev/assets/img/apple-icon.png" />
-    <link rel="icon" type="image/png" href="../aev/assets/image/">
+    <link rel="icon" type="image/png" href="<?php echo "image/bjm.png" ?>">
 
-    <title>AEVAR TECH</title>
+    <title>Dashboard Pelayanan</title>
 
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css"
@@ -99,8 +99,8 @@
                             <div class="copyright text-center text-sm text-white text-lg-start">
                                 © <script>
                                 document.write(new Date().getFullYear())
-                                </script></i> by.
-                                AEVAR | Your patner DevTech.
+                                </script></i> by
+                                Annisa Yuliani | Skripsi Pelayanan
                             </div>
                         </div>
                         <div class="col-12 col-md-6">

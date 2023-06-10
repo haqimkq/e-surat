@@ -25,8 +25,9 @@
     <link rel="stylesheet" href="../aev/css/style.css" />
 
 
+    <link rel="icon" type="image/png" href="<?php echo "image/bjm.png" ?>">
 
-    <title>Banjarmasin &mdash; Kantor Kecamatan Banjarmasin Timur </title>
+    <title>Banjarmasin Timur &mdash; Kantor Kecamatan </title>
 </head>
 
 <body>

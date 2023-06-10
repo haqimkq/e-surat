@@ -82,6 +82,48 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-pelayanan">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">insert_chart</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Data Pelayanan</span>
+                    </a>
+                    <div class="collapse" id="data-pelayanan">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li>
+                                <a class="nav-link text-white " href="?page=data_user">
+                                    <div
+                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <i class="material-icons opacity-10">assignment</i>
+                                    </div>
+                                    <span class="nav-link-text ms-1">Susunan Keluarga</span>
+                                </a>
+                                <a class="nav-link text-white " href="?page=data_golongan">
+                                    <div
+                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <i class="material-icons opacity-10">assignment</i>
+                                    </div>
+                                    <span class="nav-link-text ms-1">Rekomendasi Dispensasi <br> Nikah</span>
+                                </a>
+                                <a class="nav-link text-white " href="?page=data_jabatan">
+                                    <div
+                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <i class="material-icons opacity-10">assignment</i>
+                                    </div>
+                                    <span class="nav-link-text ms-1">Legalisasi Surat <br> Keterangan Tidak Mampu</span>
+                                </a>
+                                <a class="nav-link text-white " href="?page=data_pegawai">
+                                    <div
+                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <i class="material-icons opacity-10">assignment</i>
+                                    </div>
+                                    <span class="nav-link-text ms-1">Legalisasi Surat <br> Pengantar Nikah</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link text-white" href="?page=data_masyarakat">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">group_add</i>
@@ -273,7 +315,7 @@
             $id = $_SESSION['id_user'];
             $query = mysqli_query($link, "SELECT * FROM users WHERE id_user = '$id' ");
             $data = $query->fetch_array(); ?>
-            <span class="ms-1 text-black"><?= $data['username'] ?></span>
+            <span class="ms-1 text-black"><?= $data['nm_lengkap'] ?></span>
         </div>
         <hr class="horizontal light mt-0 mb-2 nav-link-text text-center ms-1" />
         <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
@@ -296,13 +338,13 @@
                     <div class="collapse" id="data-master">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             <li>
-                                <a class="nav-link text-white " href="?page=data_user">
+                                <!-- <a class="nav-link text-white " href="?page=data_user">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">people</i>
                                     </div>
                                     <span class="nav-link-text ms-1">Users</span>
-                                </a>
+                                </a> -->
                                 <a class="nav-link text-white " href="?page=dataPegawai">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">

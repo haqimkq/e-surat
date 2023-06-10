@@ -76,6 +76,12 @@ if (!isset($_SESSION['nama'])) {
                                                         role="menu">
                                                         <li>
                                                             <a class="dropdown-item border-radius-md"
+                                                                href="?page=edit_pegawai&id=<?= $row[0]; ?>">
+                                                                <i class="fa fa-edit"></i>
+                                                                Edit Data</a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item border-radius-md"
                                                                 onclick="return confirm ('Anda yakin ingin menghapus data ?');"
                                                                 href="?page=hapusPegawai&id=<?= $row[0]; ?>">
                                                                 <i class="fa fa-trash-o"></i>

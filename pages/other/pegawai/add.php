@@ -106,28 +106,25 @@ if (!isset($_SESSION['nama'])) {
                                                         id="id_user" required>
 
                                                     <div class="col-md-12">
+                                                        <?php
+                                                            $id = $_SESSION['id_user'];
+                                                            $sql = ("SELECT * FROM  users WHERE id_user = '$id'");
+                                                            $hasil = mysqli_query($link, $sql);
+                                                            $no = 0;
+                                                            while ($data = mysqli_fetch_array($hasil)) {
+                                                                $no++;
+                                                            ?>
+                                                        <label class="form-label">Username :</label>
                                                         <div class="input-group input-group-dynamic">
                                                             <div class="input-group input-group-dynamic mb-4">
-                                                                <select class="form-control" aria-label="Username"
-                                                                    type="text" name="id_user" required>
-                                                                    <option>-- PILIH USERNAME -- </option>
-                                                                    <?php
-                                                                        $id = $_SESSION['id_user'];
-                                                                        $sql = ("SELECT * FROM  users WHERE id_user = '$id'");
-                                                                        $hasil = mysqli_query($link, $sql);
-                                                                        $no = 0;
-                                                                        while ($data = mysqli_fetch_array($hasil)) {
-                                                                            $no++;
-                                                                        ?>
-                                                                    <option value="<?php echo
-                                                                                            $data['id_user']; ?>">
-                                                                        <?php echo
-                                                                                $data['username']; ?>
-                                                                    </option>
-                                                                    <?php
-                                                                        }
-                                                                        ?>
-                                                                </select>
+                                                                <input type="hidden" class="form-control" name="id_user"
+                                                                    id="id_user" value="<?= $data['id_user'] ?>"
+                                                                    required>
+                                                                <input type="text" class="form-control" readonly
+                                                                    value="<?= $data['username'] ?>">
+                                                                <?php
+                                                                }
+                                                                    ?>
                                                                 <div class="help-block with-errors"></div>
                                                             </div>
                                                         </div>

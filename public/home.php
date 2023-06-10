@@ -42,6 +42,9 @@ if (!isset($_SESSION['nama'])) {
         case "tambah_pegawai";
             include "../pages/admin/pegawai/add.php";
             break;
+        case "edit_pegawai";
+            include "../pages/admin/pegawai/edit.php";
+            break;
         case "hapus_pegawai";
             include "../pages/admin/pegawai/delete.php";
             break;

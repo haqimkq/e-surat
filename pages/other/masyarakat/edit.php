@@ -11,8 +11,6 @@ if (!isset($_SESSION['nama'])) {
     $query = $link->query("SELECT * FROM masyarakat WHERE id_msy = '$id'");
     $data = $query->fetch_array();
 
-
-
 ?>
 
 <div class="container-fluid px-2 px-md-2 col-md-11">
@@ -191,10 +189,10 @@ WHERE id_msy = '$id'");
 
         if ($edit) {
             echo "<script>alert('Data berhasil diedit')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=data_masyarakat'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=dataMasyarakat'>";
         } else {
             echo "<script>alert('Data anda gagal diedit. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=edit_masyarakat'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=editMasyarakat'>";
         }
     }
 }
