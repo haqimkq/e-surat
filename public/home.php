@@ -164,6 +164,21 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/other/masyarakat/detail.php";
             break;
             //END MASYARAKAT PAGE
+
+            //LEGALISASI SUSUNAN KELUARGA
+        case "dataSusunanKeluarga";
+            include "../pages/other/legalisasi-susunan-keluarga/data.php";
+            break;
+        case "tambahSusunanKeluarga";
+            include "../pages/other/legalisasi-susunan-keluarga/add.php";
+            break;
+        case "editSusunanKeluarga";
+            include "../pages/other/legalisasi-susunan-keluarga/edit.php";
+            break;
+        case "hapusSusunanKeluarga";
+            include "../pages/other/legalisasi-susunan-keluarga/delete.php";
+            break;
+            //END LEGALISASI SUSUNAN KELUARGA
     }
 ?>
 

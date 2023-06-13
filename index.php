@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="../aev/css/flatpickr.min.css" />
     <link rel="stylesheet" href="../aev/css/glightbox.min.css" />
     <link rel="stylesheet" href="../aev/css/style.css" />
+    <link id="pagestyle" href="../aev/assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
+
 
 
     <link rel="icon" type="image/png" href="<?php echo "image/bjm.png" ?>">
@@ -328,7 +330,7 @@
                         <h3>Kantor &mdash; <br> Kecamatan Banjarmasin Timur</h3>
                         <p>Siap Melayani Segala Keperluan Masyarakat Dengan Sepenuh Hati.</p>
                     </div> <!-- /.widget -->
-                    <div class="widget">
+                    <!-- <div class="widget">
                         <h3>Connect</h3>
                         <ul class="list-unstyled social">
                             <li><a href=""><span class="icon-instagram"></span></a></li>
@@ -338,7 +340,7 @@
                             <li><a href=""><span class="icon-pinterest"></span></a></li>
                             <li><a href=""><span class="icon-dribbble"></span></a></li>
                         </ul>
-                    </div> <!-- /.widget -->
+                    </div> /.widget -->
                 </div> <!-- /.col-lg-3 -->
                 <div class="col-lg-3">
                     <div class="widget">
@@ -362,13 +364,7 @@
             </div> <!-- /.container -->
         </div> <!-- /.site-footer -->
 
-        <!-- Preloader -->
-        <div id="overlayer"></div>
-        <div class="loader">
-            <div class="spinner-border text-primary" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        </div>
+
 
 
         <script src="js/bootstrap.bundle.min.js"></script>
@@ -380,6 +376,14 @@
         <script src="js/flatpickr.js"></script>
         <script src="js/glightbox.min.js"></script>
         <script src="js/custom.js"></script>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js"></script>
+
+
 </body>
 
 </html>

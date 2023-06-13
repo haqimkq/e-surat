@@ -91,28 +91,28 @@
                     <div class="collapse" id="data-pelayanan">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             <li>
-                                <a class="nav-link text-white " href="?page=data_user">
+                                <a class="nav-link text-white " href="?page=">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">assignment</i>
                                     </div>
                                     <span class="nav-link-text ms-1">Susunan Keluarga</span>
                                 </a>
-                                <a class="nav-link text-white " href="?page=data_golongan">
+                                <a class="nav-link text-white " href="?page=">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">assignment</i>
                                     </div>
                                     <span class="nav-link-text ms-1">Rekomendasi Dispensasi <br> Nikah</span>
                                 </a>
-                                <a class="nav-link text-white " href="?page=data_jabatan">
+                                <a class="nav-link text-white " href="?page=">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">assignment</i>
                                     </div>
                                     <span class="nav-link-text ms-1">Legalisasi Surat <br> Keterangan Tidak Mampu</span>
                                 </a>
-                                <a class="nav-link text-white " href="?page=data_pegawai">
+                                <a class="nav-link text-white " href="?page=">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">assignment</i>
@@ -577,12 +577,12 @@
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li>
 
-                                    <a class="nav-link text-white " href="\">
+                                    <a class="nav-link text-white " href="?page=dataSusunanKeluarga">
                                         <div
                                             class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                             <i class="material-icons opacity-10">people</i>
                                         </div>
-                                        <span class="nav-link-text ms-1">Legalisasi Susunan Keluarga</span>
+                                        <span class="nav-link-text ms-1">Legalisasi <br> Susunan Keluarga</span>
                                     </a>
                                 </li>
                             </ul>
