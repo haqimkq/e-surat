@@ -576,13 +576,21 @@
                         <div class="collapse" id="data-master">
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li>
-
                                     <a class="nav-link text-white " href="?page=dataSusunanKeluarga">
                                         <div
                                             class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                             <i class="material-icons opacity-10">people</i>
                                         </div>
                                         <span class="nav-link-text ms-1">Legalisasi <br> Susunan Keluarga</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link text-white " href="?page=dataSktm">
+                                        <div
+                                            class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">people</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Surat Keterangan <br> Tidak Mampu</span>
                                     </a>
                                 </li>
                             </ul>

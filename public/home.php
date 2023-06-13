@@ -165,7 +165,7 @@ if (!isset($_SESSION['nama'])) {
             break;
             //END MASYARAKAT PAGE
 
-            //LEGALISASI SUSUNAN KELUARGA
+            //LEGALISASI SUSUNAN KELUARGAa
         case "dataSusunanKeluarga";
             include "../pages/other/legalisasi-susunan-keluarga/data.php";
             break;
@@ -179,6 +179,15 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/other/legalisasi-susunan-keluarga/delete.php";
             break;
             //END LEGALISASI SUSUNAN KELUARGA
+
+            //SURAT KETERANGAN TIDAK MAMPU
+        case "dataSktm":
+            include "../pages/other/surat-keterangan-tidak-mampu/data.php";
+            break;
+        case "tambahSktm":
+            include "../pages/other/surat-keterangan-tidak-mampu/add.php";
+            break;
+            //END SURAT KETERANGAN TIDAK MAMPU
     }
 ?>
 
