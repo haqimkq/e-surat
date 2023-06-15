@@ -5797,6 +5797,10 @@ fieldset:disabled .btn {
   vertical-align: baseline;
   border-radius: var(--bs-badge-border-radius);
 }
+.badge:hover {
+  color: var(--bs-highlight-bg);
+  text-decoration: none;
+}
 
 .badge:empty {
   display: none;
