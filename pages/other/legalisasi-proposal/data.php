@@ -23,12 +23,12 @@ if (!isset($_SESSION['nama'])) {
                     </div>
                     <div class=" p-0 position-relative mt-n6 mx-4 z-index-4 ps-6">
                         <div class="bg-gradient-info shadow border-radius-lg pt-3 pb-3 ">
-                            <h6 class="text-white text-capitalize ps-3">Data Surat Keterangan Tidak Mampu</h6>
+                            <h6 class="text-white text-capitalize ps-3">Data Legalisasi Proposal</h6>
                         </div>
                     </div>
                     <div class="card-body p-3 mt-1">
                         <div class="col-2">
-                            <a href="?page=tambahSktm" class="btn btn-info">Tambah Data</a>
+                            <a href="?page=tambahProposal" class="btn btn-info">Tambah Data</a>
                         </div>
                         <!-- <hr class="horizontal dark"> -->
                         <div class="row">
@@ -47,13 +47,11 @@ if (!isset($_SESSION['nama'])) {
                                                 <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                     Jenis layanan</th>
                                                 <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                    Surat Keterangan Lurah</th>
+                                                    Surat Pernyataan</th>
                                                 <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                    Foto KTP</th>
+                                                    Surat Permohonan RT/Lurah</th>
                                                 <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                    Foto Kartu Keluarga</th>
-                                                <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                    Surat Pernyataan RT</th>
+                                                    Foto KTP Pemohon</th>
                                                 <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                     Tanggal</th>
                                             </tr>
@@ -62,9 +60,9 @@ if (!isset($_SESSION['nama'])) {
                                             <?php
                                             $no = 1;
                                             $id = $_SESSION['id_user'];
-                                            $query = mysqli_query($link, "SELECT * FROM sktm  stm 
-                                            join masyarakat m on stm.id_msy = m.id_msy 
-                                            join pelayanan p on stm.id_pelayanan = p.id_pelayanan 
+                                            $query = mysqli_query($link, "SELECT * FROM proposal  pr
+                                            join masyarakat m on pr.id_msy = m.id_msy 
+                                            join pelayanan p on pr.id_pelayanan = p.id_pelayanan 
                                             where id_user='$id'");
                                             $i = 1;
                                             while ($row = $query->fetch_array()) {
@@ -77,7 +75,7 @@ if (!isset($_SESSION['nama'])) {
                                                             </button>
                                                             <ul class="dropdown-menu shadow-lg mt-2  dropdown-menu-end px-2 py-2 me-sm-n4" role="menu">
                                                                 <li>
-                                                                    <a class="dropdown-item border-radius-md" href="?page=editSktm&id=<?= $row[0]; ?>">
+                                                                    <a class="dropdown-item border-radius-md" href="?page=editProposal&id=<?= $row[0]; ?>">
                                                                         <i class="fa fa-edit"></i>
                                                                         Edit Data</a>
                                                                 </li>
@@ -92,23 +90,6 @@ if (!isset($_SESSION['nama'])) {
                                                     <td align="left"><?= $i++ ?></td>
                                                     <td><?= $row['nama']; ?></td>
                                                     <td><?= $row['j_pelayanan']; ?></td>
-
-                                                    <td align="center">
-                                                        <?php
-                                                        if (!empty($row['s_sktm'])) {
-                                                            $pdfPath = '../pelayanan/' . $row['s_sktm'];
-                                                            echo "<a class='badge bg-gradient-success ' href='$pdfPath' download>Download</a>";
-                                                        } else {
-                                                            echo "File PDF tidak tersedia";
-                                                        }
-                                                        ?>
-                                                    </td>
-                                                    <td align="center">
-                                                        <?php echo "<img src='$row[ktp]' width='70' height='70' style='border-radius: 50%;' />"; ?>
-                                                    </td>
-                                                    <td align="center">
-                                                        <?php echo "<img src='$row[kk]' width='70' height='70' style='border-radius: 50%;' />"; ?>
-                                                    </td>
                                                     <td align="center">
                                                         <?php
                                                         if (!empty($row['s_pernyataan'])) {
@@ -119,14 +100,20 @@ if (!isset($_SESSION['nama'])) {
                                                         }
                                                         ?>
                                                     </td>
+                                                    <td align="center">
+                                                        <?php
+                                                        if (!empty($row['s_permohonan'])) {
+                                                            $pdfPath = '../pelayanan/' . $row['s_permohonan'];
+                                                            echo "<a class='badge bg-gradient-success ' href='$pdfPath' download>Download</a>";
+                                                        } else {
+                                                            echo "File PDF tidak tersedia";
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td align="center">
+                                                        <?php echo "<img src='$row[ktp_p]' width='70' height='70' style='border-radius: 50%;' />"; ?>
+                                                    </td>
                                                     <td><?= $row['tgl']; ?></td>
-
-
-                                                    <!-- <td align="center">
-                                                <?php echo "<img src='$row[ktp_k]' width='70' height='70' style='border-radius: 50%;' />"; ?>
-                                            </td> -->
-
-
                                                 </tr>
                                             <?php
                                             }

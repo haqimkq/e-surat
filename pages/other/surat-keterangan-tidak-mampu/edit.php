@@ -8,157 +8,149 @@ if (!isset($_SESSION['nama'])) {
 } else {
 
     $id = $_GET['id'];
-    $query = $link->query("SELECT * FROM s_keluarga  sk 
-    join masyarakat m on sk.id_msy = m.id_msy 
-    join pelayanan p on sk.id_pelayanan = p.id_pelayanan  WHERE id_sk = '$id'");
+    $query = $link->query("SELECT * FROM sktm  stm 
+    join masyarakat m on stm.id_msy = m.id_msy 
+    join pelayanan p on stm.id_pelayanan = p.id_pelayanan  WHERE id_sktm = '$id'");
     $data = $query->fetch_array();
 
 
 
 ?>
 
-<div class="container-fluid px-2 px-md-2">
-    <div class="card card-body mx-3 mx-md-2 mt-3 bg-info ">
-        <div class="row gx-4 justify-content-center">
-            <div class="col-auto my-auto ">
-                <div class=" h-100 ">
-                    <h5 class=" mb-1 text-white">
-                        Edit Data Pengajuan Legalisasi Susunan Keluarga
-                    </h5>
+    <div class="container-fluid px-2 px-md-2">
+        <div class="card card-body mx-3 mx-md-2 mt-3 bg-info ">
+            <div class="row gx-4 justify-content-center">
+                <div class="col-auto my-auto ">
+                    <div class=" h-100 ">
+                        <h5 class=" mb-1 text-white">
+                            Edit Data Pengajuan Legalisasi Surat Keterangan Tidak Mampu
+                        </h5>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- <div class=" container-fluid py-4"> -->
-    <div class="container py-3 ">
-        <section>
-            <div class="col-lg-12 mx-auto d-flex justify-content-center flex-column">
-                <form data-toggle="validator" action="" method="POST" enctype="multipart/form-data">
-                    <div class="card-body">
-                        <div class="row">
-                            <?php
+        <!-- <div class=" container-fluid py-4"> -->
+        <div class="container py-3 ">
+            <section>
+                <div class="col-lg-12 mx-auto d-flex justify-content-center flex-column">
+                    <form data-toggle="validator" action="" method="POST" enctype="multipart/form-data">
+                        <div class="card-body">
+                            <div class="row">
+                                <?php
                                 if ($status) {
                                 ?>
 
-                            <div class="alert alert-danger alert-dismissible">
-                                <button class="close" type="button" data-dismiss="alert" ariahidden="true">&times;
-                                </button>
-                                <h4><i class="icon fa fa-close">Gagal! </i></h4>
-                                <?php echo $status; ?>
-                            </div>
-                            <?php
+                                    <div class="alert alert-danger alert-dismissible">
+                                        <button class="close" type="button" data-dismiss="alert" ariahidden="true">&times;
+                                        </button>
+                                        <h4><i class="icon fa fa-close">Gagal! </i></h4>
+                                        <?php echo $status; ?>
+                                    </div>
+                                <?php
                                 }
                                 ?>
-                            <div class="col-lg-12 ">
-                                <div class="card">
-                                    <input type="hidden" class="form-control" name="id_msy" id="id_msy" required
-                                        value="<?= $data['id_msy'] ?>">
-                                    <div class="card-body">
-                                        <p class="text-uppercase text-sm">Informasi Pegawai</p>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="input-group input-group-dynamic">
-                                                    <label class="text-bold">Nama :</label>
-                                                    <div class="input-group input-group-dynamic mb-4">
-                                                        <input class="form-control" type="text" name="nama"
-                                                            value="<?= $data['nama'] ?>" readonly />
-                                                        <div class="help-block with-errors"></div>
+                                <div class="col-lg-12 ">
+                                    <div class="card">
+                                        <input type="hidden" class="form-control" name="id_msy" id="id_msy" required value="<?= $data['id_msy'] ?>">
+                                        <div class="card-body">
+                                            <p class="text-uppercase text-sm">Informasi Pegawai</p>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="input-group input-group-dynamic">
+                                                        <label class="text-bold">Nama :</label>
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <input class="form-control" type="text" name="nama" value="<?= $data['nama'] ?>" readonly />
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <input type="hidden" class="form-control" name="id_pelayanan"
-                                                    id="id_pelayanan" required value="<?= $data['id_pelayanan'] ?>">
-                                                <div class="input-group input-group-dynamic">
-                                                    <label class="text-bold">Pelayanan :
-                                                    </label>
-                                                    <div class="input-group input-group-dynamic mb-4">
-                                                        <input class="form-control" type="text"
-                                                            value=" <?= $data['j_pelayanan'] ?> " readonly />
-                                                        <div class="help-block with-errors"></div>
+                                                <div class="col-md-4">
+                                                    <input type="hidden" class="form-control" name="id_pelayanan" id="id_pelayanan" required value="<?= $data['id_pelayanan'] ?>">
+                                                    <div class="input-group input-group-dynamic">
+                                                        <label class="text-bold">Pelayanan :
+                                                        </label>
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <input class="form-control" type="text" value=" <?= $data['j_pelayanan'] ?> " readonly />
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="input-group input-group-dynamic">
-                                                    <label class="text-bold">Tanggal Pengajuan :</label>
-                                                    <div class="input-group input-group-dynamic mb-4">
-                                                        <input class="form-control" aria-label="Tanggal" type="date"
-                                                            name="tgl" data-minlength="4"
-                                                            data-error="Tidak Boleh Kurang dari 4" required
-                                                            value="<?= $data['tgl'] ?>">
-                                                        <div class="help-block with-errors"></div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group input-group-dynamic">
+                                                        <label class="text-bold">Tanggal Pengajuan :</label>
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <input class="form-control" aria-label="Tanggal" type="date" name="tgl" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required value="<?= $data['tgl'] ?>">
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-3 text-center me-7 mt-4">
-                                                <?php
-                                                    if (!empty($data['p_ktp'])) {
-                                                        echo "<img src='../img/" . $data['p_ktp'] . "' width='170' height='170' style='border-radius: 20%;'>";
+                                                <div class="col-md-5 text-center me-7 mt-4">
+                                                    <?php
+                                                    if (!empty($data['ktp'])) {
+                                                        echo "<img src='../img/" . $data['ktp'] . "' width='170' height='170' style='border-radius: 20%;'>";
                                                     }
                                                     ?>
-                                                <div class="input-group input-group-dynamic m-5">
-                                                    <label class="text-bold">Foto KTP Pemhoon :</label>
-                                                    <div class="input-group input-group-dynamic ">
-                                                        <input class="form-control" aria-label="Foto KTP Pemohon :"
-                                                            type="file" name="p_ktp" data-minlength="4"
-                                                            data-error="Tidak Boleh Kurang dari 4">
-                                                        <div class="help-block with-errors"></div>
+                                                    <div class="input-group input-group-dynamic m-5">
+                                                        <label class="text-bold">Foto KTP Pemohon :</label>
+                                                        <div class="input-group input-group-dynamic ">
+                                                            <input class="form-control" aria-label="Foto KTP Pemohon :" type="file" name="ktp" data-minlength="4" data-error="Tidak Boleh Kurang dari 4">
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
                                                     </div>
+                                                    <input type="hidden" name="ktp_lama" value="<?= $data['ktp'] ?>">
                                                 </div>
-                                                <input type="hidden" name="ktp_lama" value="<?= $data['p_ktp'] ?>">
-                                            </div>
-                                            <div class="col-md-3 text-center me-7 mt-4">
-                                                <?php
-                                                    if (!empty($data['p_kk'])) {
-                                                        echo "<img src='../img/" . $data['p_kk'] . "' width='170' height='170' style='border-radius: 20%;'>";
+                                                <div class="col-md-5 text-center me-7 mt-4">
+                                                    <?php
+                                                    if (!empty($data['kk'])) {
+                                                        echo "<img src='../img/" . $data['kk'] . "' width='170' height='170' style='border-radius: 20%;'>";
                                                     }
                                                     ?>
-                                                <div class="input-group input-group-dynamic m-5">
-                                                    <label class="text-bold">Foto Kartu Keluarga :</label>
-                                                    <div class="input-group input-group-dynamic ">
-                                                        <input class="form-control" aria-label="Foto Kartu Keluarga :"
-                                                            type="file" name="p_kk" data-minlength="4"
-                                                            data-error="Tidak Boleh Kurang dari 4">
-                                                        <div class="help-block with-errors"></div>
+                                                    <div class="input-group input-group-dynamic m-5">
+                                                        <label class="text-bold">Foto Kartu Keluarga :</label>
+                                                        <div class="input-group input-group-dynamic ">
+                                                            <input class="form-control" aria-label="Foto Kartu Keluarga :" type="file" name="kk" data-minlength="4" data-error="Tidak Boleh Kurang dari 4">
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
+                                                    </div>
+                                                    <input type="hidden" name="kk_lama" value="<?= $data['kk'] ?>">
+                                                </div>
+                                                <div class="col-md-5 me-7 ">
+                                                    <div class="input-group input-group-dynamic m-5">
+                                                        <label class="text-bold">Surat Keterangan Tidak Mampu Dari Lurah :</label>
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <input class="form-control" aria-label="Berkas" type="file" name="s_sktm" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" accept=".pdf,.PDF,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
+                                                        <em class="text-danger text-sm text-italic">*Upload berkas pendukung (PDF, maksimal 2Mb)</em>
+                                                        <input name="s_sktm_lama" type="hidden" class="form-control input-sm" value="<?= $data['s_sktm'] ?>">
                                                     </div>
                                                 </div>
-                                                <input type="hidden" name="kk_lama" value="<?= $data['p_kk'] ?>">
-                                            </div>
-                                            <div class="col-md-3 text-center me-7 mt-4">
-                                                <?php
-                                                    if (!empty($data['ktp_k'])) {
-                                                        echo "<img src='../img/" . $data['ktp_k'] . "' width='170' height='170' style='border-radius: 20%;'>";
-                                                    }
-                                                    ?>
-                                                <div class="input-group input-group-dynamic m-5">
-                                                    <label class="text-bold">Foto KTP Kepala Keluarga :</label>
-                                                    <div class="input-group input-group-dynamic ">
-                                                        <input class="form-control" aria-label="Foto  :" type="file"
-                                                            name="ktp_k" data-minlength="4"
-                                                            data-error="Tidak Boleh Kurang dari 4">
-                                                        <div class="help-block with-errors"></div>
+                                                <div class="col-md-5 me-7 ">
+                                                    <div class="input-group input-group-dynamic m-5">
+                                                        <label class="text-bold">Surat Pernyataan Tidak Mampu Dari RT :</label>
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <input class="form-control" aria-label="Berkas" type="file" name="s_pernyataan" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" accept=".pdf,.PDF,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
+                                                        <em class="text-danger text-sm text-italic">*Upload berkas pendukung (PDF, maksimal 2Mb)</em>
+                                                        <input name="s_pernyatan_lama" type="hidden" class="form-control input-sm" value="<?= $data['s_pernyataan'] ?>">
                                                     </div>
                                                 </div>
-                                                <input type="hidden" name="ktp_k_lama" value="<?= $data['ktp_k'] ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-md-12">
-                                                    <input type="submit" class="btn btn-primary" value="Edit"
-                                                        name="edit">
-                                                    <input type="reset" class="btn btn-danger" value="Reset"
-                                                        name="reset">
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                        <input type="submit" class="btn btn-primary" value="Edit" name="edit">
+                                                        <input type="reset" class="btn btn-danger" value="Reset" name="reset">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                </form>
-            </div>
-        </section>
-    </div>
+                    </form>
+                </div>
+            </section>
+        </div>
 
     <?php
     if (isset($_POST['edit'])) {
@@ -167,25 +159,29 @@ if (!isset($_SESSION['nama'])) {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Menerima data form
-            $uploadedKtpFile = $_FILES['p_ktp'];
-            $uploadedKkFile = $_FILES['p_kk'];
-            $uploadedKtpKFile = $_FILES['ktp_k'];
+            $uploadedKtpFile = $_FILES['ktp'];
+            $uploadedKkFile = $_FILES['kk'];
 
-            // $foto = $_FILES['foto']['name'];
+            $uploadedSuratSktmFile = $_FILES['s_sktm'];
+            $uploadedSuratPernyataanFile = $_FILES['s_pernyataan'];
+
+
             $ktp_lama = $_POST['ktp_lama'];
             $kk_lama = $_POST['kk_lama'];
-            $ktp_k_lama = $_POST['ktp_k_lama'];
+            $s_sktm_lama = $_POST['s_sktm_lama'];
+            $s_pernyatan_lama = $_POST['s_pernyataan_lama'];
+
 
             // Cek apakah pengguna mengunggah foto KTP baru
             if ($uploadedKtpFile['error'] === 4) {
                 // Tidak ada file foto KTP baru yang diunggah, gunakan foto lama
-                $p_ktp = $ktp_lama;
+                $ktp = $ktp_lama;
             } else {
                 // Ada file foto KTP baru yang diunggah, proses unggah foto KTP
-                $uploadedKtpFilePath = upload($uploadedKtpFile);
+                $uploadedKtpFilePath = upload($uploadedKtpFile, '../img/imgpelayanan/');
                 if ($uploadedKtpFilePath) {
                     // File foto KTP berhasil diunggah
-                    $p_ktp = $uploadedKtpFilePath;
+                    $ktp = $uploadedKtpFilePath;
                 } else {
                     // Gagal mengunggah file foto KTP
                     echo "Gagal mengunggah file foto KTP.";
@@ -197,13 +193,13 @@ if (!isset($_SESSION['nama'])) {
             // Cek apakah pengguna mengunggah foto KK baru
             if ($uploadedKkFile['error'] === 4) {
                 // Tidak ada file foto KK baru yang diunggah, gunakan foto lama
-                $p_kk = $kk_lama;
+                $kk = $kk_lama;
             } else {
                 // Ada file foto KK baru yang diunggah, proses unggah foto KK
-                $uploadedKkFilePath = upload($uploadedKkFile);
+                $uploadedKkFilePath = upload($uploadedKkFile, '../img/imgpelayanan/');
                 if ($uploadedKkFilePath) {
                     // File foto KK berhasil diunggah
-                    $p_kk = $uploadedKkFilePath;
+                    $kk = $uploadedKkFilePath;
                 } else {
                     // Gagal mengunggah file foto KK
                     echo "Gagal mengunggah file foto KK.";
@@ -212,56 +208,74 @@ if (!isset($_SESSION['nama'])) {
                 }
             }
 
-            // Cek apakah pengguna mengunggah foto KTP pemohon baru
-            if ($uploadedKtpKFile['error'] === 4) {
-                // Tidak ada file foto KTP pemohon baru yang diunggah, gunakan foto lama
-                $ktp_k = $ktp_k_lama;
+            // Cek apakah pengguna mengunggah file surat_sktm
+            if ($uploadedSuratSktmFile['error'] === 4) {
+                // Tidak ada file surat_sktm baru yang diunggah
+                $s_sktm = $s_sktm_lama;
             } else {
-                // Ada file foto KTP pemohon baru yang diunggah, proses unggah foto KTP pemohon
-                $uploadedKtpKFilePath = upload($uploadedKtpKFile);
-                if ($uploadedKtpKFilePath) {
-                    // File foto KTP pemohon berhasil diunggah
-                    $ktp_k = $uploadedKtpKFilePath;
+                // Ada file surat_sktm baru yang diunggah, proses unggah surat_sktm
+                $uploadedSuratSktmFilePath = upload($uploadedSuratSktmFile, '../pdf/pelayanan/');
+                if ($uploadedSuratSktmFilePath) {
+                    // File surat_sktm berhasil diunggah
+                    $s_sktm = $uploadedSuratSktmFilePath;
                 } else {
-                    // Gagal mengunggah file foto KTP pemohon
-                    echo "Gagal mengunggah file foto KTP pemohon.";
+                    // Gagal mengunggah file surat_sktm
+                    echo "Gagal mengunggah file surat_sktm.";
                     // Lakukan tindakan yang sesuai jika gagal mengunggah file, seperti menampilkan pesan error atau menghentikan pembaruan data.
-                    // Misalnya: die("Gagal mengunggah file foto KTP pemohon. Pembaruan data dibatalkan.");
+                    // Misalnya: die("Gagal mengunggah file surat_sktm. Pembaruan data dibatalkan.");
+                }
+            }
+
+            // Cek apakah pengguna mengunggah file surat_pernyataan
+            if ($uploadedSuratPernyataanFile['error'] === 4) {
+                // Tidak ada file surat_pernyataan baru yang diunggah
+                $s_pernyataan = $s_pernyatan_lama;
+            } else {
+                // Ada file surat_pernyataan baru yang diunggah, proses unggah surat_pernyataan
+                $uploadedSuratPernyataanFilePath = upload($uploadedSuratPernyataanFile, '../pdf/pelayanan/');
+                if ($uploadedSuratPernyataanFilePath) {
+                    // File surat_pernyataan berhasil diunggah
+                    $s_pernyataan = $uploadedSuratPernyataanFilePath;
+                } else {
+                    // Gagal mengunggah file surat_pernyataan
+                    echo "Gagal mengunggah file surat_pernyataan.";
+                    // Lakukan tindakan yang sesuai jika gagal mengunggah file, seperti menampilkan pesan error atau menghentikan pembaruan data.
+                    // Misalnya: die("Gagal mengunggah file surat_pernyataan. Pembaruan data dibatalkan.");
                 }
             }
 
             echo "Data berhasil diperbarui.";
         }
 
+
         $tgl = $_POST['tgl'];
 
 
-        $edit = $link->query("UPDATE s_keluarga SET 
+        $edit = $link->query("UPDATE sktm SET 
 id_msy = '$id_msy',
 id_pelayanan = '$id_pelayanan',
-p_ktp = '$p_ktp',
-p_kk = '$p_kk',
-ktp_k = '$ktp_k',
+ktp = '$ktp',
+kk = '$kk',
+s_sktm = '$s_sktm',
+s_pernyataan = '$s_pernyataan',
 tgl = '$tgl'
 
-WHERE id_sk = '$id'");
+WHERE id_sktm = '$id'");
 
         if ($edit) {
             echo "<script>alert('Data berhasil diedit')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=dataSusunanKeluarga'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=dataSktm'>";
         } else {
             echo "<script>alert('Data anda gagal diedit. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=editSusunanKeluarga'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=editSktm'>";
         }
     }
 }
 
 
-function upload($file)
-{
-    // Tentukan folder penyimpanan file
-    $targetDir = '../img/imgpelayanan/';
 
+function upload($file, $targetDir)
+{
     // Mendapatkan nama file asli
     $fileName = basename($file['name']);
 
@@ -272,7 +286,7 @@ function upload($file)
     $fileExtension = pathinfo($targetPath, PATHINFO_EXTENSION);
 
     // Daftar ekstensi file yang diperbolehkan
-    $allowedExtensions = array('jpg', 'jpeg', 'png');
+    $allowedExtensions = array('jpg', 'jpeg', 'JPG', 'png', 'pdf');
 
     // Cek apakah ekstensi file valid
     if (in_array($fileExtension, $allowedExtensions)) {
