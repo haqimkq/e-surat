@@ -112,6 +112,15 @@ if (!isset($_SESSION['nama'])) {
         case "hapus_user";
             include "../pages/admin/user/delete.php";
             break;
+
+            //LEGALISASI PROPOSAL
+        case "data_proposal":
+            include "../pages/admin/legalisasi-proposal/data.php";
+            break;
+        case "edit_proposal":
+            include "../pages/admin/legalisasi-proposal/edit.php";
+            break;
+
             // END ADMIN PAGE
 
             // START  PAGAWAI PAGE--------------
@@ -164,7 +173,7 @@ if (!isset($_SESSION['nama'])) {
             break;
             //END MASYARAKAT PAGE
 
-            //LEGALISASI SUSUNAN KELUARGAa
+            //LEGALISASI SUSUNAN KELUARGA
         case "dataSusunanKeluarga";
             include "../pages/other/legalisasi-susunan-keluarga/data.php";
             break;
@@ -194,6 +203,7 @@ if (!isset($_SESSION['nama'])) {
             break;
             //END SURAT KETERANGAN TIDAK MAMPU
 
+            //LEGALISASI PROPOSAL
         case "dataProposal":
             include "../pages/other/legalisasi-proposal/data.php";
             break;
@@ -202,6 +212,9 @@ if (!isset($_SESSION['nama'])) {
             break;
         case "editProposal":
             include "../pages/other/legalisasi-proposal/edit.php";
+            break;
+        case "hapusProposal":
+            include "../pages/other/legalisasi-proposal/delete.php";
             break;
     }
 ?>

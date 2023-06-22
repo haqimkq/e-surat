@@ -51,8 +51,8 @@ if (!isset($_SESSION['nama'])) {
                                                 Surat Permohonan RT/Lurah</th>
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 Foto KTP Pemohon</th>
-                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                Tanggal</th>
+                                            <th class=" w- 5text-secondary text-s font-weight-bolder opacity-7">
+                                                Tanggal Pengajuan</th>
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 Status</th>
                                         </tr>
@@ -64,7 +64,7 @@ if (!isset($_SESSION['nama'])) {
                                             $query = mysqli_query($link, "SELECT * FROM proposal  pr
                                             join masyarakat m on pr.id_msy = m.id_msy 
                                             join pelayanan p on pr.id_pelayanan = p.id_pelayanan 
-                                            where id_user='$id'");
+                                            ");
                                             $i = 1;
                                             while ($row = $query->fetch_array()) {
                                             ?>
@@ -80,14 +80,14 @@ if (!isset($_SESSION['nama'])) {
                                                         role="menu">
                                                         <li>
                                                             <a class="dropdown-item border-radius-md"
-                                                                href="?page=editProposal&id=<?= $row[0]; ?>">
+                                                                href="?page=edit_proposal&id=<?= $row[0]; ?>">
                                                                 <i class="fa fa-edit"></i>
                                                                 Edit Data</a>
                                                         </li>
                                                         <li>
                                                             <a class="dropdown-item border-radius-md"
                                                                 onclick="return confirm ('Anda yakin ingin menghapus data ?');"
-                                                                href="?page=hapusProposal&id=<?= $row[0]; ?>">
+                                                                href="?page=hapus_proposal&id=<?= $row[0]; ?>">
                                                                 <i class="fa fa-trash-o"></i>
                                                                 Hapus</a>
                                                         </li>
@@ -119,7 +119,7 @@ if (!isset($_SESSION['nama'])) {
                                             <td class="w-10" align="center">
                                                 <?php echo "<img src='$row[ktp_p]' width='70' height='70' style='border-radius: 50%;' />"; ?>
                                             </td>
-                                            <td><?= $row['tgl']; ?></td>
+                                            <td class="w-5" align="center"><?= $row['tgl']; ?></td>
                                             <td>
                                                 <?php
                                                         $status = $row['status'];
