@@ -11,7 +11,6 @@ if (!isset($_SESSION['nama'])) {
     // $data = $query->fetch_array();
 ?>
 
-
 <div class="container-fluid py-4">
     <div class="row mt-4">
         <div class="col-12">
@@ -55,19 +54,20 @@ if (!isset($_SESSION['nama'])) {
                                                 Tanggal</th>
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 Status</th>
+                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
+                                                Surat Balasan</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php
-                                            $no = 1;
+                                        <?php $no = 1;
                                             $id = $_SESSION['id_user'];
-                                            $query = mysqli_query($link, "SELECT * FROM proposal  pr
-                                            join masyarakat m on pr.id_msy = m.id_msy 
-                                            join pelayanan p on pr.id_pelayanan = p.id_pelayanan 
-                                            where id_user='$id'");
+                                            $query = mysqli_query($link, "SELECT
+                                        * FROM proposal pr join masyarakat m on pr.id_msy = m.id_msy join pelayanan p on
+                                        pr.id_pelayanan = p.id_pelayanan where id_user='$id'");
                                             $i = 1;
-                                            while ($row = $query->fetch_array()) {
-                                            ?>
+                                            while ($row =
+                                                $query->fetch_array()
+                                            ) { ?>
                                         <tr>
                                             <td class="w-5">
                                                 <div class="mt-3">
@@ -117,7 +117,8 @@ if (!isset($_SESSION['nama'])) {
                                                         ?>
                                             </td>
                                             <td class="w-10" align="center">
-                                                <?php echo "<img src='$row[ktp_p]' width='70' height='70' style='border-radius: 50%;' />"; ?>
+                                                <?php echo "<img src='$row[ktp_p]' width='70' height='70' style='border-radius:
+                                                50%;' />"; ?>
                                             </td>
                                             <td><?= $row['tgl']; ?></td>
                                             <td>
@@ -128,23 +129,25 @@ if (!isset($_SESSION['nama'])) {
                                                             case 'Proses':
                                                                 $badgeColor = 'bg-gradient-warning';
                                                                 break;
-                                                            case 'Diterima':
-                                                                $badgeColor = 'bg-gradient-success';
-                                                                break;
                                                             case 'Ditolak':
                                                                 $badgeColor = 'bg-gradient-primary';
                                                                 break;
                                                             default:
-                                                                $badgeColor = 'bg-gradient-secondary';
+                                                                $badgeColor = 'bg-gradient-success';
                                                                 break;
                                                         }
+                                                        echo "<span class='badge $badgeColor'>$status</span>";
                                                         ?>
-                                                <span class="badge <?= $badgeColor; ?>"><?= $status; ?></span>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                        if ($status === 'Diterima') { // Hanya menampilkan tombol 'Print' saat status 'Diterima'
+                                                            echo "<a class='badge bg-gradient-success' target='_blank' href='../pages/other/legalisasi-proposal/suratVerifikasi.php?id={$row[0]}'><i class='fa fa-edit'></i> Print</a>";
+                                                        }
+                                                        ?>
                                             </td>
                                         </tr>
-                                        <?php
-                                            }
-                                            ?>
+                                        <?php } ?>
                                     </tbody>
                             </table>
                         </div>

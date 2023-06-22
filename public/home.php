@@ -204,6 +204,9 @@ if (!isset($_SESSION['nama'])) {
             //END SURAT KETERANGAN TIDAK MAMPU
 
             //LEGALISASI PROPOSAL
+        // case "verifikasiProposal":
+        //     include "../pages/other/legalisasi-proposal/suratVerifikasi.php";
+        //     break;
         case "dataProposal":
             include "../pages/other/legalisasi-proposal/data.php";
             break;

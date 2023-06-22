@@ -155,25 +155,18 @@ window.print();
     }
     </style>
 
-
-    <title>REKAP DATA Legalisasi Proposal </title>
+    <link rel="icon" type="image/png" href="<?php echo "../image/bjm.png" ?>">
+    <title>Laporan Legalisasi Proposal </title>
 </head>
 
 <body>
-    <img src="../image/rv.png" alt="Logo" align="left" width="90" height="120">
-    <!-- <img src="../image/bpkad.png" alt="Logo" align="right" width="120" height="120"> -->
-    <!-- <img src="<?= ('image/logo.jpg') ?>" align="left" width="90" height="90">
-  <img src="<?= ('image/pelengkap.png') ?>" align="right" width="75" height="75"> -->
+    <img src="../image/bjm.png" alt="Logo" align="left" width="90" height="120">
     <p align="center"><b>
             <br>
-            <!-- <font size="5">PEMERINTAHAN KABUPATEN BANJARMASIN </font> <br> -->
             <font size="5">Pelayanan Terpadu <br> Kecamatan Banjarmasin Timur </font><br>
             <font size="2">Jl. Manggis No.20, Kuripan, Kec. Banjarmasin Tim., Kota Banjarmasin, Kalimantan Selatan
                 70236, Indonesia </font><br>
             <br>
-            <!-- <font size="2">Telpon/Fax: 0511 3300197, 0511 3300097</font><br> -->
-            <!-- <font size="2">Email: dinaspupr.banjarmasin@gmail.com</font><br> -->
-            <!-- <br> -->
             <hr size="3px" color="black">
         </b></p>
 
@@ -190,10 +183,10 @@ window.print();
                         <tr>
                             <th style="text-align: center; font-size: 18px;">No</th>
                             <th style="text-align: center; font-size: 18px;">Nama Masyarakat</th>
-                            <th style="text-align: center; font-size: 18px;">Jenis Pelayanan</th>
-                            <th style="text-align: center; font-size: 18px;">Surat Pernyataan</th>
-                            <th style="text-align: center; font-size: 18px;">Surat Permohonan</th>
-                            <th style="text-align: center; font-size: 18px;">Foto KTP Pemohon</th>
+                            <th style="text-align: center; font-size: 18px; width:15%;">Jenis Pelayanan</th>
+                            <th style="text-align: center; font-size: 18px; width:10%;">Surat Pernyataan</th>
+                            <th style="text-align: center; font-size: 18px; width:10%;">Surat Permohonan</th>
+                            <th style="text-align: center; font-size: 18px; width:15%;">Foto KTP Pemohon</th>
                             <th style="text-align: center; font-size: 18px;">Tanggal Pengajuan</th>
                             <th style="text-align: center; font-size: 18px;">Status</th>
                         </tr>
@@ -231,6 +224,7 @@ window.print();
                             <td align="center"><?= tgl($data['tgl']) ?></td>
                             <td align="center"><?= $data['status']; ?></td>
                         </tr>
+                        <?php } ?>
                     </tbody>
                     * Klik ( √ ) Untuk Download Berkas
                 </table>
@@ -248,15 +242,14 @@ window.print();
             Mengetahui,<br>
             Camat<br>
             <br><br>
-            <?php echo "<img src='$data[qrCode]' width='70' height='70' />"; ?><br><br>
-            <u><b>Dra. Hj. Rusdiana, M.AP </b></u><br>
+            <br><br>
+            <u><b>Drs. Hj. Rusdiana, M.AP </b></u><br>
             <b>NIP. 196709071990 2 001</b><br>
         </h5>
-
     </div>
 
 
-    <?php } ?>
+
 </body>
 
 </html>

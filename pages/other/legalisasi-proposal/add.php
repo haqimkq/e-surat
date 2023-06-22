@@ -284,6 +284,7 @@ if (!isset($_SESSION['nama'])) {
         }
         $tgl = $_POST['tgl'];
         $status = $_POST['status'];
+        $qrCode = $_POST['qrCode'];
 
 
         $simpan = $link->query("INSERT INTO proposal VALUES (
@@ -294,7 +295,9 @@ if (!isset($_SESSION['nama'])) {
             '$s_permohonan',
             '$ktp',
             '$tgl',
-            '$status'
+            '$status',
+            '$qrcode'
+
             )");
 
         if ($simpan) {

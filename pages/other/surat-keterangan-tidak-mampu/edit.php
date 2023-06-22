@@ -116,24 +116,37 @@ if (!isset($_SESSION['nama'])) {
                                                 </div>
                                                 <div class="col-md-5 me-7 ">
                                                     <div class="input-group input-group-dynamic m-5">
-                                                        <label class="text-bold">Surat Keterangan Tidak Mampu Dari Lurah :</label>
+                                                        <label class="text-bold">Surat Keterangan Tidak Mampu Dari Lurah
+                                                            :</label>
                                                         <div class="input-group input-group-dynamic mb-4">
                                                             <input class="form-control" aria-label="Berkas" type="file" name="s_sktm" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" accept=".pdf,.PDF,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
                                                             <div class="help-block with-errors"></div>
                                                         </div>
-                                                        <em class="text-danger text-sm text-italic">*Upload berkas pendukung (PDF, maksimal 2Mb)</em>
+                                                        <em class="text-danger text-sm text-italic">*Upload berkas pendukung
+                                                            (PDF, maksimal 2Mb)</em>
                                                         <input name="s_sktm_lama" type="hidden" class="form-control input-sm" value="<?= $data['s_sktm'] ?>">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5 me-7 ">
                                                     <div class="input-group input-group-dynamic m-5">
-                                                        <label class="text-bold">Surat Pernyataan Tidak Mampu Dari RT :</label>
+                                                        <label class="text-bold">Surat Pernyataan Tidak Mampu Dari RT
+                                                            :</label>
                                                         <div class="input-group input-group-dynamic mb-4">
                                                             <input class="form-control" aria-label="Berkas" type="file" name="s_pernyataan" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" accept=".pdf,.PDF,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
                                                             <div class="help-block with-errors"></div>
                                                         </div>
-                                                        <em class="text-danger text-sm text-italic">*Upload berkas pendukung (PDF, maksimal 2Mb)</em>
-                                                        <input name="s_pernyatan_lama" type="hidden" class="form-control input-sm" value="<?= $data['s_pernyataan'] ?>">
+                                                        <em class="text-danger text-sm text-italic">*Upload berkas pendukung
+                                                            (PDF, maksimal 2Mb)</em>
+                                                        <input name="s_pernyataan_lama" type="hidden" class="form-control input-sm" value="<?= $data['s_pernyataan'] ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10 ">
+                                                    <div class="input-group input-group-dynamic">
+                                                        <!-- <label>Status</label> -->
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <input class="form-control" aria-label="Foto" type="hidden" name="status" value="<?= $data['status'] ?>" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" readonly>
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -158,7 +171,6 @@ if (!isset($_SESSION['nama'])) {
         $id_pelayanan = $_POST['id_pelayanan'];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Menerima data form
             $uploadedKtpFile = $_FILES['ktp'];
             $uploadedKkFile = $_FILES['kk'];
 
@@ -172,75 +184,47 @@ if (!isset($_SESSION['nama'])) {
             $s_pernyatan_lama = $_POST['s_pernyataan_lama'];
 
 
-            // Cek apakah pengguna mengunggah foto KTP baru
             if ($uploadedKtpFile['error'] === 4) {
-                // Tidak ada file foto KTP baru yang diunggah, gunakan foto lama
                 $ktp = $ktp_lama;
             } else {
-                // Ada file foto KTP baru yang diunggah, proses unggah foto KTP
                 $uploadedKtpFilePath = upload($uploadedKtpFile, '../img/imgpelayanan/');
                 if ($uploadedKtpFilePath) {
-                    // File foto KTP berhasil diunggah
                     $ktp = $uploadedKtpFilePath;
                 } else {
-                    // Gagal mengunggah file foto KTP
                     echo "Gagal mengunggah file foto KTP.";
-                    // Lakukan tindakan yang sesuai jika gagal mengunggah file, seperti menampilkan pesan error atau menghentikan pembaruan data.
-                    // Misalnya: die("Gagal mengunggah file foto KTP. Pembaruan data dibatalkan.");
                 }
             }
 
-            // Cek apakah pengguna mengunggah foto KK baru
             if ($uploadedKkFile['error'] === 4) {
-                // Tidak ada file foto KK baru yang diunggah, gunakan foto lama
                 $kk = $kk_lama;
             } else {
-                // Ada file foto KK baru yang diunggah, proses unggah foto KK
                 $uploadedKkFilePath = upload($uploadedKkFile, '../img/imgpelayanan/');
                 if ($uploadedKkFilePath) {
-                    // File foto KK berhasil diunggah
                     $kk = $uploadedKkFilePath;
                 } else {
-                    // Gagal mengunggah file foto KK
                     echo "Gagal mengunggah file foto KK.";
-                    // Lakukan tindakan yang sesuai jika gagal mengunggah file, seperti menampilkan pesan error atau menghentikan pembaruan data.
-                    // Misalnya: die("Gagal mengunggah file foto KK. Pembaruan data dibatalkan.");
                 }
             }
 
-            // Cek apakah pengguna mengunggah file surat_sktm
             if ($uploadedSuratSktmFile['error'] === 4) {
-                // Tidak ada file surat_sktm baru yang diunggah
                 $s_sktm = $s_sktm_lama;
             } else {
-                // Ada file surat_sktm baru yang diunggah, proses unggah surat_sktm
                 $uploadedSuratSktmFilePath = upload($uploadedSuratSktmFile, '../pdf/pelayanan/');
                 if ($uploadedSuratSktmFilePath) {
-                    // File surat_sktm berhasil diunggah
                     $s_sktm = $uploadedSuratSktmFilePath;
                 } else {
-                    // Gagal mengunggah file surat_sktm
                     echo "Gagal mengunggah file surat_sktm.";
-                    // Lakukan tindakan yang sesuai jika gagal mengunggah file, seperti menampilkan pesan error atau menghentikan pembaruan data.
-                    // Misalnya: die("Gagal mengunggah file surat_sktm. Pembaruan data dibatalkan.");
                 }
             }
 
-            // Cek apakah pengguna mengunggah file surat_pernyataan
             if ($uploadedSuratPernyataanFile['error'] === 4) {
-                // Tidak ada file surat_pernyataan baru yang diunggah
                 $s_pernyataan = $s_pernyatan_lama;
             } else {
-                // Ada file surat_pernyataan baru yang diunggah, proses unggah surat_pernyataan
                 $uploadedSuratPernyataanFilePath = upload($uploadedSuratPernyataanFile, '../pdf/pelayanan/');
                 if ($uploadedSuratPernyataanFilePath) {
-                    // File surat_pernyataan berhasil diunggah
                     $s_pernyataan = $uploadedSuratPernyataanFilePath;
                 } else {
-                    // Gagal mengunggah file surat_pernyataan
                     echo "Gagal mengunggah file surat_pernyataan.";
-                    // Lakukan tindakan yang sesuai jika gagal mengunggah file, seperti menampilkan pesan error atau menghentikan pembaruan data.
-                    // Misalnya: die("Gagal mengunggah file surat_pernyataan. Pembaruan data dibatalkan.");
                 }
             }
 
@@ -249,6 +233,8 @@ if (!isset($_SESSION['nama'])) {
 
 
         $tgl = $_POST['tgl'];
+        $status = $_POST['status'];
+        $qrcode = $_POST['qrCode'];
 
 
         $edit = $link->query("UPDATE sktm SET 
@@ -258,7 +244,9 @@ ktp = '$ktp',
 kk = '$kk',
 s_sktm = '$s_sktm',
 s_pernyataan = '$s_pernyataan',
-tgl = '$tgl'
+tgl = '$tgl',
+status = '$status',
+qrCode = '$qrcode'
 
 WHERE id_sktm = '$id'");
 
@@ -276,30 +264,17 @@ WHERE id_sktm = '$id'");
 
 function upload($file, $targetDir)
 {
-    // Mendapatkan nama file asli
     $fileName = basename($file['name']);
-
-    // Mendapatkan path file tujuan
     $targetPath = $targetDir . $fileName;
-
-    // Mendapatkan ekstensi file
     $fileExtension = pathinfo($targetPath, PATHINFO_EXTENSION);
-
-    // Daftar ekstensi file yang diperbolehkan
     $allowedExtensions = array('jpg', 'jpeg', 'JPG', 'png', 'pdf');
-
-    // Cek apakah ekstensi file valid
     if (in_array($fileExtension, $allowedExtensions)) {
-        // Pindahkan file ke folder tujuan
         if (move_uploaded_file($file['tmp_name'], $targetPath)) {
-            // Jika berhasil diunggah, kembalikan path file
             return $targetPath;
         } else {
-            // Jika gagal mengunggah
             return false;
         }
     } else {
-        // Jika ekstensi file tidak valid
         return false;
     }
 }
