@@ -28,9 +28,9 @@ if (!isset($_SESSION['nama'])) {
                     </div>
                 </div>
                 <div class="card-body p-3 mt-1">
-                    <div class="col-2">
+                    <!-- <div class="col-2">
                         <a href="?page=tambahProposal" class="btn btn-info">Tambah Data</a>
-                    </div>
+                    </div> -->
                     <!-- <hr class="horizontal dark"> -->
                     <div class="row">
                         <div class="col-lg-12 col-md-12 mt-2">

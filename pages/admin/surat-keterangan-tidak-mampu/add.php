@@ -5,7 +5,9 @@ if (!isset($_SESSION['nama'])) {
     echo "<script> alert('Silahkan login terlebih dahulu'); </script>";
     echo "<meta http-equiv='refresh' content='0; url=../aev/index.php'>";
 } else {
+
 ?>
+
     <div class="container-fluid py-4">
         <div class="row mt-4 justify-content-center">
             <div class="col-10">
@@ -41,7 +43,7 @@ if (!isset($_SESSION['nama'])) {
 
 
                                                         <h5> Data Pengajuan Layanan</h5>
-                                                        <h6> <i> Legalisasi Proposal</i> </h6>
+                                                        <h6> <i>Legalisasi Surat Keterangan Tidak Mampu</i></h6>
                                                         <!-- <hr class="horizontal dark"> -->
                                                         <br>
                                                         <br>
@@ -92,10 +94,32 @@ if (!isset($_SESSION['nama'])) {
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="input-group input-group-dynamic">
-                                                                <label>Surat Permohonan yang sudah ditanda tangani <br>
-                                                                    Ketua RT atau Lurah : </label>
-                                                                <div class="input-group input-group-dynamic  mb-4">
-                                                                    <input class="form-control" aria-label="Foto " type="file" name="s_permohonan" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
+                                                                <label>Foto KTP Pemohon</label>
+                                                                <div class="input-group input-group-dynamic mb-4">
+                                                                    <input class="form-control" aria-label="Foto" type="file" name="ktp" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
+                                                                    <div class="help-block with-errors"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="input-group input-group-dynamic">
+                                                                <label>Foto Kartu Keluarga</label>
+                                                                <div class="input-group input-group-dynamic mb-4">
+                                                                    <input class="form-control" aria-label="Foto" type="file" name="kk" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
+                                                                    <div class="help-block with-errors"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <div class="col-md-6">
+                                                            <div class="input-group input-group-dynamic">
+                                                                <label>Surat Keterangan Tidak Mampu Dari Lurah</label>
+                                                                <div class="input-group input-group-dynamic mb-4">
+                                                                    <input class="form-control" aria-label="Foto " type="file" name="s_sktm" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
                                                                     <div class="help-block with-errors"></div>
                                                                 </div>
                                                                 <em class="text-danger text-sm text-italic">*Upload
@@ -104,9 +128,7 @@ if (!isset($_SESSION['nama'])) {
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="input-group input-group-dynamic">
-                                                                <label>Surat yang menyatakan bahwa pengurus dari
-                                                                    institusi/Yayasan/Perusahaan atau badan hukum yang
-                                                                    lainnya :</label>
+                                                                <label>Surat Pernyataan Tidak Mampu Dari RT</label>
                                                                 <div class="input-group input-group-dynamic mb-4">
                                                                     <input class="form-control" aria-label="Foto " type="file" name="s_pernyataan" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
                                                                     <div class="help-block with-errors"></div>
@@ -115,20 +137,11 @@ if (!isset($_SESSION['nama'])) {
                                                                     berkas pendukung (PDF, maksimal 2Mb)</em>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 pt-5">
-                                                            <div class="input-group input-group-dynamic">
-                                                                <label>Foto KTP Pemohon</label>
-                                                                <div class="input-group input-group-dynamic mb-4">
-                                                                    <input class="form-control" aria-label="Foto" type="file" name="ktp_p" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
-                                                                    <div class="help-block with-errors"></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                         <div class="col-md-12 ">
                                                             <div class="input-group input-group-dynamic">
                                                                 <!-- <label>Status</label> -->
                                                                 <div class="input-group input-group-dynamic mb-4">
-                                                                    <input class="form-control" aria-label="Foto" type="hidden" name="status" value="Proses" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
+                                                                    <input class="form-control" aria-label="Status" type="hidden" name="status" value="Proses" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
                                                                     <div class="help-block with-errors"></div>
                                                                 </div>
                                                             </div>
@@ -220,35 +233,11 @@ if (!isset($_SESSION['nama'])) {
         $id_pelayanan = $_POST['id_pelayanan'];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $uploadedKtpFile = $_FILES['ktp'];
+            $uploadedKkFile = $_FILES['kk'];
+
+            $uploadedSuratSktmFile = $_FILES['s_sktm'];
             $uploadedSuratPernyataanFile = $_FILES['s_pernyataan'];
-            $uploadedSuratPermohonanFile = $_FILES['s_permohonan'];
-            $uploadedKtpFile = $_FILES['ktp_p'];
-
-
-
-            if ($uploadedSuratPernyataanFile['error'] === 4) {
-                $s_pernyataan = '';
-            } else {
-                $uploadedSuratPernyataanFilePath = upload($uploadedSuratPernyataanFile, '../pdf/pelayanan/');
-                if ($uploadedSuratPernyataanFilePath) {
-
-                    $s_pernyataan = $uploadedSuratPernyataanFilePath;
-                } else {
-                    echo "Gagal mengunggah file surat_pernyataan.";
-                }
-            }
-
-            if ($uploadedSuratPermohonanFile['error'] === 4) {
-                $s_permohonan = '';
-            } else {
-                $uploadedSuratPermohonanFilePath = upload($uploadedSuratPermohonanFile, '../pdf/pelayanan/');
-                if ($uploadedSuratPermohonanFilePath) {
-
-                    $s_permohonan = $uploadedSuratPermohonanFilePath;
-                } else {
-                    echo "Gagal mengunggah file surat_permohonan.";
-                }
-            }
 
             if ($uploadedKtpFile['error'] === 4) {
                 $ktp = $foto_lama;
@@ -260,32 +249,66 @@ if (!isset($_SESSION['nama'])) {
                     echo "Gagal mengunggah file foto KTP.";
                 }
             }
+
+            if ($uploadedKkFile['error'] === 4) {
+                $kk = $foto_lama;
+            } else {
+                $uploadedKkFilePath = upload($uploadedKkFile, '../img/imgpelayanan/');
+                if ($uploadedKkFilePath) {
+                    $kk = $uploadedKkFilePath;
+                } else {
+                    echo "Gagal mengunggah file foto KK.";
+                }
+            }
+
+            if ($uploadedSuratSktmFile['error'] === 4) {
+                $s_sktm = '';
+            } else {
+                $uploadedSuratSktmFilePath = upload($uploadedSuratSktmFile, '../pdf/pelayanan/');
+                if ($uploadedSuratSktmFilePath) {
+                    $s_sktm = $uploadedSuratSktmFilePath;
+                } else {
+                    echo "Gagal mengunggah file surat_sktm.";
+                }
+            }
+
+            if ($uploadedSuratPernyataanFile['error'] === 4) {
+                $s_pernyataan = '';
+            } else {
+                $uploadedSuratPernyataanFilePath = upload($uploadedSuratPernyataanFile, '../pdf/pelayanan/');
+                if ($uploadedSuratPernyataanFilePath) {
+                    $s_pernyataan = $uploadedSuratPernyataanFilePath;
+                } else {
+                    echo "Gagal mengunggah file surat_pernyataan.";
+                }
+            }
+
             echo "Data berhasil diperbarui.";
         }
+
         $tgl = $_POST['tgl'];
         $status = $_POST['status'];
-        $qrCode = $_POST['qrCode'];
+        $qrcode = $_POST['qrCode'];
 
-
-        $simpan = $link->query("INSERT INTO proposal VALUES (
+        $simpan = $link->query("INSERT INTO sktm VALUES (
             '', 
             '$id_msy',
             '$id_pelayanan', 
-            '$s_pernyataan',
-            '$s_permohonan',
+            '$s_sktm',
             '$ktp',
+            '$kk',
+            '$s_pernyataan',
             '$tgl',
             '$status',
             '$qrcode'
-
             )");
 
         if ($simpan) {
             echo "<script>alert('Data berhasil disimpan')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=dataProposal'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=dataSktm'>";
         } else {
             echo "<script>alert('Data anda gagal disimpan. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=tambahProposal'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=tambahSktm'>";
         }
     }
 }
@@ -297,7 +320,7 @@ function upload($file, $targetDir)
     $fileName = basename($file['name']);
     $targetPath = $targetDir . $fileName;
     $fileExtension = pathinfo($targetPath, PATHINFO_EXTENSION);
-    $allowedExtensions = array('jpg', 'jpeg', 'png', 'pdf');
+    $allowedExtensions = array('jpg', 'jpeg', 'png', 'pdf', 'JPG');
     if (in_array($fileExtension, $allowedExtensions)) {
         if (move_uploaded_file($file['tmp_name'], $targetPath)) {
             return $targetPath;
@@ -305,7 +328,6 @@ function upload($file, $targetDir)
             return false;
         }
     } else {
-
         return false;
     }
 }

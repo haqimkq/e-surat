@@ -45,6 +45,7 @@ if (!isset($_SESSION['nama'])) {
 
 
                                                     <h5> Data Pengajuan Layanan</h5>
+                                                    <h6><i>Legalisasi Susunan Keluarga</i></h6>
                                                     <!-- <hr class="horizontal dark"> -->
                                                     <br>
                                                     <br>
@@ -132,6 +133,18 @@ if (!isset($_SESSION['nama'])) {
                                                             <div class="input-group input-group-dynamic mb-4">
                                                                 <input class="form-control" aria-label="Foto Pegawai"
                                                                     type="file" name="ktp_k" data-minlength="4"
+                                                                    data-error="Tidak Boleh Kurang dari 4" required>
+                                                                <div class="help-block with-errors"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 ">
+                                                        <div class="input-group input-group-dynamic">
+                                                            <!-- <label>Status</label> -->
+                                                            <div class="input-group input-group-dynamic mb-4">
+                                                                <input class="form-control" aria-label="Foto"
+                                                                    type="hidden" name="status" value="Proses"
+                                                                    data-minlength="4"
                                                                     data-error="Tidak Boleh Kurang dari 4" required>
                                                                 <div class="help-block with-errors"></div>
                                                             </div>
@@ -229,65 +242,43 @@ if (!isset($_SESSION['nama'])) {
         $id_pelayanan = $_POST['id_pelayanan'];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Menerima data form
+
             $uploadedKtpFile = $_FILES['p_ktp'];
             $uploadedKkFile = $_FILES['p_kk'];
             $uploadedKtpKFile = $_FILES['ktp_k'];
 
-            // $foto = $_FILES['foto']['name'];
             $foto_lama = $_POST['ktp_lama'];
 
-            // Cek apakah pengguna mengunggah foto KTP baru
             if ($uploadedKtpFile['error'] === 4) {
-                // Tidak ada file foto KTP baru yang diunggah, gunakan foto lama
                 $p_ktp = $foto_lama;
             } else {
-                // Ada file foto KTP baru yang diunggah, proses unggah foto KTP
                 $uploadedKtpFilePath = upload($uploadedKtpFile);
                 if ($uploadedKtpFilePath) {
-                    // File foto KTP berhasil diunggah
                     $p_ktp = $uploadedKtpFilePath;
                 } else {
-                    // Gagal mengunggah file foto KTP
                     echo "Gagal mengunggah file foto KTP.";
-                    // Lakukan tindakan yang sesuai jika gagal mengunggah file, seperti menampilkan pesan error atau menghentikan pembaruan data.
-                    // Misalnya: die("Gagal mengunggah file foto KTP. Pembaruan data dibatalkan.");
                 }
             }
 
-            // Cek apakah pengguna mengunggah foto KK baru
             if ($uploadedKkFile['error'] === 4) {
-                // Tidak ada file foto KK baru yang diunggah, gunakan foto lama
                 $p_kk = $foto_lama;
             } else {
-                // Ada file foto KK baru yang diunggah, proses unggah foto KK
                 $uploadedKkFilePath = upload($uploadedKkFile);
                 if ($uploadedKkFilePath) {
-                    // File foto KK berhasil diunggah
                     $p_kk = $uploadedKkFilePath;
                 } else {
-                    // Gagal mengunggah file foto KK
                     echo "Gagal mengunggah file foto KK.";
-                    // Lakukan tindakan yang sesuai jika gagal mengunggah file, seperti menampilkan pesan error atau menghentikan pembaruan data.
-                    // Misalnya: die("Gagal mengunggah file foto KK. Pembaruan data dibatalkan.");
                 }
             }
 
-            // Cek apakah pengguna mengunggah foto KTP pemohon baru
             if ($uploadedKtpKFile['error'] === 4) {
-                // Tidak ada file foto KTP pemohon baru yang diunggah, gunakan foto lama
                 $ktp_k = $foto_lama;
             } else {
-                // Ada file foto KTP pemohon baru yang diunggah, proses unggah foto KTP pemohon
                 $uploadedKtpKFilePath = upload($uploadedKtpKFile);
                 if ($uploadedKtpKFilePath) {
-                    // File foto KTP pemohon berhasil diunggah
                     $ktp_k = $uploadedKtpKFilePath;
                 } else {
-                    // Gagal mengunggah file foto KTP pemohon
                     echo "Gagal mengunggah file foto KTP pemohon.";
-                    // Lakukan tindakan yang sesuai jika gagal mengunggah file, seperti menampilkan pesan error atau menghentikan pembaruan data.
-                    // Misalnya: die("Gagal mengunggah file foto KTP pemohon. Pembaruan data dibatalkan.");
                 }
             }
 
@@ -295,6 +286,8 @@ if (!isset($_SESSION['nama'])) {
         }
 
         $tgl = $_POST['tgl'];
+        $status = $_POST['status'];
+        $qrCode = $_POST['qrCode'];
 
 
         $simpan = $link->query("INSERT INTO s_keluarga VALUES (
@@ -304,7 +297,9 @@ if (!isset($_SESSION['nama'])) {
             '$p_ktp',
             '$p_kk',
             '$ktp_k',
-            '$tgl'
+            '$tgl',
+            '$status',
+            '$qrcode'
             )");
 
         if ($simpan) {
@@ -334,7 +329,7 @@ function upload($file)
     $fileExtension = pathinfo($targetPath, PATHINFO_EXTENSION);
 
     // Daftar ekstensi file yang diperbolehkan
-    $allowedExtensions = array('jpg', 'jpeg', 'png');
+    $allowedExtensions = array('jpg', 'jpeg', 'png','JPG');
 
     // Cek apakah ekstensi file valid
     if (in_array($fileExtension, $allowedExtensions)) {

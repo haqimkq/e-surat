@@ -48,15 +48,17 @@ if (!isset($_SESSION['nama'])) {
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 Jenis layanan</th>
                                             <th class=" w-5 text-secondary text-s font-weight-bolder opacity-7">
-                                                Surat Keterangan Lurah</th>
+                                                Surat Dari Lurah</th>
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 Foto KTP</th>
                                             <th class="w-5 text-secondary text-s font-weight-bolder opacity-7">
                                                 Foto Kartu Keluarga</th>
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                Surat Pernyataan RT</th>
+                                                Surat Dari RT</th>
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 Status</th>
+                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
+                                                Surat Balasan</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -116,7 +118,7 @@ if (!isset($_SESSION['nama'])) {
                                             <td align="center">
                                                 <?php echo "<img src='$row[kk]' width='70' height='70' style='border-radius: 50%;' />"; ?>
                                             </td>
-                                            <td align="center">
+                                            <td class="w-5" align="center">
                                                 <?php
                                                         if (!empty($row['s_pernyataan'])) {
                                                             $pdfPath = '../pelayanan/' . $row['s_pernyataan'];
@@ -134,18 +136,22 @@ if (!isset($_SESSION['nama'])) {
                                                             case 'Proses':
                                                                 $badgeColor = 'bg-gradient-warning';
                                                                 break;
-                                                            case 'Diterima':
-                                                                $badgeColor = 'bg-gradient-success';
-                                                                break;
                                                             case 'Ditolak':
                                                                 $badgeColor = 'bg-gradient-primary';
                                                                 break;
                                                             default:
-                                                                $badgeColor = 'bg-gradient-secondary';
+                                                                $badgeColor = 'bg-gradient-success';
                                                                 break;
                                                         }
+                                                        echo "<span class='badge $badgeColor'>$status</span>";
                                                         ?>
-                                                <span class="badge <?= $badgeColor; ?>"><?= $status; ?></span>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                        if ($status === 'Diterima') {
+                                                            echo "<a class='badge bg-gradient-success' target='_blank' href='../pages/other/surat-keterangan-tidak-mampu/suratVerifikasi.php?id={$row[0]}'><i class='fa fa-edit'></i> Print</a>";
+                                                        }
+                                                        ?>
                                             </td>
                                         </tr>
                                         <?php

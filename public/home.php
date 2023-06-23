@@ -121,6 +121,15 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/admin/legalisasi-proposal/edit.php";
             break;
 
+
+            //LEGALISASI SKTM
+        case "data_sktm":
+            include "../pages/admin/surat-keterangan-tidak-mampu/data.php";
+            break;
+        case "edit_sktm":
+            include "../pages/admin/surat-keterangan-tidak-mampu/edit.php";
+            break;
+
             // END ADMIN PAGE
 
             // START  PAGAWAI PAGE--------------
@@ -203,10 +212,7 @@ if (!isset($_SESSION['nama'])) {
             break;
             //END SURAT KETERANGAN TIDAK MAMPU
 
-            //LEGALISASI PROPOSAL
-        // case "verifikasiProposal":
-        //     include "../pages/other/legalisasi-proposal/suratVerifikasi.php";
-        //     break;
+            //LEGALISASI PROPOSAL   
         case "dataProposal":
             include "../pages/other/legalisasi-proposal/data.php";
             break;

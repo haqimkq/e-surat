@@ -38,9 +38,9 @@ if (!isset($_SESSION['nama'])) {
                                 <div class="table-responsive">
                                     <thead>
                                         <tr>
-                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
+                                            <th class=" w-5 text-secondary text-s font-weight-bolder opacity-7">
                                                 Aksi</th>
-                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
+                                            <th class=" w-2 text-secondary text-s font-weight-bolder opacity-7">
                                                 No.
                                             </th>
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
@@ -54,7 +54,9 @@ if (!isset($_SESSION['nama'])) {
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 KTP Kepala Keluarga</th>
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                Tanggal</th>
+                                                Status</th>
+                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
+                                                Surat Balasan</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -94,20 +96,43 @@ if (!isset($_SESSION['nama'])) {
                                                     </ul>
                                                 </div>
                                             </td>
-                                            <td align="left"><?= $i++ ?></td>
-                                            <td><?= $row['nama']; ?></td>
-                                            <td><?= $row['j_pelayanan']; ?></td>
-                                            <td align="center">
+                                            <td class="w-5" align="left"><?= $i++ ?></td>
+                                            <td class="w-5"><?= $row['nama']; ?></td>
+                                            <td class="w-5"><?= $row['j_pelayanan']; ?></td>
+                                            <td class="w-5" align="center">
                                                 <?php echo "<img src='$row[p_ktp]' width='70' height='70' style='border-radius: 50%;' />"; ?>
                                             </td>
-                                            <td align="center">
+                                            <td class="w-5" align="center">
                                                 <?php echo "<img src='$row[p_kk]' width='70' height='70' style='border-radius: 50%;' />"; ?>
                                             </td>
-                                            <td align="center">
+                                            <td class="w-5" align="center">
                                                 <?php echo "<img src='$row[ktp_k]' width='70' height='70' style='border-radius: 50%;' />"; ?>
                                             </td>
-
-                                            <td><?= $row['tgl']; ?></td>
+                                            <td class="w-5">
+                                                <?php
+                                                        $status = $row['status'];
+                                                        $badgeColor = '';
+                                                        switch ($status) {
+                                                            case 'Proses':
+                                                                $badgeColor = 'bg-gradient-warning';
+                                                                break;
+                                                            case 'Ditolak':
+                                                                $badgeColor = 'bg-gradient-primary';
+                                                                break;
+                                                            default:
+                                                                $badgeColor = 'bg-gradient-success';
+                                                                break;
+                                                        }
+                                                        echo "<span class='badge $badgeColor'>$status</span>";
+                                                        ?>
+                                            </td>
+                                            <td class="w-5">
+                                                <?php
+                                                        if ($status === 'Diterima') {
+                                                            echo "<a class='badge bg-gradient-success' target='_blank' href='../pages/other/legalisasi-proposal/suratVerifikasi.php?id={$row[0]}'><i class='fa fa-edit'></i> Print</a>";
+                                                        }
+                                                        ?>
+                                            </td>
                                         </tr>
                                         <?php
                                             }
