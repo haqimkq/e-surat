@@ -121,13 +121,27 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/admin/legalisasi-proposal/edit.php";
             break;
 
-
             //LEGALISASI SKTM
         case "data_sktm":
             include "../pages/admin/surat-keterangan-tidak-mampu/data.php";
             break;
         case "edit_sktm":
             include "../pages/admin/surat-keterangan-tidak-mampu/edit.php";
+            break;
+
+            //Legalisasi Susunan Keluarga
+        case "data_susunanKeluarga";
+            include "../pages/admin/legalisasi-susunan-keluarga/data.php";
+            break;
+        case "edit_susunanKeluarga";
+            include "../pages/admin/legalisasi-susunan-keluarga/edit.php";
+            break;
+            //Legalisasi Pengantar Nikah
+        case "data_pengantarNikah";
+            include "../pages/admin/legalisasi-pengantar-nikah/data.php";
+            break;
+        case "edit_pengantarNikah";
+            include "../pages/admin/legalisasi-pengantar-nikah/edit.php";
             break;
 
             // END ADMIN PAGE
@@ -224,6 +238,20 @@ if (!isset($_SESSION['nama'])) {
             break;
         case "hapusProposal":
             include "../pages/other/legalisasi-proposal/delete.php";
+            break;
+
+            //LEGALISASI SURAT PENGANTAR NIKAH 
+        case "dataSuratPengantarNikah":
+            include "../pages/other/legalisasi-pengantar-nikah/data.php";
+            break;
+        case "tambahSuratPengantarNikah":
+            include "../pages/other/legalisasi-pengantar-nikah/add.php";
+            break;
+        case "editSuratPengantarNikah":
+            include "../pages/other/legalisasi-pengantar-nikah/edit.php";
+            break;
+        case "hapusSuratPengantarNikah":
+            include "../pages/other/legalisasi-pengantar-nikah/delete.php";
             break;
     }
 ?>
