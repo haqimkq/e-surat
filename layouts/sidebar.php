@@ -98,7 +98,7 @@
                                     </div>
                                     <span class="nav-link-text ms-1">Susunan Keluarga</span>
                                 </a>
-                                <a class="nav-link text-white " href="?page=">
+                                <a class="nav-link text-white " href="?page=data_dispensasiNikah">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">assignment</i>
@@ -588,6 +588,15 @@
                                     </a>
                                 </li>
                                 <li>
+                                    <a class="nav-link text-white " href="?page=dataDispensasiNikah">
+                                        <div
+                                            class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Rekomendasi Dispensasi <br> Nikah</span>
+                                    </a>
+                                </li>
+                                <li>
                                     <a class="nav-link text-white " href="?page=dataSktm">
                                         <div
                                             class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -626,9 +635,8 @@
                             <span class="nav-link-text ms-1">Data Pribadi</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#" data-bs-toggle="collapse"
-                            data-bs-target="#laporan-laporan">
+                    <!-- <li class="nav-item">
+                        <a class="nav-link text-white" href="#" data-bs-toggle="collapse" data-bs-target="#laporan-laporan">
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="material-icons opacity-10">book</i>
                             </div>
@@ -638,25 +646,20 @@
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li class="nav-item">
                                     <a class="nav-link text-white ">
-                                        <div class="text-white me-2 d-flex " type="button"
-                                            class="btn bg-gradient-primary" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal1">
+                                        <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
                                             <i class="material-icons opacity-10">print</i>
                                             <span class="nav-link-text ms-1">Laporan Data <br> Surat Pengantar
                                                 Nikah</span>
                                         </div>
                                     </a>
-                                    <!-- Button trigger modal -->
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
-                                        aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                   
+                                    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLabel">Laporan Data Surat
                                                         Pengantar Nikah</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close">
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
@@ -665,17 +668,14 @@
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
                                                                 <label>Dari Tanggal</label>
-                                                                <input type="date" class="form-control" name="tgl1"
-                                                                    required>
+                                                                <input type="date" class="form-control" name="tgl1" required>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <label>Sampai Tanggal</label>
-                                                                <input type="date" class="form-control" name="tgl2"
-                                                                    required>
+                                                                <input type="date" class="form-control" name="tgl2" required>
                                                             </div>
                                                             <div class="col-md-4" style="margin-top: 31px;">
-                                                                <button align="center" type="submit" name="cetak1"
-                                                                    class="btn btn-info btn-md"><i class="fa fa-print">
+                                                                <button align="center" type="submit" name="cetak1" class="btn btn-info btn-md"><i class="fa fa-print">
                                                                     </i>
                                                                     Cetak</button>
                                                             </div>
@@ -683,8 +683,7 @@
                                                     </form>
                                                     <hr>
                                                     <div class="form-group text-center">
-                                                        <a href="laporan/l_spn.php" target="_blank"
-                                                            class="btn btn-info btn-md"><i class="fa fa-print"> </i>
+                                                        <a href="laporan/l_spn.php" target="_blank" class="btn btn-info btn-md"><i class="fa fa-print"> </i>
                                                             Cetak
                                                             Semua</a>
                                                     </div>
@@ -696,27 +695,23 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-white ">
-                                        <div class="text-white me-2 d-flex " type="button"
-                                            class="btn bg-gradient-primary" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal2">
+                                        <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                                             <i class="material-icons opacity-10">print</i>
                                             <span class="nav-link-text ms-1">Laporan Data Legalisasi <br> Surat
                                                 Keterangan
                                                 Tidak <br> Mampu</span>
                                         </div>
                                     </a>
-                                    <!-- Button trigger modal -->
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
-                                        aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                    
+                                
+                                    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLabel">Laporan Data
                                                         Legalisasi
                                                         Surat Keterangan Tidak Mampu</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close">
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
@@ -725,17 +720,14 @@
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
                                                                 <label>Dari Tanggal</label>
-                                                                <input type="date" class="form-control" name="tgl1"
-                                                                    required>
+                                                                <input type="date" class="form-control" name="tgl1" required>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <label>Sampai Tanggal</label>
-                                                                <input type="date" class="form-control" name="tgl2"
-                                                                    required>
+                                                                <input type="date" class="form-control" name="tgl2" required>
                                                             </div>
                                                             <div class="col-md-4" style="margin-top: 31px;">
-                                                                <button align="center" type="submit" name="cetak2"
-                                                                    class="btn btn-info btn-md"><i class="fa fa-print">
+                                                                <button align="center" type="submit" name="cetak2" class="btn btn-info btn-md"><i class="fa fa-print">
                                                                     </i>
                                                                     Cetak</button>
                                                             </div>
@@ -743,8 +735,7 @@
                                                     </form>
                                                     <hr>
                                                     <div class="form-group text-center">
-                                                        <a href="laporan/l_sktm.php" target="_blank"
-                                                            class="btn btn-info btn-md"><i class="fa fa-print"> </i>
+                                                        <a href="laporan/l_sktm.php" target="_blank" class="btn btn-info btn-md"><i class="fa fa-print"> </i>
                                                             Cetak
                                                             Semua</a>
                                                     </div>
@@ -756,46 +747,37 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-white ">
-                                        <div class="text-white me-2 d-flex " type="button"
-                                            class="btn bg-gradient-primary" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal3">
+                                        <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
                                             <i class="material-icons opacity-10">print</i>
                                             <span class="nav-link-text ms-1">Laporan Data Legalisasi <br> Susunan
                                                 Keluarga</span>
                                         </div>
                                     </a>
-                                    <!-- Button trigger modal -->
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog"
-                                        aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                    
+                                    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLabel">Laporan Data
                                                         Legalisasi
                                                         Susunan Keluarga</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close">
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form method="POST" target="_blank"
-                                                        action="laporan/l_s_keluarga.php">
+                                                    <form method="POST" target="_blank" action="laporan/l_s_keluarga.php">
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
                                                                 <label>Dari Tanggal</label>
-                                                                <input type="date" class="form-control" name="tgl1"
-                                                                    required>
+                                                                <input type="date" class="form-control" name="tgl1" required>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <label>Sampai Tanggal</label>
-                                                                <input type="date" class="form-control" name="tgl2"
-                                                                    required>
+                                                                <input type="date" class="form-control" name="tgl2" required>
                                                             </div>
                                                             <div class="col-md-4" style="margin-top: 31px;">
-                                                                <button align="center" type="submit" name="cetak3"
-                                                                    class="btn btn-info btn-md"><i class="fa fa-print">
+                                                                <button align="center" type="submit" name="cetak3" class="btn btn-info btn-md"><i class="fa fa-print">
                                                                     </i>
                                                                     Cetak</button>
                                                             </div>
@@ -803,8 +785,7 @@
                                                     </form>
                                                     <hr>
                                                     <div class="form-group text-center">
-                                                        <a href="laporan/l_s_keluarga.php" target="_blank"
-                                                            class="btn btn-info btn-md"><i class="fa fa-print"> </i>
+                                                        <a href="laporan/l_s_keluarga.php" target="_blank" class="btn btn-info btn-md"><i class="fa fa-print"> </i>
                                                             Cetak
                                                             Semua</a>
                                                     </div>
@@ -816,26 +797,21 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-white ">
-                                        <div class="text-white me-2 d-flex " type="button"
-                                            class="btn bg-gradient-primary" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal4">
+                                        <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4">
                                             <i class="material-icons opacity-10">print</i>
                                             <span class="nav-link-text ms-1">Laporan Data Rekomendasi <br> Dispensasi
                                                 Nikah</span>
                                         </div>
                                     </a>
-                                    <!-- Button trigger modal -->
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog"
-                                        aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                    
+                                    <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLabel">Laporan Data
                                                         Rekomendasi
                                                         Dispensasi Nikah</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close">
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
@@ -844,17 +820,14 @@
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
                                                                 <label>Dari Tanggal</label>
-                                                                <input type="date" class="form-control" name="tgl1"
-                                                                    required>
+                                                                <input type="date" class="form-control" name="tgl1" required>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <label>Sampai Tanggal</label>
-                                                                <input type="date" class="form-control" name="tgl2"
-                                                                    required>
+                                                                <input type="date" class="form-control" name="tgl2" required>
                                                             </div>
                                                             <div class="col-md-4" style="margin-top: 31px;">
-                                                                <button align="center" type="submit" name="cetak4"
-                                                                    class="btn btn-info btn-md"><i class="fa fa-print">
+                                                                <button align="center" type="submit" name="cetak4" class="btn btn-info btn-md"><i class="fa fa-print">
                                                                     </i>
                                                                     Cetak</button>
                                                             </div>
@@ -862,8 +835,7 @@
                                                     </form>
                                                     <hr>
                                                     <div class="form-group text-center">
-                                                        <a href="laporan/l_rdn.php" target="_blank"
-                                                            class="btn btn-info btn-md"><i class="fa fa-print"> </i>
+                                                        <a href="laporan/l_rdn.php" target="_blank" class="btn btn-info btn-md"><i class="fa fa-print"> </i>
                                                             Cetak
                                                             Semua</a>
                                                     </div>
@@ -875,26 +847,21 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-white ">
-                                        <div class="text-white me-2 d-flex " type="button"
-                                            class="btn bg-gradient-primary" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal5">
+                                        <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5">
                                             <i class="material-icons opacity-10">print</i>
                                             <span class="nav-link-text ms-1">Laporan Data <br> Legalisasi
                                                 Proposal</span>
                                         </div>
                                     </a>
-                                    <!-- Button trigger modal -->
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog"
-                                        aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                   
+                                    <div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLabel">Laporan Data
                                                         Legalisasi
                                                         Proposal</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close">
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
@@ -903,17 +870,14 @@
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
                                                                 <label>Dari Tanggal</label>
-                                                                <input type="date" class="form-control" name="tgl1"
-                                                                    required>
+                                                                <input type="date" class="form-control" name="tgl1" required>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <label>Sampai Tanggal</label>
-                                                                <input type="date" class="form-control" name="tgl2"
-                                                                    required>
+                                                                <input type="date" class="form-control" name="tgl2" required>
                                                             </div>
                                                             <div class="col-md-4" style="margin-top: 31px;">
-                                                                <button align="center" type="submit" name="cetak5"
-                                                                    class="btn btn-info btn-md"><i class="fa fa-print">
+                                                                <button align="center" type="submit" name="cetak5" class="btn btn-info btn-md"><i class="fa fa-print">
                                                                     </i>
                                                                     Cetak</button>
                                                             </div>
@@ -921,8 +885,7 @@
                                                     </form>
                                                     <hr>
                                                     <div class="form-group text-center">
-                                                        <a href="../laporan/l_lp.php" target="_blank"
-                                                            class="btn btn-info btn-md"><i class="fa fa-print"> </i>
+                                                        <a href="../laporan/l_lp.php" target="_blank" class="btn btn-info btn-md"><i class="fa fa-print"> </i>
                                                             Cetak
                                                             Semua</a>
                                                     </div>
@@ -933,7 +896,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             </aside>

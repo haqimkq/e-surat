@@ -143,6 +143,13 @@ if (!isset($_SESSION['nama'])) {
         case "edit_pengantarNikah";
             include "../pages/admin/legalisasi-pengantar-nikah/edit.php";
             break;
+            //Rekomendasi Dispenasi Nikah
+        case "data_dispensasiNikah";
+            include "../pages/admin/dispensasi-nikah/data.php";
+            break;
+        case "edit_dispensasiNikah";
+            include "../pages/admin/dispensasi-nikah/edit.php";
+            break;
 
             // END ADMIN PAGE
 
@@ -252,6 +259,20 @@ if (!isset($_SESSION['nama'])) {
             break;
         case "hapusSuratPengantarNikah":
             include "../pages/other/legalisasi-pengantar-nikah/delete.php";
+            break;
+
+            //REKOMENDASI DISPENSASI NIKAH
+        case "dataDispensasiNikah":
+            include "../pages/other/dispensasi-nikah/data.php";
+            break;
+        case "tambahDispensasiNikah":
+            include "../pages/other/dispensasi-nikah/add.php";
+            break;
+        case "editDispensasiNikah":
+            include "../pages/other/dispensasi-nikah/edit.php";
+            break;
+        case "hapusDispensasiNikah":
+            include "../pages/other/dispensasi-nikah/delete.php";
             break;
     }
 ?>
