@@ -18,18 +18,18 @@ if (!isset($_SESSION['nama'])) {
             <div class="card mb-4">
                 <div class="d-flex">
                     <div
-                        class="icon icon-shape icon-lg bg-gradient-info shadow text-center border-radius-lg mt-n3 ms-3">
+                        class="icon icon-shape icon-lg bg-gradient-warning shadow text-center border-radius-lg mt-n3 ms-3">
                         <i class="material-icons opacity-10" aria-hidden="true">people</i>
                     </div>
                 </div>
                 <div class=" p-0 position-relative mt-n6 mx-4 z-index-4 ps-6">
-                    <div class="bg-gradient-info shadow border-radius-lg pt-3 pb-3 ">
-                        <h6 class="text-white text-capitalize ps-3">Data Surat Dispensasi Nikah</h6>
+                    <div class="bg-gradient-warning shadow border-radius-lg pt-3 pb-3 ">
+                        <h6 class="text-white text-capitalize ps-3">Data Pengajuan Surat Dispensasi Nikah</h6>
                     </div>
                 </div>
                 <div class="card-body p-3 mt-1">
                     <div class="col-2">
-                        <a href="?page=tambahSuratDispensasiNikah" class="btn btn-info">Tambah Data</a>
+                        <a href="?page=tambahSuratDispensasiNikah" class="btn btn-warning">Tambah Data</a>
                     </div>
                     <!-- <hr class="horizontal dark"> -->
                     <div class="row">
@@ -66,7 +66,7 @@ if (!isset($_SESSION['nama'])) {
                                             <td class="w-3">
                                                 <div class="mt-3">
                                                     <button type="button"
-                                                        class="btn btn-info dropdown-toggle border-radius-lg px-3 py-1 "
+                                                        class="btn btn-warning dropdown-toggle border-radius-lg px-3 py-1 "
                                                         id="dropdownMenuButton" data-bs-toggle="dropdown">
                                                         <i class="fa fa-bars"></i>
                                                     </button>

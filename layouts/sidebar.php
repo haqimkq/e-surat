@@ -1,160 +1,147 @@
 <body class="g-sidenav-show bg-gray-200 ">
-    <aside
-        class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark"
-        id="sidenav-main">
+    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark" id="sidenav-main">
         <?php
         $level = $_SESSION['level'];
         if ($level == 0) {
             $years = range(2000, strftime("%Y", time()));
         ?>
-        <div class="sidenav-header mb-2">
-            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-                aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand" href="" target="_blank">
-                <img src="<?php echo "../image/bjm.png" ?>" class="navbar-brand-img h-100" alt="main_logo" />
-                <span class=" font-weight-bold  text-white ms-3 "> Pelayanan Terpadu<br><i class="ms-2"> Kecamatan
-                        Banjarmasin
-                        Utara</i>
-                </span>
-            </a>
-        </div>
-        <hr class="horizontal light mt-0 mb-2 " />
-        <div class="text-light text-center mb-2">
-            <?php
+            <div class="sidenav-header mb-2">
+                <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+                <a class="navbar-brand" href="" target="_blank">
+                    <img src="<?php echo "../image/bjm.png" ?>" class="navbar-brand-img h-100" alt="main_logo" />
+                    <span class=" font-weight-bold  text-white ms-3 "> Pelayanan Terpadu<br><i class="ms-2"> Kecamatan
+                            Banjarmasin
+                            Utara</i>
+                    </span>
+                </a>
+            </div>
+            <hr class="horizontal light mt-0 mb-2 " />
+            <div class="text-light text-center mb-2">
+                <?php
                 include "../db/koneksi.php";
                 $id = $_SESSION['id_user'];
                 $query = mysqli_query($link, "SELECT * FROM users WHERE id_user = '$id' ");
                 $data = $query->fetch_array(); ?>
-            <span class="ms-1 text-black"><?= $data['username'] ?></span>
-        </div>
-        <hr class="horizontal light mt-0 mb-2 nav-link-text text-center ms-1" />
+                <span class="ms-1 text-black"><?= $data['username'] ?></span>
+            </div>
+            <hr class="horizontal light mt-0 mb-2 nav-link-text text-center ms-1" />
 
-        <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="home.php">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">dashboard</i>
+            <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="home.php">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">dashboard</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-master">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">square</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Data Master</span>
+                        </a>
+                        <div class="collapse" id="data-master">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li>
+                                    <a class="nav-link text-white " href="?page=data_user">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">people</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Users</span>
+                                    </a>
+                                    <a class="nav-link text-white " href="?page=data_golongan">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Data Golongan</span>
+                                    </a>
+                                    <a class="nav-link text-white " href="?page=data_jabatan">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Data Jabatan</span>
+                                    </a>
+                                    <a class="nav-link text-white " href="?page=data_pegawai">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment_ind</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Data Pegawai</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-                        <span class="nav-link-text ms-1">Dashboard</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-master">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">square</i>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-pelayanan">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">insert_chart</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Data Pelayanan</span>
+                        </a>
+                        <div class="collapse" id="data-pelayanan">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li>
+                                    <a class="nav-link text-white " href="?page=data_susunanKeluarga">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Susunan Keluarga</span>
+                                    </a>
+                                    <a class="nav-link text-white " href="?page=data_dispensasiNikah">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Rekomendasi Dispensasi <br> Nikah</span>
+                                    </a>
+                                    <a class="nav-link text-white " href="?page=data_sktm">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Legalisasi Surat <br> Keterangan Tidak Mampu</span>
+                                    </a>
+                                    <a class="nav-link text-white " href="?page=data_pengantarNikah">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Legalisasi Surat <br> Pengantar Nikah</span>
+                                    </a>
+                                    <a class="nav-link text-white " href="?page=data_proposal">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Legalisasi Proposal</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-                        <span class="nav-link-text ms-1">Data Master</span>
-                    </a>
-                    <div class="collapse" id="data-master">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li>
-                                <a class="nav-link text-white " href="?page=data_user">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">people</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Users</span>
-                                </a>
-                                <a class="nav-link text-white " href="?page=data_golongan">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Data Golongan</span>
-                                </a>
-                                <a class="nav-link text-white " href="?page=data_jabatan">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Data Jabatan</span>
-                                </a>
-                                <a class="nav-link text-white " href="?page=data_pegawai">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment_ind</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Data Pegawai</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-pelayanan">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">insert_chart</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Data Pelayanan</span>
-                    </a>
-                    <div class="collapse" id="data-pelayanan">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li>
-                                <a class="nav-link text-white " href="?page=data_susunanKeluarga">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Susunan Keluarga</span>
-                                </a>
-                                <a class="nav-link text-white " href="?page=data_dispensasiNikah">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Rekomendasi Dispensasi <br> Nikah</span>
-                                </a>
-                                <a class="nav-link text-white " href="?page=data_sktm">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Legalisasi Surat <br> Keterangan Tidak Mampu</span>
-                                </a>
-                                <a class="nav-link text-white " href="?page=data_pengantarNikah">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Legalisasi Surat <br> Pengantar Nikah</span>
-                                </a>
-                                <a class="nav-link text-white " href="?page=data_proposal">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Legalisasi Proposal</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="?page=data_masyarakat">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">group_add</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Data Masyarakat</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="?page=data_berita">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">fiber_new</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Data Portal Berita</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="?page=data_masyarakat">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">group_add</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Data Masyarakat</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="?page=data_berita">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">fiber_new</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Data Portal Berita</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
     </aside>
 
 
 
     <main class="main-content border-radius-lg">
-        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
-            data-scroll="true">
+        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
@@ -198,13 +185,11 @@
                             </a>
                         </li>
                         <li class="nav-item dropdown pe-2 ps-3 d-flex align-items-center">
-                            <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-bell cursor-pointer"></i>
                             </a>
 
-                            <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4"
-                                aria-labelledby="dropdownMenuButton">
+                            <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                                 <li class="mb-2">
                                     <a class="dropdown-item border-radius-md" href="javascript:;">
                                         <div class="d-flex py-1">
@@ -228,8 +213,7 @@
                                     <a class="dropdown-item border-radius-md" href="javascript:;">
                                         <div class="d-flex py-1">
                                             <div class="my-auto">
-                                                <img src="/aev/assets/img/small-logos/logo-spotify.svg"
-                                                    class="avatar avatar-sm bg-gradient-dark me-3" />
+                                                <img src="/aev/assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark me-3" />
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
                                                 <h6 class="text-sm font-weight-normal mb-1">
@@ -248,20 +232,14 @@
                                     <a class="dropdown-item border-radius-md" href="javascript:;">
                                         <div class="d-flex py-1">
                                             <div class="avatar avatar-sm bg-gradient-secondary me-3 my-auto">
-                                                <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                                     <title>credit-card</title>
                                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                        <g transform="translate(-2169.000000, -745.000000)"
-                                                            fill="#FFFFFF" fill-rule="nonzero">
+                                                        <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                                             <g transform="translate(1716.000000, 291.000000)">
                                                                 <g transform="translate(453.000000, 454.000000)">
-                                                                    <path class="color-background"
-                                                                        d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
-                                                                        opacity="0.593633743"></path>
-                                                                    <path class="color-background"
-                                                                        d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
+                                                                    <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
+                                                                    <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
                                                                     </path>
                                                                 </g>
                                                             </g>
@@ -289,13 +267,13 @@
             </div>
         </nav>
         <!-- End Navbar -->
-        <?php
+    <?php
         }
     ?>
 
 
-        <!-- Bagian Pegawai -->
-        <?php
+    <!-- Bagian Pegawai -->
+    <?php
 
     $level = $_SESSION['level'];
 
@@ -304,8 +282,7 @@
         $years = range(2000, strftime("%Y", time()));
     ?>
         <div class="sidenav-header mb-2">
-            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-                aria-hidden="true" id="iconSidenav"></i>
+            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand" href="" target="_blank">
                 <img src="<?php echo "../image/bjm.png" ?>" class="navbar-brand-img h-100" alt="main_logo" />
                 <span class=" font-weight-bold  text-white ms-3 "> Pelayanan Terpadu<br><i class="ms-2"> Kecamatan
@@ -352,22 +329,19 @@
                                     <span class="nav-link-text ms-1">Users</span>
                                 </a> -->
                                 <a class="nav-link text-white " href="?page=dataPegawai">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">people</i>
                                     </div>
                                     <span class="nav-link-text ms-1">Data Pribadi</span>
                                 </a>
                                 <a class="nav-link text-white " href="?page=dataPerjalananDinas">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">directions_car</i>
                                     </div>
                                     <span class="nav-link-text ms-1">Perjalanan Dinas</span>
                                 </a>
                                 <a class="nav-link text-white " href="?page=dataPerjalananDinas">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">equalizer</i>
                                     </div>
                                     <span class="nav-link-text ms-1">Penilaian Kinerja</span>
@@ -392,8 +366,7 @@
 
 
         <main class="main-content border-radius-lg">
-            <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
-                data-scroll="true">
+            <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
                 <div class="container-fluid py-1 px-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
@@ -437,19 +410,16 @@
                                 </a>
                             </li>
                             <li class="nav-item dropdown pe-2 ps-3 d-flex align-items-center">
-                                <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa fa-bell cursor-pointer"></i>
                                 </a>
 
-                                <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4"
-                                    aria-labelledby="dropdownMenuButton">
+                                <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                                     <li class="mb-2">
                                         <a class="dropdown-item border-radius-md" href="javascript:;">
                                             <div class="d-flex py-1">
                                                 <div class="my-auto">
-                                                    <img src="/aev/assets/img/team-2.jpg"
-                                                        class="avatar avatar-sm me-3" />
+                                                    <img src="/aev/assets/img/team-2.jpg" class="avatar avatar-sm me-3" />
                                                 </div>
                                                 <div class="d-flex flex-column justify-content-center">
                                                     <h6 class="text-sm font-weight-normal mb-1">
@@ -468,8 +438,7 @@
                                         <a class="dropdown-item border-radius-md" href="javascript:;">
                                             <div class="d-flex py-1">
                                                 <div class="my-auto">
-                                                    <img src="/aev/assets/img/small-logos/logo-spotify.svg"
-                                                        class="avatar avatar-sm bg-gradient-dark me-3" />
+                                                    <img src="/aev/assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark me-3" />
                                                 </div>
                                                 <div class="d-flex flex-column justify-content-center">
                                                     <h6 class="text-sm font-weight-normal mb-1">
@@ -488,21 +457,14 @@
                                         <a class="dropdown-item border-radius-md" href="javascript:;">
                                             <div class="d-flex py-1">
                                                 <div class="avatar avatar-sm bg-gradient-secondary me-3 my-auto">
-                                                    <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                                         <title>credit-card</title>
-                                                        <g stroke="none" stroke-width="1" fill="none"
-                                                            fill-rule="evenodd">
-                                                            <g transform="translate(-2169.000000, -745.000000)"
-                                                                fill="#FFFFFF" fill-rule="nonzero">
+                                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                            <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                                                 <g transform="translate(1716.000000, 291.000000)">
                                                                     <g transform="translate(453.000000, 454.000000)">
-                                                                        <path class="color-background"
-                                                                            d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
-                                                                            opacity="0.593633743"></path>
-                                                                        <path class="color-background"
-                                                                            d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
+                                                                        <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
+                                                                        <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
                                                                         </path>
                                                                     </g>
                                                                 </g>
@@ -528,19 +490,18 @@
                     </div>
                 </div>
             </nav>
-            <?php
+        <?php
     }
         ?>
 
-            <!-- Bagian Masyarakat -->
-            <?php
+        <!-- Bagian Masyarakat -->
+        <?php
         $level = $_SESSION['level'];
         if ($level == 2) {
             $years = range(2000, strftime("%Y", time()));
         ?>
             <div class="sidenav-header mb-2">
-                <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-                    aria-hidden="true" id="iconSidenav"></i>
+                <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
                 <a class="navbar-brand" href="" target="_blank">
                     <img src="<?php echo "../image/bjm.png" ?>" class="navbar-brand-img h-100" alt="main_logo" />
                     <span class=" font-weight-bold  text-white ms-3 "> Pelayanan Terpadu<br><i class="ms-2"> Kecamatan
@@ -569,7 +530,7 @@
                             <span class="nav-link-text ms-1">Dashboard</span>
                         </a>
                     </li>
-                    <!-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-master">
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="material-icons opacity-10">square</i>
@@ -580,8 +541,7 @@
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li>
                                     <a class="nav-link text-white " href="?page=dataSusunanKeluarga">
-                                        <div
-                                            class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                             <i class="material-icons opacity-10">people</i>
                                         </div>
                                         <span class="nav-link-text ms-1">Legalisasi <br> Susunan Keluarga</span>
@@ -589,8 +549,7 @@
                                 </li>
                                 <li>
                                     <a class="nav-link text-white " href="?page=dataDispensasiNikah">
-                                        <div
-                                            class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                             <i class="material-icons opacity-10">assignment</i>
                                         </div>
                                         <span class="nav-link-text ms-1">Rekomendasi Dispensasi <br> Nikah</span>
@@ -598,8 +557,7 @@
                                 </li>
                                 <li>
                                     <a class="nav-link text-white " href="?page=dataSktm">
-                                        <div
-                                            class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                             <i class="material-icons opacity-10">people</i>
                                         </div>
                                         <span class="nav-link-text ms-1">Legalisasi Surat <br> Keterangan Tidak
@@ -608,8 +566,7 @@
                                 </li>
                                 <li>
                                     <a class="nav-link text-white " href="?page=dataSuratPengantarNikah">
-                                        <div
-                                            class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                             <i class="material-icons opacity-10">people</i>
                                         </div>
                                         <span class="nav-link-text ms-1">Legalisasi Surat <br> Pengantar Nikah</span>
@@ -617,8 +574,7 @@
                                 </li>
                                 <li>
                                     <a class="nav-link text-white " href="?page=dataProposal">
-                                        <div
-                                            class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                             <i class="material-icons opacity-10">people</i>
                                         </div>
                                         <span class="nav-link-text ms-1">Legalisasi Proposal</span>
@@ -626,21 +582,13 @@
                                 </li>
                             </ul>
                         </div>
-                    </li> -->
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="?page=dataMasyarakat">
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="material-icons opacity-10">group_add</i>
                             </div>
                             <span class="nav-link-text ms-1">Data Pribadi</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="?page=dataSuratDispensasiNikah">
-                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">drafts</i>
-                            </div>
-                            <span class="nav-link-text ms-1">Pengajuan <br> Surat Dispensasi Nikah</span>
                         </a>
                     </li>
                     <!-- <li class="nav-item">
@@ -911,8 +859,7 @@
 
 
             <main class="main-content border-radius-lg">
-                <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
-                    data-scroll="true">
+                <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
                     <div class="container-fluid py-1 px-3">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
@@ -956,19 +903,16 @@
                                     </a>
                                 </li>
                                 <li class="nav-item dropdown pe-2 ps-3 d-flex align-items-center">
-                                    <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="fa fa-bell cursor-pointer"></i>
                                     </a>
 
-                                    <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4"
-                                        aria-labelledby="dropdownMenuButton">
+                                    <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                                         <li class="mb-2">
                                             <a class="dropdown-item border-radius-md" href="javascript:;">
                                                 <div class="d-flex py-1">
                                                     <div class="my-auto">
-                                                        <img src="/aev/assets/img/team-2.jpg"
-                                                            class="avatar avatar-sm me-3" />
+                                                        <img src="/aev/assets/img/team-2.jpg" class="avatar avatar-sm me-3" />
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="text-sm font-weight-normal mb-1">
@@ -987,8 +931,7 @@
                                             <a class="dropdown-item border-radius-md" href="javascript:;">
                                                 <div class="d-flex py-1">
                                                     <div class="my-auto">
-                                                        <img src="/aev/assets/img/small-logos/logo-spotify.svg"
-                                                            class="avatar avatar-sm bg-gradient-dark me-3" />
+                                                        <img src="/aev/assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark me-3" />
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="text-sm font-weight-normal mb-1">
@@ -1007,22 +950,14 @@
                                             <a class="dropdown-item border-radius-md" href="javascript:;">
                                                 <div class="d-flex py-1">
                                                     <div class="avatar avatar-sm bg-gradient-secondary me-3 my-auto">
-                                                        <svg width="12px" height="12px" viewBox="0 0 43 36"
-                                                            version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                        <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                                             <title>credit-card</title>
-                                                            <g stroke="none" stroke-width="1" fill="none"
-                                                                fill-rule="evenodd">
-                                                                <g transform="translate(-2169.000000, -745.000000)"
-                                                                    fill="#FFFFFF" fill-rule="nonzero">
+                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                                                     <g transform="translate(1716.000000, 291.000000)">
-                                                                        <g
-                                                                            transform="translate(453.000000, 454.000000)">
-                                                                            <path class="color-background"
-                                                                                d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
-                                                                                opacity="0.593633743"></path>
-                                                                            <path class="color-background"
-                                                                                d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
+                                                                        <g transform="translate(453.000000, 454.000000)">
+                                                                            <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
+                                                                            <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
                                                                             </path>
                                                                         </g>
                                                                     </g>
@@ -1048,6 +983,6 @@
                         </div>
                     </div>
                 </nav>
-                <?php
+            <?php
         }
             ?>

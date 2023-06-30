@@ -52,7 +52,7 @@ function tgl($tanggal)
 ?>
 
 <script type="text/javascript">
-    window.print();
+window.print();
 </script>
 
 <!DOCTYPE html>
@@ -60,94 +60,30 @@ function tgl($tanggal)
 
 <head>
     <style>
-        a {
-            color: var(--bs-link-color);
-            text-decoration: none;
-        }
+    .container,
+    .container-fluid,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .container-xl,
+    .container-xxl {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 0;
+        width: 87%;
+        padding-right: calc(var(--bs-gutter-x) * 0.5);
+        padding-left: calc(var(--bs-gutter-x) * 0.5);
+        margin-right: auto;
+        margin-left: auto;
+    }
 
-        a:hover {
-            color: var(--bs-link-hover-color);
-            text-decoration: none;
-        }
-
-        .badge {
-            --bs-badge-padding-x: 0.9em;
-            --bs-badge-padding-y: 0.55em;
-            --bs-badge-font-size: 0.75em;
-            --bs-badge-font-weight: 700;
-            --bs-badge-color: #000;
-            --bs-badge-border-radius: 0.45rem;
-            display: inline-block;
-            padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
-            font-size: var(--bs-badge-font-size);
-            font-weight: var(--bs-badge-font-weight);
-            line-height: 1;
-            color: var(--bs-badge-color);
-            text-align: center;
-            white-space: nowrap;
-            vertical-align: baseline;
-            border-radius: var(--bs-badge-border-radius);
-        }
-
-        .badge:hover {
-            color: var(--bs-highlight-bg);
-            text-decoration: none;
-        }
-
-        .badge:empty {
-            display: none;
-        }
-
-        .btn-success,
-        .btn.bg-gradient-success {
-            box-shadow: 0 3px 3px 0 rgba(76, 175, 80, 0.15),
-                0 3px 1px -2px rgba(76, 175, 80, 0.2), 0 1px 5px 0 rgba(76, 175, 80, 0.15);
-        }
-
-        .btn-success:hover,
-        .btn.bg-gradient-success:hover {
-            background-color: #4caf50;
-            border-color: #4caf50;
-            box-shadow: 0 14px 26px -12px rgba(76, 175, 80, 0.4),
-                0 4px 23px 0 rgba(76, 175, 80, 0.15), 0 8px 10px -5px rgba(76, 175, 80, 0.2);
-        }
-
-        .btn-success .btn.bg-outline-success,
-        .btn.bg-gradient-success .btn.bg-outline-success {
-            border: 1px solid #4caf50;
-        }
-
-        .btn-success:not(:disabled):not(.disabled).active,
-        .btn-success:not(:disabled):not(.disabled):active,
-        .show>.btn-success.dropdown-toggle,
-        .btn.bg-gradient-success:not(:disabled):not(.disabled).active,
-        .btn.bg-gradient-success:not(:disabled):not(.disabled):active,
-        .show>.btn.bg-gradient-success.dropdown-toggle {
-            color: color-yiq(#4caf50);
-            background-color: #4caf50;
-        }
-
-        .btn-success.focus,
-        .btn-success:focus,
-        .btn.bg-gradient-success.focus,
-        .btn.bg-gradient-success:focus {
-            color: #fff;
-        }
-
-        .btn-outline-success {
-            box-shadow: none;
-        }
-
-        .btn-outline-success:hover:not(.active) {
-            background-color: transparent;
-            opacity: 0.75;
-            box-shadow: none;
-            color: #4caf50;
-        }
+    .roww h4 {
+        text-align: justify;
+        padding-left: 70px;
+    }
     </style>
 
     <link rel="icon" type="image/png" href="<?php echo "../../../image/bjm.png" ?>">
-    <title>Laporan Legalisasi Proposal </title>
+    <title>Surat Balasan Legalisasi Proposal </title>
 </head>
 
 <body>
@@ -166,92 +102,43 @@ function tgl($tanggal)
             <?php echo $label ?>
         </center>
     </h3>
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="card-box table-responsive">
-                <table border="1" cellspacing="1" cellpadding="6" width="100%">
-                    <thead style="background-color: #5F9EA0">
-                        <tr>
-                            <th style="text-align: center; font-size: 18px;">No</th>
-                            <th style="text-align: center; font-size: 18px;">Nama Masyarakat</th>
-                            <th style="text-align: center; font-size: 18px; width:10%;">Jenis Pelayanan</th>
-                            <th style="text-align: center; font-size: 18px; width:7%;">Surat Dari Lurah</th>
-                            <th style="text-align: center; font-size: 18px; width:7%;">Akte Cerai (Meninggal)</th>
-                            <th style="text-align: center; font-size: 18px; width:7%;">Akte Cerai (Hidup)</th>
-                            <th style="text-align: center; font-size: 18px; width:7%;">Surat Wali Nikah</th>
-                            <th style="text-align: center; font-size: 18px; width:13%;">Foto KTP</th>
-                            <th style="text-align: center; font-size: 18px; width:13%;">Pas Foto</th>
-                            <th style="text-align: center; font-size: 18px;">Tanggal Pengajuan</th>
-                            <th style="text-align: center; font-size: 18px;">Status</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <?php
-                        $no = 1;
-                        $data = $query->fetch_array(); { ?>
-                            <tr>
-                                <td align="center"><?php echo $no++; ?></td>
-                                <td align="left"><?php echo $data['nama']; ?></td>
-                                <td align="center"> <?= $data['j_pelayanan']; ?></td>
-
-                                <td class="w-5" align="center">
-                                    <?php
-                                    if (!empty($data['spn'])) {
-                                        $pdfPath = '../../../pelayanan/' . $data['spn'];
-                                        echo "<a class='badge bg-gradient-success ' href='$pdfPath' download>√</a>";
-                                    } else {
-                                        echo "File PDF tidak tersedia";
-                                    }
-                                    ?>
-                                </td>
-                                <td class="w-5" align="center">
-                                    <?php
-                                    if (!empty($data['akte_c'])) {
-                                        $pdfPath = '../../../pelayanan/' . $data['akte_c'];
-                                        echo "<a class='badge bg-gradient-success ' href='$pdfPath' download>√</a>";
-                                    } else {
-                                        echo "File PDF tidak tersedia";
-                                    }
-                                    ?>
-                                </td>
-                                <td class="w-5" align="center">
-                                    <?php
-                                    if (!empty($data['sk'])) {
-                                        $pdfPath = '../../../pelayanan/' . $data['sk'];
-                                        echo "<a class='badge bg-gradient-success ' href='$pdfPath' download>√</a>";
-                                    } else {
-                                        echo "File PDF tidak tersedia";
-                                    }
-                                    ?>
-                                </td>
-                                <td class="w-5" align="center">
-                                    <?php
-                                    if (!empty($data['skwn'])) {
-                                        $pdfPath = '../../../pelayanan/' . $data['skwn'];
-                                        echo "<a class='badge bg-gradient-success ' href='$pdfPath' download>√</a>";
-                                    } else {
-                                        echo "File PDF tidak tersedia";
-                                    }
-                                    ?>
-                                </td>
-
-                                <td class="w-10" align="center">
-                                    <?php echo "<a href='../../../img/{$data['ktp']}' download><img src='../../../img/{$data['ktp']}' width='110' height='85' style='border-radius: 5%;' /></a>"; ?>
-
-                                </td>
-                                <td class="w-10" align="center">
-                                    <?php echo "<a href='../../../img/{$data['pas_foto']}' download><img src='../../../img/{$data['pas_foto']}' width='110' height='85' style='border-radius: 5%;' /></a>"; ?>
-
-                                </td>
-                                <td align="center"><?= tgl($data['tgl']) ?></td>
-                                <td align="center"><?= $data['status']; ?></td>
-                            </tr>
-
-                    </tbody>
-                    * Klik ( √ ) Dan Gambar Untuk Download Berkas
-                </table>
-
+    <div class="col-sm-10">
+        <div class=" card-box table-responsive">
+            <table border="0" cellspacing="0" cellpadding="6" width="100%">
+                <thead style="background-color: #0000 ">
+                    <?php $data = $query->fetch_array(); { ?>
+                    <tr>
+                        <div class="roww col-md-10">
+                            <h4 align="justify">Berdasarkan Hasil Pemeriksaan berkas untuk keperluan
+                                <i><?php echo $data['j_pelayanan']; ?></i>, Dengan surat ini, Kecamatan menerangkan
+                                dengan
+                                sebenarnya Bahwa :
+                            </h4>
+                        </div>
+                        <th style="padding-left: 90px; text-align: left; font-size: 15px; ">
+                            Nama Pemohon
+                            &emsp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+                            :&emsp;<?php echo $data['nama']; ?>
+                            <br>
+                            <br>
+                            Tanggal Permohonan &emsp;&emsp;&emsp; :&emsp;<?= tgl($data['tgl']) ?>
+                            <br>
+                            <br>
+                            Status Permohonan
+                            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;:&emsp;<?php echo $data['status']; ?>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+            <div class="roww col-md-12">
+                <h4 align="justify">Bahwa nama tersebut diatas telah melakukan pemeriksaan pemberkasan untuk keperluan
+                    layanan Kecamatan
+                    Banjarmasin Timur, sesuai atas
+                    permintaan yang
+                    bersangkutan.</h4>
+                <h4 align="justify">Demikian surat ini diberikan untuk dapat dipergunakan sebagaimana mestinya
+                    dan
+                    apabila terdapat kekeliruan dikemudian hari, ini dinyatakan tidak berlaku lagi.</h4>
             </div>
         </div>
     </div>
@@ -271,7 +158,8 @@ function tgl($tanggal)
         </h5>
     </div>
 
-<?php } ?>
+    <?php } ?>
+
 </body>
 
 </html>
