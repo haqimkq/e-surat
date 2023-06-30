@@ -274,6 +274,20 @@ if (!isset($_SESSION['nama'])) {
         case "hapusDispensasiNikah":
             include "../pages/other/dispensasi-nikah/delete.php";
             break;
+
+            //SURAT REKOMENDASI DISPENSASI NIKAH
+        case "dataSuratDispensasiNikah":
+            include "../pages/other/surat-dispensasi-nikah/data.php";
+            break;
+        case "tambahSuratDispensasiNikah":
+            include "../pages/other/surat-dispensasi-nikah/add.php";
+            break;
+        case "editSuratDispensasiNikah":
+            include "../pages/other/surat-dispensasi-nikah/edit.php";
+            break;
+        case "hapusSuratDispensasiNikah":
+            include "../pages/other/surat_dispensasi-nikah/delete.php";
+            break;
     }
 ?>
 
