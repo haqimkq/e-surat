@@ -151,6 +151,14 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/admin/dispensasi-nikah/edit.php";
             break;
 
+            //SURAT REKOMENDASI DISPENSASI NIKAH
+        case "data_SuratDispensasiNikah":
+            include "../pages/admin/surat-dispensasi-nikah/data.php";
+            break;
+        case "hapus_SuratDispensasiNikah":
+            include "../pages/admin/surat-dispensasi-nikah/delete.php";
+            break;
+
             // END ADMIN PAGE
 
             // START  PAGAWAI PAGE--------------
@@ -286,7 +294,7 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/other/surat-dispensasi-nikah/edit.php";
             break;
         case "hapusSuratDispensasiNikah":
-            include "../pages/other/surat_dispensasi-nikah/delete.php";
+            include "../pages/other/surat-dispensasi-nikah/delete.php";
             break;
     }
 ?>
