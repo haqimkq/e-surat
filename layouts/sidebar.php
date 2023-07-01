@@ -77,7 +77,7 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-pelayanan">
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">insert_chart</i>
+                                <i class="material-icons opacity-10">announcement</i>
                             </div>
                             <span class="nav-link-text ms-1">Data Pelayanan</span>
                         </a>
@@ -113,6 +113,26 @@
                                             <i class="material-icons opacity-10">assignment</i>
                                         </div>
                                         <span class="nav-link-text ms-1">Legalisasi Proposal</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-penilaian">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">insert_chart</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Data Penilaian</span>
+                        </a>
+                        <div class="collapse" id="data-penilaian">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li>
+                                    <a class="nav-link text-white " href="?page=data_KinerjaPegawai">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">beenhere</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Penilai Kinerja Pegawai</span>
                                     </a>
                                 </li>
                             </ul>

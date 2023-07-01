@@ -159,7 +159,22 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/admin/surat-dispensasi-nikah/delete.php";
             break;
 
-            // END ADMIN PAGE
+            // PENILAIAN KINERJA PEGAWAI
+        case "data_KinerjaPegawai":
+            include "../pages/admin/kinerja-pegawai/data.php";
+            break;
+        case "tambah_KinerjaPegawai":
+            include "../pages/admin/kinerja-pegawai/add.php";
+            break;
+        case "edit_KinerjaPegawai":
+            include "../pages/admin/kinerja-pegawai/edit.php";
+            break;
+        case "hapus_KinerjaPegawai":
+            include "../pages/admin/kinerja-pegawai/delete.php";
+            break;
+
+            // END ADMIN PAGE -----------
+
 
             // START  PAGAWAI PAGE--------------
             // PEGAWAI
@@ -190,7 +205,7 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/other/perjalanan-dinas/delete.php";
             break;
 
-            // END PEGAWAI PAGE
+            // END PEGAWAI PAGE ---------
 
             // START MASYARAKAT PAGE------------------
             // MASYARAKAT
