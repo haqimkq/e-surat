@@ -311,6 +311,20 @@ if (!isset($_SESSION['nama'])) {
         case "hapusSuratDispensasiNikah":
             include "../pages/other/surat-dispensasi-nikah/delete.php";
             break;
+
+            // PENILAIAN KINERJA KECAMATAN
+        case "dataKinerjaKecamatan":
+            include "../pages/other/kinerja-kecamatan/data.php";
+            break;
+        case "tambahKinerjaKecamatan":
+            include "../pages/other/kinerja-kecamatan/add.php";
+            break;
+        case "editKinerjaKecamatan":
+            include "../pages/other/kinerja-kecamatan/edit.php";
+            break;
+        case "hapusKinerjaKecamatan":
+            include "../pages/other/kinerja-kecamatan/delete.php";
+            break;
     }
 ?>
 
