@@ -47,12 +47,12 @@ if (!isset($_SESSION['nama'])) {
                 </div>
                 <div class=" p-0 position-relative mt-n6 mx-4 z-index-4 ps-6">
                     <div class="bg-gradient-info shadow border-radius-lg pt-3 pb-3 ">
-                        <h6 class="text-white text-capitalize ps-3">Data Penilaian Kinerja Pegawai</h6>
+                        <h6 class="text-white text-capitalize ps-3">Data Penilaian Kinerja Pelayanan Kecamatan</h6>
                     </div>
                 </div>
                 <div class="card-body p-3">
                     <div class="col-2 ">
-                        <a href="?page=tambah_KinerjaPegawai" class="btn btn-info">Tambah Data</a>
+                        <a href="?page=tambahKinerjaKecamatan" class="btn btn-info">Tambah Data</a>
                     </div>
                     <!-- <hr class="horizontal dark"> -->
                     <div class="row">
@@ -67,7 +67,7 @@ if (!isset($_SESSION['nama'])) {
                                                 No.
                                             </th>
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                NIP</th>
+                                                No KTP</th>
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 Nama Masyrakat</th>
                                             <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
@@ -84,8 +84,9 @@ if (!isset($_SESSION['nama'])) {
                                     <tbody>
                                         <?php
                                             $no = 1;
-                                            $query = mysqli_query($link, "SELECT * FROM skpKecamatan s 
-                                            join id_msy p on s.id_msy = p.id_msy 
+                                            $id = $_SESSION['id_user'];
+                                            $query = mysqli_query($link, "SELECT * FROM skpkecamatan s 
+                                            join masyarakat m on s.id_msy = m.id_msy where id_user='$id'
                                             ");
                                             $i = 1;
                                             while ($row = $query->fetch_array()) {
@@ -117,8 +118,8 @@ if (!isset($_SESSION['nama'])) {
                                                 </div>
                                             </td>
                                             <td class="w-2" align="center"><?= $i++ ?></td>
-                                            <td class="w-11"><?= $row['no_ktp']; ?></td>
-                                            <td class="w-19"><?= $row['nama']; ?></td>
+                                            <td class="w-7"><?= $row['no_ktp']; ?></td>
+                                            <td class="w-15"><?= $row['nama']; ?></td>
                                             <td class="w-5" align="center"><?= tgl($row['tgl_kinerja']); ?></td>
                                             <td class="w-5" align="center"><?= $row['nilai_prestasi_kerja']; ?></td>
                                             <td align=" center">

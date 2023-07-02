@@ -16,15 +16,16 @@ if (!isset($_SESSION['nama'])) {
                         <div class="card mb-4">
                             <div class=" position-relative mt-n4 mx-3 ps-0  ">
                                 <div class="bg-gradient-info shadow border-radius-lg pt-3 pb-3 ">
-                                    <h3 class=" text-white text-capitalize text-center py-1 ">Tambah Data Untuk Kinerja
-                                        Pegawai
+                                    <h3 class=" text-white text-capitalize text-center py-1 ">Masukan Penilaian Untuk
+                                        Kinerja
+                                        Pelayanan Kecamatan
                                     </h3>
                                 </div>
                             </div>
                             <div class="card-body p-3">
                                 <!-- <hr class="horizontal dark"> -->
                                 <div class="content-wrapper">
-                                    <div class="container py-4">
+                                    <div class="container py-2">
                                         <div class="row">
                                             <div class="col-lg-12 mx-auto d-flex justify-content-center flex-column">
 
@@ -42,7 +43,7 @@ if (!isset($_SESSION['nama'])) {
                                                         <?php
                                                         }
                                                         ?>
-                                                        <div class="col-md-12">
+                                                        <div class="col-md-6">
                                                             <div class="input-group input-group-dynamic">
                                                                 <label>Pilih Nama Masyarakat</label>
                                                                 <div class="input-group input-group-dynamic mb-4">
@@ -59,7 +60,7 @@ if (!isset($_SESSION['nama'])) {
 
                                                         <div class="col-md-6">
                                                             <div class="input-group input-group-dynamic">
-                                                                <label>NIP</label>
+                                                                <label>No KTP</label>
                                                                 <div class="input-group input-group-dynamic ">
                                                                     <input placeholder="Disabled" class="form-control" id="no_ktp" aria-label="No KTP" type="text" readonly>
                                                                     <div class="help-block with-errors"></div>
@@ -79,7 +80,7 @@ if (!isset($_SESSION['nama'])) {
                                 <h5 class="mt-3"> PENILAIAN</h5>
                                 <div class="input-group input-group-outline my-3">
                                     <label for="nilai_skp" class="col-12 col-md-3 text-right pr-4 font-weight-normal">Nilai
-                                        SKP</label>
+                                        Subjektif</label>
                                     <div class="col-12 col-md-3">
                                         <input step="0.01" type="number" name="nilai_skp" id="nilai_skp" class="form-control" role="nilai-rumus" data-label="#nilai_skp_label" value="<?= @$skp['nilai_skp'] ?>" required>
                                     </div>
@@ -89,7 +90,7 @@ if (!isset($_SESSION['nama'])) {
                                 </div>
                             </div>
                             <div class="form-row">
-                                <label class="col-12 col-md-3 text-right pr-4">Perilaku Kerja</label>
+                                <label class="col-12 col-md-3 text-right pr-4">Perilaku Saat Pelayanan</label>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
@@ -199,7 +200,7 @@ if (!isset($_SESSION['nama'])) {
                                                 <tr align="center">
                                                     <th>No</th>
                                                     <th>Nama Masyarakat</th>
-                                                    <th>Jabatan</th>
+                                                    <th>No KTP</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -207,13 +208,14 @@ if (!isset($_SESSION['nama'])) {
                                             <tbody>
                                                 <?php
                                                 $no = 1;
-                                                $data = $link->query("SELECT * FROM masyarakat ");
+                                                $id = $_SESSION['id_user'];
+                                                $data = $link->query("SELECT * FROM masyarakat WHERE id_user = '$id'");
                                                 while ($row = $data->fetch_array()) {
                                                 ?>
                                                     <tr>
                                                         <td align="center" width="5%"><?= $no++ ?></td>
-                                                        <td><?= $row['nm_pegawai'] ?></td>
-                                                        <td><?= $row['nm_jabatan'] ?></td>
+                                                        <td align="center"><?= $row['nama'] ?></td>
+                                                        <td align="center"><?= $row['no_ktp'] ?></td>
                                                         <td align="center" width="18%">
                                                             <button class="btn btn-xs btn-success" class="close" aria-label="Close" data-dismiss="modal" id="select" data-id_msy="<?= $row['id_msy'] ?>" data-nama="<?= $row['nama'] ?>" data-no_ktp="<?= $row['no_ktp'] ?>">
                                                                 Pilih

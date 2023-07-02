@@ -6,9 +6,9 @@ include "../../../db/koneksi.php";
 
 $id = $_GET['id'];
 $query = $link->query("SELECT  * FROM skpKecamatan s 
-join id_msy p on s.id_msy = p.id_msy where idSkpKec = '$id' ");
+join masyarakat m on s.id_msy = m.id_msy where idSkpKec = '$id'");
 
-$label = 'DETAIL KINERJA PEGAWAI ';
+$label = 'DETAIL PENILAI UNTUK PELAYANAN PADA KECAMATAN BANJARMASIN TIMUR ';
 
 
 $bln = array(
@@ -78,7 +78,7 @@ function namaHari($tanggal)
 ?>
 
 <script type="text/javascript">
-    window.print();
+window.print();
 </script>
 
 <!DOCTYPE html>
@@ -86,26 +86,26 @@ function namaHari($tanggal)
 
 <head>
     <style>
-        .container,
-        .container-fluid,
-        .container-sm,
-        .container-md,
-        .container-lg,
-        .container-xl,
-        .container-xxl {
-            --bs-gutter-x: 1.5rem;
-            --bs-gutter-y: 0;
-            width: 87%;
-            padding-right: calc(var(--bs-gutter-x) * 0.5);
-            padding-left: calc(var(--bs-gutter-x) * 0.5);
-            margin-right: auto;
-            margin-left: auto;
-        }
+    .container,
+    .container-fluid,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .container-xl,
+    .container-xxl {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 0;
+        width: 87%;
+        padding-right: calc(var(--bs-gutter-x) * 0.5);
+        padding-left: calc(var(--bs-gutter-x) * 0.5);
+        margin-right: auto;
+        margin-left: auto;
+    }
 
-        .roww h6 {
-            text-align: justify;
-            padding-left: 70px;
-        }
+    .roww h6 {
+        text-align: justify;
+        padding-left: 70px;
+    }
     </style>
     <!-- <link id="pagestyle" href="../../../../aev/assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" /> -->
 
@@ -125,11 +125,11 @@ function namaHari($tanggal)
             <hr size="2px" color="black">
         </b></p>
 
-    <h3>
+    <h4>
         <center>
             <?php echo $label ?>
         </center>
-    </h3>
+    </h4>
     <div class=" container col-sm-12">
         <div class="card-box table-responsive">
             <table border="0" cellspacing="0" cellpadding="6" width="100%">
@@ -138,41 +138,38 @@ function namaHari($tanggal)
                     $no = 1;
                     $data = $query->fetch_array(); { ?>
 
-                        <tr>
-                            <th style="text-align: left; font-size: 18px;">
+                    <tr>
+                        <th style="text-align: left; font-size: 18px;">
 
-                                NIP &emsp; &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &emsp;&emsp;&emsp;&emsp; :
-                                <?php echo $data['nip']; ?>
-                                <br>
-                                <br>
-                                Nama Pegawai &emsp;&emsp;&emsp;&ensp; &emsp; &ensp; &ensp; :
-                                <?php echo $data['nm_pegawai']; ?>
-                                <br>
-                                <br>
-                                Jabatan &emsp;&emsp;&emsp;&ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;:
-                                <?php echo $data['nm_jabatan']; ?>
-                                <br>
-                                <br>
-                                Tanggal Pemberian Kinerja &emsp;: <?= tgl($data['tgl_kinerja']) ?>
-                                <br>
-                                <br>
-                                Keterangan &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:<?php
+                            No KTP &emsp; &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp;
+                            &emsp;&emsp;&emsp;&emsp;:
+                            <?php echo $data['no_ktp']; ?>
+                            <br>
+                            <br>
+                            Nama Masyarakat &emsp;&emsp;&emsp;&ensp; &emsp; &ensp; &ensp; :
+                            <?php echo $data['nama']; ?>
+                            <br>
+                            <br>
+                            Tanggal Pemberian Kinerja &emsp; &emsp; : <?= tgl($data['tgl_kinerja']) ?>
+                            <br>
+                            <br>
+                            Keterangan &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; : <?php
 
-                                                                                            if ($data['nilai_prestasi_kerja'] >= 80 && $data['nilai_prestasi_kerja'] <= 100) {
-                                                                                                echo "Sangat Baik";
-                                                                                            } else if ($data['nilai_prestasi_kerja'] >= 70 && $data['nilai_prestasi_kerja'] <= 80) {
-                                                                                                echo "Baik";
-                                                                                            } else if ($data['nilai_prestasi_kerja'] >= 60 && $data['nilai_prestasi_kerja'] <= 70) {
-                                                                                                echo "Cukup";
-                                                                                            } else if ($data['nilai_prestasi_kerja'] >= 40 && $data['nilai_prestasi_kerja'] <= 60) {
-                                                                                                echo "Kurang";
-                                                                                            } else if ($data['nilai_prestasi_kerja'] >= 0 && $data['nilai_prestasi_kerja'] <= 39) {
-                                                                                                echo "Buruk";
-                                                                                            }
+                                                                                                    if ($data['nilai_prestasi_kerja'] >= 80 && $data['nilai_prestasi_kerja'] <= 100) {
+                                                                                                        echo "Sangat Baik";
+                                                                                                    } else if ($data['nilai_prestasi_kerja'] >= 70 && $data['nilai_prestasi_kerja'] <= 80) {
+                                                                                                        echo "Baik";
+                                                                                                    } else if ($data['nilai_prestasi_kerja'] >= 60 && $data['nilai_prestasi_kerja'] <= 70) {
+                                                                                                        echo "Cukup";
+                                                                                                    } else if ($data['nilai_prestasi_kerja'] >= 40 && $data['nilai_prestasi_kerja'] <= 60) {
+                                                                                                        echo "Kurang";
+                                                                                                    } else if ($data['nilai_prestasi_kerja'] >= 0 && $data['nilai_prestasi_kerja'] <= 39) {
+                                                                                                        echo "Buruk";
+                                                                                                    }
 
-                                                                                            ?>
-                            </th>
-                        </tr>
+                                                                                                    ?>
+                        </th>
+                    </tr>
                 </thead>
                 <div class="card-box table-responsive">
                     <table border="1" align="center" cellspacing="0" cellpadding="6" width="70%">
@@ -219,7 +216,7 @@ function namaHari($tanggal)
                                 <td align="center"><?= $data['nilai_prestasi_kerja']; ?></td>
                             </tr>
                         </tbody>
-                    <?php } ?>
+                        <?php } ?>
                     </table>
                 </div>
         </div>
