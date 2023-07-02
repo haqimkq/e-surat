@@ -7,8 +7,7 @@
         <div class="col-xl-4 col-sm-4">
             <div class="card ">
                 <div class="card-header p-3 pt-2">
-                    <div
-                        class="icon icon-lg icon-shape bg-gradient-warning shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                    <div class="icon icon-lg icon-shape bg-gradient-warning shadow-primary text-center border-radius-xl mt-n4 position-absolute">
                         <i class="material-icons opacity-10">person</i>
                     </div>
                     <div class="text-end pt-1">
@@ -25,8 +24,7 @@
         <div class="col-xl-4 col-sm-6 mb-xl-0 mb-3">
             <div class="card">
                 <div class="card-header p-3 pt-2">
-                    <div
-                        class="icon icon-lg icon-shape bg-gradient-success shadow-success  text-center border-radius-xl mt-n4 position-absolute">
+                    <div class="icon icon-lg icon-shape bg-gradient-success shadow-success  text-center border-radius-xl mt-n4 position-absolute">
                         <i class="material-icons opacity-10">person</i>
                     </div>
                     <div class="text-end pt-1">
@@ -43,8 +41,7 @@
         <div class="col-xl-4 col-sm-2">
             <div class="card">
                 <div class="card-header p-3 pt-2">
-                    <div
-                        class="icon icon-lg icon-shape  bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                    <div class="icon icon-lg icon-shape  bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
                         <i class="material-icons opacity-10">person</i>
                     </div>
                     <div class="text-end pt-1">
@@ -63,8 +60,7 @@
         <div class="col-xl-6 col-sm-6 mb-xl-0 mb-3">
             <div class="card">
                 <div class="card-header p-3 pt-2">
-                    <div
-                        class="icon icon-lg icon-shape bg-gradient-danger shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                    <div class="icon icon-lg icon-shape bg-gradient-danger shadow-success text-center border-radius-xl mt-n4 position-absolute">
                         <i class="material-icons opacity-10">person</i>
                     </div>
                     <div class="text-end pt-1">
@@ -81,8 +77,7 @@
         <div class="col-xl-6 col-sm-6 mb-xl-0 mb-3">
             <div class="card">
                 <div class="card-header p-3 pt-2">
-                    <div
-                        class="icon icon-lg icon-shape bg-gradient-primary shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                    <div class="icon icon-lg icon-shape bg-gradient-primary shadow-success text-center border-radius-xl mt-n4 position-absolute">
                         <i class="material-icons opacity-10">person</i>
                     </div>
                     <div class="text-end pt-1">
@@ -111,8 +106,7 @@
                         </div>
                         <div class="col-lg-6 col-5 my-auto text-end">
                             <div class="dropdown float-lg-end pe-4">
-                                <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
+                                <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa fa-ellipsis-v text-secondary"></i>
                                 </a>
                             </div>
@@ -142,11 +136,11 @@
 
                                 while ($row = $query->fetch_array()) {
                                 ?>
-                                <tr>
-                                    <td align="center"><?= $i++ ?></td>
-                                    <td align="left"><?= $row['username']; ?></td>
-                                    <td align="left"><?= $row['password']; ?></td>
-                                </tr>
+                                    <tr>
+                                        <td align="center"><?= $i++ ?></td>
+                                        <td align="left"><?= $row['username']; ?></td>
+                                        <td align="left"><?= $row['password']; ?></td>
+                                    </tr>
 
                                 <?php
                                 }
@@ -217,58 +211,50 @@
                         <div class="row">
                             <div class="col-3 py-3 ps-0">
                                 <div class="d-flex mb-2">
-                                    <div
-                                        class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-primary text-center me-2 d-flex align-items-center justify-content-center">
+                                    <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-primary text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">groups</i>
                                     </div>
                                     <p class="text-xs my-auto font-weight-bold">Users</p>
                                 </div>
                                 <h4 class="font-weight-bolder">42K</h4>
                                 <div class="progress w-75">
-                                    <div class="progress-bar bg-dark w-60" role="progressbar" aria-valuenow="60"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-dark w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                             <div class="col-3 py-3 ps-0">
                                 <div class="d-flex mb-2">
-                                    <div
-                                        class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-info text-center me-2 d-flex align-items-center justify-content-center">
+                                    <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-info text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">ads_click</i>
                                     </div>
                                     <p class="text-xs mt-1 mb-0 font-weight-bold">Clicks</p>
                                 </div>
                                 <h4 class="font-weight-bolder">1.7m</h4>
                                 <div class="progress w-75">
-                                    <div class="progress-bar bg-dark w-90" role="progressbar" aria-valuenow="90"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-dark w-90" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                             <div class="col-3 py-3 ps-0">
                                 <div class="d-flex mb-2">
-                                    <div
-                                        class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
+                                    <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-warning text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">receipt</i>
                                     </div>
                                     <p class="text-xs mt-1 mb-0 font-weight-bold">Sales</p>
                                 </div>
                                 <h4 class="font-weight-bolder">399$</h4>
                                 <div class="progress w-75">
-                                    <div class="progress-bar bg-dark w-30" role="progressbar" aria-valuenow="30"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-dark w-30" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                             <div class="col-3 py-3 ps-0">
                                 <div class="d-flex mb-2">
-                                    <div
-                                        class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-danger text-center me-2 d-flex align-items-center justify-content-center">
+                                    <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-danger text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">category</i>
                                     </div>
                                     <p class="text-xs mt-1 mb-0 font-weight-bold">Items</p>
                                 </div>
                                 <h4 class="font-weight-bolder">74</h4>
                                 <div class="progress w-75">
-                                    <div class="progress-bar bg-dark w-50" role="progressbar" aria-valuenow="50"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-dark w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>

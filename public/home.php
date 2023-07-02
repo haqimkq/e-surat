@@ -11,14 +11,22 @@ if (!isset($_SESSION['nama'])) {
     include '../db/koneksi.php';
 
     $id = $_SESSION['id_user'];
+
+
 ?>
 <?php
     error_reporting(0);
     switch ($_GET['page']) {
         default:
 
-            include "../public/dashboard.php";
+            if ($level === '0' || $level === '1') {
+                include "../public/dashboard.php";
+            } elseif ($level === '2') {
+                include "../public/dashboard-masyarakat.php";
+            }
             break;
+
+
 
             // START ADMIN PAGE
             //PORTAL BERITA
