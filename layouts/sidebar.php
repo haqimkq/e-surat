@@ -163,6 +163,266 @@
                             <span class="nav-link-text ms-1">Data Portal Berita</span>
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#" data-bs-toggle="collapse" data-bs-target="#laporan-laporan">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">book</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Laporan-Laporan</span>
+                        </a>
+                        <div class="collapse" id="laporan-laporan">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li class="nav-item">
+                                    <a class="nav-link text-white ">
+                                        <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                            <i class="material-icons opacity-10">print</i>
+                                            <span class="nav-link-text ms-1">Laporan Surat <br> Pengantar
+                                                Nikah</span>
+                                        </div>
+                                    </a>
+                                    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Laporan Surat
+                                                        Pengantar Nikah</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" target="_blank" action="../laporan/l_spn.php">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <label>Dari Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl1" required>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>Sampai Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl2" required>
+                                                            </div>
+                                                            <div class="col-md-4" style="margin-top: 31px;">
+                                                                <button align="center" type="submit" name="cetak1" class="btn btn-info btn-md"><i class="fa fa-print">
+                                                                    </i>
+                                                                    Cetak</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    <hr>
+                                                    <div class="form-group text-center">
+                                                        <a href="../laporan/l_spn.php" target="_blank" class="btn btn-info btn-md"><i class="fa fa-print"> </i>
+                                                            Cetak
+                                                            Semua</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white ">
+                                        <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                            <i class="material-icons opacity-10">print</i>
+                                            <span class="nav-link-text ms-1">Laporan Legalisasi <br> Surat
+                                                Keterangan
+                                                Tidak <br> Mampu</span>
+                                        </div>
+                                    </a>
+                                    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Laporan
+                                                        Legalisasi
+                                                        Surat Keterangan Tidak Mampu</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" target="_blank" action="../laporan/l_sktm.php">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <label>Dari Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl1" required>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>Sampai Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl2" required>
+                                                            </div>
+                                                            <div class="col-md-4" style="margin-top: 31px;">
+                                                                <button align="center" type="submit" name="cetak2" class="btn btn-info btn-md"><i class="fa fa-print">
+                                                                    </i>
+                                                                    Cetak</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    <hr>
+                                                    <div class="form-group text-center">
+                                                        <a href="../laporan/l_sktm.php" target="_blank" class="btn btn-info btn-md"><i class="fa fa-print"> </i>
+                                                            Cetak
+                                                            Semua</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white ">
+                                        <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                                            <i class="material-icons opacity-10">print</i>
+                                            <span class="nav-link-text ms-1">Laporan Legalisasi <br> Susunan
+                                                Keluarga</span>
+                                        </div>
+                                    </a>
+
+                                    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Laporan
+                                                        Legalisasi
+                                                        Susunan Keluarga</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" target="_blank" action="../laporan/l_sk.php">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <label>Dari Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl1" required>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>Sampai Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl2" required>
+                                                            </div>
+                                                            <div class="col-md-4" style="margin-top: 31px;">
+                                                                <button align="center" type="submit" name="cetak3" class="btn btn-info btn-md"><i class="fa fa-print">
+                                                                    </i>
+                                                                    Cetak</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    <hr>
+                                                    <div class="form-group text-center">
+                                                        <a href="../laporan/l_sk.php" target="_blank" class="btn btn-info btn-md"><i class="fa fa-print"> </i>
+                                                            Cetak
+                                                            Semua</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white ">
+                                        <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4">
+                                            <i class="material-icons opacity-10">print</i>
+                                            <span class="nav-link-text ms-1">Laporan Rekomendasi <br> Dispensasi
+                                                Nikah</span>
+                                        </div>
+                                    </a>
+
+                                    <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Laporan
+                                                        Rekomendasi
+                                                        Dispensasi Nikah</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" target="_blank" action="../laporan/l_rdn.php">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <label>Dari Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl1" required>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>Sampai Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl2" required>
+                                                            </div>
+                                                            <div class="col-md-4" style="margin-top: 31px;">
+                                                                <button align="center" type="submit" name="cetak4" class="btn btn-info btn-md"><i class="fa fa-print">
+                                                                    </i>
+                                                                    Cetak</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    <hr>
+                                                    <div class="form-group text-center">
+                                                        <a href="../laporan/l_rdn.php" target="_blank" class="btn btn-info btn-md"><i class="fa fa-print"> </i>
+                                                            Cetak
+                                                            Semua</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white ">
+                                        <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5">
+                                            <i class="material-icons opacity-10">print</i>
+                                            <span class="nav-link-text ms-1">Laporan Legalisasi
+                                                Proposal</span>
+                                        </div>
+                                    </a>
+
+                                    <div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Laporan
+                                                        Legalisasi
+                                                        Proposal</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" target="_blank" action="../laporan/l_lp.php">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <label>Dari Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl1" required>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>Sampai Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl2" required>
+                                                            </div>
+                                                            <div class="col-md-4" style="margin-top: 31px;">
+                                                                <button align="center" type="submit" name="cetak5" class="btn btn-info btn-md"><i class="fa fa-print">
+                                                                    </i>
+                                                                    Cetak</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    <hr>
+                                                    <div class="form-group text-center">
+                                                        <a href="../laporan/l_lp.php" target="_blank" class="btn btn-info btn-md"><i class="fa fa-print"> </i>
+                                                            Cetak
+                                                            Semua</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </div>
     </aside>
