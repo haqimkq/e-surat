@@ -228,6 +228,25 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/other/perjalanan-dinas/delete.php";
             break;
 
+            // PENILAIAN KINERJA PEGAWAI
+        case "dataKinerjaPegawai":
+            include "../pages/other/kinerja-pegawai/data.php";
+            break;
+
+            // USERS
+        case "dataUser";
+            include "../pages/other/user/data.php";
+            break;
+        case "editUser";
+            include "../pages/other/user/edit.php";
+            break;
+        case "edit_User_password";
+            include "../pages/other/user/edit_password.php";
+            break;
+        case "hapusUser";
+            include "../pages/other/user/delete.php";
+            break;
+
             // END PEGAWAI PAGE ---------
 
             // START MASYARAKAT PAGE------------------
