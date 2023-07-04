@@ -1,5 +1,20 @@
 <?php
 
+$sbp = mysqli_query($link, "SELECT COUNT(*) AS total FROM skp where nilai_prestasi_kerja between  80 and 100   ");
+$hitungsbp = mysqli_fetch_array($sbp);
+
+$bp = mysqli_query($link, "SELECT COUNT(*) AS total FROM skp where nilai_prestasi_kerja between   70 and 79  ");
+$hitungbp = mysqli_fetch_array($bp);
+
+$cp = mysqli_query($link, "SELECT COUNT(*) AS total FROM skp where nilai_prestasi_kerja between   60 and 69  ");
+$hitungc = mysqli_fetch_array($cp);
+
+$kp = mysqli_query($link, "SELECT COUNT(*) AS total FROM skp where nilai_prestasi_kerja between   40 and 59  ");
+$hitungkp = mysqli_fetch_array($kp);
+
+$brkp = mysqli_query($link, "SELECT COUNT(*) AS total FROM skp where nilai_prestasi_kerja between   0 and 39  ");
+$hitungbrkp = mysqli_fetch_array($brkp);
+
 
 $skpkec = mysqli_query($link, "SELECT COUNT(*) AS total FROM skpkecamatan ");
 $hitungskpkec = mysqli_fetch_array($skpkec);
@@ -274,35 +289,71 @@ function tgl($tanggal)
         </div>
     </div>
 
-    <div class="card mt-3">
-        <div class="card-header mb-xl- pb-0">
-            <div class="row">
-                <h6>Grafik Penilaian Kinerja Pelayanan</h6>
-                <div class="col-sm-8">
-                    <div class="control-panel">
-                        <style>
-                            canvas {
-                                -moz-user-select: none;
-                                -webkit-user-select: none;
-                                -ms-user-select: none;
-                            }
-                        </style>
-                        <center><strong>
-                                <div style="width: 40%">
-                                    <canvas id="myChart"></canvas>
-                                </div>
-                            </strong></center>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="card mt-3">
+                <div class="card-header mb-xl- pb-0">
+                    <div class="row">
+                        <h6 align="center">Grafik Penilaian Kinerja Pelayanan Pada <br> Kecamatan Banjarmasin Timur</h6>
+                        <div class="col-md-12">
+                            <div class="control-panel">
+                                <style>
+                                    canvas {
+                                        -moz-user-select: none;
+                                        -webkit-user-select: none;
+                                        -ms-user-select: none;
+                                    }
+                                </style>
+                                <center><strong>
+                                        <div style="width: 100% ">
+                                            <canvas id="chartId"></canvas>
+                                        </div>
+                                    </strong></center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body px-0 pb-1">
+                    <div class="table-responsive">
+                        <table class="table align-items-center mb-0">
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card-body px-0 pb-1">
-            <div class="table-responsive">
-                <table class="table align-items-center mb-0">
-                </table>
+        <div class="col-12 col-md-6">
+            <div class="card mt-3">
+                <div class="card-header mb-xl- pb-0">
+                    <div class="row">
+                        <h6 align="center">Grafik Penilaian Kinerja Pegawai </h6>
+                        <div class="col-md-12">
+                            <div class="control-panel">
+                                <style>
+                                    canvas {
+                                        -moz-user-select: none;
+                                        -webkit-user-select: none;
+                                        -ms-user-select: none;
+                                    }
+                                </style>
+                                <center><strong>
+                                        <div style="width: 100%">
+                                            <canvas class="mt-3 mb-2" id="myChart"></canvas>
+                                        </div>
+                                    </strong></center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body px-0 pb-1 ">
+                    <div class="table-responsive">
+                        <table class="table align-items-center mb-0">
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 </div>
 
 
@@ -320,11 +371,13 @@ function tgl($tanggal)
                 'Kurang ',
                 'Buruk ',
             ],
+
+
             datasets: [{
                 label: 'Akumulasi Jumlah data penilaian',
-                data: [<?php echo $hitungsb['total'] ?>, <?php echo $hitungb['total'] ?>,
-                    <?php echo $hitungc['total'] ?>, <?php echo $hitungk['total'] ?>,
-                    <?php echo $hitungbrk['total'] ?>,
+                data: [<?php echo $hitungsbp['total'] ?>, <?php echo $hitungbp['total'] ?>,
+                    <?php echo $hitungcp['total'] ?>, <?php echo $hitungkp['total'] ?>,
+                    <?php echo $hitungbrkp['total'] ?>,
                 ],
                 backgroundColor: [
                     'rgb(25, 205, 77)',
@@ -336,6 +389,39 @@ function tgl($tanggal)
                 hoverOffset: 4
             }]
         },
-
+        options: {
+            responsive: false,
+        },
+    });
+</script>
+<script>
+    var chrt = document.getElementById("chartId").getContext("2d");
+    var chartId = new Chart(chrt, {
+        type: 'polarArea',
+        data: {
+            labels: ['Sangat Baik',
+                'Baik',
+                'Cukup',
+                'Kurang ',
+                'Buruk ',
+            ],
+            datasets: [{
+                label: "Akumulasi Jumlah data penilaian",
+                data: [<?php echo $hitungsb['total'] ?>, <?php echo $hitungb['total'] ?>,
+                    <?php echo $hitungc['total'] ?>, <?php echo $hitungk['total'] ?>,
+                    <?php echo $hitungbrk['total'] ?>,
+                ],
+                backgroundColor: [
+                    'rgb(25, 205, 77)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 99, 132)',
+                    'rgb(255, 205, 86)',
+                    'rgb(19, 17, 0)',
+                ],
+            }],
+        },
+        options: {
+            responsive: false,
+        },
     });
 </script>

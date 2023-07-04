@@ -181,6 +181,14 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/admin/kinerja-pegawai/delete.php";
             break;
 
+            // PENILAIAN KINERJA KECAMATAN
+        case "data_kinerjaKecamatan":
+            include "../pages/admin/kinerja-kecamatan/data.php";
+            break;
+        case "hapus_kinerjaKecamatan":
+            include "../pages/admin/kinerja-kecamatan/delete.php";
+            break;
+
             // END ADMIN PAGE -----------
 
 

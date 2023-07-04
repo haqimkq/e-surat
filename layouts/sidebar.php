@@ -135,8 +135,17 @@
                                         <span class="nav-link-text ms-1">Penilai Kinerja Pegawai</span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a class="nav-link text-white " href="?page=data_kinerjaKecamatan">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">beenhere</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Penilai Kinerja Pelayanan <br> Kecamatan</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
+
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="?page=data_masyarakat">
