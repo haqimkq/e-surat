@@ -189,6 +189,13 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/admin/kinerja-kecamatan/delete.php";
             break;
 
+        case "data_perjalananDinas";
+            include "../pages/admin/perjalanan-dinas/data.php";
+            break;
+        case "hapus_perjalananDinas";
+            include "../pages/admin/perjalanan-dinas/delete.php";
+            break;
+
             // END ADMIN PAGE -----------
 
 

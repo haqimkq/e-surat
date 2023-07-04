@@ -177,6 +177,14 @@
                         <span class="nav-link-text ms-1">Data Portal Berita</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="?page=data_perjalananDinas">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">directions_car</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Data Perjalana <br> Dinas Pegawai</span>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link text-white" href="#" data-bs-toggle="collapse" data-bs-target="#laporan-laporan">
@@ -669,6 +677,60 @@
                                                 <hr>
                                                 <div class="form-group text-center">
                                                     <a href="../laporan/l_KinerjaPegawai.php" target="_blank"
+                                                        class="btn btn-info btn-md"><i class="fa fa-print"> </i>
+                                                        Cetak
+                                                        Semua</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white ">
+                                    <div class="text-white me-2 d-flex" type="button" class="btn bg-gradient-primary"
+                                        data-bs-toggle="modal" data-bs-target="#exampleModal10">
+                                        <i class="material-icons opacity-10">print</i>
+                                        <span class="nav-link-text ms-1">Laporan Data <br> Perjalanan Dinas</span>
+                                    </div>
+                                </a>
+                                <div class="modal fade" id="exampleModal10" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Laporan
+                                                    Perjalanan DInas</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form method="POST" target="_blank"
+                                                    action="../laporan/l_PerjalananDinas.php">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-4">
+                                                            <label>Dari Tanggal</label>
+                                                            <input type="date" class="form-control" name="tgl1"
+                                                                required>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <label>Sampai Tanggal</label>
+                                                            <input type="date" class="form-control" name="tgl2"
+                                                                required>
+                                                        </div>
+                                                        <div class="col-md-4" style="margin-top: 31px;">
+                                                            <button align="center" type="submit" name="cetak10"
+                                                                class="btn btn-info btn-md"><i class="fa fa-print">
+                                                                </i>
+                                                                Cetak</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <hr>
+                                                <div class="form-group text-center">
+                                                    <a href="../laporan/l_PerjalananDinas.php" target="_blank"
                                                         class="btn btn-info btn-md"><i class="fa fa-print"> </i>
                                                         Cetak
                                                         Semua</a>
