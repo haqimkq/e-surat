@@ -125,7 +125,7 @@ if (!isset($_SESSION['nama'])) {
                                                 </div>
                                                 <input type="hidden" name="kk_lama" value="<?= $data['kk_p'] ?>">
                                             </div>
-                                            <div class="col-md-5 me-7 mt-4">
+                                            <div class="col-md-12 me-7 mt-4">
                                                 <div class="input-group input-group-dynamic ">
                                                     <label class="text-bold">Surat Pengantar Dari KUA
                                                         :</label>
@@ -142,7 +142,7 @@ if (!isset($_SESSION['nama'])) {
                                                         value="<?= $data['s_kua'] ?>">
                                                 </div>
                                             </div>
-                                            <div class="col-md-5 text-center me-7 mt-4">
+                                            <div class="col-md-5 text-center me-7 mt-7">
                                                 <?php
                                                     if (!empty($data['qrCode'])) {
                                                         echo "<img src='../img/" . $data['qrCode'] . "' width='170' height='170' style='border-radius: 20%;'>";

@@ -6,49 +6,52 @@ if (!isset($_SESSION['nama'])) {
     echo "<meta http-equiv='refresh' content='0; url=../aev/index.php'>";
 } else {
 ?>
-    <div class="container-fluid py-4">
-        <div class="row mt-4 justify-content-center">
-            <div class="col-10">
-                <div class="card mb-4">
-                    <div class=" position-relative mt-n4 mx-3 ps-0  ">
-                        <div class="bg-gradient-info shadow border-radius-lg pt-3 pb-3 ">
-                            <h3 class=" text-white text-capitalize text-center py-1 ">Tambah Data Pelayanan</h3>
-                        </div>
+<div class="container-fluid py-4">
+    <div class="row mt-4 justify-content-center">
+        <div class="col-10">
+            <div class="card mb-4">
+                <div class=" position-relative mt-n4 mx-3 ps-0  ">
+                    <div class="bg-gradient-info shadow border-radius-lg pt-3 pb-3 ">
+                        <h3 class=" text-white text-capitalize text-center py-1 ">Tambah Data Pelayanan</h3>
                     </div>
-                    <div class="card-body p-3">
-                        <!-- <hr class="horizontal dark"> -->
-                        <div class="content-wrapper">
-                            <section>
-                                <div class="container py-4">
-                                    <div class="row">
-                                        <div class="col-lg-12 mx-auto d-flex justify-content-center flex-column">
-                                            <form data-toggle="validator" action="" method="POST" enctype="multipart/form-data">
-                                                <div class="card-body">
-                                                    <div class="row">
-                                                        <?php
+                </div>
+                <div class="card-body p-3">
+                    <!-- <hr class="horizontal dark"> -->
+                    <div class="content-wrapper">
+                        <section>
+                            <div class="container py-4">
+                                <div class="row">
+                                    <div class="col-lg-12 mx-auto d-flex justify-content-center flex-column">
+                                        <form data-toggle="validator" action="" method="POST"
+                                            enctype="multipart/form-data">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <?php
                                                         if ($status) {
                                                         ?>
 
-                                                            <div class="alert alert-danger alert-dismissible">
-                                                                <button class="close" type="button" data-dismiss="alert" ariahidden="true">&times;
-                                                                </button>
-                                                                <h4><i class="icon fa fa-close">Gagal! </i></h4>
-                                                                <?php echo $status; ?>
-                                                            </div>
-                                                        <?php
+                                                    <div class="alert alert-danger alert-dismissible">
+                                                        <button class="close" type="button" data-dismiss="alert"
+                                                            ariahidden="true">&times;
+                                                        </button>
+                                                        <h4><i class="icon fa fa-close">Gagal! </i></h4>
+                                                        <?php echo $status; ?>
+                                                    </div>
+                                                    <?php
                                                         }
                                                         ?>
 
 
-                                                        <h5> Data Pengajuan Layanan</h5>
-                                                        <h6> <i> Legalisasi Proposal</i> </h6>
-                                                        <!-- <hr class="horizontal dark"> -->
-                                                        <br>
-                                                        <br>
-                                                        <input type="hidden" class="form-control" name="id_user" id="id_user" required>
+                                                    <h5> Data Pengajuan Layanan</h5>
+                                                    <h6> <i> Legalisasi Proposal</i> </h6>
+                                                    <!-- <hr class="horizontal dark"> -->
+                                                    <br>
+                                                    <br>
+                                                    <input type="hidden" class="form-control" name="id_user"
+                                                        id="id_user" required>
 
-                                                        <div class="col-md-4">
-                                                            <?php
+                                                    <div class="col-md-4">
+                                                        <?php
                                                             $id = $_SESSION['id_user'];
                                                             $sql = ("SELECT * FROM  masyarakat WHERE id_user = '$id'");
                                                             $hasil = mysqli_query($link, $sql);
@@ -56,163 +59,187 @@ if (!isset($_SESSION['nama'])) {
                                                             while ($data = mysqli_fetch_array($hasil)) {
                                                                 $no++;
                                                             ?>
-                                                                <label class="form-label">Nama :</label>
-                                                                <div class="input-group input-group-dynamic">
-                                                                    <div class="input-group input-group-dynamic mb-4">
-                                                                        <input type="hidden" class="form-control" name="id_msy" id="id_msy" value="<?= $data['id_msy'] ?>" required>
-                                                                        <input type="text" class="form-control" readonly value="<?= $data['nama'] ?>">
-                                                                    <?php
+                                                        <label class="form-label">Nama :</label>
+                                                        <div class="input-group input-group-dynamic">
+                                                            <div class="input-group input-group-dynamic mb-4">
+                                                                <input type="hidden" class="form-control" name="id_msy"
+                                                                    id="id_msy" value="<?= $data['id_msy'] ?>" required>
+                                                                <input type="text" class="form-control" readonly
+                                                                    value="<?= $data['nama'] ?>">
+                                                                <?php
                                                                 }
                                                                     ?>
-                                                                    <div class="help-block with-errors"></div>
-                                                                    </div>
-                                                                </div>
-                                                        </div>
-                                                        <input type="hidden" class="form-control" name="id_pelayanan" id="id_pelayanan" required>
-                                                        <div class="col-md-4">
-                                                            <div class="input-group input-group-dynamic">
-                                                                <label>Pilih Jenis Pelayanan</label>
-                                                                <div class="input-group input-group-dynamic mb-4">
-                                                                    <input type="text" class="form-control" id="j_pelayanan" required readonly>
-                                                                    <span class="input-group-append">
-                                                                        <button type="button" data-toggle="modal" data-target="#modal" class="btn btn-info btn-flat mb-1"><i class="fa fa-search"></i></button>
-                                                                    </span>
-                                                                    <div class="help-block with-errors"></div>
-                                                                </div>
+                                                                <div class="help-block with-errors"></div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4">
-                                                            <label class="form-label">Tanggal Pengajuan</label>
-                                                            <div class="input-group input-group-dynamic">
-                                                                <div class="input-group input-group-dynamic mb-4">
-                                                                    <input class="form-control" aria-label="Tanggal Pengajuan" type="date" name="tgl" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
-                                                                    <div class="help-block with-errors"></div>
-                                                                </div>
+                                                    </div>
+                                                    <input type="hidden" class="form-control" name="id_pelayanan"
+                                                        id="id_pelayanan" required>
+                                                    <div class="col-md-4">
+                                                        <div class="input-group input-group-dynamic">
+                                                            <label>Pilih Jenis Pelayanan</label>
+                                                            <div class="input-group input-group-dynamic mb-4">
+                                                                <input type="text" class="form-control" id="j_pelayanan"
+                                                                    required readonly>
+                                                                <span class="input-group-append">
+                                                                    <button type="button" data-toggle="modal"
+                                                                        data-target="#modal"
+                                                                        class="btn btn-info btn-flat mb-1"><i
+                                                                            class="fa fa-search"></i></button>
+                                                                </span>
+                                                                <div class="help-block with-errors"></div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <div class="input-group input-group-dynamic">
-                                                                <label>Surat Permohonan yang sudah ditanda tangani <br>
-                                                                    Ketua RT atau Lurah : </label>
-                                                                <div class="input-group input-group-dynamic  mb-4">
-                                                                    <input class="form-control" aria-label="Foto " type="file" name="s_permohonan" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
-                                                                    <div class="help-block with-errors"></div>
-                                                                </div>
-                                                                <em class="text-danger text-sm text-italic">*Upload
-                                                                    berkas pendukung (PDF, maksimal 2Mb)</em>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label class="form-label">Tanggal Pengajuan</label>
+                                                        <div class="input-group input-group-dynamic">
+                                                            <div class="input-group input-group-dynamic mb-4">
+                                                                <input class="form-control"
+                                                                    aria-label="Tanggal Pengajuan" type="date"
+                                                                    name="tgl" data-minlength="4"
+                                                                    data-error="Tidak Boleh Kurang dari 4" required>
+                                                                <div class="help-block with-errors"></div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <div class="input-group input-group-dynamic">
-                                                                <label>Surat yang menyatakan bahwa pengurus dari
-                                                                    institusi/Yayasan/Perusahaan atau badan hukum yang
-                                                                    lainnya :</label>
-                                                                <div class="input-group input-group-dynamic mb-4">
-                                                                    <input class="form-control" aria-label="Foto " type="file" name="s_pernyataan" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
-                                                                    <div class="help-block with-errors"></div>
-                                                                </div>
-                                                                <em class="text-danger text-sm text-italic">*Upload
-                                                                    berkas pendukung (PDF, maksimal 2Mb)</em>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="input-group input-group-dynamic">
+                                                            <label>Surat Permohonan yang sudah ditanda tangani <br>
+                                                                Ketua RT atau Lurah : </label>
+                                                            <div class="input-group input-group-dynamic  mb-4">
+                                                                <input class="form-control" aria-label="Foto "
+                                                                    type="file" name="s_permohonan" data-minlength="4"
+                                                                    data-error="Tidak Boleh Kurang dari 4" required>
+                                                                <div class="help-block with-errors"></div>
+                                                            </div>
+                                                            <em class="text-danger text-sm text-italic">*Upload
+                                                                berkas pendukung (PDF, maksimal 2Mb)</em>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="input-group input-group-dynamic">
+                                                            <label>Surat yang menyatakan bahwa pengurus dari
+                                                                institusi/Yayasan/Perusahaan atau badan hukum yang
+                                                                lainnya :</label>
+                                                            <div class="input-group input-group-dynamic mb-4">
+                                                                <input class="form-control" aria-label="Foto "
+                                                                    type="file" name="s_pernyataan" data-minlength="4"
+                                                                    data-error="Tidak Boleh Kurang dari 4" required>
+                                                                <div class="help-block with-errors"></div>
+                                                            </div>
+                                                            <em class="text-danger text-sm text-italic">*Upload
+                                                                berkas pendukung (PDF, maksimal 2Mb)</em>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 pt-5">
+                                                        <div class="input-group input-group-dynamic">
+                                                            <label>Foto KTP Pemohon</label>
+                                                            <div class="input-group input-group-dynamic mb-4">
+                                                                <input class="form-control" aria-label="Foto"
+                                                                    type="file" name="ktp_p" data-minlength="4"
+                                                                    data-error="Tidak Boleh Kurang dari 4" required>
+                                                                <div class="help-block with-errors"></div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 pt-5">
-                                                            <div class="input-group input-group-dynamic">
-                                                                <label>Foto KTP Pemohon</label>
-                                                                <div class="input-group input-group-dynamic mb-4">
-                                                                    <input class="form-control" aria-label="Foto" type="file" name="ktp_p" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
-                                                                    <div class="help-block with-errors"></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12 ">
-                                                            <div class="input-group input-group-dynamic">
-                                                                <!-- <label>Status</label> -->
-                                                                <div class="input-group input-group-dynamic mb-4">
-                                                                    <input class="form-control" aria-label="Foto" type="hidden" name="status" value="Proses" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
-                                                                    <div class="help-block with-errors"></div>
-                                                                </div>
+                                                    </div>
+                                                    <div class="col-md-12 ">
+                                                        <div class="input-group input-group-dynamic">
+                                                            <!-- <label>Status</label> -->
+                                                            <div class="input-group input-group-dynamic mb-4">
+                                                                <input class="form-control" aria-label="Foto"
+                                                                    type="hidden" name="status" value="Proses"
+                                                                    data-minlength="4"
+                                                                    data-error="Tidak Boleh Kurang dari 4" required>
+                                                                <div class="help-block with-errors"></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col ms-4">
-                                                    <input type="submit" class="btn btn-primary" value="Simpan" name="simpan">
-                                                    <input type="reset" class="btn btn-danger" value="Reset" name="reset">
-                                                </div>
-                                            </form>
-                                        </div>
+                                            </div>
+                                            <div class="col ms-4">
+                                                <input type="submit" class="btn btn-primary" value="Simpan"
+                                                    name="simpan">
+                                                <input type="reset" class="btn btn-danger" value="Reset" name="reset">
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
-                            </section>
-                        </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- START MODAL -->
-        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg " role="document">
-                <div class="modal-content">
-                    <div class="modal-header ">
-                        <h5 class="modal-title" id="exampleModalLabel">Pilih
-                            Jenis Pelayanan</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body ">
-                        <div class="table-responsive">
-                            <table id="example1" class="table table-bordered">
-                                <thead class="bg-lightblue">
-                                    <tr align="center">
-                                        <th>No</th>
-                                        <th>Jenis Pelayanan</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
+    <!-- START MODAL -->
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg " role="document">
+            <div class="modal-content">
+                <div class="modal-header ">
+                    <h5 class="modal-title" id="exampleModalLabel">Pilih
+                        Jenis Pelayanan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body ">
+                    <div class="table-responsive">
+                        <table id="example1" class="table table-bordered">
+                            <thead class="bg-lightblue">
+                                <tr align="center">
+                                    <th>No</th>
+                                    <th>Jenis Pelayanan</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
                                     $no = 1;
                                     $data = $link->query("SELECT * FROM pelayanan ");
                                     while ($row = $data->fetch_array()) {
                                     ?>
-                                        <tr>
-                                            <td align="center" width="5%">
-                                                <?= $no++ ?></td>
-                                            <td><?= $row['j_pelayanan'] ?></td>
-                                            <td align="center" width="18%">
-                                                <button class="btn btn-xs btn-success" class="close" data-dismiss="modal" aria-label="Close" id="select1" data-id_pelayanan="<?= $row['id_pelayanan'] ?>" data-j_pelayanan="<?= $row['j_pelayanan'] ?>">
-                                                    Pilih
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
-                        </div>
+                                <tr>
+                                    <td align="center" width="5%">
+                                        <?= $no++ ?></td>
+                                    <td><?= $row['j_pelayanan'] ?></td>
+                                    <td align="center" width="18%">
+                                        <button class="btn btn-xs btn-success" class="close" data-dismiss="modal"
+                                            aria-label="Close" id="select1"
+                                            data-id_pelayanan="<?= $row['id_pelayanan'] ?>"
+                                            data-j_pelayanan="<?= $row['j_pelayanan'] ?>">
+                                            Pilih
+                                        </button>
+                                    </td>
+                                </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- END MODAL -->
+    </div>
+    <!-- END MODAL -->
 
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.4/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js"></script>
 
 
-        <!-- JAVASCRIPT MODAL -->
-        <script>
-            $(document).on('click', '#select1', function() {
-                var id_pelayanan = $(this).data('id_pelayanan');
-                var j_pelayanan = $(this).data('j_pelayanan');
-                $('#id_pelayanan').val(id_pelayanan);
-                $('#j_pelayanan').val(j_pelayanan);
-                $('#modal').modal('hide'); // Menutup modal secara otomatis
-            });
-        </script>
+    <!-- JAVASCRIPT MODAL -->
+    <script>
+    $(document).on('click', '#select1', function() {
+        var id_pelayanan = $(this).data('id_pelayanan');
+        var j_pelayanan = $(this).data('j_pelayanan');
+        $('#id_pelayanan').val(id_pelayanan);
+        $('#j_pelayanan').val(j_pelayanan);
+        $('#modal').modal('hide'); // Menutup modal secara otomatis
+    });
+    </script>
 
     <?php
     if (isset($_POST['simpan'])) {

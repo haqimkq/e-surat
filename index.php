@@ -310,14 +310,14 @@
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
-    <div class="py-5 bg-warning">
+    <div class="py-5 bg-dark">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 text-center mb-3 mb-lg-0 text-lg-start">
-                    <h3 class="text-black m-0">Nikmati Layanan Yang Kami Sediakan.</h3>
+                    <h3 class="text-white m-0">Nikmati Layanan Yang Kami Sediakan.</h3>
                 </div>
                 <div class="col-lg-5 text-center text-lg-end">
-                    <a href="indexLoginMsy.php" class="btn btn-outline-white">Login ..</a>
+                    <a href="indexLoginMsy.php" class="btn btn-outline-white text-white">Login ..</a>
                 </div>
             </div>
         </div>

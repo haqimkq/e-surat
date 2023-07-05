@@ -117,11 +117,11 @@ if (!isset($_SESSION['nama'])) {
                                                     <td align=" center">
                                                         <?php
 
-                                                        if ($row['nilai_prestasi_kerja'] >= 80 && $row['nilai_prestasi_kerja'] <= 100) {
+                                                        if ($row['nilai_prestasi_kerja'] >= 81 && $row['nilai_prestasi_kerja'] <= 100) {
                                                             echo "Sangat Baik";
-                                                        } else if ($row['nilai_prestasi_kerja'] >= 70 && $row['nilai_prestasi_kerja'] <= 80) {
+                                                        } else if ($row['nilai_prestasi_kerja'] >= 71 && $row['nilai_prestasi_kerja'] <= 80) {
                                                             echo "Baik";
-                                                        } else if ($row['nilai_prestasi_kerja'] >= 60 && $row['nilai_prestasi_kerja'] <= 70) {
+                                                        } else if ($row['nilai_prestasi_kerja'] >= 61 && $row['nilai_prestasi_kerja'] <= 70) {
                                                             echo "Cukup";
                                                         } else if ($row['nilai_prestasi_kerja'] >= 40 && $row['nilai_prestasi_kerja'] <= 60) {
                                                             echo "Kurang";
