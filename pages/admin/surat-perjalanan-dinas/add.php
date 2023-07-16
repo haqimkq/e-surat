@@ -42,27 +42,28 @@ if (!isset($_SESSION['nama'])) {
                                                     <?php
                                                         }
                                                         ?>
-                                                    <!-- START MODAL -->
-                                                    <div class="modal fade" id="modal" tabindex="-1" role="dialog"
+                                                    <!-- MODAL START -->
+                                                    <div class="modal fade  " id="modal" tabindex="-1" role="dialog"
                                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog" role="document">
+                                                        <div class="modal-dialog  modal-lg " role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <h5 class="modal-title" id="exampleModalLabel">Pilih
-                                                                        Username</h5>
-                                                                    <button type="button" class="btn-close"
+                                                                        Nama Pegawai</h5>
+                                                                    <button type="button" class="close"
                                                                         data-dismiss="modal" aria-label="Close">
                                                                         <span aria-hidden="true">&times;</span>
                                                                     </button>
                                                                 </div>
-                                                                <div class="modal-body">
+                                                                <div class="modal-body ">
                                                                     <div class="table-responsive">
                                                                         <table id="example1"
                                                                             class="table table-bordered">
                                                                             <thead class="bg-lightblue">
                                                                                 <tr align="center">
                                                                                     <th>No</th>
-                                                                                    <th>Username</th>
+                                                                                    <th>Nama Pegawai</th>
+                                                                                    <th>Jabatan</th>
                                                                                     <th>Aksi</th>
                                                                                 </tr>
                                                                             </thead>
@@ -70,33 +71,39 @@ if (!isset($_SESSION['nama'])) {
                                                                             <tbody>
                                                                                 <?php
                                                                                     $no = 1;
-                                                                                    $data = $link->query("SELECT * FROM users WHERE id_user = '$id'  ");
+                                                                                    $data = $link->query("SELECT * FROM pegawai p join jabatan j on j.id_jabatan = p.id_jabatan ");
                                                                                     while ($row = $data->fetch_array()) {
                                                                                     ?>
                                                                                 <tr>
                                                                                     <td align="center" width="5%">
                                                                                         <?= $no++ ?></td>
-                                                                                    <td><?= $row['username'] ?></td>
+                                                                                    <td><?= $row['nm_pegawai'] ?></td>
+                                                                                    <td><?= $row['nm_jabatan'] ?></td>
                                                                                     <td align="center" width="18%">
                                                                                         <button
                                                                                             class="btn btn-xs btn-success"
+                                                                                            class="close"
+                                                                                            aria-label="Close"
+                                                                                            data-dismiss="modal"
                                                                                             id="select"
-                                                                                            data-id_user="<?= $row['id_user'] ?>"
-                                                                                            data-username="<?= $row['username'] ?>">
+                                                                                            data-id_pegawai="<?= $row['id_pegawai'] ?>"
+                                                                                            data-id_jabatan="<?= $row['id_jabatan'] ?>"
+                                                                                            data-nm_pegawai="<?= $row['nm_pegawai'] ?>"
+                                                                                            data-nip="<?= $row['nip'] ?>"
+                                                                                            data-nm_jabatan="<?= $row['nm_jabatan'] ?>">
                                                                                             Pilih
                                                                                         </button>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <?php } ?>
                                                                             </tbody>
-
                                                                         </table>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <!-- END MODAL -->
+                                                    <!-- MODAL END -->
 
                                                     <h5> Data Pegawai</h5>
                                                     <!-- <hr class="horizontal dark"> -->
@@ -104,36 +111,49 @@ if (!isset($_SESSION['nama'])) {
                                                     <br>
                                                     <!-- <input type="hidden" class="form-control" name="id_pegawai"
                                                         id="id_pegawai" required> -->
-                                                    <div class="col-md-6">
-                                                        <?php
-                                                            $id = $_SESSION['id_user'];
-                                                            $sql = ("SELECT * FROM pegawai WHERE id_user = '$id'");
-                                                            $hasil = mysqli_query($link, $sql);
-                                                            $no = 0;
-                                                            while ($data = mysqli_fetch_array($hasil)) {
-                                                                $no++;
-                                                            ?>
-                                                        <label class="form-label">Nama Pegawai</label>
+                                                    <div class="col-md-12">
                                                         <div class="input-group input-group-dynamic">
+                                                            <label>Pilih Nama Pegawai</label>
                                                             <div class="input-group input-group-dynamic mb-4">
-                                                                <input type="hidden" class="form-control"
-                                                                    name="id_pegawai" id="id_pegawai"
-                                                                    value="<?= $data['id_pegawai'] ?>" required>
-                                                                <input type="text" class="form-control" readonly
-                                                                    value="<?= $data['nm_pegawai'] ?>">
+
+                                                                <input placeholder="Disabled" type="text"
+                                                                    class="form-control" id="nm_pegawai" required
+                                                                    readonly>
+                                                                <span class="input-group-append">
+                                                                    <button type="button" data-toggle="modal"
+                                                                        data-target="#modal"
+                                                                        class="btn btn-info btn-flat mb-1"><i
+                                                                            class="fa fa-search"></i></button>
+                                                                </span>
                                                                 <div class="help-block with-errors"></div>
                                                             </div>
                                                         </div>
                                                     </div>
+
+                                                    <input type="hidden" class="form-control" name="id_jab"
+                                                        id="id_jabatan" required>
+                                                    <input type="hidden" class="form-control" name="id_pegawai"
+                                                        id="id_pegawai" required>
+
+
                                                     <div class="col-md-6">
-                                                        <label class="form-label">NIP</label>
                                                         <div class="input-group input-group-dynamic">
-                                                            <div class="input-group input-group-dynamic mb-4">
-                                                                <input type="text" class="form-control" readonly
-                                                                    value="<?= $data['nip'] ?>">
-                                                                <?php
-                                                            }
-                                                                ?>
+                                                            <label>NIP</label>
+                                                            <div class="input-group input-group-dynamic ">
+                                                                <input placeholder="Disabled" class="form-control"
+                                                                    id="nip" aria-label="NIP" type="text" readonly>
+                                                                <div class="help-block with-errors"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="input-group input-group-dynamic">
+                                                            <label>Jabatan</label>
+                                                            <div class="input-group input-group-dynamic">
+                                                                <input placeholder="Disabled" class="form-control"
+                                                                    id="nm_jabatan" aria-label="jabatan" type="text"
+                                                                    name="id_jabatan" required readonly>
                                                                 <div class="help-block with-errors"></div>
                                                             </div>
                                                         </div>
@@ -149,7 +169,7 @@ if (!isset($_SESSION['nama'])) {
                                                         <div class="input-group input-group-dynamic">
                                                             <div class="input-group input-group-dynamic mb-4">
                                                                 <input class="form-control" aria-label="Tanggal Pergi"
-                                                                    type="date" name="tanggalPergi" data-minlength="4"
+                                                                    type="date" name="tglPergi" data-minlength="4"
                                                                     data-error="Tidak Boleh Kurang dari 4" required>
                                                                 <div class="help-block with-errors"></div>
                                                             </div>
@@ -160,7 +180,7 @@ if (!isset($_SESSION['nama'])) {
                                                         <div class="input-group input-group-dynamic">
                                                             <div class="input-group input-group-dynamic mb-4">
                                                                 <input class="form-control" aria-label="Tanggal Kembali"
-                                                                    type="date" name="tanggalPulang" data-minlength="4"
+                                                                    type="date" name="tglPulang" data-minlength="4"
                                                                     data-error="Tidak Boleh Kurang dari 4" required>
                                                                 <div class="help-block with-errors"></div>
                                                             </div>
@@ -172,7 +192,7 @@ if (!isset($_SESSION['nama'])) {
                                                             <div class="input-group input-group-dynamic mb-4">
                                                                 <textarea class="form-control"
                                                                     placeholder="Masukan Keterangan .. *300 Kata"
-                                                                    name="keterangan" id="keterangan" cols="20" rows="7"
+                                                                    name="perihal" id="keterangan" cols="20" rows="7"
                                                                     data-minlength="4"
                                                                     data-error="Tidak Boleh Kurang dari 4"
                                                                     required></textarea>
@@ -201,29 +221,52 @@ if (!isset($_SESSION['nama'])) {
 </div>
 
 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $(document).on('click', '#select', function() {
+        var id_pegawai = $(this).data('id_pegawai');
+        var id_jabatan = $(this).data('id_jabatan');
+        var nm_pegawai = $(this).data('nm_pegawai');
+        var nip = $(this).data('nip');
+        var nm_jabatan = $(this).data('nm_jabatan');
+        $('#id_pegawai').val(id_pegawai);
+        $('#id_jabatan').val(id_jabatan);
+        $('#nm_pegawai').val(nm_pegawai);
+        $('#nip').val(nip);
+        $('#nm_jabatan').val(nm_jabatan);
+        $('#modal').modal('hide');
+    });
+})
+</script>
 
 <?php
     if (isset($_POST['simpan'])) {
         $id_pegawai = $_POST['id_pegawai'];
-        $tanggalPergi = $_POST['tanggalPergi'];
-        $tanggalPulang = $_POST['tanggalPulang'];
-        $keterangan = $_POST['keterangan'];
+        $keterangan = $_POST['perihal'];
+        $tanggalPergi = $_POST['tglPergi'];
+        $tanggalPulang = $_POST['tglPulang'];
 
 
-        $simpan = $link->query("INSERT INTO perjalanan_dinas VALUES (
+        $simpan = $link->query("INSERT INTO nota_perjalanan_dinas VALUES (
             '', 
             '$id_pegawai',
+            '$keterangan',
             '$tanggalPergi',
-            '$tanggalPulang',
-            '$keterangan'
+            '$tanggalPulang'
             )");
 
         if ($simpan) {
             echo "<script>alert('Data berhasil disimpan')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=dataPerjalananDinas'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=data_notaPerjalananDinas'>";
         } else {
             echo "<script>alert('Data anda gagal disimpan. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=tambahPerjalananDinas'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=tambah_notaPerjalananDinas'>";
         }
     }
 }

@@ -28,9 +28,9 @@ if (!isset($_SESSION['nama'])) {
                     </div>
                 </div>
                 <div class="card-body p-3 mt-1">
-                    <div class="col-2">
+                    <!-- <div class="col-2">
                         <a href="?page=tambahPerjalananDinas" class="btn btn-info">Tambah Data</a>
-                    </div>
+                    </div> -->
                     <!-- <hr class="horizontal dark"> -->
                     <div class="row">
                         <div class="col-lg-12 col-md-12 mt-2">
@@ -38,8 +38,8 @@ if (!isset($_SESSION['nama'])) {
                                 <div class="table-responsive">
                                     <thead>
                                         <tr>
-                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                Aksi</th>
+                                            <!-- <th class=" text-secondary text-s font-weight-bolder opacity-7">
+                                                    Aksi</th> -->
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 No.
                                             </th>
@@ -55,49 +55,26 @@ if (!isset($_SESSION['nama'])) {
                                                 Lama Kegiatan</th> -->
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 Keterangan</th>
+                                            <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
+                                                Detail Surat </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                             $no = 1;
                                             $id = $_SESSION['id_user'];
-                                            $query = mysqli_query($link, "SELECT * FROM perjalanan_dinas  pd 
-                                            join pegawai p on pd.id_pegawai = p.id_pegawai 
+                                            $query = mysqli_query($link, "SELECT * FROM surat_perjalanan_dinas  spd 
+                                            join pegawai p on spd.id_pegawai = p.id_pegawai 
                                             where id_user='$id'");
                                             $i = 1;
                                             while ($row = $query->fetch_array()) {
                                             ?>
                                         <tr>
-                                            <td>
-                                                <div class=" mt-3">
-                                                    <button type="button"
-                                                        class="btn btn-info dropdown-toggle border-radius-lg px-3 py-1 "
-                                                        id="dropdownMenuButton" data-bs-toggle="dropdown">
-                                                        <i class="fa fa-bars"></i>
-                                                    </button>
-                                                    <ul class="dropdown-menu shadow-lg mt-2  dropdown-menu-end px-2 py-2 me-sm-n4"
-                                                        role="menu">
-                                                        <li>
-                                                            <a class="dropdown-item border-radius-md"
-                                                                href="?page=editPerjalananDinas&id=<?= $row[0]; ?>">
-                                                                <i class="fa fa-edit"></i>
-                                                                Edit Data</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item border-radius-md"
-                                                                onclick="return confirm ('Anda yakin ingin menghapus data ?');"
-                                                                href="?page=hapusPerjalananDinas&id=<?= $row[0]; ?>">
-                                                                <i class="fa fa-trash-o"></i>
-                                                                Hapus</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td>
                                             <td align="left"><?= $i++ ?></td>
                                             <td><?= $row['nm_pegawai']; ?></td>
                                             <td><?= $row['nip']; ?></td>
-                                            <td><?= $row['tanggalPergi']; ?></td>
-                                            <td><?= $row['tanggalPulang']; ?></td>
+                                            <td><?= $row['tglPergi']; ?></td>
+                                            <td><?= $row['tglPulang']; ?></td>
                                             <!--  <td><?php
                                                                 $pergi = new DateTimeImmutable($row['tanggalPergi']);
                                                                 $pulang = new DateTimeImmutable($row['tanggalPulang']);
@@ -105,8 +82,8 @@ if (!isset($_SESSION['nama'])) {
                                                                 echo $interval->format('%a Hari');
                                                                 ?> </td> -->
                                             <td><?php
-                                                        $keterangan = $row['keterangan'];
-                                                        $maxLength = 40; // Tentukan panjang maksimum yang diinginkan
+                                                        $keterangan = $row['perihal'];
+                                                        $maxLength = 70; // Tentukan panjang maksimum yang diinginkan
                                                         if (strlen($keterangan) > $maxLength) {
                                                             $trimmedText = substr($keterangan, 0, $maxLength) . ' ...';
                                                             echo $trimmedText;
@@ -114,6 +91,12 @@ if (!isset($_SESSION['nama'])) {
                                                             echo $keterangan;
                                                         }
                                                         ?></td>
+                                            <td align="center">
+                                                <?php {
+                                                            echo "<a class='badge bg-gradient-success' target='_blank' href='../pages/admin/surat-perjalanan-dinas/suratperjalanandinas.php?id={$row[0]}'><i class='fa fa-edit'></i> Print</a>";
+                                                        }
+                                                        ?>
+                                            </td>
 
                                         </tr>
                                         <?php

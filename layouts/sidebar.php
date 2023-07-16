@@ -2,29 +2,33 @@
     <aside
         class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark"
         id="sidenav-main">
-        <?php
-        $level = $_SESSION['level'];
+        <?php $level = $_SESSION['level'];
         if ($level == 0) {
-            $years = range(2000, strftime("%Y", time()));
-        ?>
+            $years = range(
+                2000,
+                strftime("%Y", time())
+            ); ?>
         <div class="sidenav-header mb-2">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand" href="" target="_blank">
-                <img src="<?php echo "../image/bjm.png" ?>" class="navbar-brand-img h-100" alt="main_logo" />
-                <span class=" font-weight-bold  text-white ms-3 "> Pelayanan Terpadu<br><i class="ms-2"> Kecamatan
-                        Banjarmasin
-                        Timur</i>
+                <img src="<?php echo "
+                    ../image/bjm.png" ?>" class="navbar-brand-img h-100" alt="main_logo" />
+                <span class=" font-weight-bold  text-white ms-3 ">
+                    Pelayanan Terpadu<br>
+                    <i class="ms-2">
+                        Kecamatan Banjarmasin Timur</i>
                 </span>
             </a>
         </div>
         <hr class="horizontal light mt-0 mb-2 " />
         <div class="text-light text-center mb-2">
-            <?php
-                include "../db/koneksi.php";
+            <?php include "../db/koneksi.php";
                 $id = $_SESSION['id_user'];
-                $query = mysqli_query($link, "SELECT * FROM users WHERE id_user = '$id' ");
-                $data = $query->fetch_array(); ?>
+                $query =
+                    mysqli_query($link, "SELECT * FROM users WHERE id_user = '$id' ");
+                $data =
+                    $query->fetch_array(); ?>
             <span class="ms-1 text-black"><?= $data['username'] ?></span>
         </div>
         <hr class="horizontal light mt-0 mb-2 nav-link-text text-center ms-1" />
@@ -103,21 +107,27 @@
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">assignment</i>
                                     </div>
-                                    <span class="nav-link-text ms-1">Rekomendasi Dispensasi <br> Nikah</span>
+                                    <span class="nav-link-text ms-1">Rekomendasi Dispensasi
+                                        <br>
+                                        Nikah</span>
                                 </a>
                                 <a class="nav-link text-white " href="?page=data_sktm">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">assignment</i>
                                     </div>
-                                    <span class="nav-link-text ms-1">Legalisasi Surat <br> Keterangan Tidak Mampu</span>
+                                    <span class="nav-link-text ms-1">Legalisasi Surat
+                                        <br>
+                                        Keterangan Tidak Mampu</span>
                                 </a>
                                 <a class="nav-link text-white " href="?page=data_pengantarNikah">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">assignment</i>
                                     </div>
-                                    <span class="nav-link-text ms-1">Legalisasi Surat <br> Pengantar Nikah</span>
+                                    <span class="nav-link-text ms-1">Legalisasi Surat
+                                        <br>
+                                        Pengantar Nikah</span>
                                 </a>
                                 <a class="nav-link text-white " href="?page=data_proposal">
                                     <div
@@ -154,7 +164,9 @@
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">beenhere</i>
                                     </div>
-                                    <span class="nav-link-text ms-1">Penilai Kinerja Pelayanan <br> Kecamatan</span>
+                                    <span class="nav-link-text ms-1">Penilai Kinerja Pelayanan
+                                        <br>
+                                        Kecamatan</span>
                                 </a>
                             </li>
                         </ul>
@@ -178,12 +190,35 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="?page=data_perjalananDinas">
+                    <a class="nav-link text-white" href="" data-bs-toggle="collapse"
+                        data-bs-target="#data-perjalanandinas">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">directions_car</i>
                         </div>
-                        <span class="nav-link-text ms-1">Data Perjalana <br> Dinas Pegawai</span>
+                        <span class="nav-link-text ms-1">Data Perjalanan Dinas</span>
                     </a>
+                    <div class="collapse" id="data-perjalanandinas">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li>
+                                <a class="nav-link text-white " href="?page=data_suratPerjalananDinas">
+                                    <div
+                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <i class="material-icons opacity-10">beenhere</i>
+                                    </div>
+                                    <span class="nav-link-text ms-1">Surat Perintah Tugas </span>
+                                </a>
+                            </li>
+                            <!-- <li class="nav-item">
+                                    <a class="nav-link text-white" href="?page=data_perjalananDinas">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">directions_car</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Data Perjalana <br> Dinas Pegawai</span>
+                                    </a>
+                                </li> -->
+                        </ul>
+                    </div>
+
                 </li>
 
                 <li class="nav-item">
@@ -200,8 +235,9 @@
                                     <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
                                         data-bs-toggle="modal" data-bs-target="#exampleModal1">
                                         <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Surat <br> Pengantar
-                                            Nikah</span>
+                                        <span class="nav-link-text ms-1">Laporan Surat
+                                            <br>
+                                            Pengantar Nikah</span>
                                     </div>
                                 </a>
                                 <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
@@ -209,8 +245,8 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Surat
-                                                    Pengantar Nikah</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Surat Pengantar
+                                                    Nikah</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -231,8 +267,8 @@
                                                         </div>
                                                         <div class="col-md-4" style="margin-top: 31px;">
                                                             <button align="center" type="submit" name="cetak1"
-                                                                class="btn btn-info btn-md"><i class="fa fa-print">
-                                                                </i>
+                                                                class="btn btn-info btn-md">
+                                                                <i class="fa fa-print"></i>
                                                                 Cetak</button>
                                                         </div>
                                                     </div>
@@ -240,9 +276,9 @@
                                                 <hr>
                                                 <div class="form-group text-center">
                                                     <a href="../laporan/l_spn.php" target="_blank"
-                                                        class="btn btn-info btn-md"><i class="fa fa-print"> </i>
-                                                        Cetak
-                                                        Semua</a>
+                                                        class="btn btn-info btn-md">
+                                                        <i class="fa fa-print"></i>
+                                                        Cetak Semua</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -254,9 +290,11 @@
                                     <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
                                         data-bs-toggle="modal" data-bs-target="#exampleModal2">
                                         <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Legalisasi <br> Surat
-                                            Keterangan
-                                            Tidak <br> Mampu</span>
+                                        <span class="nav-link-text ms-1">Laporan Legalisasi
+                                            <br>
+                                            Surat Keterangan Tidak
+                                            <br>
+                                            Mampu</span>
                                     </div>
                                 </a>
                                 <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
@@ -264,9 +302,8 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan
-                                                    Legalisasi
-                                                    Surat Keterangan Tidak Mampu</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Legalisasi Surat
+                                                    Keterangan Tidak Mampu</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -287,8 +324,8 @@
                                                         </div>
                                                         <div class="col-md-4" style="margin-top: 31px;">
                                                             <button align="center" type="submit" name="cetak2"
-                                                                class="btn btn-info btn-md"><i class="fa fa-print">
-                                                                </i>
+                                                                class="btn btn-info btn-md">
+                                                                <i class="fa fa-print"></i>
                                                                 Cetak</button>
                                                         </div>
                                                     </div>
@@ -296,9 +333,9 @@
                                                 <hr>
                                                 <div class="form-group text-center">
                                                     <a href="../laporan/l_sktm.php" target="_blank"
-                                                        class="btn btn-info btn-md"><i class="fa fa-print"> </i>
-                                                        Cetak
-                                                        Semua</a>
+                                                        class="btn btn-info btn-md">
+                                                        <i class="fa fa-print"></i>
+                                                        Cetak Semua</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -311,8 +348,9 @@
                                     <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
                                         data-bs-toggle="modal" data-bs-target="#exampleModal3">
                                         <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Legalisasi <br> Susunan
-                                            Keluarga</span>
+                                        <span class="nav-link-text ms-1">Laporan Legalisasi
+                                            <br>
+                                            Susunan Keluarga</span>
                                     </div>
                                 </a>
                                 <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog"
@@ -320,8 +358,7 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan
-                                                    Legalisasi
+                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Legalisasi
                                                     Susunan Keluarga</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close">
@@ -343,8 +380,8 @@
                                                         </div>
                                                         <div class="col-md-4" style="margin-top: 31px;">
                                                             <button align="center" type="submit" name="cetak3"
-                                                                class="btn btn-info btn-md"><i class="fa fa-print">
-                                                                </i>
+                                                                class="btn btn-info btn-md">
+                                                                <i class="fa fa-print"></i>
                                                                 Cetak</button>
                                                         </div>
                                                     </div>
@@ -352,9 +389,9 @@
                                                 <hr>
                                                 <div class="form-group text-center">
                                                     <a href="../laporan/l_sk.php" target="_blank"
-                                                        class="btn btn-info btn-md"><i class="fa fa-print"> </i>
-                                                        Cetak
-                                                        Semua</a>
+                                                        class="btn btn-info btn-md">
+                                                        <i class="fa fa-print"></i>
+                                                        Cetak Semua</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -366,8 +403,9 @@
                                     <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
                                         data-bs-toggle="modal" data-bs-target="#exampleModal4">
                                         <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Rekomendasi <br> Dispensasi
-                                            Nikah</span>
+                                        <span class="nav-link-text ms-1">Laporan Rekomendasi
+                                            <br>
+                                            Dispensasi Nikah</span>
                                     </div>
                                 </a>
                                 <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog"
@@ -375,8 +413,7 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan
-                                                    Rekomendasi
+                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Rekomendasi
                                                     Dispensasi Nikah</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close">
@@ -398,8 +435,8 @@
                                                         </div>
                                                         <div class="col-md-4" style="margin-top: 31px;">
                                                             <button align="center" type="submit" name="cetak4"
-                                                                class="btn btn-info btn-md"><i class="fa fa-print">
-                                                                </i>
+                                                                class="btn btn-info btn-md">
+                                                                <i class="fa fa-print"></i>
                                                                 Cetak</button>
                                                         </div>
                                                     </div>
@@ -407,9 +444,9 @@
                                                 <hr>
                                                 <div class="form-group text-center">
                                                     <a href="../laporan/l_rdn.php" target="_blank"
-                                                        class="btn btn-info btn-md"><i class="fa fa-print"> </i>
-                                                        Cetak
-                                                        Semua</a>
+                                                        class="btn btn-info btn-md">
+                                                        <i class="fa fa-print"></i>
+                                                        Cetak Semua</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -421,8 +458,7 @@
                                     <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
                                         data-bs-toggle="modal" data-bs-target="#exampleModal5">
                                         <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Legalisasi
-                                            Proposal</span>
+                                        <span class="nav-link-text ms-1">Laporan Legalisasi Proposal</span>
                                     </div>
                                 </a>
                                 <div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog"
@@ -430,8 +466,7 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan
-                                                    Legalisasi
+                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Legalisasi
                                                     Proposal</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close">
@@ -453,8 +488,8 @@
                                                         </div>
                                                         <div class="col-md-4" style="margin-top: 31px;">
                                                             <button align="center" type="submit" name="cetak5"
-                                                                class="btn btn-info btn-md"><i class="fa fa-print">
-                                                                </i>
+                                                                class="btn btn-info btn-md">
+                                                                <i class="fa fa-print"></i>
                                                                 Cetak</button>
                                                         </div>
                                                     </div>
@@ -462,9 +497,9 @@
                                                 <hr>
                                                 <div class="form-group text-center">
                                                     <a href="../laporan/l_lp.php" target="_blank"
-                                                        class="btn btn-info btn-md"><i class="fa fa-print"> </i>
-                                                        Cetak
-                                                        Semua</a>
+                                                        class="btn btn-info btn-md">
+                                                        <i class="fa fa-print"></i>
+                                                        Cetak Semua</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -476,7 +511,9 @@
                                     <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
                                         data-bs-toggle="modal" data-bs-target="#exampleModal6">
                                         <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Berita <br> Kegiatan Kecamatan</span>
+                                        <span class="nav-link-text ms-1">Laporan Berita
+                                            <br>
+                                            Kegiatan Kecamatan</span>
                                     </div>
                                 </a>
                                 <div class="modal fade" id="exampleModal6" tabindex="-1" role="dialog"
@@ -484,8 +521,8 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan
-                                                    Berita Kegiatan Kecamatan</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Berita Kegiatan
+                                                    Kecamatan</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -506,8 +543,8 @@
                                                         </div>
                                                         <div class="col-md-4" style="margin-top: 31px;">
                                                             <button align="center" type="submit" name="cetak6"
-                                                                class="btn btn-info btn-md"><i class="fa fa-print">
-                                                                </i>
+                                                                class="btn btn-info btn-md">
+                                                                <i class="fa fa-print"></i>
                                                                 Cetak</button>
                                                         </div>
                                                     </div>
@@ -515,9 +552,9 @@
                                                 <hr>
                                                 <div class="form-group text-center">
                                                     <a href="../laporan/l_news.php" target="_blank"
-                                                        class="btn btn-info btn-md"><i class="fa fa-print"> </i>
-                                                        Cetak
-                                                        Semua</a>
+                                                        class="btn btn-info btn-md">
+                                                        <i class="fa fa-print"></i>
+                                                        Cetak Semua</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -529,7 +566,9 @@
                                     <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
                                         data-bs-toggle="modal" data-bs-target="#exampleModal7">
                                         <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Data Diri <br> Masyarakat</span>
+                                        <span class="nav-link-text ms-1">Laporan Data Diri
+                                            <br>
+                                            Masyarakat</span>
                                     </div>
                                 </a>
                                 <div class="modal fade" id="exampleModal7" tabindex="-1" role="dialog"
@@ -537,8 +576,8 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan
-                                                    Data Pribadi Masyarakat</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Data Pribadi
+                                                    Masyarakat</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -547,9 +586,9 @@
                                             <div class="modal-body">
                                                 <div class="form-group text-center">
                                                     <a href="../laporan/l_msy.php" target="_blank"
-                                                        class="btn btn-info btn-md"><i class="fa fa-print"> </i>
-                                                        Cetak
-                                                        Semua</a>
+                                                        class="btn btn-info btn-md">
+                                                        <i class="fa fa-print"></i>
+                                                        Cetak Semua</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -561,8 +600,9 @@
                                     <div class="text-white me-2 d-flex" type="button" class="btn bg-gradient-primary"
                                         data-bs-toggle="modal" data-bs-target="#exampleModal8">
                                         <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Data Kinerja <br> Pelayanan
-                                            Kecamatan</span>
+                                        <span class="nav-link-text ms-1">Laporan Data Kinerja
+                                            <br>
+                                            Pelayanan Kecamatan</span>
                                     </div>
                                 </a>
                                 <div class="modal fade" id="exampleModal8" tabindex="-1" role="dialog"
@@ -570,8 +610,8 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan
-                                                    Kinerja Pelayanan Kecamatan</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Kinerja Pelayanan
+                                                    Kecamatan</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -593,8 +633,8 @@
                                                         </div>
                                                         <div class="col-md-4" style="margin-top: 31px;">
                                                             <button align="center" type="submit" name="cetak8"
-                                                                class="btn btn-info btn-md"><i class="fa fa-print">
-                                                                </i>
+                                                                class="btn btn-info btn-md">
+                                                                <i class="fa fa-print"></i>
                                                                 Cetak</button>
                                                         </div>
                                                     </div>
@@ -602,9 +642,9 @@
                                                 <hr>
                                                 <div class="form-group text-center">
                                                     <a href="../laporan/l_KinerjaKec.php" target="_blank"
-                                                        class="btn btn-info btn-md"><i class="fa fa-print"> </i>
-                                                        Cetak
-                                                        Semua</a>
+                                                        class="btn btn-info btn-md">
+                                                        <i class="fa fa-print"></i>
+                                                        Cetak Semua</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -616,7 +656,9 @@
                                     <div class="text-white me-2 d-flex" type="button" class="btn bg-gradient-primary"
                                         data-bs-toggle="modal" data-bs-target="#exampleModal9">
                                         <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Data <br> Kinerja Pegawai</span>
+                                        <span class="nav-link-text ms-1">Laporan Data
+                                            <br>
+                                            Kinerja Pegawai</span>
                                     </div>
                                 </a>
                                 <div class="modal fade" id="exampleModal9" tabindex="-1" role="dialog"
@@ -624,8 +666,8 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan
-                                                    Kinerja Pegawai</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Kinerja Pegawai
+                                                </h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -647,8 +689,8 @@
                                                         </div>
                                                         <div class="col-md-4" style="margin-top: 31px;">
                                                             <button align="center" type="submit" name="cetak9"
-                                                                class="btn btn-info btn-md"><i class="fa fa-print">
-                                                                </i>
+                                                                class="btn btn-info btn-md">
+                                                                <i class="fa fa-print"></i>
                                                                 Cetak</button>
                                                         </div>
                                                     </div>
@@ -656,9 +698,9 @@
                                                 <hr>
                                                 <div class="form-group text-center">
                                                     <a href="../laporan/l_KinerjaPegawai.php" target="_blank"
-                                                        class="btn btn-info btn-md"><i class="fa fa-print"> </i>
-                                                        Cetak
-                                                        Semua</a>
+                                                        class="btn btn-info btn-md">
+                                                        <i class="fa fa-print"></i>
+                                                        Cetak Semua</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -670,7 +712,9 @@
                                     <div class="text-white me-2 d-flex" type="button" class="btn bg-gradient-primary"
                                         data-bs-toggle="modal" data-bs-target="#exampleModal10">
                                         <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Data <br> Perjalanan Dinas</span>
+                                        <span class="nav-link-text ms-1">Laporan Data
+                                            <br>
+                                            Perjalanan Dinas</span>
                                     </div>
                                 </a>
                                 <div class="modal fade" id="exampleModal10" tabindex="-1" role="dialog"
@@ -678,8 +722,8 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan
-                                                    Perjalanan DInas</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Perjalanan DInas
+                                                </h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -701,8 +745,8 @@
                                                         </div>
                                                         <div class="col-md-4" style="margin-top: 31px;">
                                                             <button align="center" type="submit" name="cetak10"
-                                                                class="btn btn-info btn-md"><i class="fa fa-print">
-                                                                </i>
+                                                                class="btn btn-info btn-md">
+                                                                <i class="fa fa-print"></i>
                                                                 Cetak</button>
                                                         </div>
                                                     </div>
@@ -710,9 +754,9 @@
                                                 <hr>
                                                 <div class="form-group text-center">
                                                     <a href="../laporan/l_PerjalananDinas.php" target="_blank"
-                                                        class="btn btn-info btn-md"><i class="fa fa-print"> </i>
-                                                        Cetak
-                                                        Semua</a>
+                                                        class="btn btn-info btn-md">
+                                                        <i class="fa fa-print"></i>
+                                                        Cetak Semua</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -725,8 +769,6 @@
             </ul>
         </div>
     </aside>
-
-
 
     <main class="main-content border-radius-lg">
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
@@ -809,8 +851,8 @@
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
                                                 <h6 class="text-sm font-weight-normal mb-1">
-                                                    <span class="font-weight-bold">New album</span> by
-                                                    Travis Scott
+                                                    <span class="font-weight-bold">New album</span>
+                                                    by Travis Scott
                                                 </h6>
                                                 <p class="text-xs text-secondary mb-0">
                                                     <i class="fa fa-clock me-1"></i>
@@ -868,31 +910,34 @@
         }
     ?>
 
-
         <!-- Bagian Pegawai -->
-        <?php
-    $level = $_SESSION['level'];
+        <?php $level = $_SESSION['level'];
     if ($level == 1) {
-        $years = range(2000, strftime("%Y", time()));
-    ?>
+        $years = range(
+            2000,
+            strftime("%Y", time())
+        ); ?>
         <div class="sidenav-header mb-2">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand" href="" target="_blank">
-                <img src="<?php echo "../image/bjm.png" ?>" class="navbar-brand-img h-100" alt="main_logo" />
-                <span class=" font-weight-bold  text-white ms-3 "> Pelayanan Terpadu<br><i class="ms-2"> Kecamatan
-                        Banjarmasin
-                        Timur</i>
+                <img src="<?php echo "
+                    ../image/bjm.png" ?>" class="navbar-brand-img h-100" alt="main_logo" />
+                <span class=" font-weight-bold  text-white ms-3 ">
+                    Pelayanan Terpadu<br>
+                    <i class="ms-2">
+                        Kecamatan Banjarmasin Timur</i>
                 </span>
             </a>
         </div>
         <hr class="horizontal light mt-0 mb-2 " />
         <div class="text-light text-center mb-2">
-            <?php
-            include "../db/koneksi.php";
+            <?php include "../db/koneksi.php";
             $id = $_SESSION['id_user'];
-            $query = mysqli_query($link, "SELECT * FROM users WHERE id_user = '$id' ");
-            $data = $query->fetch_array(); ?>
+            $query =
+                mysqli_query($link, "SELECT * FROM users WHERE id_user = '$id' ");
+            $data =
+                $query->fetch_array(); ?>
             <span class="ms-1 text-black"><?= $data['nm_lengkap'] ?></span>
         </div>
         <hr class="horizontal light mt-0 mb-2 nav-link-text text-center ms-1" />
@@ -961,7 +1006,6 @@
             </div>
         </div> -->
         </aside>
-
 
         <main class="main-content border-radius-lg">
             <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
@@ -1045,8 +1089,8 @@
                                                 </div>
                                                 <div class="d-flex flex-column justify-content-center">
                                                     <h6 class="text-sm font-weight-normal mb-1">
-                                                        <span class="font-weight-bold">New album</span> by
-                                                        Travis Scott
+                                                        <span class="font-weight-bold">New album</span>
+                                                        by Travis Scott
                                                     </h6>
                                                     <p class="text-xs text-secondary mb-0">
                                                         <i class="fa fa-clock me-1"></i>
@@ -1105,29 +1149,33 @@
         ?>
 
             <!-- Bagian Masyarakat -->
-            <?php
-        $level = $_SESSION['level'];
+            <?php $level = $_SESSION['level'];
         if ($level == 2) {
-            $years = range(2000, strftime("%Y", time()));
-        ?>
+            $years = range(
+                2000,
+                strftime("%Y", time())
+            ); ?>
             <div class="sidenav-header mb-2">
                 <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                     aria-hidden="true" id="iconSidenav"></i>
                 <a class="navbar-brand" href="" target="_blank">
-                    <img src="<?php echo "../image/bjm.png" ?>" class="navbar-brand-img h-100" alt="main_logo" />
-                    <span class=" font-weight-bold  text-white ms-3 "> Pelayanan Terpadu<br><i class="ms-2"> Kecamatan
-                            Banjarmasin
-                            Timur</i>
+                    <img src="<?php echo "
+                    ../image/bjm.png" ?>" class="navbar-brand-img h-100" alt="main_logo" />
+                    <span class=" font-weight-bold  text-white ms-3 ">
+                        Pelayanan Terpadu<br>
+                        <i class="ms-2">
+                            Kecamatan Banjarmasin Timur</i>
                     </span>
                 </a>
             </div>
             <hr class="horizontal light mt-0 mb-2 " />
             <div class="text-light text-center mb-2">
-                <?php
-                include "../db/koneksi.php";
+                <?php include "../db/koneksi.php";
                 $id = $_SESSION['id_user'];
-                $query = mysqli_query($link, "SELECT * FROM users WHERE id_user = '$id' ");
-                $data = $query->fetch_array(); ?>
+                $query =
+                    mysqli_query($link, "SELECT * FROM users WHERE id_user = '$id' ");
+                $data =
+                    $query->fetch_array(); ?>
                 <span class="ms-1 text-black"><?= $data['nm_lengkap'] ?></span>
             </div>
             <hr class="horizontal light mt-0 mb-2 nav-link-text text-center ms-1" />
@@ -1156,7 +1204,9 @@
                                             class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                             <i class="material-icons opacity-10">people</i>
                                         </div>
-                                        <span class="nav-link-text ms-1">Legalisasi <br> Susunan Keluarga</span>
+                                        <span class="nav-link-text ms-1">Legalisasi
+                                            <br>
+                                            Susunan Keluarga</span>
                                     </a>
                                 </li>
                                 <li>
@@ -1165,7 +1215,9 @@
                                             class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                             <i class="material-icons opacity-10">assignment</i>
                                         </div>
-                                        <span class="nav-link-text ms-1">Rekomendasi Dispensasi <br> Nikah</span>
+                                        <span class="nav-link-text ms-1">Rekomendasi Dispensasi
+                                            <br>
+                                            Nikah</span>
                                     </a>
                                 </li>
                                 <li>
@@ -1174,8 +1226,9 @@
                                             class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                             <i class="material-icons opacity-10">people</i>
                                         </div>
-                                        <span class="nav-link-text ms-1">Legalisasi Surat <br> Keterangan Tidak
-                                            Mampu</span>
+                                        <span class="nav-link-text ms-1">Legalisasi Surat
+                                            <br>
+                                            Keterangan Tidak Mampu</span>
                                     </a>
                                 </li>
                                 <li>
@@ -1184,7 +1237,9 @@
                                             class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                             <i class="material-icons opacity-10">people</i>
                                         </div>
-                                        <span class="nav-link-text ms-1">Legalisasi Surat <br> Pengantar Nikah</span>
+                                        <span class="nav-link-text ms-1">Legalisasi Surat
+                                            <br>
+                                            Pengantar Nikah</span>
                                     </a>
                                 </li>
                                 <li>
@@ -1212,7 +1267,9 @@
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="material-icons opacity-10">beenhere</i>
                             </div>
-                            <span class="nav-link-text ms-1">Penilaian <br> Pelayanan Kecamatan</span>
+                            <span class="nav-link-text ms-1">Penilaian
+                                <br>
+                                Pelayanan Kecamatan</span>
                         </a>
                     </li>
                     <!-- <li class="nav-item">
@@ -1481,7 +1538,6 @@
             </div>
             </aside>
 
-
             <main class="main-content border-radius-lg">
                 <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
                     data-scroll="true">
@@ -1564,8 +1620,8 @@
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="text-sm font-weight-normal mb-1">
-                                                            <span class="font-weight-bold">New album</span> by
-                                                            Travis Scott
+                                                            <span class="font-weight-bold">New album</span>
+                                                            by Travis Scott
                                                         </h6>
                                                         <p class="text-xs text-secondary mb-0">
                                                             <i class="fa fa-clock me-1"></i>

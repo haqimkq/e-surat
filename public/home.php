@@ -19,13 +19,14 @@ if (!isset($_SESSION['nama'])) {
     switch ($_GET['page']) {
         default:
 
-            if ($level === '0' || $level === '1') {
+            if ($level === '0') {
                 include "../public/dashboard.php";
+            } elseif ($level === '1') {
+                include "../public/dashboard-pegawai.php";
             } elseif ($level === '2') {
                 include "../public/dashboard-masyarakat.php";
             }
             break;
-
 
 
             // START ADMIN PAGE
@@ -189,13 +190,27 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/admin/kinerja-kecamatan/delete.php";
             break;
 
-        case "data_perjalananDinas";
-            include "../pages/admin/perjalanan-dinas/data.php";
-            break;
-        case "hapus_perjalananDinas";
-            include "../pages/admin/perjalanan-dinas/delete.php";
-            break;
+        //     //PERJALANAN DINAS
+        // case "data_perjalananDinas";
+        //     include "../pages/admin/perjalanan-dinas/data.php";
+        //     break;
+        // case "hapus_perjalananDinas";
+        //     include "../pages/admin/perjalanan-dinas/delete.php";
+        //     break;
 
+            //SURAY PERJALANAN DINAS
+        case "data_suratPerjalananDinas";
+            include "../pages/admin/surat-perjalanan-dinas/data.php";
+            break;
+        case "tambah_suratPerjalananDinas";
+            include "../pages/admin/surat-perjalanan-dinas/add.php";
+            break;
+        case "edit_suratPerjalananDinas";
+            include "../pages/admin/surat-perjalanan-dinas/edit.php";
+            break;
+        case "hapus_suratPerjalananDinas";
+            include "../pages/admin/surat-perjalanan-dinas/delete.php";
+            break;
             // END ADMIN PAGE -----------
 
 
@@ -218,15 +233,15 @@ if (!isset($_SESSION['nama'])) {
         case "dataPerjalananDinas";
             include "../pages/other/perjalanan-dinas/data.php";
             break;
-        case "tambahPerjalananDinas";
-            include "../pages/other/perjalanan-dinas/add.php";
-            break;
-        case "editPerjalananDinas";
-            include "../pages/other/perjalanan-dinas/edit.php";
-            break;
-        case "hapusPerjalananDinas";
-            include "../pages/other/perjalanan-dinas/delete.php";
-            break;
+        // case "tambahPerjalananDinas";
+        //     include "../pages/other/perjalanan-dinas/add.php";
+        //     break;
+        // case "editPerjalananDinas";
+        //     include "../pages/other/perjalanan-dinas/edit.php";
+        //     break;
+        // case "hapusPerjalananDinas";
+        //     include "../pages/other/perjalanan-dinas/delete.php";
+        //     break;
 
             // PENILAIAN KINERJA PEGAWAI
         case "dataKinerjaPegawai":
