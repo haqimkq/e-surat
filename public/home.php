@@ -394,6 +394,13 @@ if (!isset($_SESSION['nama'])) {
         case "eProposal":
             include "../pages/camat/legalisasi-proposal/edit.php";
             break;
+            //LEGALISASI SURAT KETERANGAN TIDAK MAMPU
+        case "dSktm":
+            include "../pages/camat/surat-keterangan-tidak-mampu/data.php";
+            break;
+        case "eSktm":
+            include "../pages/camat/surat-keterangan-tidak-mampu/edit.php";
+            break;
     }
 ?>
 

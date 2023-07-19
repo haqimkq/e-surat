@@ -141,7 +141,16 @@ if (!isset($_SESSION['nama'])) {
                                                             <div class="input-group input-group-dynamic">
                                                                 <!-- <label>Status</label> -->
                                                                 <div class="input-group input-group-dynamic mb-4">
-                                                                    <input class="form-control" aria-label="Status" type="hidden" name="status" value="Proses" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
+                                                                    <input class="form-control" aria-label="Status" type="hidden" name="statusAdmin" value="Proses" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
+                                                                    <div class="help-block with-errors"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 ">
+                                                            <div class="input-group input-group-dynamic">
+                                                                <!-- <label>Status</label> -->
+                                                                <div class="input-group input-group-dynamic mb-4">
+                                                                    <input class="form-control" aria-label="Status" type="hidden" name="statusCamat" value="Proses" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
                                                                     <div class="help-block with-errors"></div>
                                                                 </div>
                                                             </div>
@@ -287,7 +296,8 @@ if (!isset($_SESSION['nama'])) {
         }
 
         $tgl = $_POST['tgl'];
-        $status = $_POST['status'];
+        $statusAdmin = $_POST['statusAdmin'];
+        $statusCamat = $_POST['statusCamat'];
         $qrcode = $_POST['qrCode'];
 
         $simpan = $link->query("INSERT INTO sktm VALUES (
@@ -299,7 +309,8 @@ if (!isset($_SESSION['nama'])) {
             '$kk',
             '$s_pernyataan',
             '$tgl',
-            '$status',
+            '$statusAdmin',
+            '$statusCamat',
             '$qrcode'
             )");
 

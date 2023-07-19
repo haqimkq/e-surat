@@ -155,33 +155,33 @@ if (!isset($_SESSION['nama'])) {
                                                     </div>
                                                     <input type="hidden" name="qrcode_lama" value="<?= $data['qrCode'] ?>">
                                                 </div>
-                                                <div class="col-md-3 mt-7">
+                                                <div class="col-md-4 mt-9">
                                                     <div class="input-group input-group-dynamic">
                                                         <label class="text-bold">Status :</label>
                                                         <div class="input-group input-group-dynamic mb-4 ">
-                                                            <select name="statusAdmin" class="form-control ">
-                                                                <option value="Proses" <?php if ($data['statusAdmin'] == 'Proses') {
+                                                            <select name="statusCamat" class="form-control ">
+                                                                <option value="Proses" <?php if ($data['statusCamat'] == 'Proses') {
                                                                                             echo "selected";
                                                                                         } ?>>Proses
                                                                 </option>
-                                                                <option value="Diterima" <?php if ($data['statusAdmin'] == 'Diterima') {
+                                                                <option value="Diterima" <?php if ($data['statusCamat'] == 'Diterima') {
                                                                                                 echo "selected";
                                                                                             } ?>>Diterima
                                                                 </option>
-                                                                <option value="Ditolak" <?php if ($data['statusAdmin'] == 'Ditolak') {
+                                                                <option value="Ditolak" <?php if ($data['statusCamat'] == 'Ditolak') {
                                                                                             echo "selected";
                                                                                         } ?>>Ditolak
                                                                 </option>
                                                             </select>
-                                                            <div class="help-block with-errors"></div>
                                                             <em class="text-danger text-sm text-italic"> <br> *Pilih
                                                                 Status</em>
+                                                            <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="form-group mt-3">
                                                     <div class="col-md-12">
-                                                        <input type="submit" class="btn btn-primary" value="Edit" name="edit">
+                                                        <input type="submit" class="btn btn-primary" value="Verifikasi" name="edit">
                                                         <input type="reset" class="btn btn-danger" value="Reset" name="reset">
                                                     </div>
                                                 </div>
@@ -278,7 +278,7 @@ if (!isset($_SESSION['nama'])) {
 
 
         $tgl = $_POST['tgl'];
-        $statusAdmin = $_POST['statusAdmin'];
+        $statusCamat = $_POST['statusCamat'];
 
 
 
@@ -290,17 +290,17 @@ kk = '$kk',
 s_sktm = '$s_sktm',
 s_pernyataan = '$s_pernyataan',
 tgl = '$tgl',
-statusAdmin = '$statusAdmin',
+statusCamat = '$statusCamat',
 qrCode = '$qrcode'
 
 WHERE id_sktm = '$id'");
 
         if ($edit) {
             echo "<script>alert('Data berhasil diedit')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=data_sktm'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=dSktm'>";
         } else {
             echo "<script>alert('Data anda gagal diedit. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=edit_sktm'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=eSktm'>";
         }
     }
 }

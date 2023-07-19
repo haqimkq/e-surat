@@ -29,8 +29,8 @@ if (!isset($_SESSION['nama'])) {
                 </div>
                 <div class="card-body p-3 mt-1">
                     <!-- <div class="col-2">
-                            <a href="?page=tambahSktm" class="btn btn-info">Tambah Data</a>
-                        </div> -->
+                        <a href="?page=tambahSktm" class="btn btn-info">Tambah Data</a>
+                    </div> -->
                     <!-- <hr class="horizontal dark"> -->
                     <div class="row">
                         <div class="col-lg-12 col-md-12 mt-2">
@@ -39,7 +39,7 @@ if (!isset($_SESSION['nama'])) {
                                     <thead>
                                         <tr>
                                             <!-- <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                    Aksi</th> -->
+                                                Aksi</th> -->
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 No.
                                             </th>
@@ -47,8 +47,6 @@ if (!isset($_SESSION['nama'])) {
                                                 Nama</th>
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 Jenis layanan</th>
-                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                Taggal Pengajuan</th>
                                             <th
                                                 class=" w-5 text-secondary text-center text-s font-weight-bolder opacity-7">
                                                 Surat Dari <br> Lurah</th>
@@ -59,9 +57,9 @@ if (!isset($_SESSION['nama'])) {
                                                 Foto Kartu <br> Keluarga</th>
                                             <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
                                                 Surat Dari <br> RT</th>
-                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
+                                            <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
                                                 Verifikasi Admin</th>
-                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
+                                            <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
                                                 Verifikasi Camat</th>
                                         </tr>
                                     </thead>
@@ -78,28 +76,34 @@ if (!isset($_SESSION['nama'])) {
                                             ?>
                                         <tr>
                                             <!-- <td>
-                                                        <div class="w-3 mt-3">
-                                                            <button type="button" class="btn btn-info dropdown-toggle border-radius-lg px-3 py-1 " id="dropdownMenuButton" data-bs-toggle="dropdown">
-                                                                <i class="fa fa-bars"></i>
-                                                            </button>
-                                                            <ul class="dropdown-menu shadow-lg mt-2  dropdown-menu-end px-2 py-2 me-sm-n4" role="menu">
-                                                                <li>
-                                                                    <a class="dropdown-item border-radius-md" href="?page=edit_sktm&id=<?= $row[0]; ?>">
-                                                                        <i class="fa fa-edit"></i>
-                                                                        Edit Data</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a class="dropdown-item border-radius-md" onclick="return confirm ('Anda yakin ingin menghapus data ?');" href="?page=hapus_sktm&id=<?= $row[0]; ?>">
-                                                                        <i class="fa fa-trash-o"></i>
-                                                                        Hapus</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td> -->
+                                                <div class="w-3 mt-3">
+                                                    <button type="button"
+                                                        class="btn btn-info dropdown-toggle border-radius-lg px-3 py-1 "
+                                                        id="dropdownMenuButton" data-bs-toggle="dropdown">
+                                                        <i class="fa fa-bars"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu shadow-lg mt-2  dropdown-menu-end px-2 py-2 me-sm-n4"
+                                                        role="menu">
+                                                        <li>
+                                                            <a class="dropdown-item border-radius-md"
+                                                                href="?page=edit_sktm&id=<?= $row[0]; ?>">
+                                                                <i class="fa fa-edit"></i>
+                                                                Edit Data</a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item border-radius-md"
+                                                                onclick="return confirm ('Anda yakin ingin menghapus data ?');"
+                                                                href="?page=hapus_sktm&id=<?= $row[0]; ?>">
+                                                                <i class="fa fa-trash-o"></i>
+                                                                Hapus</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td> -->
                                             <td class="w-3" align="left"><?= $i++ ?></td>
                                             <td><?= $row['nama']; ?></td>
                                             <td><?= $row['j_pelayanan']; ?></td>
-                                            <td class="w-5" align="center"><?= $row['tgl']; ?></td>
+
                                             <td class="w-5" align="center">
                                                 <?php
                                                         if (!empty($row['s_sktm'])) {
@@ -129,7 +133,6 @@ if (!isset($_SESSION['nama'])) {
                                             <td align="center">
                                                 <?php
                                                         $statusAdmin = $row['statusAdmin'];
-                                                        $statusCamat = $row['statusCamat'];
                                                         $badgeColor = '';
                                                         switch ($statusAdmin) {
                                                             case 'Proses':
@@ -145,13 +148,8 @@ if (!isset($_SESSION['nama'])) {
                                                                 $badgeColor = 'bg-gradient-secondary';
                                                                 break;
                                                         }
-
-                                                        if ($statusCamat == 'Diterima') {
-                                                            echo '<a href="?page=edit_sktm&id=' . $row[0] . '" class="badge ' . $badgeColor . '">' . $statusAdmin . '</a>';
-                                                        } else {
-                                                            echo '<span class="badge ' . $badgeColor . '">' . $statusAdmin . '</span>';
-                                                        }
                                                         ?>
+                                                <span class="badge <?= $badgeColor; ?>"><?= $statusAdmin; ?></span>
                                             </td>
                                             <td align="center">
                                                 <?php
@@ -172,7 +170,8 @@ if (!isset($_SESSION['nama'])) {
                                                                 break;
                                                         }
                                                         ?>
-                                                <span class="badge <?= $badgeColor; ?>"><?= $statusCamat; ?></span>
+                                                <a href="?page=eSktm&id=<?= $row[0]; ?>"
+                                                    class="badge <?= $badgeColor; ?>"><?= $statusCamat; ?></a>
                                             </td>
                                         </tr>
                                         <?php
