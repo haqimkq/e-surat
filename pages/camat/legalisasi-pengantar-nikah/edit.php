@@ -23,7 +23,7 @@ if (!isset($_SESSION['nama'])) {
                 <div class="col-auto my-auto ">
                     <div class=" h-100 ">
                         <h5 class=" mb-1 text-white">
-                            Edit Data Pengajuan Legalisasi Surat Keterangan Tidak Mampu
+                            Edit Data Surat Pengantar Nikah
                         </h5>
                     </div>
                 </div>
@@ -148,7 +148,6 @@ if (!isset($_SESSION['nama'])) {
                                                 <br>
                                                 <br>
                                                 <br>
-
                                                 <div class="col-md-5 me-7 mt-4 ">
                                                     <div class="input-group input-group-dynamic">
                                                         <label class="text-bold">Surat Kematian *(Bagi Janda/Duda Cerai
@@ -191,20 +190,20 @@ if (!isset($_SESSION['nama'])) {
                                                     </div>
                                                     <input type="hidden" name="qrcode_lama" value="<?= $data['qrCode'] ?>">
                                                 </div>
-                                                <div class="col-md-4 mt-7">
+                                                <div class="col-md-4 mt-6">
                                                     <div class="input-group input-group-dynamic">
                                                         <label class="text-bold">Status :</label>
                                                         <div class="input-group input-group-dynamic mb-4 ">
-                                                            <select name="statusAdmin" class="form-control ">
-                                                                <option value="Proses" <?php if ($data['statusAdmin'] == 'Proses') {
+                                                            <select name="statusCamat" class="form-control ">
+                                                                <option value="Proses" <?php if ($data['statusCamat'] == 'Proses') {
                                                                                             echo "selected";
                                                                                         } ?>>Proses
                                                                 </option>
-                                                                <option value="Diterima" <?php if ($data['statusAdmin'] == 'Diterima') {
+                                                                <option value="Diterima" <?php if ($data['statusCamat'] == 'Diterima') {
                                                                                                 echo "selected";
                                                                                             } ?>>Diterima
                                                                 </option>
-                                                                <option value="Ditolak" <?php if ($data['statusAdmin'] == 'Ditolak') {
+                                                                <option value="Ditolak" <?php if ($data['statusCamat'] == 'Ditolak') {
                                                                                             echo "selected";
                                                                                         } ?>>Ditolak
                                                                 </option>
@@ -338,7 +337,7 @@ if (!isset($_SESSION['nama'])) {
 
 
         $tgl = $_POST['tgl'];
-        $statusAdmin = $_POST['statusAdmin'];
+        $statusCamat = $_POST['statusCamat'];
 
 
         $edit = $link->query("UPDATE spn SET 
@@ -351,17 +350,17 @@ akte_c = '$akte_c',
 sk = '$sk',
 skwn = '$skwn',
 tgl = '$tgl',
-statusAdmin = '$statusAdmin',
+statusCamat = '$statusCamat',
 qrCode = '$qrcode'
 
 WHERE id_spn = '$id'");
 
         if ($edit) {
             echo "<script>alert('Data berhasil diedit')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=data_pengantarNikah'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=dPengantarNikah'>";
         } else {
             echo "<script>alert('Data anda gagal diedit. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=edit_pengantarNikah'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=ePengantarNikah'>";
         }
     }
 }

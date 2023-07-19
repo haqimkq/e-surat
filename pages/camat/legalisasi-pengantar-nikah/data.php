@@ -38,7 +38,7 @@ if (!isset($_SESSION['nama'])) {
                                     <thead>
                                         <tr>
                                             <!-- <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                    Aksi</th> -->
+                                                Aksi</th> -->
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 No.
                                             </th>
@@ -46,7 +46,8 @@ if (!isset($_SESSION['nama'])) {
                                                 Nama</th>
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 Jenis layanan</th>
-                                            <th class=" w-5 text-secondary text-s font-weight-bolder opacity-7">
+                                            <th
+                                                class=" w-5 text-secondary text-center text-s font-weight-bolder opacity-7">
                                                 Surat Dari <br> Lurah</th>
                                             <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
                                                 Akte Cerai <br> (Meninggal)</th>
@@ -54,15 +55,13 @@ if (!isset($_SESSION['nama'])) {
                                                 Akte Cerai <br> (Hidup)</th>
                                             <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
                                                 Surat Wali <br> Nikah</th>
-                                            <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
+                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 Foto <br> KTP</th>
                                             <th class="w-5 text-secondary text-s font-weight-bolder opacity-7">
                                                 Pas Foto</th>
-                                            <th
-                                                class=" text-secondary text-center   text-s font-weight-bolder opacity-7">
+                                            <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
                                                 Verifikasi <br> Admin</th>
-                                            <th
-                                                class=" text-secondary text-center  text-s font-weight-bolder opacity-7">
+                                            <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
                                                 Verifikasi <br> Camat</th>
                                         </tr>
                                     </thead>
@@ -148,7 +147,6 @@ if (!isset($_SESSION['nama'])) {
                                             <td align="center">
                                                 <?php
                                                         $statusAdmin = $row['statusAdmin'];
-                                                        $statusCamat = $row['statusCamat'];
                                                         $badgeColor = '';
                                                         switch ($statusAdmin) {
                                                             case 'Proses':
@@ -164,13 +162,8 @@ if (!isset($_SESSION['nama'])) {
                                                                 $badgeColor = 'bg-gradient-secondary';
                                                                 break;
                                                         }
-
-                                                        if ($statusCamat == 'Diterima') {
-                                                            echo '<a href="?page=edit_pengantarNikah&id=' . $row[0] . '" class="badge ' . $badgeColor . '">' . $statusAdmin . '</a>';
-                                                        } else {
-                                                            echo '<span class="badge ' . $badgeColor . '">' . $statusAdmin . '</span>';
-                                                        }
                                                         ?>
+                                                <span class="badge <?= $badgeColor; ?>"><?= $statusAdmin; ?></span>
                                             </td>
                                             <td align="center">
                                                 <?php
@@ -191,7 +184,8 @@ if (!isset($_SESSION['nama'])) {
                                                                 break;
                                                         }
                                                         ?>
-                                                <span class="badge <?= $badgeColor; ?>"><?= $statusCamat; ?></span>
+                                                <a href="?page=ePengantarNikah&id=<?= $row[0]; ?>"
+                                                    class="badge <?= $badgeColor; ?>"><?= $statusCamat; ?></a>
                                             </td>
                                         </tr>
                                         <?php

@@ -401,6 +401,13 @@ if (!isset($_SESSION['nama'])) {
         case "eSktm":
             include "../pages/camat/surat-keterangan-tidak-mampu/edit.php";
             break;
+            //LEGALISASI SURAT PENGANTAR NIKAH
+        case "dPengantarNikah":
+            include "../pages/camat/legalisasi-pengantar-nikah/data.php";
+            break;
+        case "ePengantarNikah":
+            include "../pages/camat/legalisasi-pengantar-nikah/edit.php";
+            break;
     }
 ?>
 

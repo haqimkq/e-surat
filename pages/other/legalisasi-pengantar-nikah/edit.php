@@ -166,15 +166,6 @@ if (!isset($_SESSION['nama'])) {
                                                         <input name="skwn_lama" type="hidden" class="form-control input-sm" value="<?= $data['skwn'] ?>">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-10 ">
-                                                    <div class="input-group input-group-dynamic">
-                                                        <!-- <label>Status</label> -->
-                                                        <div class="input-group input-group-dynamic mb-4">
-                                                            <input class="form-control" aria-label="Foto" type="hidden" name="status" value="<?= $data['status'] ?>" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" readonly>
-                                                            <div class="help-block with-errors"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                         <input type="submit" class="btn btn-primary" value="Edit" name="edit">
@@ -284,7 +275,7 @@ if (!isset($_SESSION['nama'])) {
 
 
         $tgl = $_POST['tgl'];
-        $status = $_POST['status'];
+
 
 
         $edit = $link->query("UPDATE spn SET 
@@ -296,8 +287,7 @@ pas_foto = '$pas',
 akte_c = '$akte_c',
 sk = '$sk',
 skwn = '$skwn',
-tgl = '$tgl',
-status = '$status'
+tgl = '$tgl'
 
 WHERE id_spn = '$id'");
 

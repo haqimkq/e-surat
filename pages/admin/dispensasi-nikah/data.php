@@ -57,8 +57,12 @@ if (!isset($_SESSION['nama'])) {
                                                 Foto Kartu Keluarga</th>
                                             <th class=" text-secondary  text-s font-weight-bolder opacity-7">
                                                 Surat Dari KUA</th>
-                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                Status</th>
+                                            <th
+                                                class=" text-secondary text-center   text-s font-weight-bolder opacity-7">
+                                                Verifikasi Admin</th>
+                                            <th
+                                                class=" text-secondary text-center  text-s font-weight-bolder opacity-7">
+                                                Verifikasi Camat</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -117,23 +121,53 @@ if (!isset($_SESSION['nama'])) {
                                                         }
                                                         ?>
                                             </td>
-                                            <td class="w-5">
+                                            <td align="center">
                                                 <?php
-                                                        $status = $row['status'];
+                                                        $statusAdmin = $row['statusAdmin'];
+                                                        $statusCamat = $row['statusCamat'];
                                                         $badgeColor = '';
-                                                        switch ($status) {
+                                                        switch ($statusAdmin) {
                                                             case 'Proses':
                                                                 $badgeColor = 'bg-gradient-warning';
+                                                                break;
+                                                            case 'Diterima':
+                                                                $badgeColor = 'bg-gradient-success';
                                                                 break;
                                                             case 'Ditolak':
                                                                 $badgeColor = 'bg-gradient-primary';
                                                                 break;
                                                             default:
-                                                                $badgeColor = 'bg-gradient-success';
+                                                                $badgeColor = 'bg-gradient-secondary';
                                                                 break;
                                                         }
-                                                        echo "<span class='badge $badgeColor'>$status</span>";
+
+                                                        if ($statusCamat == 'Diterima') {
+                                                            echo '<a href="?page=edit_dispensasiNikah&id=' . $row[0] . '" class="badge ' . $badgeColor . '">' . $statusAdmin . '</a>';
+                                                        } else {
+                                                            echo '<span class="badge ' . $badgeColor . '">' . $statusAdmin . '</span>';
+                                                        }
                                                         ?>
+                                            </td>
+                                            <td align="center">
+                                                <?php
+                                                        $statusCamat = $row['statusCamat'];
+                                                        $badgeColor = '';
+                                                        switch ($statusCamat) {
+                                                            case 'Proses':
+                                                                $badgeColor = 'bg-gradient-warning';
+                                                                break;
+                                                            case 'Diterima':
+                                                                $badgeColor = 'bg-gradient-success';
+                                                                break;
+                                                            case 'Ditolak':
+                                                                $badgeColor = 'bg-gradient-primary';
+                                                                break;
+                                                            default:
+                                                                $badgeColor = 'bg-gradient-secondary';
+                                                                break;
+                                                        }
+                                                        ?>
+                                                <span class="badge <?= $badgeColor; ?>"><?= $statusCamat; ?></span>
                                             </td>
                                         </tr>
                                         <?php
