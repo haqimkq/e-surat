@@ -32,10 +32,10 @@ if (!isset($_SESSION['nama'])) {
                         <a href="?page=tambahDispensasiNikah" class="btn btn-info">Tambah Data</a>
                     </div> -->
                     <!-- <hr class="horizontal dark"> -->
-                    <div class="col-10 justify-content-end">
+                    <!-- <div class="col-10 justify-content-end">
                         <a href="?page=data_SuratDispensasiNikah" class="btn btn-warning">Surat Dispensasi
                             Nikah</a>
-                    </div>
+                    </div> -->
                     <div class="row">
                         <div class="col-lg-12 col-md-12 mt-2">
                             <table id="example" class="table align-items-center">

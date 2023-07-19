@@ -6,9 +6,7 @@ if (!isset($_SESSION['nama'])) {
     echo "<script> alert('Silahkan login terlebih dahulu'); </script>";
     echo "<meta http-equiv='refresh' content='0; url=../aev/index.php'>";
 } else {
-    // $id = $_SESSION['id_user'];
-    // $query = mysqli_query($link, "SELECT * FROM  WHERE id_msy = '$id'");
-    // $data = $query->fetch_array();
+
 ?>
 
 
@@ -39,7 +37,7 @@ if (!isset($_SESSION['nama'])) {
                                     <thead>
                                         <tr>
                                             <!-- <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                Aksi</th> -->
+                                                    Aksi</th> -->
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 No.
                                             </th>
@@ -51,13 +49,12 @@ if (!isset($_SESSION['nama'])) {
                                                 Surat Permohonan <br> RT/Lurah</th>
                                             <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
                                                 Foto KTP <br> Pemohon</th>
-                                            <th class=" w- 5text-secondary text-s font-weight-bolder opacity-7">
-                                                Tanggal Pengajuan</th>
                                             <th
-                                                class=" text-secondary text-center   text-s font-weight-bolder opacity-7">
+                                                class=" w- 5text-secondary text-center text-s font-weight-bolder opacity-7">
+                                                Tanggal <br> Pengajuan</th>
+                                            <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
                                                 Verifikasi Admin</th>
-                                            <th
-                                                class=" text-secondary text-center  text-s font-weight-bolder opacity-7">
+                                            <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
                                                 Verifikasi Camat</th>
                                         </tr>
                                     </thead>
@@ -74,30 +71,24 @@ if (!isset($_SESSION['nama'])) {
                                             ?>
                                         <tr>
                                             <!-- <td class="w-5">
-                                                <div class="mt-3">
-                                                    <button type="button"
-                                                        class="btn btn-info dropdown-toggle border-radius-lg px-3 py-1 "
-                                                        id="dropdownMenuButton" data-bs-toggle="dropdown">
-                                                        <i class="fa fa-bars"></i>
-                                                    </button>
-                                                    <ul class="dropdown-menu shadow-lg mt-2  dropdown-menu-end px-2 py-2 me-sm-n4"
-                                                        role="menu">
-                                                        <li>
-                                                            <a class="dropdown-item border-radius-md"
-                                                                href="?page=edit_proposal&id=<?= $row[0]; ?>">
-                                                                <i class="fa fa-edit"></i>
-                                                                Edit Data</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item border-radius-md"
-                                                                onclick="return confirm ('Anda yakin ingin menghapus data ?');"
-                                                                href="?page=hapus_proposal&id=<?= $row[0]; ?>">
-                                                                <i class="fa fa-trash-o"></i>
-                                                                Hapus</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td> -->
+                                                        <div class="mt-3">
+                                                            <button type="button" class="btn btn-info dropdown-toggle border-radius-lg px-3 py-1 " id="dropdownMenuButton" data-bs-toggle="dropdown">
+                                                                <i class="fa fa-bars"></i>
+                                                            </button>
+                                                            <ul class="dropdown-menu shadow-lg mt-2  dropdown-menu-end px-2 py-2 me-sm-n4" role="menu">
+                                                                <li>
+                                                                    <a class="dropdown-item border-radius-md" href="?page=eProposal&id=<?= $row[0]; ?>">
+                                                                        <i class="fa fa-edit"></i>
+                                                                        Edit Data</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item border-radius-md" onclick="return confirm ('Anda yakin ingin menghapus data ?');" href="?page=hapus_proposal&id=<?= $row[0]; ?>">
+                                                                        <i class="fa fa-trash-o"></i>
+                                                                        Hapus</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td> -->
                                             <td class="w-5" align="left"><?= $i++ ?></td>
                                             <td><?= $row['nama']; ?></td>
                                             <td class="w-10" align="center">
@@ -127,7 +118,6 @@ if (!isset($_SESSION['nama'])) {
                                             <td align="center">
                                                 <?php
                                                         $statusAdmin = $row['statusAdmin'];
-                                                        $statusCamat = $row['statusCamat'];
                                                         $badgeColor = '';
                                                         switch ($statusAdmin) {
                                                             case 'Proses':
@@ -143,13 +133,8 @@ if (!isset($_SESSION['nama'])) {
                                                                 $badgeColor = 'bg-gradient-secondary';
                                                                 break;
                                                         }
-
-                                                        if ($statusCamat == 'Diterima') {
-                                                            echo '<a href="?page=edit_proposal&id=' . $row[0] . '" class="badge ' . $badgeColor . '">' . $statusAdmin . '</a>';
-                                                        } else {
-                                                            echo '<span class="badge ' . $badgeColor . '">' . $statusAdmin . '</span>';
-                                                        }
                                                         ?>
+                                                <span class="badge <?= $badgeColor; ?>"><?= $statusAdmin; ?></span>
                                             </td>
                                             <td align="center">
                                                 <?php
@@ -170,7 +155,8 @@ if (!isset($_SESSION['nama'])) {
                                                                 break;
                                                         }
                                                         ?>
-                                                <span class="badge <?= $badgeColor; ?>"><?= $statusCamat; ?></span>
+                                                <a href="?page=eProposal&id=<?= $row[0]; ?>"
+                                                    class="badge <?= $badgeColor; ?>"><?= $statusCamat; ?></a>
                                             </td>
                                         </tr>
                                         <?php

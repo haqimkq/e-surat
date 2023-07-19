@@ -25,11 +25,13 @@ if (!isset($_SESSION['nama'])) {
                 include "../public/dashboard-pegawai.php";
             } elseif ($level === '2') {
                 include "../public/dashboard-masyarakat.php";
+            } elseif ($level === '3') {
+                include "../public/dashboard-camat.php";
             }
             break;
 
 
-            // START ADMIN PAGE
+            /////////////////////////////////////////////// START ADMIN PAGE
             //PORTAL BERITA
         case "data_berita";
             include "../pages/admin/news/data.php";
@@ -190,13 +192,13 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/admin/kinerja-kecamatan/delete.php";
             break;
 
-        //     //PERJALANAN DINAS
-        // case "data_perjalananDinas";
-        //     include "../pages/admin/perjalanan-dinas/data.php";
-        //     break;
-        // case "hapus_perjalananDinas";
-        //     include "../pages/admin/perjalanan-dinas/delete.php";
-        //     break;
+            //     //PERJALANAN DINAS
+            // case "data_perjalananDinas";
+            //     include "../pages/admin/perjalanan-dinas/data.php";
+            //     break;
+            // case "hapus_perjalananDinas";
+            //     include "../pages/admin/perjalanan-dinas/delete.php";
+            //     break;
 
             //SURAY PERJALANAN DINAS
         case "data_suratPerjalananDinas";
@@ -211,10 +213,10 @@ if (!isset($_SESSION['nama'])) {
         case "hapus_suratPerjalananDinas";
             include "../pages/admin/surat-perjalanan-dinas/delete.php";
             break;
-            // END ADMIN PAGE -----------
+            //////////////////////////////////////////////////////////////////////// END ADMIN PAGE -----------
 
 
-            // START  PAGAWAI PAGE--------------
+            //////////////////////////////////////////////////////// START  PAGAWAI PAGE--------------
             // PEGAWAI
         case "dataPegawai";
             include "../pages/other/pegawai/data.php";
@@ -233,15 +235,15 @@ if (!isset($_SESSION['nama'])) {
         case "dataPerjalananDinas";
             include "../pages/other/perjalanan-dinas/data.php";
             break;
-        // case "tambahPerjalananDinas";
-        //     include "../pages/other/perjalanan-dinas/add.php";
-        //     break;
-        // case "editPerjalananDinas";
-        //     include "../pages/other/perjalanan-dinas/edit.php";
-        //     break;
-        // case "hapusPerjalananDinas";
-        //     include "../pages/other/perjalanan-dinas/delete.php";
-        //     break;
+            // case "tambahPerjalananDinas";
+            //     include "../pages/other/perjalanan-dinas/add.php";
+            //     break;
+            // case "editPerjalananDinas";
+            //     include "../pages/other/perjalanan-dinas/edit.php";
+            //     break;
+            // case "hapusPerjalananDinas";
+            //     include "../pages/other/perjalanan-dinas/delete.php";
+            //     break;
 
             // PENILAIAN KINERJA PEGAWAI
         case "dataKinerjaPegawai":
@@ -262,9 +264,9 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/other/user/delete.php";
             break;
 
-            // END PEGAWAI PAGE ---------
+            ///////////////////////////////////////////////////////////////// END PEGAWAI PAGE ---------
 
-            // START MASYARAKAT PAGE------------------
+            ///////////////////////////////////////////////////////////// START MASYARAKAT PAGE------------------
             // MASYARAKAT
         case "dataMasyarakat";
             include "../pages/other/masyarakat/data.php";
@@ -381,6 +383,16 @@ if (!isset($_SESSION['nama'])) {
             break;
         case "hapusKinerjaKecamatan":
             include "../pages/other/kinerja-kecamatan/delete.php";
+            break;
+            /////////////////////////////////////////////////////////////////END PAGE MASYARAKAT --------
+
+            ///////////START PAGE CAMAT---------------------
+            //LEGALISASI PROPOSAL
+        case "dProposal":
+            include "../pages/camat/legalisasi-proposal/data.php";
+            break;
+        case "eProposal":
+            include "../pages/camat/legalisasi-proposal/edit.php";
             break;
     }
 ?>

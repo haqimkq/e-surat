@@ -29,7 +29,7 @@ if (isset($_POST['log'])) {
       echo "<meta http-equiv='refresh' content='0; url=../public/home.php'>";
     } elseif ($level == 3) {
       echo "<script>alert('Anda berhasil login. Sebagai : $name');</script>";
-      echo "<meta http-equiv='refresh' content='0; url=./public/home.php'>";
+      echo "<meta http-equiv='refresh' content='0; url=../public/home.php'>";
     } else {
       echo "<script>alert('Anda berhasil login. Sebagai : $name');</script>";
       echo "<meta http-equiv='refresh' content='0; url=../public/home.php'>";

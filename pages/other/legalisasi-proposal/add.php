@@ -148,7 +148,19 @@ if (!isset($_SESSION['nama'])) {
                                                             <!-- <label>Status</label> -->
                                                             <div class="input-group input-group-dynamic mb-4">
                                                                 <input class="form-control" aria-label="Foto"
-                                                                    type="hidden" name="status" value="Proses"
+                                                                    type="hidden" name="statusAdmin" value="Proses"
+                                                                    data-minlength="4"
+                                                                    data-error="Tidak Boleh Kurang dari 4" required>
+                                                                <div class="help-block with-errors"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 ">
+                                                        <div class="input-group input-group-dynamic">
+                                                            <!-- <label>Status</label> -->
+                                                            <div class="input-group input-group-dynamic mb-4">
+                                                                <input class="form-control" aria-label="Foto"
+                                                                    type="hidden" name="statusCamat" value="Proses"
                                                                     data-minlength="4"
                                                                     data-error="Tidak Boleh Kurang dari 4" required>
                                                                 <div class="help-block with-errors"></div>
@@ -290,7 +302,8 @@ if (!isset($_SESSION['nama'])) {
             echo "Data berhasil diperbarui.";
         }
         $tgl = $_POST['tgl'];
-        $status = $_POST['status'];
+        $statusA = $_POST['statusAdmin'];
+        $statusc = $_POST['statusCamat'];
         $qrCode = $_POST['qrCode'];
 
 
@@ -302,7 +315,8 @@ if (!isset($_SESSION['nama'])) {
             '$s_permohonan',
             '$ktp',
             '$tgl',
-            '$status',
+            '$statusA',
+            '$statusc',
             '$qrcode'
 
             )");
