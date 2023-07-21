@@ -45,19 +45,17 @@ if (!isset($_SESSION['nama'])) {
                                                 Nama</th>
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 Jenis layanan</th>
-                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                KTP Pemohon</th>
+                                            <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
+                                                KTP <br> Pemohon</th>
                                             <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
                                                 Foto <br> KK</th>
                                             <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
                                                 KTP <br> Kepala Keluarga</th>
                                             <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
                                                 Tanggal <br> Pengajuan</th>
-                                            <th
-                                                class=" text-secondary text-center   text-s font-weight-bolder opacity-7">
+                                            <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
                                                 Verifikasi <br> Admin</th>
-                                            <th
-                                                class=" text-secondary text-center  text-s font-weight-bolder opacity-7">
+                                            <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
                                                 Verifikasi <br> Camat</th>
                                         </tr>
                                     </thead>
@@ -114,7 +112,6 @@ if (!isset($_SESSION['nama'])) {
                                             <td align="center">
                                                 <?php
                                                         $statusAdmin = $row['statusAdmin'];
-                                                        $statusCamat = $row['statusCamat'];
                                                         $badgeColor = '';
                                                         switch ($statusAdmin) {
                                                             case 'Proses':
@@ -130,13 +127,8 @@ if (!isset($_SESSION['nama'])) {
                                                                 $badgeColor = 'bg-gradient-secondary';
                                                                 break;
                                                         }
-
-                                                        if ($statusCamat == 'Diterima') {
-                                                            echo '<a href="?page=edit_susunanKeluarga&id=' . $row[0] . '" class="badge ' . $badgeColor . '">' . $statusAdmin . '</a>';
-                                                        } else {
-                                                            echo '<span class="badge ' . $badgeColor . '">' . $statusAdmin . '</span>';
-                                                        }
                                                         ?>
+                                                <span class="badge <?= $badgeColor; ?>"><?= $statusAdmin; ?></span>
                                             </td>
                                             <td align="center">
                                                 <?php
@@ -157,8 +149,10 @@ if (!isset($_SESSION['nama'])) {
                                                                 break;
                                                         }
                                                         ?>
-                                                <span class="badge <?= $badgeColor; ?>"><?= $statusCamat; ?></span>
+                                                <a href="?page=eSusunanKeluarga&id=<?= $row[0]; ?>"
+                                                    class="badge <?= $badgeColor; ?>"><?= $statusCamat; ?></a>
                                             </td>
+
                                         </tr>
                                         <?php
                                             }

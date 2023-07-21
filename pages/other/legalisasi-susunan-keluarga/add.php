@@ -128,6 +128,24 @@ if (!isset($_SESSION['nama'])) {
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="col-md-12 ">
+                                                            <div class="input-group input-group-dynamic">
+                                                                <!-- <label>Status</label> -->
+                                                                <div class="input-group input-group-dynamic mb-4">
+                                                                    <input class="form-control" aria-label="Foto" type="hidden" name="statusAdmin" value="Proses" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
+                                                                    <div class="help-block with-errors"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 ">
+                                                            <div class="input-group input-group-dynamic">
+                                                                <!-- <label>Status</label> -->
+                                                                <div class="input-group input-group-dynamic mb-4">
+                                                                    <input class="form-control" aria-label="Foto" type="hidden" name="statusCamat" value="Proses" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
+                                                                    <div class="help-block with-errors"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col ms-4">
@@ -259,7 +277,8 @@ if (!isset($_SESSION['nama'])) {
         }
 
         $tgl = $_POST['tgl'];
-        $status = $_POST['status'];
+        $statusA = $_POST['statusAdmin'];
+        $statusc = $_POST['statusCamat'];
         $qrCode = $_POST['qrCode'];
 
 
@@ -271,7 +290,8 @@ if (!isset($_SESSION['nama'])) {
             '$p_kk',
             '$ktp_k',
             '$tgl',
-            '$status',
+            '$statusA',
+            '$statusc',
             '$qrcode'
             )");
 

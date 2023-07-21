@@ -415,6 +415,14 @@ if (!isset($_SESSION['nama'])) {
         case "eDispensasiNikah":
             include "../pages/camat/dispensasi-nikah/edit.php";
             break;
+
+            //LEGALISASI SUSUNAN KELUARGA
+        case "dSusunanKeluarga":
+            include "../pages/camat/legalisasi-susunan-keluarga/data.php";
+            break;
+        case "eSusunanKeluarga":
+            include "../pages/camat/legalisasi-susunan-keluarga/edit.php";
+            break;
     }
 ?>
 

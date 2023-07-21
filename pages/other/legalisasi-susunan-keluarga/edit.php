@@ -17,148 +17,133 @@ if (!isset($_SESSION['nama'])) {
 
 ?>
 
-<div class="container-fluid px-2 px-md-2">
-    <div class="card card-body mx-3 mx-md-2 mt-3 bg-info ">
-        <div class="row gx-4 justify-content-center">
-            <div class="col-auto my-auto ">
-                <div class=" h-100 ">
-                    <h5 class=" mb-1 text-white">
-                        Edit Data Pengajuan Legalisasi Susunan Keluarga
-                    </h5>
+    <div class="container-fluid px-2 px-md-2">
+        <div class="card card-body mx-3 mx-md-2 mt-3 bg-info ">
+            <div class="row gx-4 justify-content-center">
+                <div class="col-auto my-auto ">
+                    <div class=" h-100 ">
+                        <h5 class=" mb-1 text-white">
+                            Edit Data Pengajuan Legalisasi Susunan Keluarga
+                        </h5>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- <div class=" container-fluid py-4"> -->
-    <div class="container py-3 ">
-        <section>
-            <div class="col-lg-12 mx-auto d-flex justify-content-center flex-column">
-                <form data-toggle="validator" action="" method="POST" enctype="multipart/form-data">
-                    <div class="card-body">
-                        <div class="row">
-                            <?php
+        <!-- <div class=" container-fluid py-4"> -->
+        <div class="container py-3 ">
+            <section>
+                <div class="col-lg-12 mx-auto d-flex justify-content-center flex-column">
+                    <form data-toggle="validator" action="" method="POST" enctype="multipart/form-data">
+                        <div class="card-body">
+                            <div class="row">
+                                <?php
                                 if ($status) {
                                 ?>
 
-                            <div class="alert alert-danger alert-dismissible">
-                                <button class="close" type="button" data-dismiss="alert" ariahidden="true">&times;
-                                </button>
-                                <h4><i class="icon fa fa-close">Gagal! </i></h4>
-                                <?php echo $status; ?>
-                            </div>
-                            <?php
+                                    <div class="alert alert-danger alert-dismissible">
+                                        <button class="close" type="button" data-dismiss="alert" ariahidden="true">&times;
+                                        </button>
+                                        <h4><i class="icon fa fa-close">Gagal! </i></h4>
+                                        <?php echo $status; ?>
+                                    </div>
+                                <?php
                                 }
                                 ?>
-                            <div class="col-lg-12 ">
-                                <div class="card">
-                                    <input type="hidden" class="form-control" name="id_msy" id="id_msy" required
-                                        value="<?= $data['id_msy'] ?>">
-                                    <div class="card-body">
-                                        <p class="text-uppercase text-sm">Informasi Pegawai</p>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="input-group input-group-dynamic">
-                                                    <label class="text-bold">Nama :</label>
-                                                    <div class="input-group input-group-dynamic mb-4">
-                                                        <input class="form-control" type="text" name="nama"
-                                                            value="<?= $data['nama'] ?>" readonly />
-                                                        <div class="help-block with-errors"></div>
+                                <div class="col-lg-12 ">
+                                    <div class="card">
+                                        <input type="hidden" class="form-control" name="id_msy" id="id_msy" required value="<?= $data['id_msy'] ?>">
+                                        <div class="card-body">
+                                            <p class="text-uppercase text-sm">Informasi Pegawai</p>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="input-group input-group-dynamic">
+                                                        <label class="text-bold">Nama :</label>
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <input class="form-control" type="text" name="nama" value="<?= $data['nama'] ?>" readonly />
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <input type="hidden" class="form-control" name="id_pelayanan"
-                                                    id="id_pelayanan" required value="<?= $data['id_pelayanan'] ?>">
-                                                <div class="input-group input-group-dynamic">
-                                                    <label class="text-bold">Pelayanan :
-                                                    </label>
-                                                    <div class="input-group input-group-dynamic mb-4">
-                                                        <input class="form-control" type="text"
-                                                            value=" <?= $data['j_pelayanan'] ?> " readonly />
-                                                        <div class="help-block with-errors"></div>
+                                                <div class="col-md-4">
+                                                    <input type="hidden" class="form-control" name="id_pelayanan" id="id_pelayanan" required value="<?= $data['id_pelayanan'] ?>">
+                                                    <div class="input-group input-group-dynamic">
+                                                        <label class="text-bold">Pelayanan :
+                                                        </label>
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <input class="form-control" type="text" value=" <?= $data['j_pelayanan'] ?> " readonly />
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="input-group input-group-dynamic">
-                                                    <label class="text-bold">Tanggal Pengajuan :</label>
-                                                    <div class="input-group input-group-dynamic mb-4">
-                                                        <input class="form-control" aria-label="Tanggal" type="date"
-                                                            name="tgl" data-minlength="4"
-                                                            data-error="Tidak Boleh Kurang dari 4" required
-                                                            value="<?= $data['tgl'] ?>">
-                                                        <div class="help-block with-errors"></div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group input-group-dynamic">
+                                                        <label class="text-bold">Tanggal Pengajuan :</label>
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <input class="form-control" aria-label="Tanggal" type="date" name="tgl" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required value="<?= $data['tgl'] ?>">
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-3 text-center me-7 mt-4">
-                                                <?php
+                                                <div class="col-md-3 text-center me-7 mt-4">
+                                                    <?php
                                                     if (!empty($data['p_ktp'])) {
                                                         echo "<img src='../img/" . $data['p_ktp'] . "' width='170' height='170' style='border-radius: 20%;'>";
                                                     }
                                                     ?>
-                                                <div class="input-group input-group-dynamic m-5">
-                                                    <label class="text-bold">Foto KTP Pemhoon :</label>
-                                                    <div class="input-group input-group-dynamic ">
-                                                        <input class="form-control" aria-label="Foto KTP Pemohon :"
-                                                            type="file" name="p_ktp" data-minlength="4"
-                                                            data-error="Tidak Boleh Kurang dari 4">
-                                                        <div class="help-block with-errors"></div>
+                                                    <div class="input-group input-group-dynamic m-5">
+                                                        <label class="text-bold">Foto KTP Pemhoon :</label>
+                                                        <div class="input-group input-group-dynamic ">
+                                                            <input class="form-control" aria-label="Foto KTP Pemohon :" type="file" name="p_ktp" data-minlength="4" data-error="Tidak Boleh Kurang dari 4">
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
                                                     </div>
+                                                    <input type="hidden" name="ktp_lama" value="<?= $data['p_ktp'] ?>">
                                                 </div>
-                                                <input type="hidden" name="ktp_lama" value="<?= $data['p_ktp'] ?>">
-                                            </div>
-                                            <div class="col-md-3 text-center me-7 mt-4">
-                                                <?php
+                                                <div class="col-md-3 text-center me-7 mt-4">
+                                                    <?php
                                                     if (!empty($data['p_kk'])) {
                                                         echo "<img src='../img/" . $data['p_kk'] . "' width='170' height='170' style='border-radius: 20%;'>";
                                                     }
                                                     ?>
-                                                <div class="input-group input-group-dynamic m-5">
-                                                    <label class="text-bold">Foto Kartu Keluarga :</label>
-                                                    <div class="input-group input-group-dynamic ">
-                                                        <input class="form-control" aria-label="Foto Kartu Keluarga :"
-                                                            type="file" name="p_kk" data-minlength="4"
-                                                            data-error="Tidak Boleh Kurang dari 4">
-                                                        <div class="help-block with-errors"></div>
+                                                    <div class="input-group input-group-dynamic m-5">
+                                                        <label class="text-bold">Foto Kartu Keluarga :</label>
+                                                        <div class="input-group input-group-dynamic ">
+                                                            <input class="form-control" aria-label="Foto Kartu Keluarga :" type="file" name="p_kk" data-minlength="4" data-error="Tidak Boleh Kurang dari 4">
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
                                                     </div>
+                                                    <input type="hidden" name="kk_lama" value="<?= $data['p_kk'] ?>">
                                                 </div>
-                                                <input type="hidden" name="kk_lama" value="<?= $data['p_kk'] ?>">
-                                            </div>
-                                            <div class="col-md-3 text-center me-7 mt-4">
-                                                <?php
+                                                <div class="col-md-3 text-center me-7 mt-4">
+                                                    <?php
                                                     if (!empty($data['ktp_k'])) {
                                                         echo "<img src='../img/" . $data['ktp_k'] . "' width='170' height='170' style='border-radius: 20%;'>";
                                                     }
                                                     ?>
-                                                <div class="input-group input-group-dynamic m-5">
-                                                    <label class="text-bold">Foto KTP Kepala Keluarga :</label>
-                                                    <div class="input-group input-group-dynamic ">
-                                                        <input class="form-control" aria-label="Foto  :" type="file"
-                                                            name="ktp_k" data-minlength="4"
-                                                            data-error="Tidak Boleh Kurang dari 4">
-                                                        <div class="help-block with-errors"></div>
+                                                    <div class="input-group input-group-dynamic m-5">
+                                                        <label class="text-bold">Foto KTP Kepala Keluarga :</label>
+                                                        <div class="input-group input-group-dynamic ">
+                                                            <input class="form-control" aria-label="Foto  :" type="file" name="ktp_k" data-minlength="4" data-error="Tidak Boleh Kurang dari 4">
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
                                                     </div>
+                                                    <input type="hidden" name="ktp_k_lama" value="<?= $data['ktp_k'] ?>">
                                                 </div>
-                                                <input type="hidden" name="ktp_k_lama" value="<?= $data['ktp_k'] ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-md-12">
-                                                    <input type="submit" class="btn btn-primary" value="Edit"
-                                                        name="edit">
-                                                    <input type="reset" class="btn btn-danger" value="Reset"
-                                                        name="reset">
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                        <input type="submit" class="btn btn-primary" value="Edit" name="edit">
+                                                        <input type="reset" class="btn btn-danger" value="Reset" name="reset">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                </form>
-            </div>
-        </section>
-    </div>
+                    </form>
+                </div>
+            </section>
+        </div>
 
     <?php
     if (isset($_POST['edit'])) {
@@ -234,7 +219,7 @@ if (!isset($_SESSION['nama'])) {
         }
 
         $tgl = $_POST['tgl'];
-        $status = $_POST['status'];
+
 
 
 
@@ -244,8 +229,7 @@ id_pelayanan = '$id_pelayanan',
 p_ktp = '$p_ktp',
 p_kk = '$p_kk',
 ktp_k = '$ktp_k',
-tgl = '$tgl',
-status = '$status'
+tgl = '$tgl'
 
 
 WHERE id_sk = '$id'");

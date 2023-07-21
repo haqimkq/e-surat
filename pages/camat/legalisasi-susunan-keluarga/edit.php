@@ -8,9 +8,9 @@ if (!isset($_SESSION['nama'])) {
 } else {
 
     $id = $_GET['id'];
-    $query = $link->query("SELECT * FROM rdn r
-    join masyarakat m on r.id_msy = m.id_msy 
-    join pelayanan p on r.id_pelayanan = p.id_pelayanan  WHERE id_rdn = '$id'");
+    $query = $link->query("SELECT * FROM s_keluarga  sk 
+    join masyarakat m on sk.id_msy = m.id_msy 
+    join pelayanan p on sk.id_pelayanan = p.id_pelayanan  WHERE id_sk = '$id'");
     $data = $query->fetch_array();
 
 
@@ -23,7 +23,7 @@ if (!isset($_SESSION['nama'])) {
             <div class="col-auto my-auto ">
                 <div class=" h-100 ">
                     <h5 class=" mb-1 text-white">
-                        Edit Data Rekomendasi Dispensasi Nikah
+                        Edit Data Pengajuan Legalisasi Susunan Keluarga
                     </h5>
                 </div>
             </div>
@@ -91,58 +91,58 @@ if (!isset($_SESSION['nama'])) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-5 text-center me-7 mt-4">
+                                            <div class="col-md-3 text-center me-7 mt-4">
                                                 <?php
-                                                    if (!empty($data['ktp_p'])) {
-                                                        echo "<img src='../img/" . $data['ktp_p'] . "' width='170' height='170' style='border-radius: 20%;'>";
+                                                    if (!empty($data['p_ktp'])) {
+                                                        echo "<img src='../img/" . $data['p_ktp'] . "' width='170' height='170' style='border-radius: 20%;'>";
                                                     }
                                                     ?>
                                                 <div class="input-group input-group-dynamic ">
-                                                    <label class="text-bold">Foto KTP Pemohon :</label>
+                                                    <label class="text-bold">Foto KTP Pemhoon :</label>
                                                     <div class="input-group input-group-dynamic ">
                                                         <input class="form-control" aria-label="Foto KTP Pemohon :"
-                                                            type="file" name="ktp" data-minlength="4"
+                                                            type="file" name="p_ktp" data-minlength="4"
                                                             data-error="Tidak Boleh Kurang dari 4">
                                                         <div class="help-block with-errors"></div>
                                                     </div>
                                                 </div>
-                                                <input type="hidden" name="ktp_lama" value="<?= $data['ktp_p'] ?>">
+                                                <input type="hidden" name="ktp_lama" value="<?= $data['p_ktp'] ?>">
                                             </div>
-                                            <div class="col-md-5 text-center me-7 mt-4">
+                                            <div class="col-md-3 text-center me-7 mt-4">
                                                 <?php
-                                                    if (!empty($data['kk_p'])) {
-                                                        echo "<img src='../img/" . $data['kk_p'] . "' width='170' height='170' style='border-radius: 20%;'>";
+                                                    if (!empty($data['p_kk'])) {
+                                                        echo "<img src='../img/" . $data['p_kk'] . "' width='170' height='170' style='border-radius: 20%;'>";
                                                     }
                                                     ?>
                                                 <div class="input-group input-group-dynamic ">
                                                     <label class="text-bold">Foto Kartu Keluarga :</label>
                                                     <div class="input-group input-group-dynamic ">
                                                         <input class="form-control" aria-label="Foto Kartu Keluarga :"
-                                                            type="file" name="kk" data-minlength="4"
+                                                            type="file" name="p_kk" data-minlength="4"
                                                             data-error="Tidak Boleh Kurang dari 4">
                                                         <div class="help-block with-errors"></div>
                                                     </div>
                                                 </div>
-                                                <input type="hidden" name="kk_lama" value="<?= $data['kk_p'] ?>">
+                                                <input type="hidden" name="kk_lama" value="<?= $data['p_kk'] ?>">
                                             </div>
-                                            <div class="col-md-12 me-7 mt-4">
+                                            <div class="col-md-3 text-center me-7 mt-4">
+                                                <?php
+                                                    if (!empty($data['ktp_k'])) {
+                                                        echo "<img src='../img/" . $data['ktp_k'] . "' width='170' height='170' style='border-radius: 20%;'>";
+                                                    }
+                                                    ?>
                                                 <div class="input-group input-group-dynamic ">
-                                                    <label class="text-bold">Surat Pengantar Dari KUA
-                                                        :</label>
-                                                    <div class="input-group input-group-dynamic mb-2">
-                                                        <input class="form-control" aria-label="Berkas" type="file"
-                                                            name="s_kua" data-minlength="4"
-                                                            data-error="Tidak Boleh Kurang dari 4"
-                                                            accept=".pdf,.PDF,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                                                    <label class="text-bold">Foto KTP Kepala Keluarga :</label>
+                                                    <div class="input-group input-group-dynamic ">
+                                                        <input class="form-control" aria-label="Foto  :" type="file"
+                                                            name="ktp_k" data-minlength="4"
+                                                            data-error="Tidak Boleh Kurang dari 4">
                                                         <div class="help-block with-errors"></div>
                                                     </div>
-                                                    <em class="text-danger text-sm text-italic">*Upload berkas pendukung
-                                                        (PDF, maksimal 2Mb)</em>
-                                                    <input name="s_kua_lama" type="hidden" class="form-control input-sm"
-                                                        value="<?= $data['s_kua'] ?>">
                                                 </div>
+                                                <input type="hidden" name="ktp_k_lama" value="<?= $data['ktp_k'] ?>">
                                             </div>
-                                            <div class="col-md-5 text-center me-7 mt-7">
+                                            <div class="col-md-5 text-center me-7 mt-6">
                                                 <?php
                                                     if (!empty($data['qrCode'])) {
                                                         echo "<img src='../img/" . $data['qrCode'] . "' width='170' height='170' style='border-radius: 0%;'>";
@@ -185,7 +185,7 @@ if (!isset($_SESSION['nama'])) {
                                             </div>
                                             <div class="form-group mt-4">
                                                 <div class="col-md-12">
-                                                    <input type="submit" class="btn btn-primary" value="Edit"
+                                                    <input type="submit" class="btn btn-primary" value="Verifikasi"
                                                         name="edit">
                                                     <input type="reset" class="btn btn-danger" value="Reset"
                                                         name="reset">
@@ -207,52 +207,50 @@ if (!isset($_SESSION['nama'])) {
         $id_pelayanan = $_POST['id_pelayanan'];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $uploadedKtpFile = $_FILES['ktp'];
-            $uploadedKkFile = $_FILES['kk'];
+            $uploadedKtpFile = $_FILES['p_ktp'];
+            $uploadedKkFile = $_FILES['p_kk'];
+            $uploadedKtpKFile = $_FILES['ktp_k'];
             $uploadedQrcodeFile = $_FILES['qrCode'];
 
 
-            $uploadedsKuaFile = $_FILES['s_kua'];
-
             $ktp_lama = $_POST['ktp_lama'];
             $kk_lama = $_POST['kk_lama'];
+            $ktp_k_lama = $_POST['ktp_k_lama'];
             $qrcode_lama = $_POST['qrcode_lama'];
 
-            $s_kua_lama = $_POST['s_kua_lama'];
-
-
             if ($uploadedKtpFile['error'] === 4) {
-                $ktp = $ktp_lama;
+                $p_ktp = $ktp_lama;
             } else {
-                $uploadedKtpFilePath = upload($uploadedKtpFile, '../img/imgpelayanan/');
+                $uploadedKtpFilePath = upload($uploadedKtpFile);
                 if ($uploadedKtpFilePath) {
-                    $ktp = $uploadedKtpFilePath;
+                    $p_ktp = $uploadedKtpFilePath;
                 } else {
                     echo "Gagal mengunggah file foto KTP.";
                 }
             }
 
             if ($uploadedKkFile['error'] === 4) {
-                $kk = $kk_lama;
+                $p_kk = $kk_lama;
             } else {
-                $uploadedKkFilePath = upload($uploadedKkFile, '../img/imgpelayanan/');
+                $uploadedKkFilePath = upload($uploadedKkFile);
                 if ($uploadedKkFilePath) {
-                    $kk = $uploadedKkFilePath;
+                    $p_kk = $uploadedKkFilePath;
                 } else {
                     echo "Gagal mengunggah file foto KK.";
                 }
             }
 
-            if ($uploadedsKuaFile['error'] === 4) {
-                $s_kua = $s_kua_lama;
+            if ($uploadedKtpKFile['error'] === 4) {
+                $ktp_k = $ktp_k_lama;
             } else {
-                $uploadedsKuaFilePath = upload($uploadedsKuaFile, '../pdf/pelayanan/');
-                if ($uploadedsKuaFilePath) {
-                    $s_kua = $uploadedsKuaFilePath;
+                $uploadedKtpKFilePath = upload($uploadedKtpKFile);
+                if ($uploadedKtpKFilePath) {
+                    $ktp_k = $uploadedKtpKFilePath;
                 } else {
-                    echo "Gagal mengunggah file surat_sktm.";
+                    echo "Gagal mengunggah file foto KTP pemohon.";
                 }
             }
+
             if ($uploadedQrcodeFile['error'] === 4) {
                 $qrcode = $qrcode_lama;
             } else {
@@ -264,47 +262,43 @@ if (!isset($_SESSION['nama'])) {
                 }
             }
 
-
             echo "Data berhasil diperbarui.";
         }
-
 
         $tgl = $_POST['tgl'];
         $statusCamat = $_POST['statusCamat'];
 
 
-
-        $edit = $link->query("UPDATE rdn SET 
+        $edit = $link->query("UPDATE s_keluarga SET 
 id_msy = '$id_msy',
 id_pelayanan = '$id_pelayanan',
-ktp_p = '$ktp',
-kk_p = '$kk',
-s_kua = '$s_kua',
+p_ktp = '$p_ktp',
+p_kk = '$p_kk',
+ktp_k = '$ktp_k',
 tgl = '$tgl',
 statusCamat = '$statusCamat',
-qrCode = '$qrcode'
+qrcode = '$qrcode'
 
-
-WHERE id_rdn = '$id'");
+WHERE id_sk = '$id'");
 
         if ($edit) {
             echo "<script>alert('Data berhasil diedit')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=dDispensasiNikah'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=dSusunanKeluarga'>";
         } else {
             echo "<script>alert('Data anda gagal diedit. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=eDispensasiNikah'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=eSusunanKeluarga'>";
         }
     }
 }
 
 
-
-function upload($file, $targetDir)
+function upload($file)
 {
+    $targetDir = '../img/imgpelayanan/';
     $fileName = basename($file['name']);
     $targetPath = $targetDir . $fileName;
     $fileExtension = pathinfo($targetPath, PATHINFO_EXTENSION);
-    $allowedExtensions = array('jpg', 'jpeg', 'JPG', 'png', 'pdf');
+    $allowedExtensions = array('jpg', 'jpeg', 'JPG', 'png');
     if (in_array($fileExtension, $allowedExtensions)) {
         if (move_uploaded_file($file['tmp_name'], $targetPath)) {
             return $targetPath;

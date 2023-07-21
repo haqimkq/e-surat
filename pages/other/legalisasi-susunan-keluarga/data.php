@@ -46,14 +46,16 @@ if (!isset($_SESSION['nama'])) {
                                                     Nama</th>
                                                 <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                     Jenis layanan</th>
-                                                <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                    KTP Pemohon</th>
-                                                <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                    Foto KK</th>
-                                                <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                    KTP Kepala Keluarga</th>
-                                                <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                    Status</th>
+                                                <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
+                                                    KTP <br> Pemohon</th>
+                                                <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
+                                                    Foto <br> Kartu Keluarga</th>
+                                                <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
+                                                    KTP Kepala <br> Keluarga</th>
+                                                <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
+                                                    Verifikasi <br> Admin</th>
+                                                <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
+                                                    Verifikasi <br> Camat</th>
                                                 <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                     Surat Balasan</th>
                                             </tr>
@@ -101,11 +103,11 @@ if (!isset($_SESSION['nama'])) {
                                                     <td class="w-5" align="center">
                                                         <?php echo "<img src='$row[ktp_k]' width='70' height='70' style='border-radius: 50%;' />"; ?>
                                                     </td>
-                                                    <td class="w-5">
+                                                    <td align="center" class="w-5">
                                                         <?php
-                                                        $status = $row['status'];
+                                                        $statusAdmin = $row['statusAdmin'];
                                                         $badgeColor = '';
-                                                        switch ($status) {
+                                                        switch ($statusAdmin) {
                                                             case 'Proses':
                                                                 $badgeColor = 'bg-gradient-warning';
                                                                 break;
@@ -116,12 +118,30 @@ if (!isset($_SESSION['nama'])) {
                                                                 $badgeColor = 'bg-gradient-success';
                                                                 break;
                                                         }
-                                                        echo "<span class='badge $badgeColor'>$status</span>";
+                                                        echo "<span class='badge $badgeColor'>$statusAdmin</span>";
                                                         ?>
                                                     </td>
-                                                    <td class="w-5">
+                                                    <td align="center" class="w-5">
                                                         <?php
-                                                        if ($status === 'Diterima') {
+                                                        $statusCamat = $row['statusCamat'];
+                                                        $badgeColor = '';
+                                                        switch ($statusCamat) {
+                                                            case 'Proses':
+                                                                $badgeColor = 'bg-gradient-warning';
+                                                                break;
+                                                            case 'Ditolak':
+                                                                $badgeColor = 'bg-gradient-primary';
+                                                                break;
+                                                            default:
+                                                                $badgeColor = 'bg-gradient-success';
+                                                                break;
+                                                        }
+                                                        echo "<span class='badge $badgeColor'>$statusCamat</span>";
+                                                        ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                        if ($statusAdmin === 'Diterima' && $statusCamat === 'Diterima') { // Hanya menampilkan tombol 'Print' saat status 'Diterima'
                                                             echo "<a class='badge bg-gradient-success' target='_blank' href='../pages/other/legalisasi-susunan-keluarga/suratVerifikasi.php?id={$row[0]}'><i class='fa fa-edit'></i> Print</a>";
                                                         }
                                                         ?>
