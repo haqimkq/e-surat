@@ -408,6 +408,13 @@ if (!isset($_SESSION['nama'])) {
         case "ePengantarNikah":
             include "../pages/camat/legalisasi-pengantar-nikah/edit.php";
             break;
+            //LEGALISASI DISPENSASI NIKAH
+        case "dDispensasiNikah":
+            include "../pages/camat/dispensasi-nikah/data.php";
+            break;
+        case "eDispensasiNikah":
+            include "../pages/camat/dispensasi-nikah/edit.php";
+            break;
     }
 ?>
 

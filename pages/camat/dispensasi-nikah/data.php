@@ -42,6 +42,8 @@ if (!isset($_SESSION['nama'])) {
                                 <div class="table-responsive">
                                     <thead>
                                         <tr>
+                                            <!-- <th class=" text-secondary text-s font-weight-bolder opacity-7">
+                                                Aksi</th> -->
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 No.
                                             </th>
@@ -54,7 +56,7 @@ if (!isset($_SESSION['nama'])) {
                                             <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
                                                 Foto Kartu <br> Keluarga</th>
                                             <th
-                                                class=" text-secondary text-center  text-s font-weight-bolder opacity-7">
+                                                class=" text-secondary  text-center text-s font-weight-bolder opacity-7">
                                                 Surat Dari <br> KUA</th>
                                             <th
                                                 class=" text-secondary text-center   text-s font-weight-bolder opacity-7">
@@ -76,6 +78,31 @@ if (!isset($_SESSION['nama'])) {
                                             while ($row = $query->fetch_array()) {
                                             ?>
                                         <tr>
+                                            <!-- <td class="w-5">
+                                                <div class=" mt-3">
+                                                    <button type="button"
+                                                        class="btn btn-info dropdown-toggle border-radius-lg px-3 py-1 "
+                                                        id="dropdownMenuButton" data-bs-toggle="dropdown">
+                                                        <i class="fa fa-bars"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu shadow-lg mt-2  dropdown-menu-end px-2 py-2 me-sm-n4"
+                                                        role="menu">
+                                                        <li>
+                                                            <a class="dropdown-item border-radius-md"
+                                                                href="?page=edit_dispensasiNikah&id=<?= $row[0]; ?>">
+                                                                <i class="fa fa-edit"></i>
+                                                                Edit Data</a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item border-radius-md"
+                                                                onclick="return confirm ('Anda yakin ingin menghapus data ?');"
+                                                                href="?page=hapus_dispensasiNikah&id=<?= $row[0]; ?>">
+                                                                <i class="fa fa-trash-o"></i>
+                                                                Hapus</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td> -->
                                             <td class="w-5" align="left"><?= $i++ ?></td>
                                             <td class="w-15"><?= $row['nama']; ?></td>
                                             <td class="w-5"><?= $row['j_pelayanan']; ?></td>
@@ -98,7 +125,6 @@ if (!isset($_SESSION['nama'])) {
                                             <td align="center">
                                                 <?php
                                                         $statusAdmin = $row['statusAdmin'];
-                                                        $statusCamat = $row['statusCamat'];
                                                         $badgeColor = '';
                                                         switch ($statusAdmin) {
                                                             case 'Proses':
@@ -114,13 +140,8 @@ if (!isset($_SESSION['nama'])) {
                                                                 $badgeColor = 'bg-gradient-secondary';
                                                                 break;
                                                         }
-
-                                                        if ($statusCamat == 'Diterima') {
-                                                            echo '<a href="?page=edit_dispensasiNikah&id=' . $row[0] . '" class="badge ' . $badgeColor . '">' . $statusAdmin . '</a>';
-                                                        } else {
-                                                            echo '<span class="badge ' . $badgeColor . '">' . $statusAdmin . '</span>';
-                                                        }
                                                         ?>
+                                                <span class="badge <?= $badgeColor; ?>"><?= $statusAdmin; ?></span>
                                             </td>
                                             <td align="center">
                                                 <?php
@@ -141,7 +162,8 @@ if (!isset($_SESSION['nama'])) {
                                                                 break;
                                                         }
                                                         ?>
-                                                <span class="badge <?= $badgeColor; ?>"><?= $statusCamat; ?></span>
+                                                <a href="?page=eDispensasiNikah&id=<?= $row[0]; ?>"
+                                                    class="badge <?= $badgeColor; ?>"><?= $statusCamat; ?></a>
                                             </td>
                                         </tr>
                                         <?php

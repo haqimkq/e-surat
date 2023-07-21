@@ -145,7 +145,7 @@ if (!isset($_SESSION['nama'])) {
                                             <div class="col-md-5 text-center me-7 mt-7">
                                                 <?php
                                                     if (!empty($data['qrCode'])) {
-                                                        echo "<img src='../img/" . $data['qrCode'] . "' width='170' height='170' style='border-radius: 0%;'>";
+                                                        echo "<img src='../img/" . $data['qrCode'] . "' width='170' height='170' style='border-radius: 20%;'>";
                                                     }
                                                     ?>
                                                 <div class="input-group input-group-dynamic ">
@@ -159,20 +159,20 @@ if (!isset($_SESSION['nama'])) {
                                                 </div>
                                                 <input type="hidden" name="qrcode_lama" value="<?= $data['qrCode'] ?>">
                                             </div>
-                                            <div class="col-md-4 mt-7">
+                                            <div class="col-md-4 mt-6">
                                                 <div class="input-group input-group-dynamic">
                                                     <label class="text-bold">Status :</label>
                                                     <div class="input-group input-group-dynamic mb-4 ">
-                                                        <select name="statusAdmin" class="form-control ">
-                                                            <option value="Proses" <?php if ($data['statusAdmin'] == 'Proses') {
+                                                        <select name="statusCamat" class="form-control ">
+                                                            <option value="Proses" <?php if ($data['statusCamat'] == 'Proses') {
                                                                                             echo "selected";
                                                                                         } ?>>Proses
                                                             </option>
-                                                            <option value="Diterima" <?php if ($data['statusAdmin'] == 'Diterima') {
+                                                            <option value="Diterima" <?php if ($data['statusCamat'] == 'Diterima') {
                                                                                                 echo "selected";
                                                                                             } ?>>Diterima
                                                             </option>
-                                                            <option value="Ditolak" <?php if ($data['statusAdmin'] == 'Ditolak') {
+                                                            <option value="Ditolak" <?php if ($data['statusCamat'] == 'Ditolak') {
                                                                                             echo "selected";
                                                                                         } ?>>Ditolak
                                                             </option>
@@ -185,7 +185,7 @@ if (!isset($_SESSION['nama'])) {
                                             </div>
                                             <div class="form-group mt-4">
                                                 <div class="col-md-12">
-                                                    <input type="submit" class="btn btn-primary" value="Verifikasi"
+                                                    <input type="submit" class="btn btn-primary" value="Edit"
                                                         name="edit">
                                                     <input type="reset" class="btn btn-danger" value="Reset"
                                                         name="reset">
@@ -270,7 +270,8 @@ if (!isset($_SESSION['nama'])) {
 
 
         $tgl = $_POST['tgl'];
-        $statusAdmin = $_POST['statusAdmin'];
+        $statusCamat = $_POST['statusCamat'];
+
 
 
         $edit = $link->query("UPDATE rdn SET 
@@ -280,7 +281,7 @@ ktp_p = '$ktp',
 kk_p = '$kk',
 s_kua = '$s_kua',
 tgl = '$tgl',
-statusAdmin = '$statusAdmin',
+statusCamat = '$statusCamat',
 qrCode = '$qrcode'
 
 
