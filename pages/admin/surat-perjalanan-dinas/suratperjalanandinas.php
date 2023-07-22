@@ -8,6 +8,12 @@ $query = $link->query("SELECT * FROM surat_perjalanan_dinas  spd
 join pegawai p on spd.id_pegawai = p.id_pegawai WHERE idSuratPerjalanan = '$id'  ");
 $label = 'SURAT PERINTAH TUGAS ';
 
+function rupiah($angka)
+{
+    $hasil_rupiah = "Rp " . number_format($angka, 0);
+    return $hasil_rupiah;
+}
+
 
 $bln = array(
     '01' => 'Januari',
@@ -135,9 +141,9 @@ function namaHari($tanggal)
                     <?php $data = $query->fetch_array(); { ?>
                         <tr>
                             <div class="roww col-md-10">
-                                <h2 align="justify">MEMERINTAHKAN :</h2>
+                                <h3 align="justify">MEMERINTAHKAN :</h3>
                             </div>
-                            <th style="padding-left: 90px; text-align: left; font-size: 25px; ">
+                            <th style="padding-left: 90px; text-align: left; font-size: 20px; ">
                                 Nama Pegawai
                                 &emsp;&ensp;&ensp;&ensp;:&emsp;<?php echo $data['nm_pegawai']; ?>
                                 <br>
@@ -155,8 +161,34 @@ function namaHari($tanggal)
                                 &emsp;&ensp;&ensp; :&emsp;<?= tgl($data['tglPulang']) ?>
                                 <br>
                                 <br>
+                                Tujuan
+                                &emsp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+                                :&emsp;<?php echo $data['tujuan']; ?>
+                                <br>
+                                <br>
                                 Keterangan
                                 &emsp;&ensp;&ensp;&ensp;&ensp;&ensp; :&emsp;<?php echo $data['perihal']; ?>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                Budget Transportasi
+                                &emsp;&ensp; &ensp; &ensp; &ensp;
+                                :&emsp;<?php echo rupiah($data['budgetTransportasi']);  ?>
+                                <br>
+                                <br>
+                                Budget Penginapan
+                                &emsp;&ensp;&ensp;&ensp; &ensp; &ensp;
+                                :&emsp;
+                                <?php echo rupiah($data['budgetPenginapan']);  ?> &emsp;+
+                                <br>
+                                <br>
+                                Total Budget Perjalanan
+                                &emsp;&emsp; :&emsp;<u><?php
+                                                        if ($hasil = $data['budgetTransportasi'] + $data['budgetPenginapan']) {
+                                                            echo rupiah($hasil);
+                                                        }
+                                                        ?></u>
                             </th>
                         </tr>
                     <?php } ?>
@@ -164,8 +196,9 @@ function namaHari($tanggal)
             </table>
         </div>
     </div>
+    <br>
     <div style="text-align: center; display: inline-block; float: right;">
-        <h3>
+        <h4>
             Banjarmasin, <?php echo date('d') . ' ' . $bln[date('m')] . ' ' . date('Y') ?><br>
             Mengetahui,<br>
             Camat<br>
@@ -174,7 +207,7 @@ function namaHari($tanggal)
 
             <u><b>Drs. Hj. Rusdiana, M.AP </b></u><br>
             <b>NIP. 196709071990 2 001</b><br>
-        </h3>
+        </h4>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

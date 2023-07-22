@@ -91,6 +91,34 @@ if (!isset($_SESSION['nama'])) {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group input-group-dynamic">
+                                                        <label class="text-bold">Budget Transportasi :</label>
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <input class="form-control" aria-label="Budget Transportasi" type="text" name="budgetTransportasi" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required value="<?= $data['budgetTransportasi'] ?>">
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group input-group-dynamic">
+                                                        <label class="text-bold">Budget Penginapan :</label>
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <input class="form-control" aria-label="Budget Penginapan" type="text" name="budgetPenginapan" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required value="<?= $data['budgetPenginapan'] ?>">
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group input-group-dynamic">
+                                                        <label class="text-bold">Tujuan:</label>
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <input class="form-control" aria-label="Tujuan" type="text" name="tujuan" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required value="<?= $data['tujuan'] ?>">
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                                 <div class="col-md-12">
                                                     <label class="text-bold">Keterangan :</label>
                                                     <div class="input-group input-group-dynamic">
@@ -121,6 +149,9 @@ if (!isset($_SESSION['nama'])) {
     if (isset($_POST['edit'])) {
         $id_pegawai = $_POST['id_pegawai'];
         $keterangan = $_POST['perihal'];
+        $tujuan = $_POST['tujuan'];
+        $budgetTransportasi = $_POST['budgetTransportasi'];
+        $budgetPenginapan = $_POST['budgetPenginapan'];
         $tanggalPergi = $_POST['tglPergi'];
         $tanggalPulang = $_POST['tglPulang'];
 
@@ -128,6 +159,9 @@ if (!isset($_SESSION['nama'])) {
         $edit = $link->query("UPDATE surat_perjalanan_dinas SET 
 id_pegawai = '$id_pegawai',
 perihal = '$keterangan',
+tujuan = '$tujuan',
+budgetTransportasi = '$budgetTransportasi',
+budgetPenginapan = '$budgetPenginapan',
 tglPergi = '$tanggalPergi',
 tglPulang = '$tanggalPulang'
 
