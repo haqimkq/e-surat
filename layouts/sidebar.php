@@ -1716,6 +1716,22 @@
                                             <span class="nav-link-text ms-1">Legalisasi SKTM</span>
                                         </a>
                                     </li>
+                                    <li>
+                                        <a class="nav-link text-white " href="?page=qrCodeSpn">
+                                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                                <i class="material-icons opacity-10">assignment</i>
+                                            </div>
+                                            <span class="nav-link-text ms-1">Legalisasi Pengantar Nikah</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-white " href="?page=qrCodeSk">
+                                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                                <i class="material-icons opacity-10">assignment</i>
+                                            </div>
+                                            <span class="nav-link-text ms-1">Legalisasi Susunan Keluarga </span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>

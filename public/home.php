@@ -447,6 +447,26 @@ if (!isset($_SESSION['nama'])) {
         case "hapus_qrSktm":
             include "../pages/camat/qrcode-sktm/delete.php";
             break;
+            ## QRCODE LEGALISASI PENGANTAR NIKAH
+        case "qrCodeSpn":
+            include "../pages/camat/qrcode-spn/data.php";
+            break;
+        case "tambah_qrSpn":
+            include "../pages/camat/qrcode-spn/add.php";
+            break;
+        case "hapus_qrSpn":
+            include "../pages/camat/qrcode-spn/delete.php";
+            break;
+            ## QRCODE LEGALISASI PENGANTAR NIKAH
+        case "qrCodeSk":
+            include "../pages/camat/qrcode-sk/data.php";
+            break;
+        case "tambah_qrSk":
+            include "../pages/camat/qrcode-sk/add.php";
+            break;
+        case "hapus_qrSk":
+            include "../pages/camat/qrcode-sk/delete.php";
+            break;
 
             //////////// END QRCODE PREVIEW ////////////////////
     }
