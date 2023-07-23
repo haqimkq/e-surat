@@ -467,6 +467,16 @@ if (!isset($_SESSION['nama'])) {
         case "hapus_qrSk":
             include "../pages/camat/qrcode-sk/delete.php";
             break;
+            ## QRCODE REKOMENDASI DISPENSASI NIKAH
+        case "qrCodeRdn":
+            include "../pages/camat/qrcode-rdn/data.php";
+            break;
+        case "tambah_qrRdn":
+            include "../pages/camat/qrcode-rdn/add.php";
+            break;
+        case "hapus_qrRdn":
+            include "../pages/camat/qrcode-rdn/delete.php";
+            break;
 
             //////////// END QRCODE PREVIEW ////////////////////
     }

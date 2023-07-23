@@ -1732,6 +1732,16 @@
                                             <span class="nav-link-text ms-1">Legalisasi Susunan Keluarga </span>
                                         </a>
                                     </li>
+                                    <li>
+                                        <a class="nav-link text-white " href="?page=qrCodeRdn">
+                                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                                <i class="material-icons opacity-10">assignment</i>
+                                            </div>
+                                            <span class="nav-link-text ms-1">Legalisasi Rekomendasi <br> Dispensasi
+                                                Nikah
+                                            </span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
