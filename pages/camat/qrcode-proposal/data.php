@@ -28,7 +28,7 @@ if (!isset($_SESSION['nama'])) {
                 </div>
                 <div class=" p-0 position-relative mt-n6 mx-4 z-index-4 ps-6">
                     <div class="bg-gradient-info shadow border-radius-lg pt-3 pb-3 ">
-                        <h6 class="text-white text-capitalize ps-3">Data Pegawai</h6>
+                        <h6 class="text-white text-capitalize ps-3">QRCODE LEGALISASI PROPOSAL</h6>
                     </div>
                 </div>
                 <div class="card-body p-3 mt-3">
@@ -42,8 +42,8 @@ if (!isset($_SESSION['nama'])) {
                                 <div class="table-responsive">
                                     <thead>
                                         <tr>
-                                            <!-- <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                    Aksi</th> -->
+                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
+                                                Aksi</th>
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 No.
                                             </th>
@@ -66,12 +66,12 @@ if (!isset($_SESSION['nama'])) {
                                     <tbody>
                                         <?php
                                             $no = 1;
-                                            $query = mysqli_query($link, "SELECT * FROM qrcode");
+                                            $query = mysqli_query($link, "SELECT * FROM qrcode qr join pelayanan p on qr.id_pelayanan = p.id_pelayanan where j_pelayanan = 'Legalisasi Proposal'");
                                             $i = 1;
                                             while ($row = $query->fetch_array()) {
                                             ?>
                                         <tr>
-                                            <!-- <td>
+                                            <td>
                                                 <div class=" mt-3">
                                                     <button type="button"
                                                         class="btn btn-info dropdown-toggle border-radius-lg px-3 py-1 "
@@ -80,27 +80,27 @@ if (!isset($_SESSION['nama'])) {
                                                     </button>
                                                     <ul class="dropdown-menu shadow-lg mt-2  dropdown-menu-end px-2 py-2 me-sm-n4"
                                                         role="menu">
-                                                        <li>
+                                                        <!-- <li>
                                                             <a class="dropdown-item border-radius-md"
                                                                 href="?page=edit_pegawai&id=<?= $row[0]; ?>">
                                                                 <i class="fa fa-edit"></i>
                                                                 Edit Data</a>
-                                                        </li>
+                                                        </li> -->
                                                         <li>
                                                             <a class="dropdown-item border-radius-md"
                                                                 onclick="return confirm ('Anda yakin ingin menghapus data ?');"
-                                                                href="?page=hapusPegawai&id=<?= $row[0]; ?>">
+                                                                href="?page=hapus_qrProposal&id=<?= $row[0]; ?>">
                                                                 <i class="fa fa-trash-o"></i>
                                                                 Hapus</a>
                                                         </li>
                                                     </ul>
                                                 </div>
-                                            </td> -->
+                                            </td>
                                             <td align="left"><?= $i++ ?></td>
                                             <td><?= $row['namaTtd']; ?></td>
                                             <td><?= $row['nip']; ?></td>
                                             <td><?= $row['namaMsy']; ?></td>
-                                            <td><?= $row['keperluan']; ?></td>
+                                            <td><?= $row['j_pelayanan']; ?></td>
                                             <td align="center"><?= $row['tanggalTtd']; ?></td>
                                             <td align="center">
                                                 <?php

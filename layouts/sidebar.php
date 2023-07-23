@@ -1,214 +1,198 @@
 <body class="g-sidenav-show bg-gray-200 ">
-    <aside
-        class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark"
-        id="sidenav-main">
+    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark" id="sidenav-main">
         <?php $level = $_SESSION['level'];
         if ($level == 0) {
             $years = range(
                 2000,
                 strftime("%Y", time())
             ); ?>
-        <div class="sidenav-header mb-2">
-            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-                aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand" href="" target="_blank">
-                <img src="<?php echo "
+            <div class="sidenav-header mb-2">
+                <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+                <a class="navbar-brand" href="" target="_blank">
+                    <img src="<?php echo "
                     ../image/bjm.png" ?>" class="navbar-brand-img h-100" alt="main_logo" />
-                <span class=" font-weight-bold  text-white ms-3 ">
-                    Pelayanan Terpadu<br>
-                    <i class="ms-2">
-                        Kecamatan Banjarmasin Timur</i>
-                </span>
-            </a>
-        </div>
-        <hr class="horizontal light mt-0 mb-2 " />
-        <div class="text-light text-center mb-2">
-            <?php include "../db/koneksi.php";
+                    <span class=" font-weight-bold  text-white ms-3 ">
+                        Pelayanan Terpadu<br>
+                        <i class="ms-2">
+                            Kecamatan Banjarmasin Timur</i>
+                    </span>
+                </a>
+            </div>
+            <hr class="horizontal light mt-0 mb-2 " />
+            <div class="text-light text-center mb-2">
+                <?php include "../db/koneksi.php";
                 $id = $_SESSION['id_user'];
                 $query =
                     mysqli_query($link, "SELECT * FROM users WHERE id_user = '$id' ");
                 $data =
                     $query->fetch_array(); ?>
-            <span class="ms-1 text-black"><?= $data['username'] ?></span>
-        </div>
-        <hr class="horizontal light mt-0 mb-2 nav-link-text text-center ms-1" />
+                <span class="ms-1 text-black"><?= $data['username'] ?></span>
+            </div>
+            <hr class="horizontal light mt-0 mb-2 nav-link-text text-center ms-1" />
 
-        <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="home.php">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">dashboard</i>
+            <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="home.php">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">dashboard</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-master">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">square</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Data Master</span>
+                        </a>
+                        <div class="collapse" id="data-master">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li>
+                                    <a class="nav-link text-white " href="?page=data_user">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">people</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Users</span>
+                                    </a>
+                                    <a class="nav-link text-white " href="?page=data_golongan">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Data Golongan</span>
+                                    </a>
+                                    <a class="nav-link text-white " href="?page=data_jabatan">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Data Jabatan</span>
+                                    </a>
+                                    <a class="nav-link text-white " href="?page=data_pegawai">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment_ind</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Data Pegawai</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-                        <span class="nav-link-text ms-1">Dashboard</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-master">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">square</i>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-pelayanan">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">announcement</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Data Pelayanan</span>
+                        </a>
+                        <div class="collapse" id="data-pelayanan">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li>
+                                    <a class="nav-link text-white " href="?page=data_susunanKeluarga">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Susunan Keluarga</span>
+                                    </a>
+                                    <a class="nav-link text-white " href="?page=data_dispensasiNikah">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Rekomendasi Dispensasi
+                                            <br>
+                                            Nikah</span>
+                                    </a>
+                                    <a class="nav-link text-white " href="?page=data_sktm">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Legalisasi Surat
+                                            <br>
+                                            Keterangan Tidak Mampu</span>
+                                    </a>
+                                    <a class="nav-link text-white " href="?page=data_pengantarNikah">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Legalisasi Surat
+                                            <br>
+                                            Pengantar Nikah</span>
+                                    </a>
+                                    <a class="nav-link text-white " href="?page=data_proposal">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Legalisasi Proposal</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-                        <span class="nav-link-text ms-1">Data Master</span>
-                    </a>
-                    <div class="collapse" id="data-master">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li>
-                                <a class="nav-link text-white " href="?page=data_user">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">people</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Users</span>
-                                </a>
-                                <a class="nav-link text-white " href="?page=data_golongan">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Data Golongan</span>
-                                </a>
-                                <a class="nav-link text-white " href="?page=data_jabatan">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Data Jabatan</span>
-                                </a>
-                                <a class="nav-link text-white " href="?page=data_pegawai">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment_ind</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Data Pegawai</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-pelayanan">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">announcement</i>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-penilaian">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">insert_chart</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Data Penilaian</span>
+                        </a>
+                        <div class="collapse" id="data-penilaian">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li>
+                                    <a class="nav-link text-white " href="?page=data_KinerjaPegawai">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">beenhere</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Penilai Kinerja Pegawai</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link text-white " href="?page=data_kinerjaKecamatan">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">beenhere</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Penilai Kinerja Pelayanan
+                                            <br>
+                                            Kecamatan</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-                        <span class="nav-link-text ms-1">Data Pelayanan</span>
-                    </a>
-                    <div class="collapse" id="data-pelayanan">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li>
-                                <a class="nav-link text-white " href="?page=data_susunanKeluarga">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Susunan Keluarga</span>
-                                </a>
-                                <a class="nav-link text-white " href="?page=data_dispensasiNikah">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Rekomendasi Dispensasi
-                                        <br>
-                                        Nikah</span>
-                                </a>
-                                <a class="nav-link text-white " href="?page=data_sktm">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Legalisasi Surat
-                                        <br>
-                                        Keterangan Tidak Mampu</span>
-                                </a>
-                                <a class="nav-link text-white " href="?page=data_pengantarNikah">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Legalisasi Surat
-                                        <br>
-                                        Pengantar Nikah</span>
-                                </a>
-                                <a class="nav-link text-white " href="?page=data_proposal">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Legalisasi Proposal</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-penilaian">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">insert_chart</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Data Penilaian</span>
-                    </a>
-                    <div class="collapse" id="data-penilaian">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li>
-                                <a class="nav-link text-white " href="?page=data_KinerjaPegawai">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">beenhere</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Penilai Kinerja Pegawai</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="nav-link text-white " href="?page=data_kinerjaKecamatan">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">beenhere</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Penilai Kinerja Pelayanan
-                                        <br>
-                                        Kecamatan</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
 
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="?page=data_masyarakat">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">group_add</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Data Masyarakat</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="?page=data_berita">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">fiber_new</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Data Portal Berita</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="" data-bs-toggle="collapse"
-                        data-bs-target="#data-perjalanandinas">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">directions_car</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Data Perjalanan Dinas</span>
-                    </a>
-                    <div class="collapse" id="data-perjalanandinas">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li>
-                                <a class="nav-link text-white " href="?page=data_suratPerjalananDinas">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">beenhere</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Surat Perintah Tugas </span>
-                                </a>
-                            </li>
-                            <!-- <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="?page=data_masyarakat">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">group_add</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Data Masyarakat</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="?page=data_berita">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">fiber_new</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Data Portal Berita</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-perjalanandinas">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">directions_car</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Data Perjalanan Dinas</span>
+                        </a>
+                        <div class="collapse" id="data-perjalanandinas">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li>
+                                    <a class="nav-link text-white " href="?page=data_suratPerjalananDinas">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">beenhere</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Surat Perintah Tugas </span>
+                                    </a>
+                                </li>
+                                <!-- <li class="nav-item">
                                     <a class="nav-link text-white" href="?page=data_perjalananDinas">
                                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                             <i class="material-icons opacity-10">directions_car</i>
@@ -216,563 +200,492 @@
                                         <span class="nav-link-text ms-1">Data Perjalana <br> Dinas Pegawai</span>
                                     </a>
                                 </li> -->
-                        </ul>
-                    </div>
-
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#" data-bs-toggle="collapse" data-bs-target="#laporan-laporan">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">book</i>
+                            </ul>
                         </div>
-                        <span class="nav-link-text ms-1">Laporan-Laporan</span>
-                    </a>
-                    <div class="collapse" id="laporan-laporan">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li class="nav-item">
-                                <a class="nav-link text-white ">
-                                    <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                                        <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Surat
-                                            <br>
-                                            Pengantar Nikah</span>
-                                    </div>
-                                </a>
-                                <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabe4" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Surat Pengantar
-                                                    Nikah</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="POST" target="_blank" action="../laporan/l_spn.php">
-                                                    <div class="form-group row">
-                                                        <div class="col-md-4">
-                                                            <label>Dari Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl1"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <label>Sampai Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl2"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4" style="margin-top: 31px;">
-                                                            <button align="center" type="submit" name="cetak1"
-                                                                class="btn btn-info btn-md">
-                                                                <i class="fa fa-print"></i>
-                                                                Cetak</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                                <hr>
-                                                <div class="form-group text-center">
-                                                    <a href="../laporan/l_spn.php" target="_blank"
-                                                        class="btn btn-info btn-md">
-                                                        <i class="fa fa-print"></i>
-                                                        Cetak Semua</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white ">
-                                    <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                                        <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Legalisasi
-                                            <br>
-                                            Surat Keterangan Tidak
-                                            <br>
-                                            Mampu</span>
-                                    </div>
-                                </a>
-                                <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabe4" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Legalisasi Surat
-                                                    Keterangan Tidak Mampu</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="POST" target="_blank" action="../laporan/l_sktm.php">
-                                                    <div class="form-group row">
-                                                        <div class="col-md-4">
-                                                            <label>Dari Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl1"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <label>Sampai Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl2"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4" style="margin-top: 31px;">
-                                                            <button align="center" type="submit" name="cetak2"
-                                                                class="btn btn-info btn-md">
-                                                                <i class="fa fa-print"></i>
-                                                                Cetak</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                                <hr>
-                                                <div class="form-group text-center">
-                                                    <a href="../laporan/l_sktm.php" target="_blank"
-                                                        class="btn btn-info btn-md">
-                                                        <i class="fa fa-print"></i>
-                                                        Cetak Semua</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white ">
-                                    <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                                        <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Legalisasi
-                                            <br>
-                                            Susunan Keluarga</span>
-                                    </div>
-                                </a>
-                                <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabe4" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Legalisasi
-                                                    Susunan Keluarga</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="POST" target="_blank" action="../laporan/l_sk.php">
-                                                    <div class="form-group row">
-                                                        <div class="col-md-4">
-                                                            <label>Dari Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl1"
-                                                                required>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#" data-bs-toggle="collapse" data-bs-target="#laporan-laporan">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">book</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Laporan-Laporan</span>
+                        </a>
+                        <div class="collapse" id="laporan-laporan">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li class="nav-item">
+                                    <a class="nav-link text-white ">
+                                        <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                            <i class="material-icons opacity-10">print</i>
+                                            <span class="nav-link-text ms-1">Laporan Surat
+                                                <br>
+                                                Pengantar Nikah</span>
+                                        </div>
+                                    </a>
+                                    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Laporan Surat Pengantar
+                                                        Nikah</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" target="_blank" action="../laporan/l_spn.php">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <label>Dari Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl1" required>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>Sampai Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl2" required>
+                                                            </div>
+                                                            <div class="col-md-4" style="margin-top: 31px;">
+                                                                <button align="center" type="submit" name="cetak1" class="btn btn-info btn-md">
+                                                                    <i class="fa fa-print"></i>
+                                                                    Cetak</button>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-md-4">
-                                                            <label>Sampai Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl2"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4" style="margin-top: 31px;">
-                                                            <button align="center" type="submit" name="cetak3"
-                                                                class="btn btn-info btn-md">
-                                                                <i class="fa fa-print"></i>
-                                                                Cetak</button>
-                                                        </div>
+                                                    </form>
+                                                    <hr>
+                                                    <div class="form-group text-center">
+                                                        <a href="../laporan/l_spn.php" target="_blank" class="btn btn-info btn-md">
+                                                            <i class="fa fa-print"></i>
+                                                            Cetak Semua</a>
                                                     </div>
-                                                </form>
-                                                <hr>
-                                                <div class="form-group text-center">
-                                                    <a href="../laporan/l_sk.php" target="_blank"
-                                                        class="btn btn-info btn-md">
-                                                        <i class="fa fa-print"></i>
-                                                        Cetak Semua</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white ">
-                                    <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal4">
-                                        <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Rekomendasi
-                                            <br>
-                                            Dispensasi Nikah</span>
-                                    </div>
-                                </a>
-                                <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabe4" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Rekomendasi
-                                                    Dispensasi Nikah</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="POST" target="_blank" action="../laporan/l_rdn.php">
-                                                    <div class="form-group row">
-                                                        <div class="col-md-4">
-                                                            <label>Dari Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl1"
-                                                                required>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white ">
+                                        <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                            <i class="material-icons opacity-10">print</i>
+                                            <span class="nav-link-text ms-1">Laporan Legalisasi
+                                                <br>
+                                                Surat Keterangan Tidak
+                                                <br>
+                                                Mampu</span>
+                                        </div>
+                                    </a>
+                                    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Laporan Legalisasi Surat
+                                                        Keterangan Tidak Mampu</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" target="_blank" action="../laporan/l_sktm.php">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <label>Dari Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl1" required>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>Sampai Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl2" required>
+                                                            </div>
+                                                            <div class="col-md-4" style="margin-top: 31px;">
+                                                                <button align="center" type="submit" name="cetak2" class="btn btn-info btn-md">
+                                                                    <i class="fa fa-print"></i>
+                                                                    Cetak</button>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-md-4">
-                                                            <label>Sampai Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl2"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4" style="margin-top: 31px;">
-                                                            <button align="center" type="submit" name="cetak4"
-                                                                class="btn btn-info btn-md">
-                                                                <i class="fa fa-print"></i>
-                                                                Cetak</button>
-                                                        </div>
+                                                    </form>
+                                                    <hr>
+                                                    <div class="form-group text-center">
+                                                        <a href="../laporan/l_sktm.php" target="_blank" class="btn btn-info btn-md">
+                                                            <i class="fa fa-print"></i>
+                                                            Cetak Semua</a>
                                                     </div>
-                                                </form>
-                                                <hr>
-                                                <div class="form-group text-center">
-                                                    <a href="../laporan/l_rdn.php" target="_blank"
-                                                        class="btn btn-info btn-md">
-                                                        <i class="fa fa-print"></i>
-                                                        Cetak Semua</a>
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white ">
-                                    <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal5">
-                                        <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Legalisasi Proposal</span>
-                                    </div>
-                                </a>
-                                <div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabe4" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Legalisasi
-                                                    Proposal</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="POST" target="_blank" action="../laporan/l_lp.php">
-                                                    <div class="form-group row">
-                                                        <div class="col-md-4">
-                                                            <label>Dari Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl1"
-                                                                required>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white ">
+                                        <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                                            <i class="material-icons opacity-10">print</i>
+                                            <span class="nav-link-text ms-1">Laporan Legalisasi
+                                                <br>
+                                                Susunan Keluarga</span>
+                                        </div>
+                                    </a>
+                                    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Laporan Legalisasi
+                                                        Susunan Keluarga</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" target="_blank" action="../laporan/l_sk.php">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <label>Dari Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl1" required>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>Sampai Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl2" required>
+                                                            </div>
+                                                            <div class="col-md-4" style="margin-top: 31px;">
+                                                                <button align="center" type="submit" name="cetak3" class="btn btn-info btn-md">
+                                                                    <i class="fa fa-print"></i>
+                                                                    Cetak</button>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-md-4">
-                                                            <label>Sampai Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl2"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4" style="margin-top: 31px;">
-                                                            <button align="center" type="submit" name="cetak5"
-                                                                class="btn btn-info btn-md">
-                                                                <i class="fa fa-print"></i>
-                                                                Cetak</button>
-                                                        </div>
+                                                    </form>
+                                                    <hr>
+                                                    <div class="form-group text-center">
+                                                        <a href="../laporan/l_sk.php" target="_blank" class="btn btn-info btn-md">
+                                                            <i class="fa fa-print"></i>
+                                                            Cetak Semua</a>
                                                     </div>
-                                                </form>
-                                                <hr>
-                                                <div class="form-group text-center">
-                                                    <a href="../laporan/l_lp.php" target="_blank"
-                                                        class="btn btn-info btn-md">
-                                                        <i class="fa fa-print"></i>
-                                                        Cetak Semua</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white ">
-                                    <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal6">
-                                        <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Berita
-                                            <br>
-                                            Kegiatan Kecamatan</span>
-                                    </div>
-                                </a>
-                                <div class="modal fade" id="exampleModal6" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabe4" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Berita Kegiatan
-                                                    Kecamatan</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="POST" target="_blank" action="../laporan/l_news.php">
-                                                    <div class="form-group row">
-                                                        <div class="col-md-4">
-                                                            <label>Dari Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl1"
-                                                                required>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white ">
+                                        <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4">
+                                            <i class="material-icons opacity-10">print</i>
+                                            <span class="nav-link-text ms-1">Laporan Rekomendasi
+                                                <br>
+                                                Dispensasi Nikah</span>
+                                        </div>
+                                    </a>
+                                    <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Laporan Rekomendasi
+                                                        Dispensasi Nikah</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" target="_blank" action="../laporan/l_rdn.php">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <label>Dari Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl1" required>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>Sampai Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl2" required>
+                                                            </div>
+                                                            <div class="col-md-4" style="margin-top: 31px;">
+                                                                <button align="center" type="submit" name="cetak4" class="btn btn-info btn-md">
+                                                                    <i class="fa fa-print"></i>
+                                                                    Cetak</button>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-md-4">
-                                                            <label>Sampai Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl2"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4" style="margin-top: 31px;">
-                                                            <button align="center" type="submit" name="cetak6"
-                                                                class="btn btn-info btn-md">
-                                                                <i class="fa fa-print"></i>
-                                                                Cetak</button>
-                                                        </div>
+                                                    </form>
+                                                    <hr>
+                                                    <div class="form-group text-center">
+                                                        <a href="../laporan/l_rdn.php" target="_blank" class="btn btn-info btn-md">
+                                                            <i class="fa fa-print"></i>
+                                                            Cetak Semua</a>
                                                     </div>
-                                                </form>
-                                                <hr>
-                                                <div class="form-group text-center">
-                                                    <a href="../laporan/l_news.php" target="_blank"
-                                                        class="btn btn-info btn-md">
-                                                        <i class="fa fa-print"></i>
-                                                        Cetak Semua</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white ">
-                                    <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal7">
-                                        <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Data Diri
-                                            <br>
-                                            Masyarakat</span>
-                                    </div>
-                                </a>
-                                <div class="modal fade" id="exampleModal7" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabe4" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Data Pribadi
-                                                    Masyarakat</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="form-group text-center">
-                                                    <a href="../laporan/l_msy.php" target="_blank"
-                                                        class="btn btn-info btn-md">
-                                                        <i class="fa fa-print"></i>
-                                                        Cetak Semua</a>
-                                                </div>
-                                            </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white ">
+                                        <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5">
+                                            <i class="material-icons opacity-10">print</i>
+                                            <span class="nav-link-text ms-1">Laporan Legalisasi Proposal</span>
                                         </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white ">
-                                    <div class="text-white me-2 d-flex" type="button" class="btn bg-gradient-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal8">
-                                        <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Data Kinerja
-                                            <br>
-                                            Pelayanan Kecamatan</span>
-                                    </div>
-                                </a>
-                                <div class="modal fade" id="exampleModal8" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabe4" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Kinerja Pelayanan
-                                                    Kecamatan</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="POST" target="_blank"
-                                                    action="../laporan/l_KinerjaKec.php">
-                                                    <div class="form-group row">
-                                                        <div class="col-md-4">
-                                                            <label>Dari Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl1"
-                                                                required>
+                                    </a>
+                                    <div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Laporan Legalisasi
+                                                        Proposal</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" target="_blank" action="../laporan/l_lp.php">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <label>Dari Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl1" required>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>Sampai Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl2" required>
+                                                            </div>
+                                                            <div class="col-md-4" style="margin-top: 31px;">
+                                                                <button align="center" type="submit" name="cetak5" class="btn btn-info btn-md">
+                                                                    <i class="fa fa-print"></i>
+                                                                    Cetak</button>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-md-4">
-                                                            <label>Sampai Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl2"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4" style="margin-top: 31px;">
-                                                            <button align="center" type="submit" name="cetak8"
-                                                                class="btn btn-info btn-md">
-                                                                <i class="fa fa-print"></i>
-                                                                Cetak</button>
-                                                        </div>
+                                                    </form>
+                                                    <hr>
+                                                    <div class="form-group text-center">
+                                                        <a href="../laporan/l_lp.php" target="_blank" class="btn btn-info btn-md">
+                                                            <i class="fa fa-print"></i>
+                                                            Cetak Semua</a>
                                                     </div>
-                                                </form>
-                                                <hr>
-                                                <div class="form-group text-center">
-                                                    <a href="../laporan/l_KinerjaKec.php" target="_blank"
-                                                        class="btn btn-info btn-md">
-                                                        <i class="fa fa-print"></i>
-                                                        Cetak Semua</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white ">
-                                    <div class="text-white me-2 d-flex" type="button" class="btn bg-gradient-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal9">
-                                        <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Data
-                                            <br>
-                                            Kinerja Pegawai</span>
-                                    </div>
-                                </a>
-                                <div class="modal fade" id="exampleModal9" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabe4" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Kinerja Pegawai
-                                                </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="POST" target="_blank"
-                                                    action="../laporan/l_KinerjaPegawai.php">
-                                                    <div class="form-group row">
-                                                        <div class="col-md-4">
-                                                            <label>Dari Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl1"
-                                                                required>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white ">
+                                        <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal6">
+                                            <i class="material-icons opacity-10">print</i>
+                                            <span class="nav-link-text ms-1">Laporan Berita
+                                                <br>
+                                                Kegiatan Kecamatan</span>
+                                        </div>
+                                    </a>
+                                    <div class="modal fade" id="exampleModal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Laporan Berita Kegiatan
+                                                        Kecamatan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" target="_blank" action="../laporan/l_news.php">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <label>Dari Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl1" required>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>Sampai Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl2" required>
+                                                            </div>
+                                                            <div class="col-md-4" style="margin-top: 31px;">
+                                                                <button align="center" type="submit" name="cetak6" class="btn btn-info btn-md">
+                                                                    <i class="fa fa-print"></i>
+                                                                    Cetak</button>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-md-4">
-                                                            <label>Sampai Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl2"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4" style="margin-top: 31px;">
-                                                            <button align="center" type="submit" name="cetak9"
-                                                                class="btn btn-info btn-md">
-                                                                <i class="fa fa-print"></i>
-                                                                Cetak</button>
-                                                        </div>
+                                                    </form>
+                                                    <hr>
+                                                    <div class="form-group text-center">
+                                                        <a href="../laporan/l_news.php" target="_blank" class="btn btn-info btn-md">
+                                                            <i class="fa fa-print"></i>
+                                                            Cetak Semua</a>
                                                     </div>
-                                                </form>
-                                                <hr>
-                                                <div class="form-group text-center">
-                                                    <a href="../laporan/l_KinerjaPegawai.php" target="_blank"
-                                                        class="btn btn-info btn-md">
-                                                        <i class="fa fa-print"></i>
-                                                        Cetak Semua</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white ">
-                                    <div class="text-white me-2 d-flex" type="button" class="btn bg-gradient-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal10">
-                                        <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Data
-                                            <br>
-                                            Perjalanan Dinas</span>
-                                    </div>
-                                </a>
-                                <div class="modal fade" id="exampleModal10" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabe4" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Perjalanan DInas
-                                                </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="POST" target="_blank"
-                                                    action="../laporan/l_PerjalananDinas.php">
-                                                    <div class="form-group row">
-                                                        <div class="col-md-4">
-                                                            <label>Dari Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl1"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <label>Sampai Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl2"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4" style="margin-top: 31px;">
-                                                            <button align="center" type="submit" name="cetak10"
-                                                                class="btn btn-info btn-md">
-                                                                <i class="fa fa-print"></i>
-                                                                Cetak</button>
-                                                        </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white ">
+                                        <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal7">
+                                            <i class="material-icons opacity-10">print</i>
+                                            <span class="nav-link-text ms-1">Laporan Data Diri
+                                                <br>
+                                                Masyarakat</span>
+                                        </div>
+                                    </a>
+                                    <div class="modal fade" id="exampleModal7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Laporan Data Pribadi
+                                                        Masyarakat</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-group text-center">
+                                                        <a href="../laporan/l_msy.php" target="_blank" class="btn btn-info btn-md">
+                                                            <i class="fa fa-print"></i>
+                                                            Cetak Semua</a>
                                                     </div>
-                                                </form>
-                                                <hr>
-                                                <div class="form-group text-center">
-                                                    <a href="../laporan/l_PerjalananDinas.php" target="_blank"
-                                                        class="btn btn-info btn-md">
-                                                        <i class="fa fa-print"></i>
-                                                        Cetak Semua</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white ">
+                                        <div class="text-white me-2 d-flex" type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal8">
+                                            <i class="material-icons opacity-10">print</i>
+                                            <span class="nav-link-text ms-1">Laporan Data Kinerja
+                                                <br>
+                                                Pelayanan Kecamatan</span>
+                                        </div>
+                                    </a>
+                                    <div class="modal fade" id="exampleModal8" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Laporan Kinerja Pelayanan
+                                                        Kecamatan</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" target="_blank" action="../laporan/l_KinerjaKec.php">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <label>Dari Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl1" required>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>Sampai Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl2" required>
+                                                            </div>
+                                                            <div class="col-md-4" style="margin-top: 31px;">
+                                                                <button align="center" type="submit" name="cetak8" class="btn btn-info btn-md">
+                                                                    <i class="fa fa-print"></i>
+                                                                    Cetak</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    <hr>
+                                                    <div class="form-group text-center">
+                                                        <a href="../laporan/l_KinerjaKec.php" target="_blank" class="btn btn-info btn-md">
+                                                            <i class="fa fa-print"></i>
+                                                            Cetak Semua</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white ">
+                                        <div class="text-white me-2 d-flex" type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal9">
+                                            <i class="material-icons opacity-10">print</i>
+                                            <span class="nav-link-text ms-1">Laporan Data
+                                                <br>
+                                                Kinerja Pegawai</span>
+                                        </div>
+                                    </a>
+                                    <div class="modal fade" id="exampleModal9" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Laporan Kinerja Pegawai
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" target="_blank" action="../laporan/l_KinerjaPegawai.php">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <label>Dari Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl1" required>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>Sampai Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl2" required>
+                                                            </div>
+                                                            <div class="col-md-4" style="margin-top: 31px;">
+                                                                <button align="center" type="submit" name="cetak9" class="btn btn-info btn-md">
+                                                                    <i class="fa fa-print"></i>
+                                                                    Cetak</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    <hr>
+                                                    <div class="form-group text-center">
+                                                        <a href="../laporan/l_KinerjaPegawai.php" target="_blank" class="btn btn-info btn-md">
+                                                            <i class="fa fa-print"></i>
+                                                            Cetak Semua</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white ">
+                                        <div class="text-white me-2 d-flex" type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal10">
+                                            <i class="material-icons opacity-10">print</i>
+                                            <span class="nav-link-text ms-1">Laporan Data
+                                                <br>
+                                                Perjalanan Dinas</span>
+                                        </div>
+                                    </a>
+                                    <div class="modal fade" id="exampleModal10" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Laporan Perjalanan DInas
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" target="_blank" action="../laporan/l_PerjalananDinas.php">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-4">
+                                                                <label>Dari Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl1" required>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>Sampai Tanggal</label>
+                                                                <input type="date" class="form-control" name="tgl2" required>
+                                                            </div>
+                                                            <div class="col-md-4" style="margin-top: 31px;">
+                                                                <button align="center" type="submit" name="cetak10" class="btn btn-info btn-md">
+                                                                    <i class="fa fa-print"></i>
+                                                                    Cetak</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    <hr>
+                                                    <div class="form-group text-center">
+                                                        <a href="../laporan/l_PerjalananDinas.php" target="_blank" class="btn btn-info btn-md">
+                                                            <i class="fa fa-print"></i>
+                                                            Cetak Semua</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
     </aside>
 
     <main class="main-content border-radius-lg">
-        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
-            data-scroll="true">
+        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
@@ -816,13 +729,11 @@
                             </a>
                         </li>
                         <li class="nav-item dropdown pe-2 ps-3 d-flex align-items-center">
-                            <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-bell cursor-pointer"></i>
                             </a>
 
-                            <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4"
-                                aria-labelledby="dropdownMenuButton">
+                            <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                                 <li class="mb-2">
                                     <a class="dropdown-item border-radius-md" href="javascript:;">
                                         <div class="d-flex py-1">
@@ -846,8 +757,7 @@
                                     <a class="dropdown-item border-radius-md" href="javascript:;">
                                         <div class="d-flex py-1">
                                             <div class="my-auto">
-                                                <img src="/aev/assets/img/small-logos/logo-spotify.svg"
-                                                    class="avatar avatar-sm bg-gradient-dark me-3" />
+                                                <img src="/aev/assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark me-3" />
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
                                                 <h6 class="text-sm font-weight-normal mb-1">
@@ -866,20 +776,14 @@
                                     <a class="dropdown-item border-radius-md" href="javascript:;">
                                         <div class="d-flex py-1">
                                             <div class="avatar avatar-sm bg-gradient-secondary me-3 my-auto">
-                                                <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                                     <title>credit-card</title>
                                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                        <g transform="translate(-2169.000000, -745.000000)"
-                                                            fill="#FFFFFF" fill-rule="nonzero">
+                                                        <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                                             <g transform="translate(1716.000000, 291.000000)">
                                                                 <g transform="translate(453.000000, 454.000000)">
-                                                                    <path class="color-background"
-                                                                        d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
-                                                                        opacity="0.593633743"></path>
-                                                                    <path class="color-background"
-                                                                        d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
+                                                                    <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
+                                                                    <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
                                                                     </path>
                                                                 </g>
                                                             </g>
@@ -906,20 +810,19 @@
             </div>
         </nav>
         <!-- End Navbar -->
-        <?php
+    <?php
         }
     ?>
 
-        <!-- Bagian Pegawai -->
-        <?php $level = $_SESSION['level'];
+    <!-- Bagian Pegawai -->
+    <?php $level = $_SESSION['level'];
     if ($level == 1) {
         $years = range(
             2000,
             strftime("%Y", time())
         ); ?>
         <div class="sidenav-header mb-2">
-            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-                aria-hidden="true" id="iconSidenav"></i>
+            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand" href="" target="_blank">
                 <img src="<?php echo "
                     ../image/bjm.png" ?>" class="navbar-brand-img h-100" alt="main_logo" />
@@ -962,29 +865,25 @@
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             <li>
                                 <a class="nav-link text-white " href="?page=dataUser">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">people</i>
                                     </div>
                                     <span class="nav-link-text ms-1">Users</span>
                                 </a>
                                 <a class="nav-link text-white " href="?page=dataPegawai">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">people</i>
                                     </div>
                                     <span class="nav-link-text ms-1">Data Pribadi</span>
                                 </a>
                                 <a class="nav-link text-white " href="?page=dataPerjalananDinas">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">directions_car</i>
                                     </div>
                                     <span class="nav-link-text ms-1">Perjalanan Dinas</span>
                                 </a>
                                 <a class="nav-link text-white " href="?page=dataKinerjaPegawai">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">equalizer</i>
                                     </div>
                                     <span class="nav-link-text ms-1">Penilaian Kinerja</span>
@@ -1008,8 +907,7 @@
         </aside>
 
         <main class="main-content border-radius-lg">
-            <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
-                data-scroll="true">
+            <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
                 <div class="container-fluid py-1 px-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
@@ -1053,19 +951,16 @@
                                 </a>
                             </li>
                             <li class="nav-item dropdown pe-2 ps-3 d-flex align-items-center">
-                                <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa fa-bell cursor-pointer"></i>
                                 </a>
 
-                                <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4"
-                                    aria-labelledby="dropdownMenuButton">
+                                <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                                     <li class="mb-2">
                                         <a class="dropdown-item border-radius-md" href="javascript:;">
                                             <div class="d-flex py-1">
                                                 <div class="my-auto">
-                                                    <img src="/aev/assets/img/team-2.jpg"
-                                                        class="avatar avatar-sm me-3" />
+                                                    <img src="/aev/assets/img/team-2.jpg" class="avatar avatar-sm me-3" />
                                                 </div>
                                                 <div class="d-flex flex-column justify-content-center">
                                                     <h6 class="text-sm font-weight-normal mb-1">
@@ -1084,8 +979,7 @@
                                         <a class="dropdown-item border-radius-md" href="javascript:;">
                                             <div class="d-flex py-1">
                                                 <div class="my-auto">
-                                                    <img src="/aev/assets/img/small-logos/logo-spotify.svg"
-                                                        class="avatar avatar-sm bg-gradient-dark me-3" />
+                                                    <img src="/aev/assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark me-3" />
                                                 </div>
                                                 <div class="d-flex flex-column justify-content-center">
                                                     <h6 class="text-sm font-weight-normal mb-1">
@@ -1104,21 +998,14 @@
                                         <a class="dropdown-item border-radius-md" href="javascript:;">
                                             <div class="d-flex py-1">
                                                 <div class="avatar avatar-sm bg-gradient-secondary me-3 my-auto">
-                                                    <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                                         <title>credit-card</title>
-                                                        <g stroke="none" stroke-width="1" fill="none"
-                                                            fill-rule="evenodd">
-                                                            <g transform="translate(-2169.000000, -745.000000)"
-                                                                fill="#FFFFFF" fill-rule="nonzero">
+                                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                            <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                                                 <g transform="translate(1716.000000, 291.000000)">
                                                                     <g transform="translate(453.000000, 454.000000)">
-                                                                        <path class="color-background"
-                                                                            d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
-                                                                            opacity="0.593633743"></path>
-                                                                        <path class="color-background"
-                                                                            d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
+                                                                        <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
+                                                                        <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
                                                                         </path>
                                                                     </g>
                                                                 </g>
@@ -1144,20 +1031,19 @@
                     </div>
                 </div>
             </nav>
-            <?php
+        <?php
     }
         ?>
 
-            <!-- Bagian Masyarakat -->
-            <?php $level = $_SESSION['level'];
+        <!-- Bagian Masyarakat -->
+        <?php $level = $_SESSION['level'];
         if ($level == 2) {
             $years = range(
                 2000,
                 strftime("%Y", time())
             ); ?>
             <div class="sidenav-header mb-2">
-                <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-                    aria-hidden="true" id="iconSidenav"></i>
+                <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
                 <a class="navbar-brand" href="" target="_blank">
                     <img src="<?php echo "
                     ../image/bjm.png" ?>" class="navbar-brand-img h-100" alt="main_logo" />
@@ -1200,8 +1086,7 @@
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li>
                                     <a class="nav-link text-white " href="?page=dataSusunanKeluarga">
-                                        <div
-                                            class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                             <i class="material-icons opacity-10">assignment</i>
                                         </div>
                                         <span class="nav-link-text ms-1">Legalisasi
@@ -1211,8 +1096,7 @@
                                 </li>
                                 <li>
                                     <a class="nav-link text-white " href="?page=dataDispensasiNikah">
-                                        <div
-                                            class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                             <i class="material-icons opacity-10">assignment</i>
                                         </div>
                                         <span class="nav-link-text ms-1">Rekomendasi Dispensasi
@@ -1222,8 +1106,7 @@
                                 </li>
                                 <li>
                                     <a class="nav-link text-white " href="?page=dataSktm">
-                                        <div
-                                            class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                             <i class="material-icons opacity-10">assignment</i>
                                         </div>
                                         <span class="nav-link-text ms-1">Legalisasi Surat
@@ -1233,8 +1116,7 @@
                                 </li>
                                 <li>
                                     <a class="nav-link text-white " href="?page=dataSuratPengantarNikah">
-                                        <div
-                                            class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                             <i class="material-icons opacity-10">assignment</i>
                                         </div>
                                         <span class="nav-link-text ms-1">Legalisasi Surat
@@ -1244,8 +1126,7 @@
                                 </li>
                                 <li>
                                     <a class="nav-link text-white " href="?page=dataProposal">
-                                        <div
-                                            class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                             <i class="material-icons opacity-10">assignment</i>
                                         </div>
                                         <span class="nav-link-text ms-1">Legalisasi Proposal</span>
@@ -1327,8 +1208,7 @@
                                 </li> -->
                                 <li>
                                     <a class="nav-link text-white " href="../qrcodeview/qrcode-proposal/qrcode.php">
-                                        <div
-                                            class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                             <i class="material-icons opacity-10">assignment</i>
                                         </div>
                                         <span class="nav-link-text ms-1">Legalisasi Proposal</span>
@@ -1604,8 +1484,7 @@
             </aside>
 
             <main class="main-content border-radius-lg">
-                <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
-                    data-scroll="true">
+                <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
                     <div class="container-fluid py-1 px-3">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
@@ -1649,19 +1528,16 @@
                                     </a>
                                 </li>
                                 <li class="nav-item dropdown pe-2 ps-3 d-flex align-items-center">
-                                    <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="fa fa-bell cursor-pointer"></i>
                                     </a>
 
-                                    <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4"
-                                        aria-labelledby="dropdownMenuButton">
+                                    <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                                         <li class="mb-2">
                                             <a class="dropdown-item border-radius-md" href="javascript:;">
                                                 <div class="d-flex py-1">
                                                     <div class="my-auto">
-                                                        <img src="/aev/assets/img/team-2.jpg"
-                                                            class="avatar avatar-sm me-3" />
+                                                        <img src="/aev/assets/img/team-2.jpg" class="avatar avatar-sm me-3" />
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="text-sm font-weight-normal mb-1">
@@ -1680,8 +1556,7 @@
                                             <a class="dropdown-item border-radius-md" href="javascript:;">
                                                 <div class="d-flex py-1">
                                                     <div class="my-auto">
-                                                        <img src="/aev/assets/img/small-logos/logo-spotify.svg"
-                                                            class="avatar avatar-sm bg-gradient-dark me-3" />
+                                                        <img src="/aev/assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark me-3" />
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="text-sm font-weight-normal mb-1">
@@ -1700,22 +1575,14 @@
                                             <a class="dropdown-item border-radius-md" href="javascript:;">
                                                 <div class="d-flex py-1">
                                                     <div class="avatar avatar-sm bg-gradient-secondary me-3 my-auto">
-                                                        <svg width="12px" height="12px" viewBox="0 0 43 36"
-                                                            version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                        <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                                             <title>credit-card</title>
-                                                            <g stroke="none" stroke-width="1" fill="none"
-                                                                fill-rule="evenodd">
-                                                                <g transform="translate(-2169.000000, -745.000000)"
-                                                                    fill="#FFFFFF" fill-rule="nonzero">
+                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                                                     <g transform="translate(1716.000000, 291.000000)">
-                                                                        <g
-                                                                            transform="translate(453.000000, 454.000000)">
-                                                                            <path class="color-background"
-                                                                                d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
-                                                                                opacity="0.593633743"></path>
-                                                                            <path class="color-background"
-                                                                                d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
+                                                                        <g transform="translate(453.000000, 454.000000)">
+                                                                            <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
+                                                                            <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
                                                                             </path>
                                                                         </g>
                                                                     </g>
@@ -1741,20 +1608,19 @@
                         </div>
                     </div>
                 </nav>
-                <?php
+            <?php
         }
             ?>
 
-                <!-- START DASHBOARD CAMAT -->
-                <?php $level = $_SESSION['level'];
+            <!-- START DASHBOARD CAMAT -->
+            <?php $level = $_SESSION['level'];
             if ($level == 3) {
                 $years = range(
                     2000,
                     strftime("%Y", time())
                 ); ?>
                 <div class="sidenav-header mb-2">
-                    <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-                        aria-hidden="true" id="iconSidenav"></i>
+                    <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
                     <a class="navbar-brand" href="" target="_blank">
                         <img src="<?php echo "
                     ../image/bjm.png" ?>" class="navbar-brand-img h-100" alt="main_logo" />
@@ -1781,8 +1647,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link text-white" href="home.php">
-                                <div
-                                    class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                     <i class="material-icons opacity-10">dashboard</i>
                                 </div>
                                 <span class="nav-link-text ms-1">Dashboard</span>
@@ -1828,8 +1693,7 @@
                         </li> -->
                         <li class="nav-item">
                             <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#qrcode">
-                                <div
-                                    class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                     <i class="material-icons opacity-10">square</i>
                                 </div>
                                 <span class="nav-link-text ms-1">QR CODE</span>
@@ -1838,21 +1702,26 @@
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                     <li>
                                         <a class="nav-link text-white " href="?page=qrCodeProposal">
-                                            <div
-                                                class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                                 <i class="material-icons opacity-10">assignment</i>
                                             </div>
                                             <span class="nav-link-text ms-1">Legalisasi Proposal</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-white " href="?page=qrCodeSktm">
+                                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                                <i class="material-icons opacity-10">assignment</i>
+                                            </div>
+                                            <span class="nav-link-text ms-1">Legalisasi SKTM</span>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="" data-bs-toggle="collapse"
-                                data-bs-target="#data-pelayanan">
-                                <div
-                                    class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-pelayanan">
+                                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                     <i class="material-icons opacity-10">announcement</i>
                                 </div>
                                 <span class="nav-link-text ms-1">Data Pelayanan</span>
@@ -1861,15 +1730,13 @@
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                     <li>
                                         <a class="nav-link text-white " href="?page=dSusunanKeluarga">
-                                            <div
-                                                class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                                 <i class="material-icons opacity-10">assignment</i>
                                             </div>
                                             <span class="nav-link-text ms-1">Susunan Keluarga</span>
                                         </a>
                                         <a class="nav-link text-white " href="?page=dDispensasiNikah">
-                                            <div
-                                                class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                                 <i class="material-icons opacity-10">assignment</i>
                                             </div>
                                             <span class="nav-link-text ms-1">Rekomendasi Dispensasi
@@ -1877,8 +1744,7 @@
                                                 Nikah</span>
                                         </a>
                                         <a class="nav-link text-white " href="?page=dSktm">
-                                            <div
-                                                class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                                 <i class="material-icons opacity-10">assignment</i>
                                             </div>
                                             <span class="nav-link-text ms-1">Legalisasi Surat
@@ -1886,8 +1752,7 @@
                                                 Keterangan Tidak Mampu</span>
                                         </a>
                                         <a class="nav-link text-white " href="?page=dPengantarNikah">
-                                            <div
-                                                class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                                 <i class="material-icons opacity-10">assignment</i>
                                             </div>
                                             <span class="nav-link-text ms-1">Legalisasi Surat
@@ -1895,8 +1760,7 @@
                                                 Pengantar Nikah</span>
                                         </a>
                                         <a class="nav-link text-white " href="?page=dProposal">
-                                            <div
-                                                class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                                 <i class="material-icons opacity-10">assignment</i>
                                             </div>
                                             <span class="nav-link-text ms-1">Legalisasi Proposal</span>
@@ -1906,10 +1770,8 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="" data-bs-toggle="collapse"
-                                data-bs-target="#data-penilaian">
-                                <div
-                                    class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-penilaian">
+                                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                     <i class="material-icons opacity-10">insert_chart</i>
                                 </div>
                                 <span class="nav-link-text ms-1">Data Penilaian</span>
@@ -1918,8 +1780,7 @@
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                     <li>
                                         <a class="nav-link text-white " href="?page=data_KinerjaPegawai">
-                                            <div
-                                                class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                                 <i class="material-icons opacity-10">beenhere</i>
                                             </div>
                                             <span class="nav-link-text ms-1">Penilai Kinerja Pegawai</span>
@@ -1927,8 +1788,7 @@
                                     </li>
                                     <li>
                                         <a class="nav-link text-white " href="?page=data_kinerjaKecamatan">
-                                            <div
-                                                class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                                 <i class="material-icons opacity-10">beenhere</i>
                                             </div>
                                             <span class="nav-link-text ms-1">Penilai Kinerja Pelayanan
@@ -1959,10 +1819,8 @@
                             </a>
                         </li> -->
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="" data-bs-toggle="collapse"
-                                data-bs-target="#data-perjalanandinas">
-                                <div
-                                    class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-perjalanandinas">
+                                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                     <i class="material-icons opacity-10">directions_car</i>
                                 </div>
                                 <span class="nav-link-text ms-1">Data Perjalanan Dinas</span>
@@ -1971,8 +1829,7 @@
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                     <li>
                                         <a class="nav-link text-white " href="?page=data_suratPerjalananDinas">
-                                            <div
-                                                class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                                 <i class="material-icons opacity-10">beenhere</i>
                                             </div>
                                             <span class="nav-link-text ms-1">Surat Perintah Tugas </span>
@@ -1992,10 +1849,8 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#" data-bs-toggle="collapse"
-                                data-bs-target="#laporan-laporan">
-                                <div
-                                    class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <a class="nav-link text-white" href="#" data-bs-toggle="collapse" data-bs-target="#laporan-laporan">
+                                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                     <i class="material-icons opacity-10">book</i>
                                 </div>
                                 <span class="nav-link-text ms-1">Laporan-Laporan</span>
@@ -2004,45 +1859,37 @@
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                     <li class="nav-item">
                                         <a class="nav-link text-white ">
-                                            <div class="text-white me-2 d-flex " type="button"
-                                                class="btn bg-gradient-primary" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal1">
+                                            <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
                                                 <i class="material-icons opacity-10">print</i>
                                                 <span class="nav-link-text ms-1">Laporan Surat
                                                     <br>
                                                     Pengantar Nikah</span>
                                             </div>
                                         </a>
-                                        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel">Laporan Surat
                                                             Pengantar
                                                             Nikah</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close">
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form method="POST" target="_blank"
-                                                            action="../laporan/l_spn.php">
+                                                        <form method="POST" target="_blank" action="../laporan/l_spn.php">
                                                             <div class="form-group row">
                                                                 <div class="col-md-4">
                                                                     <label>Dari Tanggal</label>
-                                                                    <input type="date" class="form-control" name="tgl1"
-                                                                        required>
+                                                                    <input type="date" class="form-control" name="tgl1" required>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <label>Sampai Tanggal</label>
-                                                                    <input type="date" class="form-control" name="tgl2"
-                                                                        required>
+                                                                    <input type="date" class="form-control" name="tgl2" required>
                                                                 </div>
                                                                 <div class="col-md-4" style="margin-top: 31px;">
-                                                                    <button align="center" type="submit" name="cetak1"
-                                                                        class="btn btn-info btn-md">
+                                                                    <button align="center" type="submit" name="cetak1" class="btn btn-info btn-md">
                                                                         <i class="fa fa-print"></i>
                                                                         Cetak</button>
                                                                 </div>
@@ -2050,8 +1897,7 @@
                                                         </form>
                                                         <hr>
                                                         <div class="form-group text-center">
-                                                            <a href="../laporan/l_spn.php" target="_blank"
-                                                                class="btn btn-info btn-md">
+                                                            <a href="../laporan/l_spn.php" target="_blank" class="btn btn-info btn-md">
                                                                 <i class="fa fa-print"></i>
                                                                 Cetak Semua</a>
                                                         </div>
@@ -2062,9 +1908,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link text-white ">
-                                            <div class="text-white me-2 d-flex " type="button"
-                                                class="btn bg-gradient-primary" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal2">
+                                            <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                                                 <i class="material-icons opacity-10">print</i>
                                                 <span class="nav-link-text ms-1">Laporan Legalisasi
                                                     <br>
@@ -2073,36 +1917,30 @@
                                                     Mampu</span>
                                             </div>
                                         </a>
-                                        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel">Laporan
                                                             Legalisasi Surat
                                                             Keterangan Tidak Mampu</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close">
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form method="POST" target="_blank"
-                                                            action="../laporan/l_sktm.php">
+                                                        <form method="POST" target="_blank" action="../laporan/l_sktm.php">
                                                             <div class="form-group row">
                                                                 <div class="col-md-4">
                                                                     <label>Dari Tanggal</label>
-                                                                    <input type="date" class="form-control" name="tgl1"
-                                                                        required>
+                                                                    <input type="date" class="form-control" name="tgl1" required>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <label>Sampai Tanggal</label>
-                                                                    <input type="date" class="form-control" name="tgl2"
-                                                                        required>
+                                                                    <input type="date" class="form-control" name="tgl2" required>
                                                                 </div>
                                                                 <div class="col-md-4" style="margin-top: 31px;">
-                                                                    <button align="center" type="submit" name="cetak2"
-                                                                        class="btn btn-info btn-md">
+                                                                    <button align="center" type="submit" name="cetak2" class="btn btn-info btn-md">
                                                                         <i class="fa fa-print"></i>
                                                                         Cetak</button>
                                                                 </div>
@@ -2110,8 +1948,7 @@
                                                         </form>
                                                         <hr>
                                                         <div class="form-group text-center">
-                                                            <a href="../laporan/l_sktm.php" target="_blank"
-                                                                class="btn btn-info btn-md">
+                                                            <a href="../laporan/l_sktm.php" target="_blank" class="btn btn-info btn-md">
                                                                 <i class="fa fa-print"></i>
                                                                 Cetak Semua</a>
                                                         </div>
@@ -2123,45 +1960,37 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link text-white ">
-                                            <div class="text-white me-2 d-flex " type="button"
-                                                class="btn bg-gradient-primary" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal3">
+                                            <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
                                                 <i class="material-icons opacity-10">print</i>
                                                 <span class="nav-link-text ms-1">Laporan Legalisasi
                                                     <br>
                                                     Susunan Keluarga</span>
                                             </div>
                                         </a>
-                                        <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel">Laporan
                                                             Legalisasi
                                                             Susunan Keluarga</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close">
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form method="POST" target="_blank"
-                                                            action="../laporan/l_sk.php">
+                                                        <form method="POST" target="_blank" action="../laporan/l_sk.php">
                                                             <div class="form-group row">
                                                                 <div class="col-md-4">
                                                                     <label>Dari Tanggal</label>
-                                                                    <input type="date" class="form-control" name="tgl1"
-                                                                        required>
+                                                                    <input type="date" class="form-control" name="tgl1" required>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <label>Sampai Tanggal</label>
-                                                                    <input type="date" class="form-control" name="tgl2"
-                                                                        required>
+                                                                    <input type="date" class="form-control" name="tgl2" required>
                                                                 </div>
                                                                 <div class="col-md-4" style="margin-top: 31px;">
-                                                                    <button align="center" type="submit" name="cetak3"
-                                                                        class="btn btn-info btn-md">
+                                                                    <button align="center" type="submit" name="cetak3" class="btn btn-info btn-md">
                                                                         <i class="fa fa-print"></i>
                                                                         Cetak</button>
                                                                 </div>
@@ -2169,8 +1998,7 @@
                                                         </form>
                                                         <hr>
                                                         <div class="form-group text-center">
-                                                            <a href="../laporan/l_sk.php" target="_blank"
-                                                                class="btn btn-info btn-md">
+                                                            <a href="../laporan/l_sk.php" target="_blank" class="btn btn-info btn-md">
                                                                 <i class="fa fa-print"></i>
                                                                 Cetak Semua</a>
                                                         </div>
@@ -2181,45 +2009,37 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link text-white ">
-                                            <div class="text-white me-2 d-flex " type="button"
-                                                class="btn bg-gradient-primary" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal4">
+                                            <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4">
                                                 <i class="material-icons opacity-10">print</i>
                                                 <span class="nav-link-text ms-1">Laporan Rekomendasi
                                                     <br>
                                                     Dispensasi Nikah</span>
                                             </div>
                                         </a>
-                                        <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel">Laporan
                                                             Rekomendasi
                                                             Dispensasi Nikah</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close">
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form method="POST" target="_blank"
-                                                            action="../laporan/l_rdn.php">
+                                                        <form method="POST" target="_blank" action="../laporan/l_rdn.php">
                                                             <div class="form-group row">
                                                                 <div class="col-md-4">
                                                                     <label>Dari Tanggal</label>
-                                                                    <input type="date" class="form-control" name="tgl1"
-                                                                        required>
+                                                                    <input type="date" class="form-control" name="tgl1" required>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <label>Sampai Tanggal</label>
-                                                                    <input type="date" class="form-control" name="tgl2"
-                                                                        required>
+                                                                    <input type="date" class="form-control" name="tgl2" required>
                                                                 </div>
                                                                 <div class="col-md-4" style="margin-top: 31px;">
-                                                                    <button align="center" type="submit" name="cetak4"
-                                                                        class="btn btn-info btn-md">
+                                                                    <button align="center" type="submit" name="cetak4" class="btn btn-info btn-md">
                                                                         <i class="fa fa-print"></i>
                                                                         Cetak</button>
                                                                 </div>
@@ -2227,8 +2047,7 @@
                                                         </form>
                                                         <hr>
                                                         <div class="form-group text-center">
-                                                            <a href="../laporan/l_rdn.php" target="_blank"
-                                                                class="btn btn-info btn-md">
+                                                            <a href="../laporan/l_rdn.php" target="_blank" class="btn btn-info btn-md">
                                                                 <i class="fa fa-print"></i>
                                                                 Cetak Semua</a>
                                                         </div>
@@ -2239,43 +2058,35 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link text-white ">
-                                            <div class="text-white me-2 d-flex " type="button"
-                                                class="btn bg-gradient-primary" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal5">
+                                            <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5">
                                                 <i class="material-icons opacity-10">print</i>
                                                 <span class="nav-link-text ms-1">Laporan Legalisasi Proposal</span>
                                             </div>
                                         </a>
-                                        <div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel">Laporan
                                                             Legalisasi
                                                             Proposal</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close">
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form method="POST" target="_blank"
-                                                            action="../laporan/l_lp.php">
+                                                        <form method="POST" target="_blank" action="../laporan/l_lp.php">
                                                             <div class="form-group row">
                                                                 <div class="col-md-4">
                                                                     <label>Dari Tanggal</label>
-                                                                    <input type="date" class="form-control" name="tgl1"
-                                                                        required>
+                                                                    <input type="date" class="form-control" name="tgl1" required>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <label>Sampai Tanggal</label>
-                                                                    <input type="date" class="form-control" name="tgl2"
-                                                                        required>
+                                                                    <input type="date" class="form-control" name="tgl2" required>
                                                                 </div>
                                                                 <div class="col-md-4" style="margin-top: 31px;">
-                                                                    <button align="center" type="submit" name="cetak5"
-                                                                        class="btn btn-info btn-md">
+                                                                    <button align="center" type="submit" name="cetak5" class="btn btn-info btn-md">
                                                                         <i class="fa fa-print"></i>
                                                                         Cetak</button>
                                                                 </div>
@@ -2283,8 +2094,7 @@
                                                         </form>
                                                         <hr>
                                                         <div class="form-group text-center">
-                                                            <a href="../laporan/l_lp.php" target="_blank"
-                                                                class="btn btn-info btn-md">
+                                                            <a href="../laporan/l_lp.php" target="_blank" class="btn btn-info btn-md">
                                                                 <i class="fa fa-print"></i>
                                                                 Cetak Semua</a>
                                                         </div>
@@ -2295,45 +2105,37 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link text-white ">
-                                            <div class="text-white me-2 d-flex " type="button"
-                                                class="btn bg-gradient-primary" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal6">
+                                            <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal6">
                                                 <i class="material-icons opacity-10">print</i>
                                                 <span class="nav-link-text ms-1">Laporan Berita
                                                     <br>
                                                     Kegiatan Kecamatan</span>
                                             </div>
                                         </a>
-                                        <div class="modal fade" id="exampleModal6" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal fade" id="exampleModal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel">Laporan Berita
                                                             Kegiatan
                                                             Kecamatan</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close">
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form method="POST" target="_blank"
-                                                            action="../laporan/l_news.php">
+                                                        <form method="POST" target="_blank" action="../laporan/l_news.php">
                                                             <div class="form-group row">
                                                                 <div class="col-md-4">
                                                                     <label>Dari Tanggal</label>
-                                                                    <input type="date" class="form-control" name="tgl1"
-                                                                        required>
+                                                                    <input type="date" class="form-control" name="tgl1" required>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <label>Sampai Tanggal</label>
-                                                                    <input type="date" class="form-control" name="tgl2"
-                                                                        required>
+                                                                    <input type="date" class="form-control" name="tgl2" required>
                                                                 </div>
                                                                 <div class="col-md-4" style="margin-top: 31px;">
-                                                                    <button align="center" type="submit" name="cetak6"
-                                                                        class="btn btn-info btn-md">
+                                                                    <button align="center" type="submit" name="cetak6" class="btn btn-info btn-md">
                                                                         <i class="fa fa-print"></i>
                                                                         Cetak</button>
                                                                 </div>
@@ -2341,8 +2143,7 @@
                                                         </form>
                                                         <hr>
                                                         <div class="form-group text-center">
-                                                            <a href="../laporan/l_news.php" target="_blank"
-                                                                class="btn btn-info btn-md">
+                                                            <a href="../laporan/l_news.php" target="_blank" class="btn btn-info btn-md">
                                                                 <i class="fa fa-print"></i>
                                                                 Cetak Semua</a>
                                                         </div>
@@ -2353,32 +2154,27 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link text-white ">
-                                            <div class="text-white me-2 d-flex " type="button"
-                                                class="btn bg-gradient-primary" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal7">
+                                            <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal7">
                                                 <i class="material-icons opacity-10">print</i>
                                                 <span class="nav-link-text ms-1">Laporan Data Diri
                                                     <br>
                                                     Masyarakat</span>
                                             </div>
                                         </a>
-                                        <div class="modal fade" id="exampleModal7" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal fade" id="exampleModal7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel">Laporan Data
                                                             Pribadi
                                                             Masyarakat</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close">
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
                                                         <div class="form-group text-center">
-                                                            <a href="../laporan/l_msy.php" target="_blank"
-                                                                class="btn btn-info btn-md">
+                                                            <a href="../laporan/l_msy.php" target="_blank" class="btn btn-info btn-md">
                                                                 <i class="fa fa-print"></i>
                                                                 Cetak Semua</a>
                                                         </div>
@@ -2389,45 +2185,37 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link text-white ">
-                                            <div class="text-white me-2 d-flex" type="button"
-                                                class="btn bg-gradient-primary" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal8">
+                                            <div class="text-white me-2 d-flex" type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal8">
                                                 <i class="material-icons opacity-10">print</i>
                                                 <span class="nav-link-text ms-1">Laporan Data Kinerja
                                                     <br>
                                                     Pelayanan Kecamatan</span>
                                             </div>
                                         </a>
-                                        <div class="modal fade" id="exampleModal8" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal fade" id="exampleModal8" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel">Laporan Kinerja
                                                             Pelayanan
                                                             Kecamatan</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close">
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form method="POST" target="_blank"
-                                                            action="../laporan/l_KinerjaKec.php">
+                                                        <form method="POST" target="_blank" action="../laporan/l_KinerjaKec.php">
                                                             <div class="form-group row">
                                                                 <div class="col-md-4">
                                                                     <label>Dari Tanggal</label>
-                                                                    <input type="date" class="form-control" name="tgl1"
-                                                                        required>
+                                                                    <input type="date" class="form-control" name="tgl1" required>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <label>Sampai Tanggal</label>
-                                                                    <input type="date" class="form-control" name="tgl2"
-                                                                        required>
+                                                                    <input type="date" class="form-control" name="tgl2" required>
                                                                 </div>
                                                                 <div class="col-md-4" style="margin-top: 31px;">
-                                                                    <button align="center" type="submit" name="cetak8"
-                                                                        class="btn btn-info btn-md">
+                                                                    <button align="center" type="submit" name="cetak8" class="btn btn-info btn-md">
                                                                         <i class="fa fa-print"></i>
                                                                         Cetak</button>
                                                                 </div>
@@ -2435,8 +2223,7 @@
                                                         </form>
                                                         <hr>
                                                         <div class="form-group text-center">
-                                                            <a href="../laporan/l_KinerjaKec.php" target="_blank"
-                                                                class="btn btn-info btn-md">
+                                                            <a href="../laporan/l_KinerjaKec.php" target="_blank" class="btn btn-info btn-md">
                                                                 <i class="fa fa-print"></i>
                                                                 Cetak Semua</a>
                                                         </div>
@@ -2447,45 +2234,37 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link text-white ">
-                                            <div class="text-white me-2 d-flex" type="button"
-                                                class="btn bg-gradient-primary" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal9">
+                                            <div class="text-white me-2 d-flex" type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal9">
                                                 <i class="material-icons opacity-10">print</i>
                                                 <span class="nav-link-text ms-1">Laporan Data
                                                     <br>
                                                     Kinerja Pegawai</span>
                                             </div>
                                         </a>
-                                        <div class="modal fade" id="exampleModal9" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal fade" id="exampleModal9" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel">Laporan Kinerja
                                                             Pegawai
                                                         </h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close">
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form method="POST" target="_blank"
-                                                            action="../laporan/l_KinerjaPegawai.php">
+                                                        <form method="POST" target="_blank" action="../laporan/l_KinerjaPegawai.php">
                                                             <div class="form-group row">
                                                                 <div class="col-md-4">
                                                                     <label>Dari Tanggal</label>
-                                                                    <input type="date" class="form-control" name="tgl1"
-                                                                        required>
+                                                                    <input type="date" class="form-control" name="tgl1" required>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <label>Sampai Tanggal</label>
-                                                                    <input type="date" class="form-control" name="tgl2"
-                                                                        required>
+                                                                    <input type="date" class="form-control" name="tgl2" required>
                                                                 </div>
                                                                 <div class="col-md-4" style="margin-top: 31px;">
-                                                                    <button align="center" type="submit" name="cetak9"
-                                                                        class="btn btn-info btn-md">
+                                                                    <button align="center" type="submit" name="cetak9" class="btn btn-info btn-md">
                                                                         <i class="fa fa-print"></i>
                                                                         Cetak</button>
                                                                 </div>
@@ -2493,8 +2272,7 @@
                                                         </form>
                                                         <hr>
                                                         <div class="form-group text-center">
-                                                            <a href="../laporan/l_KinerjaPegawai.php" target="_blank"
-                                                                class="btn btn-info btn-md">
+                                                            <a href="../laporan/l_KinerjaPegawai.php" target="_blank" class="btn btn-info btn-md">
                                                                 <i class="fa fa-print"></i>
                                                                 Cetak Semua</a>
                                                         </div>
@@ -2505,45 +2283,37 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link text-white ">
-                                            <div class="text-white me-2 d-flex" type="button"
-                                                class="btn bg-gradient-primary" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal10">
+                                            <div class="text-white me-2 d-flex" type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#exampleModal10">
                                                 <i class="material-icons opacity-10">print</i>
                                                 <span class="nav-link-text ms-1">Laporan Data
                                                     <br>
                                                     Perjalanan Dinas</span>
                                             </div>
                                         </a>
-                                        <div class="modal fade" id="exampleModal10" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalLabe4" aria-hidden="true">
+                                        <div class="modal fade" id="exampleModal10" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe4" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel">Laporan
                                                             Perjalanan DInas
                                                         </h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close">
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form method="POST" target="_blank"
-                                                            action="../laporan/l_PerjalananDinas.php">
+                                                        <form method="POST" target="_blank" action="../laporan/l_PerjalananDinas.php">
                                                             <div class="form-group row">
                                                                 <div class="col-md-4">
                                                                     <label>Dari Tanggal</label>
-                                                                    <input type="date" class="form-control" name="tgl1"
-                                                                        required>
+                                                                    <input type="date" class="form-control" name="tgl1" required>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <label>Sampai Tanggal</label>
-                                                                    <input type="date" class="form-control" name="tgl2"
-                                                                        required>
+                                                                    <input type="date" class="form-control" name="tgl2" required>
                                                                 </div>
                                                                 <div class="col-md-4" style="margin-top: 31px;">
-                                                                    <button align="center" type="submit" name="cetak10"
-                                                                        class="btn btn-info btn-md">
+                                                                    <button align="center" type="submit" name="cetak10" class="btn btn-info btn-md">
                                                                         <i class="fa fa-print"></i>
                                                                         Cetak</button>
                                                                 </div>
@@ -2551,8 +2321,7 @@
                                                         </form>
                                                         <hr>
                                                         <div class="form-group text-center">
-                                                            <a href="../laporan/l_PerjalananDinas.php" target="_blank"
-                                                                class="btn btn-info btn-md">
+                                                            <a href="../laporan/l_PerjalananDinas.php" target="_blank" class="btn btn-info btn-md">
                                                                 <i class="fa fa-print"></i>
                                                                 Cetak Semua</a>
                                                         </div>
@@ -2569,8 +2338,7 @@
                 </aside>
 
                 <main class="main-content border-radius-lg">
-                    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl"
-                        id="navbarBlur" data-scroll="true">
+                    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
                         <div class="container-fluid py-1 px-3">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
@@ -2614,19 +2382,16 @@
                                         </a>
                                     </li>
                                     <li class="nav-item dropdown pe-2 ps-3 d-flex align-items-center">
-                                        <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                        <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="fa fa-bell cursor-pointer"></i>
                                         </a>
 
-                                        <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4"
-                                            aria-labelledby="dropdownMenuButton">
+                                        <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                                             <li class="mb-2">
                                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                                     <div class="d-flex py-1">
                                                         <div class="my-auto">
-                                                            <img src="/aev/assets/img/team-2.jpg"
-                                                                class="avatar avatar-sm me-3" />
+                                                            <img src="/aev/assets/img/team-2.jpg" class="avatar avatar-sm me-3" />
                                                         </div>
                                                         <div class="d-flex flex-column justify-content-center">
                                                             <h6 class="text-sm font-weight-normal mb-1">
@@ -2645,8 +2410,7 @@
                                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                                     <div class="d-flex py-1">
                                                         <div class="my-auto">
-                                                            <img src="/aev/assets/img/small-logos/logo-spotify.svg"
-                                                                class="avatar avatar-sm bg-gradient-dark me-3" />
+                                                            <img src="/aev/assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark me-3" />
                                                         </div>
                                                         <div class="d-flex flex-column justify-content-center">
                                                             <h6 class="text-sm font-weight-normal mb-1">
@@ -2664,25 +2428,15 @@
                                             <li>
                                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                                     <div class="d-flex py-1">
-                                                        <div
-                                                            class="avatar avatar-sm bg-gradient-secondary me-3 my-auto">
-                                                            <svg width="12px" height="12px" viewBox="0 0 43 36"
-                                                                version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                        <div class="avatar avatar-sm bg-gradient-secondary me-3 my-auto">
+                                                            <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                                                 <title>credit-card</title>
-                                                                <g stroke="none" stroke-width="1" fill="none"
-                                                                    fill-rule="evenodd">
-                                                                    <g transform="translate(-2169.000000, -745.000000)"
-                                                                        fill="#FFFFFF" fill-rule="nonzero">
-                                                                        <g
-                                                                            transform="translate(1716.000000, 291.000000)">
-                                                                            <g
-                                                                                transform="translate(453.000000, 454.000000)">
-                                                                                <path class="color-background"
-                                                                                    d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
-                                                                                    opacity="0.593633743"></path>
-                                                                                <path class="color-background"
-                                                                                    d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
+                                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                    <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                                                                        <g transform="translate(1716.000000, 291.000000)">
+                                                                            <g transform="translate(453.000000, 454.000000)">
+                                                                                <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
+                                                                                <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
                                                                                 </path>
                                                                             </g>
                                                                         </g>
@@ -2709,6 +2463,6 @@
                         </div>
                     </nav>
                     <!-- End Navbar -->
-                    <?php
+                <?php
             }
                 ?>

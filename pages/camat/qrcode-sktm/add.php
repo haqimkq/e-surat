@@ -111,7 +111,6 @@ if (!isset($_SESSION['nama'])) {
                                                         </div>
                                                     </div>
 
-
                                                     <!-- <div class="col-md-6">
                                                             <div class="input-group input-group-dynamic">
                                                                 <label>QR Image</label>
@@ -206,6 +205,7 @@ $(document).on('click', '#select1', function() {
 });
 </script>
 
+
 <?php
     if (isset($_POST['simpan'])) {
         $id_pelayanan = $_POST['id_pelayanan'];
@@ -229,10 +229,10 @@ $(document).on('click', '#select1', function() {
 
         if ($simpan) {
             echo "<script>alert('Data berhasil disimpan')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=qrCodeProposal'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=qrCodeSktm'>";
         } else {
             echo "<script>alert('Data anda gagal disimpan. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=tambah_qrProposal'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=tambah_qrSktm'>";
         }
     }
 }

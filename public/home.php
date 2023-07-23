@@ -426,17 +426,26 @@ if (!isset($_SESSION['nama'])) {
 
 
 
-
             //////////// QRCODE PREVIEW //////////////////////
             ## QRCODE LEGALISASI PROPOSAL
-            /* case "qrviewProposal":
-                include "../qrcodeview/qrcode-proposal/qrcode.php";
-                break; */
         case "qrCodeProposal":
             include "../pages/camat/qrcode-proposal/data.php";
             break;
         case "tambah_qrProposal":
             include "../pages/camat/qrcode-proposal/add.php";
+            break;
+        case "hapus_qrProposal":
+            include "../pages/camat/qrcode-proposal/delete.php";
+            break;
+            ## QRCODE LEGALISASI SKTM
+        case "qrCodeSktm":
+            include "../pages/camat/qrcode-sktm/data.php";
+            break;
+        case "tambah_qrSktm":
+            include "../pages/camat/qrcode-sktm/add.php";
+            break;
+        case "hapus_qrSktm":
+            include "../pages/camat/qrcode-sktm/delete.php";
             break;
 
             //////////// END QRCODE PREVIEW ////////////////////
