@@ -1272,6 +1272,71 @@
                                 Pelayanan Kecamatan</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#qrcode">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">square</i>
+                            </div>
+                            <span class="nav-link-text ms-1">QR CODE preview</span>
+                        </a>
+                        <div class="collapse" id="qrcode">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <!-- <li>
+                                    <a class="nav-link text-white " href="?page=dataSusunanKeluarga">
+                                        <div
+                                            class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Legalisasi
+                                            <br>
+                                            Susunan Keluarga</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link text-white " href="?page=dataDispensasiNikah">
+                                        <div
+                                            class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Rekomendasi Dispensasi
+                                            <br>
+                                            Nikah</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link text-white " href="?page=dataSktm">
+                                        <div
+                                            class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Legalisasi Surat
+                                            <br>
+                                            Keterangan Tidak Mampu</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link text-white " href="?page=dataSuratPengantarNikah">
+                                        <div
+                                            class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Legalisasi Surat
+                                            <br>
+                                            Pengantar Nikah</span>
+                                    </a>
+                                </li> -->
+                                <li>
+                                    <a class="nav-link text-white " href="../qrcodeview/qrcode-proposal/qrcode.php">
+                                        <div
+                                            class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                            <i class="material-icons opacity-10">assignment</i>
+                                        </div>
+                                        <span class="nav-link-text ms-1">Legalisasi Proposal</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link text-white" href="#" data-bs-toggle="collapse" data-bs-target="#laporan-laporan">
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -1761,6 +1826,28 @@
                                 </ul>
                             </div>
                         </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#qrcode">
+                                <div
+                                    class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                    <i class="material-icons opacity-10">square</i>
+                                </div>
+                                <span class="nav-link-text ms-1">QR CODE</span>
+                            </a>
+                            <div class="collapse" id="qrcode">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li>
+                                        <a class="nav-link text-white " href="?page=qrCodeProposal">
+                                            <div
+                                                class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                                <i class="material-icons opacity-10">assignment</i>
+                                            </div>
+                                            <span class="nav-link-text ms-1">Legalisasi Proposal</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="" data-bs-toggle="collapse"
                                 data-bs-target="#data-pelayanan">

@@ -423,6 +423,23 @@ if (!isset($_SESSION['nama'])) {
         case "eSusunanKeluarga":
             include "../pages/camat/legalisasi-susunan-keluarga/edit.php";
             break;
+
+
+
+
+            //////////// QRCODE PREVIEW //////////////////////
+            ## QRCODE LEGALISASI PROPOSAL
+            /* case "qrviewProposal":
+                include "../qrcodeview/qrcode-proposal/qrcode.php";
+                break; */
+        case "qrCodeProposal":
+            include "../pages/camat/qrcode-proposal/data.php";
+            break;
+        case "tambah_qrProposal":
+            include "../pages/camat/qrcode-proposal/add.php";
+            break;
+
+            //////////// END QRCODE PREVIEW ////////////////////
     }
 ?>
 
