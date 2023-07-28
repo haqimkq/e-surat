@@ -155,9 +155,8 @@ window.print();
             Banjarmasin, <?php echo date('d') . ' ' . $bln[date('m')] . ' ' . date('Y') ?><br>
             Mengetahui,<br>
             Camat<br>
-            <br><br>
-            <?php echo "<a><img src='../../../img/{$data['qrCode']}' width='70' height='70'  /></a>"; ?><br><br>
-            <u><b>Drs. Hj. Rusdiana, M.AP </b></u><br>
+            <?php echo "<a><img src='../../../img/{$data['qrCode']}' width='100' height='100'  /></a>"; ?><br>
+            <u><b>Drs. Hj. Rusdiana, M.AP</b></u><br>
             <b>NIP. 196709071990 2 001</b><br>
         </h5>
     </div>

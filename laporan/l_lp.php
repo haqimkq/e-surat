@@ -61,7 +61,7 @@ function tgl($tanggal)
 ?>
 
 <script type="text/javascript">
-window.print();
+    window.print();
 </script>
 
 <!DOCTYPE html>
@@ -69,90 +69,90 @@ window.print();
 
 <head>
     <style>
-    a {
-        color: var(--bs-link-color);
-        text-decoration: none;
-    }
+        a {
+            color: var(--bs-link-color);
+            text-decoration: none;
+        }
 
-    a:hover {
-        color: var(--bs-link-hover-color);
-        text-decoration: none;
-    }
+        a:hover {
+            color: var(--bs-link-hover-color);
+            text-decoration: none;
+        }
 
-    .badge {
-        --bs-badge-padding-x: 0.9em;
-        --bs-badge-padding-y: 0.55em;
-        --bs-badge-font-size: 0.75em;
-        --bs-badge-font-weight: 700;
-        --bs-badge-color: #000;
-        --bs-badge-border-radius: 0.45rem;
-        display: inline-block;
-        padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
-        font-size: var(--bs-badge-font-size);
-        font-weight: var(--bs-badge-font-weight);
-        line-height: 1;
-        color: var(--bs-badge-color);
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: baseline;
-        border-radius: var(--bs-badge-border-radius);
-    }
+        .badge {
+            --bs-badge-padding-x: 0.9em;
+            --bs-badge-padding-y: 0.55em;
+            --bs-badge-font-size: 0.75em;
+            --bs-badge-font-weight: 700;
+            --bs-badge-color: #000;
+            --bs-badge-border-radius: 0.45rem;
+            display: inline-block;
+            padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
+            font-size: var(--bs-badge-font-size);
+            font-weight: var(--bs-badge-font-weight);
+            line-height: 1;
+            color: var(--bs-badge-color);
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: var(--bs-badge-border-radius);
+        }
 
-    .badge:hover {
-        color: var(--bs-highlight-bg);
-        text-decoration: none;
-    }
+        .badge:hover {
+            color: var(--bs-highlight-bg);
+            text-decoration: none;
+        }
 
-    .badge:empty {
-        display: none;
-    }
+        .badge:empty {
+            display: none;
+        }
 
-    .btn-success,
-    .btn.bg-gradient-success {
-        box-shadow: 0 3px 3px 0 rgba(76, 175, 80, 0.15),
-            0 3px 1px -2px rgba(76, 175, 80, 0.2), 0 1px 5px 0 rgba(76, 175, 80, 0.15);
-    }
+        .btn-success,
+        .btn.bg-gradient-success {
+            box-shadow: 0 3px 3px 0 rgba(76, 175, 80, 0.15),
+                0 3px 1px -2px rgba(76, 175, 80, 0.2), 0 1px 5px 0 rgba(76, 175, 80, 0.15);
+        }
 
-    .btn-success:hover,
-    .btn.bg-gradient-success:hover {
-        background-color: #4caf50;
-        border-color: #4caf50;
-        box-shadow: 0 14px 26px -12px rgba(76, 175, 80, 0.4),
-            0 4px 23px 0 rgba(76, 175, 80, 0.15), 0 8px 10px -5px rgba(76, 175, 80, 0.2);
-    }
+        .btn-success:hover,
+        .btn.bg-gradient-success:hover {
+            background-color: #4caf50;
+            border-color: #4caf50;
+            box-shadow: 0 14px 26px -12px rgba(76, 175, 80, 0.4),
+                0 4px 23px 0 rgba(76, 175, 80, 0.15), 0 8px 10px -5px rgba(76, 175, 80, 0.2);
+        }
 
-    .btn-success .btn.bg-outline-success,
-    .btn.bg-gradient-success .btn.bg-outline-success {
-        border: 1px solid #4caf50;
-    }
+        .btn-success .btn.bg-outline-success,
+        .btn.bg-gradient-success .btn.bg-outline-success {
+            border: 1px solid #4caf50;
+        }
 
-    .btn-success:not(:disabled):not(.disabled).active,
-    .btn-success:not(:disabled):not(.disabled):active,
-    .show>.btn-success.dropdown-toggle,
-    .btn.bg-gradient-success:not(:disabled):not(.disabled).active,
-    .btn.bg-gradient-success:not(:disabled):not(.disabled):active,
-    .show>.btn.bg-gradient-success.dropdown-toggle {
-        color: color-yiq(#4caf50);
-        background-color: #4caf50;
-    }
+        .btn-success:not(:disabled):not(.disabled).active,
+        .btn-success:not(:disabled):not(.disabled):active,
+        .show>.btn-success.dropdown-toggle,
+        .btn.bg-gradient-success:not(:disabled):not(.disabled).active,
+        .btn.bg-gradient-success:not(:disabled):not(.disabled):active,
+        .show>.btn.bg-gradient-success.dropdown-toggle {
+            color: color-yiq(#4caf50);
+            background-color: #4caf50;
+        }
 
-    .btn-success.focus,
-    .btn-success:focus,
-    .btn.bg-gradient-success.focus,
-    .btn.bg-gradient-success:focus {
-        color: #fff;
-    }
+        .btn-success.focus,
+        .btn-success:focus,
+        .btn.bg-gradient-success.focus,
+        .btn.bg-gradient-success:focus {
+            color: #fff;
+        }
 
-    .btn-outline-success {
-        box-shadow: none;
-    }
+        .btn-outline-success {
+            box-shadow: none;
+        }
 
-    .btn-outline-success:hover:not(.active) {
-        background-color: transparent;
-        opacity: 0.75;
-        box-shadow: none;
-        color: #4caf50;
-    }
+        .btn-outline-success:hover:not(.active) {
+            background-color: transparent;
+            opacity: 0.75;
+            box-shadow: none;
+            color: #4caf50;
+        }
     </style>
 
     <link rel="icon" type="image/png" href="<?php echo "../image/bjm.png" ?>">
@@ -188,18 +188,19 @@ window.print();
                             <th style="text-align: center; font-size: 18px; width:10%;">Surat Permohonan</th>
                             <th style="text-align: center; font-size: 18px; width:15%;">Foto KTP Pemohon</th>
                             <th style="text-align: center; font-size: 18px;">Tanggal Pengajuan</th>
-                            <th style="text-align: center; font-size: 18px;">Status</th>
+                            <th style="text-align: center; font-size: 18px;">Verifikasi Admin</th>
+                            <th style="text-align: center; font-size: 18px;">Verifikasi Camat</th>
                         </tr>
                     </thead>
 
                     <tbody>
                         <?php while ($data = mysqli_fetch_array($sql)) { ?>
-                        <tr>
-                            <td align="center"><?php echo $no++; ?></td>
-                            <td align="left"><?= $data['nama']; ?></td>
-                            <td align="center"> <?= $data['j_pelayanan']; ?></td>
-                            <td class="w-10" align="center">
-                                <?php
+                            <tr>
+                                <td align="center"><?php echo $no++; ?></td>
+                                <td align="left"><?= $data['nama']; ?></td>
+                                <td align="center"> <?= $data['j_pelayanan']; ?></td>
+                                <td class="w-10" align="center">
+                                    <?php
                                     if (!empty($data['s_pernyataan'])) {
                                         $pdfPath = '../pelayanan/' . $data['s_pernyataan'];
                                         echo "<a class='badge bg-gradient-success ' href='$pdfPath' download>√</a>";
@@ -207,9 +208,9 @@ window.print();
                                         echo "File PDF tidak tersedia";
                                     }
                                     ?>
-                            </td>
-                            <td class="w-5" align="center">
-                                <?php
+                                </td>
+                                <td class="w-5" align="center">
+                                    <?php
                                     if (!empty($data['s_permohonan'])) {
                                         $pdfPath = '../pelayanan/' . $data['s_permohonan'];
                                         echo "<a class='badge bg-gradient-success ' href='$pdfPath' download>√</a>";
@@ -217,13 +218,14 @@ window.print();
                                         echo "File PDF tidak tersedia";
                                     }
                                     ?>
-                            </td>
-                            <td class="w-10" align="center">
-                                <?php echo "<a href='$data[ktp_p]' download><img src='$data[ktp_p]' width='100' height='70' style='border-radius: 5%;' /></a>"; ?>
-                            </td>
-                            <td align="center"><?= tgl($data['tgl']) ?></td>
-                            <td align="center"><?= $data['status']; ?></td>
-                        </tr>
+                                </td>
+                                <td class="w-10" align="center">
+                                    <?php echo "<a href='$data[ktp_p]' download><img src='$data[ktp_p]' width='100' height='70' style='border-radius: 5%;' /></a>"; ?>
+                                </td>
+                                <td align="center"><?= tgl($data['tgl']) ?></td>
+                                <td align="center"><?php echo $data['statusAdmin']; ?></td>
+                                <td align="center"><?php echo $data['statusCamat']; ?></td>
+                            </tr>
                         <?php } ?>
                     </tbody>
                     * Klik ( √ ) Untuk Download Berkas

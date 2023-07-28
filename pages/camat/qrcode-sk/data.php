@@ -104,7 +104,7 @@ if (!isset($_SESSION['nama'])) {
                                             <td align="center"><?= $row['tanggalTtd']; ?></td>
                                             <td align="center">
                                                 <?php
-                                                        echo "<a class='badge bg-gradient-success' target='_blank' href='../qrcodeview/qrcode-sk/qrcodeview.php?id={$row[0]}'><i class='fa fa-edit'></i> Print</a>";
+                                                        echo "<a class='badge bg-gradient-success' target='_blank' href='../qrcodeview/qrcode-sk/qrcodeview.php?id={$row[0]}'>Lihat</a>";
                                                         ?>
                                             </td>
                                             <td>

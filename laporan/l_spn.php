@@ -191,7 +191,8 @@ function tgl($tanggal)
                             <th style="text-align: center; font-size: 18px; width:10%;">Foto KTP</th>
                             <th style="text-align: center; font-size: 18px; width:10%;">Pas Foto</th>
                             <th style="text-align: center; font-size: 18px;">Tanggal Pengajuan</th>
-                            <th style="text-align: center; font-size: 18px;">Status</th>
+                            <th style="text-align: center; font-size: 18px;">Verifikasi Admin</th>
+                            <th style="text-align: center; font-size: 18px;">Verifikasi Camat</th>
                         </tr>
                     </thead>
 
@@ -248,7 +249,8 @@ function tgl($tanggal)
                                     <?php echo "<a href='$data[pas_foto]' download><img src='$data[pas_foto]' width='100' height='70' style='border-radius: 5%;' /></a>"; ?>
                                 </td>
                                 <td align="center"><?= tgl($data['tgl']) ?></td>
-                                <td align="center"><?= $data['status']; ?></td>
+                                <td align="center"><?php echo $data['statusAdmin']; ?></td>
+                                <td align="center"><?php echo $data['statusCamat']; ?></td>
                             </tr>
                         <?php } ?>
                     </tbody>

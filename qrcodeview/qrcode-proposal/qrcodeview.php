@@ -67,7 +67,7 @@ function tgl($tanggal)
                 <div class="col-md-6 offset-md-3">
                     <div class="card">
                         <div class="card-header text-center">
-                            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.seekpng.com%2Fpng%2Fdetail%2F433-4334311_gambar-ceklis-png-logo-checklist-png.png&f=1&nofb=1&ipt=9673812adc8eaf51309fcec3938bed2577ce03c0b526dc037389125a20bae78b&ipo=images" alt="" width="90" height="55">
+                            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fbd%2FCheckmark_green.svg%2F1200px-Checkmark_green.svg.png&f=1&nofb=1&ipt=6a8d69535048b3c81f63ec06473ec3568f780d0f46ebaa4710647a430aae16d3&ipo=images" alt="" width="90" height="75">
                             <h5 class="mt-3"><strong><u>QR-CODE BERHASIL TERVERIFIKASI</u></strong></h5>
                         </div>
                         <div class="card-body">

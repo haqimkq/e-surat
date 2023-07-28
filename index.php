@@ -18,12 +18,21 @@
         rel="stylesheet">
     <link rel="stylesheet" href="fonts/icomoon/style.css">
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="../aev/css/tiny-slider.css" />
-    <link rel="stylesheet" href="../aev/css/aos.css" />
-    <link rel="stylesheet" href="../aev/css/flatpickr.min.css" />
-    <link rel="stylesheet" href="../aev/css/glightbox.min.css" />
-    <link rel="stylesheet" href="../aev/css/style.css" />
-    <link id="pagestyle" href="../aev/assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/aos.css" />
+
+    <!-- <link rel="stylesheet" href="css/bootstarp-grid.css" />
+    <link rel="stylesheet" href="css/bootstarp-reboot.css" />
+    <link rel="stylesheet" href="css/bootstarp-utillities.css" />
+    <link rel="stylesheet" href="css/bootstarp.css" />
+    <link rel="stylesheet" href="css/flatpickr.css" /> -->
+
+    <link rel="stylesheet" href="css/glightbox.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/tiny-slider.css" />
+
+
+    <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
 
 
 
@@ -47,7 +56,7 @@
                 <div class="row">
                     <div class="col-8 col-lg-6">
                         <img src="image/bjm.png" width="62px" height="62px" alt="Logo">
-                        <a href="index.html" class="logo p-0 float-none align-middle">Banjarmasin Timur</a>
+                        <a href="index.php" class="logo p-0 float-none align-middle">Banjarmasin Timur</a>
                     </div>
                     <div class="col-md-6 d-none d-lg-inline-block text-end ">
                         <ul class="js-clone-nav  text-end site-menu p-0 m-0 align-middle">
@@ -84,7 +93,6 @@
                     <p class="mb-5" data-aos="fade-up">Siap Melayani Segala Keperluan Masyarakat Dengan Sepenuh Hati.
                     </p>
                     <div data-aos="fade-up">
-
                     </div>
                 </div>
             </div>
@@ -178,9 +186,11 @@
                 $pass = "";
                 $DB = "db_pelayanan";
                 $link = new mysqli($host, $user, $pass, $DB);
+
                 if ($link->connect_error) {
                     echo "Gagal Koneksi MySQL";
                 }
+
                 function tgl($tanggal)
                 {
                     $bulan = array(

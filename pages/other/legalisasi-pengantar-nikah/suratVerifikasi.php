@@ -52,7 +52,7 @@ function tgl($tanggal)
 ?>
 
 <script type="text/javascript">
-    window.print();
+window.print();
 </script>
 
 <!DOCTYPE html>
@@ -60,26 +60,26 @@ function tgl($tanggal)
 
 <head>
     <style>
-        .container,
-        .container-fluid,
-        .container-sm,
-        .container-md,
-        .container-lg,
-        .container-xl,
-        .container-xxl {
-            --bs-gutter-x: 1.5rem;
-            --bs-gutter-y: 0;
-            width: 87%;
-            padding-right: calc(var(--bs-gutter-x) * 0.5);
-            padding-left: calc(var(--bs-gutter-x) * 0.5);
-            margin-right: auto;
-            margin-left: auto;
-        }
+    .container,
+    .container-fluid,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .container-xl,
+    .container-xxl {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 0;
+        width: 87%;
+        padding-right: calc(var(--bs-gutter-x) * 0.5);
+        padding-left: calc(var(--bs-gutter-x) * 0.5);
+        margin-right: auto;
+        margin-left: auto;
+    }
 
-        .roww h4 {
-            text-align: justify;
-            padding-left: 70px;
-        }
+    .roww h4 {
+        text-align: justify;
+        padding-left: 70px;
+    }
     </style>
 
     <link rel="icon" type="image/png" href="<?php echo "../../../image/bjm.png" ?>">
@@ -107,31 +107,31 @@ function tgl($tanggal)
             <table border="0" cellspacing="0" cellpadding="6" width="100%">
                 <thead style="background-color: #0000 ">
                     <?php $data = $query->fetch_array(); { ?>
-                        <tr>
-                            <div class="roww col-md-10">
-                                <h4 align="justify">Berdasarkan Hasil Pemeriksaan berkas untuk keperluan
-                                    <i><?php echo $data['j_pelayanan']; ?></i>, Dengan surat ini, Kecamatan menerangkan
-                                    dengan
-                                    sebenarnya Bahwa :
-                                </h4>
-                            </div>
-                            <th style="padding-left: 90px; text-align: left; font-size: 15px; ">
-                                Nama Pemohon
-                                &emsp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-                                :&emsp;<?php echo $data['nama']; ?>
-                                <br>
-                                <br>
-                                Tanggal Permohonan &emsp;&emsp;&emsp; :&emsp;<?= tgl($data['tgl']) ?>
-                                <br>
-                                <br>
-                                Status Verifikasi Admin
-                                &ensp;&ensp;&ensp;&ensp; :&emsp;<?php echo $data['statusAdmin']; ?>
-                                <br>
-                                <br>
-                                Status Verifikasi Camat
-                                &ensp;&ensp;&ensp;&ensp; :&emsp;<?php echo $data['statusCamat']; ?>
-                            </th>
-                        </tr>
+                    <tr>
+                        <div class="roww col-md-10">
+                            <h4 align="justify">Berdasarkan Hasil Pemeriksaan berkas untuk keperluan
+                                <i><?php echo $data['j_pelayanan']; ?></i>, Dengan surat ini, Kecamatan menerangkan
+                                dengan
+                                sebenarnya Bahwa :
+                            </h4>
+                        </div>
+                        <th style="padding-left: 90px; text-align: left; font-size: 15px; ">
+                            Nama Pemohon
+                            &emsp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+                            :&emsp;<?php echo $data['nama']; ?>
+                            <br>
+                            <br>
+                            Tanggal Permohonan &emsp;&emsp;&emsp; :&emsp;<?= tgl($data['tgl']) ?>
+                            <br>
+                            <br>
+                            Status Verifikasi Admin
+                            &ensp;&ensp;&ensp;&ensp; :&emsp;<?php echo $data['statusAdmin']; ?>
+                            <br>
+                            <br>
+                            Status Verifikasi Camat
+                            &ensp;&ensp;&ensp;&ensp; :&emsp;<?php echo $data['statusCamat']; ?>
+                        </th>
+                    </tr>
                 </thead>
             </table>
             <div class="roww col-md-12">
@@ -155,14 +155,13 @@ function tgl($tanggal)
             Banjarmasin, <?php echo date('d') . ' ' . $bln[date('m')] . ' ' . date('Y') ?><br>
             Mengetahui,<br>
             Camat<br>
-            <br><br>
-            <?php echo "<a><img src='../../../img/{$data['qrCode']}' width='70' height='70'  /></a>"; ?><br><br>
+            <?php echo "<a><img src='../../../img/{$data['qrCode']}' width='100' height='100'  /></a>"; ?><br>
             <u><b>Drs. Hj. Rusdiana, M.AP </b></u><br>
             <b>NIP. 196709071990 2 001</b><br>
         </h5>
     </div>
 
-<?php } ?>
+    <?php } ?>
 
 </body>
 

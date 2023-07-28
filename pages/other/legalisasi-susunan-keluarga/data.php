@@ -56,8 +56,8 @@ if (!isset($_SESSION['nama'])) {
                                                     Verifikasi <br> Admin</th>
                                                 <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
                                                     Verifikasi <br> Camat</th>
-                                                <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                    Surat Balasan</th>
+                                                <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
+                                                    Surat <br> Balasan</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -139,7 +139,7 @@ if (!isset($_SESSION['nama'])) {
                                                         echo "<span class='badge $badgeColor'>$statusCamat</span>";
                                                         ?>
                                                     </td>
-                                                    <td>
+                                                    <td align="center">
                                                         <?php
                                                         if ($statusAdmin === 'Diterima' && $statusCamat === 'Diterima') { // Hanya menampilkan tombol 'Print' saat status 'Diterima'
                                                             echo "<a class='badge bg-gradient-success' target='_blank' href='../pages/other/legalisasi-susunan-keluarga/suratVerifikasi.php?id={$row[0]}'><i class='fa fa-edit'></i> Print</a>";

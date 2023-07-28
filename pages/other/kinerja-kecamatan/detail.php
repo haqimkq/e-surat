@@ -5,8 +5,7 @@ include "../../../db/koneksi.php";
 
 
 $id = $_GET['id'];
-$query = $link->query("SELECT  * FROM skpKecamatan s 
-join masyarakat m on s.id_msy = m.id_msy where idSkpKec = '$id'");
+$query = $link->query("SELECT  * FROM skpKecamatan s join masyarakat m on s.id_msy = m.id_msy where idSkpKec = '$id'");
 
 $label = 'DETAIL PENILAI UNTUK PELAYANAN PADA KECAMATAN BANJARMASIN TIMUR ';
 
@@ -78,7 +77,7 @@ function namaHari($tanggal)
 ?>
 
 <script type="text/javascript">
-window.print();
+    window.print();
 </script>
 
 <!DOCTYPE html>
@@ -86,26 +85,26 @@ window.print();
 
 <head>
     <style>
-    .container,
-    .container-fluid,
-    .container-sm,
-    .container-md,
-    .container-lg,
-    .container-xl,
-    .container-xxl {
-        --bs-gutter-x: 1.5rem;
-        --bs-gutter-y: 0;
-        width: 87%;
-        padding-right: calc(var(--bs-gutter-x) * 0.5);
-        padding-left: calc(var(--bs-gutter-x) * 0.5);
-        margin-right: auto;
-        margin-left: auto;
-    }
+        .container,
+        .container-fluid,
+        .container-sm,
+        .container-md,
+        .container-lg,
+        .container-xl,
+        .container-xxl {
+            --bs-gutter-x: 1.5rem;
+            --bs-gutter-y: 0;
+            width: 87%;
+            padding-right: calc(var(--bs-gutter-x) * 0.5);
+            padding-left: calc(var(--bs-gutter-x) * 0.5);
+            margin-right: auto;
+            margin-left: auto;
+        }
 
-    .roww h6 {
-        text-align: justify;
-        padding-left: 70px;
-    }
+        .roww h6 {
+            text-align: justify;
+            padding-left: 70px;
+        }
     </style>
     <!-- <link id="pagestyle" href="../../../../aev/assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" /> -->
 
@@ -138,22 +137,22 @@ window.print();
                     $no = 1;
                     $data = $query->fetch_array(); { ?>
 
-                    <tr>
-                        <th style="text-align: left; font-size: 18px;">
+                        <tr>
+                            <th style="text-align: left; font-size: 18px;">
 
-                            No KTP &emsp; &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp;
-                            &emsp;&emsp;&emsp;&emsp;:
-                            <?php echo $data['no_ktp']; ?>
-                            <br>
-                            <br>
-                            Nama Masyarakat &emsp;&emsp;&emsp;&ensp; &emsp; &ensp; &ensp; :
-                            <?php echo $data['nama']; ?>
-                            <br>
-                            <br>
-                            Tanggal Pemberian Kinerja &emsp; &emsp; : <?= tgl($data['tgl_kinerja']) ?>
-                            <br>
-                            <br>
-                            Keterangan &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; : <?php
+                                No KTP &emsp; &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp;
+                                &emsp;&emsp;&emsp;&emsp;:
+                                <?php echo $data['no_ktp']; ?>
+                                <br>
+                                <br>
+                                Nama Masyarakat &emsp;&emsp;&emsp;&ensp; &emsp; &ensp; &ensp; :
+                                <?php echo $data['nama']; ?>
+                                <br>
+                                <br>
+                                Tanggal Pemberian Kinerja &emsp; &emsp; : <?= tgl($data['tgl_kinerja']) ?>
+                                <br>
+                                <br>
+                                Keterangan &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; : <?php
 
                                                                                                     if ($data['nilai_prestasi_kerja'] >= 80 && $data['nilai_prestasi_kerja'] <= 100) {
                                                                                                         echo "Sangat Baik";
@@ -168,8 +167,8 @@ window.print();
                                                                                                     }
 
                                                                                                     ?>
-                        </th>
-                    </tr>
+                            </th>
+                        </tr>
                 </thead>
                 <div class="card-box table-responsive">
                     <table border="1" align="center" cellspacing="0" cellpadding="6" width="70%">
@@ -216,7 +215,7 @@ window.print();
                                 <td align="center"><?= $data['nilai_prestasi_kerja']; ?></td>
                             </tr>
                         </tbody>
-                        <?php } ?>
+                    <?php } ?>
                     </table>
                 </div>
         </div>
