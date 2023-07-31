@@ -61,8 +61,8 @@ if (!isset($_SESSION['nama'])) {
                                 <div class="table-responsive">
                                     <thead>
                                         <tr>
-                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                Aksi</th>
+                                            <!-- <th class=" text-secondary text-s font-weight-bolder opacity-7">
+                                                Aksi</th> -->
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 No.
                                             </th>
@@ -93,7 +93,7 @@ if (!isset($_SESSION['nama'])) {
                                             while ($row = $query->fetch_array()) {
                                             ?>
                                         <tr>
-                                            <td class="w-5">
+                                            <!-- <td class="w-5">
                                                 <div>
                                                     <button type="button"
                                                         class="btn btn-info dropdown-toggle border-radius-lg px-3 py-1 "
@@ -117,7 +117,7 @@ if (!isset($_SESSION['nama'])) {
                                                         </li>
                                                     </ul>
                                                 </div>
-                                            </td>
+                                            </td> -->
                                             <td class="w-2" align="center"><?= $i++ ?></td>
                                             <td class="w-11"><?= $row['nip']; ?></td>
                                             <td class="w-19"><?= $row['nm_pegawai']; ?></td>
@@ -169,7 +169,8 @@ if (!isset($_SESSION['nama'])) {
                                                                 break;
                                                         }
                                                         ?>
-                                                <span class="badge <?= $badgeColor; ?>"><?= $status; ?></span>
+                                                <a href="?page=eKinerjaPegawai&id=<?= $row[0]; ?>"
+                                                    class="badge <?= $badgeColor; ?>"><?= $status; ?></a>
                                             </td>
                                             <?php
                                             }

@@ -61,8 +61,8 @@ if (!isset($_SESSION['nama'])) {
                                 <div class="table-responsive">
                                     <thead>
                                         <tr>
-                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                Aksi</th>
+                                            <!-- <th class=" text-secondary text-s font-weight-bolder opacity-7">
+                                                Aksi</th> -->
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                 No.
                                             </th>
@@ -87,12 +87,12 @@ if (!isset($_SESSION['nama'])) {
                                         <?php
                                             $no = 1;
                                             $id = $_SESSION['id_user'];
-                                            $query = mysqli_query($link, "SELECT * FROM skp k join pegawai p on k.id_pegawai = p.id_pegawai join jabatan j on k.id_jabatan = j.id_jabatan where id_user='$id'");
+                                            $query = mysqli_query($link, "SELECT * FROM skp k join pegawai p on k.id_pegawai = p.id_pegawai join jabatan j on k.id_jabatan = j.id_jabatan where id_user='$id' and  k.status_verifikasi = 'Diterima'");
                                             $i = 1;
                                             while ($row = $query->fetch_array()) {
                                             ?>
                                         <tr>
-                                            <td class="w-5">
+                                            <!-- <td class="w-5">
                                                 <div>
                                                     <button type="button"
                                                         class="btn btn-info dropdown-toggle border-radius-lg px-3 py-1 "
@@ -116,7 +116,7 @@ if (!isset($_SESSION['nama'])) {
                                                         </li>
                                                     </ul>
                                                 </div>
-                                            </td>
+                                            </td> -->
                                             <td class="w-2" align="center"><?= $i++ ?></td>
                                             <td class="w-11"><?= $row['nip']; ?></td>
                                             <td class="w-19"><?= $row['nm_pegawai']; ?></td>

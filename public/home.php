@@ -424,7 +424,13 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/camat/legalisasi-susunan-keluarga/edit.php";
             break;
 
-
+            // PENILAIAN KINERJA PEGAWAI
+        case "dKinerjaPegawai":
+            include "../pages/camat/kinerja-pegawai/data.php";
+            break;
+        case "eKinerjaPegawai":
+            include "../pages/camat/kinerja-pegawai/edit.php";
+            break;
 
             //////////// QRCODE PREVIEW //////////////////////
             ## QRCODE LEGALISASI PROPOSAL
