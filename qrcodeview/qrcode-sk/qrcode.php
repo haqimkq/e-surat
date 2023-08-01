@@ -4,7 +4,7 @@ include "../../db/koneksi.php";
 
 $id = $_GET['id'];
 
-$query = $link->query("SELECT * FROM qrcode qr join pelayanan p on qr.id_pelayanan = p.id_pelayanan WHERE idCode = '$id'");
+$query = $link->query("SELECT * FROM qrcode qr join pelayanan p on qr.id_pelayanan = p.id_pelayanan join masyarakat m on qr.id_msy = m.id_msy WHERE idCode = '$id'");
 
 
 

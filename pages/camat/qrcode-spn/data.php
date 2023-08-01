@@ -66,7 +66,7 @@ if (!isset($_SESSION['nama'])) {
                                     <tbody>
                                         <?php
                                             $no = 1;
-                                            $query = mysqli_query($link, "SELECT * FROM qrcode qr join pelayanan p on qr.id_pelayanan = p.id_pelayanan where j_pelayanan = 'Legalisasi Surat Pengantar Nikah' ");
+                                            $query = mysqli_query($link, "SELECT * FROM qrcode qr join pelayanan p on qr.id_pelayanan = p.id_pelayanan join masyarakat m on qr.id_msy = m.id_msy   where j_pelayanan = 'Legalisasi Surat Pengantar Nikah' ");
                                             $i = 1;
                                             while ($row = $query->fetch_array()) {
                                             ?>
@@ -99,7 +99,7 @@ if (!isset($_SESSION['nama'])) {
                                             <td align="left"><?= $i++ ?></td>
                                             <td><?= $row['namaTtd']; ?></td>
                                             <td><?= $row['nip']; ?></td>
-                                            <td><?= $row['namaMsy']; ?></td>
+                                            <td><?= $row['nama']; ?></td>
                                             <td><?= $row['j_pelayanan']; ?></td>
                                             <td align="center"><?= $row['tanggalTtd']; ?></td>
                                             <td align="center">

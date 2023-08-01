@@ -4,7 +4,7 @@ include "../../db/koneksi.php";
 
 
 $id = $_GET['id'];
-$query = $link->query("SELECT * FROM qrcode qr join pelayanan p on qr.id_pelayanan = p.id_pelayanan WHERE idCode = '$id'  ");
+$query = $link->query("SELECT * FROM qrcode qr join pelayanan p on qr.id_pelayanan = p.id_pelayanan join masyarakat m on qr.id_msy = m.id_msy WHERE idCode = '$id'  ");
 $label = 'VERIFIKASI QR CODE';
 
 $bln = array(
@@ -92,7 +92,7 @@ function tgl($tanggal)
                                     <tr>
                                         <th>Nama Masyarakat</th>
                                         <td>:</td>
-                                        <td><?php echo $data['namaMsy']; ?></td>
+                                        <td><?php echo $data['nama']; ?></td>
                                     </tr>
 
                                     <tr>

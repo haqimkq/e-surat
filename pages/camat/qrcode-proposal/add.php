@@ -71,30 +71,34 @@ if (!isset($_SESSION['nama'])) {
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <label class="form-label">Nama Masyarakat</label>
                                                         <div class="input-group input-group-dynamic">
+                                                            <label>Pilih Nama Masyarakat</label>
                                                             <div class="input-group input-group-dynamic mb-4">
-                                                                <input class="form-control" aria-label="Instagram"
-                                                                    type="text" name="namaMsy" data-minlength="4"
-                                                                    data-error="Tidak Boleh Kurang dari 4" required>
-                                                                <div class="help-block with-errors"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <input type="hidden" class="form-control" name="id_pelayanan"
-                                                        id="id_pelayanan" required>
-                                                    <div class="col-md-4">
-                                                        <div class="input-group input-group-dynamic">
-                                                            <label>Keperluan</label>
-                                                            <div class="input-group input-group-dynamic mb-4">
-                                                                <input type="text" class="form-control" id="j_pelayanan"
-                                                                    required readonly>
+                                                                <input placeholder="Disabled" type="text"
+                                                                    class="form-control" id="nama" required readonly>
                                                                 <span class="input-group-append">
                                                                     <button type="button" data-toggle="modal"
                                                                         data-target="#modal"
                                                                         class="btn btn-info btn-flat mb-1"><i
                                                                             class="fa fa-search"></i></button>
                                                                 </span>
+                                                                <div class="help-block with-errors"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <input type="hidden" class="form-control" name="id_msy" id="id_msy"
+                                                        required>
+                                                    <input type="hidden" class="form-control" name="id_pelayanan"
+                                                        id="id_pelayanan" required>
+
+                                                    <div class="col-md-4">
+                                                        <div class="input-group input-group-dynamic">
+                                                            <label>Keperluan</label>
+                                                            <div class="input-group input-group-dynamic ">
+                                                                <input placeholder="Disabled" class="form-control"
+                                                                    id="j_pelayanan" aria-label="keperluan" type="text"
+                                                                    readonly>
                                                                 <div class="help-block with-errors"></div>
                                                             </div>
                                                         </div>
@@ -164,16 +168,20 @@ if (!isset($_SESSION['nama'])) {
                         <tbody>
                             <?php
                                 $no = 1;
-                                $data = $link->query("SELECT * FROM pelayanan ");
+                                $data = $link->query("SELECT * FROM proposal  pr
+                                join masyarakat m on pr.id_msy = m.id_msy 
+                                join pelayanan p on pr.id_pelayanan = p.id_pelayanan ");
                                 while ($row = $data->fetch_array()) {
                                 ?>
                             <tr>
                                 <td align="center" width="5%">
                                     <?= $no++ ?></td>
+                                <td><?= $row['nama'] ?></td>
                                 <td><?= $row['j_pelayanan'] ?></td>
                                 <td align="center" width="18%">
-                                    <button class="btn btn-xs btn-success" class="close" data-dismiss="modal"
-                                        aria-label="Close" id="select1" data-id_pelayanan="<?= $row['id_pelayanan'] ?>"
+                                    <button class="btn btn-xs btn-success" class="close" aria-label="Close"
+                                        data-dismiss="modal" id="select" data-id_msy="<?= $row['id_msy'] ?>"
+                                        data-id_pelayanan="<?= $row['id_pelayanan'] ?>" data-nama="<?= $row['nama'] ?>"
                                         data-j_pelayanan="<?= $row['j_pelayanan'] ?>">
                                         Pilih
                                     </button>
@@ -196,34 +204,40 @@ if (!isset($_SESSION['nama'])) {
 
 
 <!-- JAVASCRIPT MODAL -->
-<script>
-$(document).on('click', '#select1', function() {
-    var id_pelayanan = $(this).data('id_pelayanan');
-    var j_pelayanan = $(this).data('j_pelayanan');
-    $('#id_pelayanan').val(id_pelayanan);
-    $('#j_pelayanan').val(j_pelayanan);
-    $('#modal').modal('hide'); // Menutup modal secara otomatis
-});
+<script type="text/javascript">
+$(document).ready(function() {
+    $(document).on('click', '#select', function() {
+        var id_msy = $(this).data('id_msy');
+        var id_pelayanan = $(this).data('id_pelayanan');
+        var nama = $(this).data('nama');
+        var j_pelayanan = $(this).data('j_pelayanan');
+
+        $('#id_msy').val(id_msy);
+        $('#id_pelayanan').val(id_pelayanan);
+        $('#nama').val(nama);
+        $('#j_pelayanan').val(j_pelayanan);
+        $('#modal').modal('hide');
+    });
+})
 </script>
 
 <?php
     if (isset($_POST['simpan'])) {
+        $id_msy = $_POST['id_msy'];
         $id_pelayanan = $_POST['id_pelayanan'];
         $namaTtd = $_POST['namaTtd'];
         $nip = $_POST['nip'];
-        $namaMsy = $_POST['namaMsy'];
         $tanggalTtd = $_POST['tanggalTtd'];
-        $imageCode = $_POST['imageCode'];
+
 
 
         $simpan = $link->query("INSERT INTO qrcode VALUES (
             '', 
+            '$id_msy', 
             '$id_pelayanan', 
             '$namaTtd',
             '$nip',
-            '$namaMsy',
-            '$tanggalTtd',
-            '$imageCode'
+            '$tanggalTtd'
 
             )");
 
@@ -238,37 +252,4 @@ $(document).on('click', '#select1', function() {
 }
 
 
-
-function upload($file)
-{
-    // Tentukan folder penyimpanan file
-    $targetDir = '../img/';
-
-    // Mendapatkan nama file asli
-    $fileName = basename($file['name']);
-
-    // Mendapatkan path file tujuan
-    $targetPath = $targetDir . $fileName;
-
-    // Mendapatkan ekstensi file
-    $fileExtension = pathinfo($targetPath, PATHINFO_EXTENSION);
-
-    // Daftar ekstensi file yang diperbolehkan
-    $allowedExtensions = array('jpg', 'jpeg', 'png');
-
-    // Cek apakah ekstensi file valid
-    if (in_array($fileExtension, $allowedExtensions)) {
-        // Pindahkan file ke folder tujuan
-        if (move_uploaded_file($file['tmp_name'], $targetPath)) {
-            // Jika berhasil diunggah, kembalikan path file
-            return $targetPath;
-        } else {
-            // Jika gagal mengunggah
-            return false;
-        }
-    } else {
-        // Jika ekstensi file tidak valid
-        return false;
-    }
-}
 ?>
