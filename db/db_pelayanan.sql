@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Jun 2023 pada 07.21
+-- Waktu pembuatan: 07 Agu 2023 pada 17.11
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.2.0
 
@@ -41,8 +41,7 @@ INSERT INTO `golongan` (`id_golongan`, `nm_golongan`) VALUES
 (2, 'Pembina ( IV/a )'),
 (3, 'Penata ( III/c )'),
 (4, 'Penata Tk.I ( III/d )'),
-(5, 'Penata Muda Tk.I ( III/b )'),
-(7, 'Eselon IIIiiiiiiii');
+(5, 'Penata Muda Tk.I ( III/b )');
 
 -- --------------------------------------------------------
 
@@ -61,8 +60,7 @@ CREATE TABLE `jabatan` (
 
 INSERT INTO `jabatan` (`id_jabatan`, `nm_jabatan`) VALUES
 (2, 'ADMIN'),
-(3, 'CAMAT'),
-(6, 'PEGAWAI');
+(7, 'Pegawai');
 
 -- --------------------------------------------------------
 
@@ -88,7 +86,8 @@ CREATE TABLE `masyarakat` (
 --
 
 INSERT INTO `masyarakat` (`id_msy`, `id_user`, `no_ktp`, `nama`, `tmpt_lhr`, `tgl_lhr`, `alamat`, `agama`, `jk`, `no_tlp`) VALUES
-(12, 18, '  6303020201990007  ', 'Raisa Noor Islami', 'Banjarmasin  ', '2000-01-01', 'Jl. Sultan Adam Komp. Malken Temon.', 'Islam', 'Laki-Laki', '0812345679');
+(22, 30, '630307092900321', 'Laila Andini', 'Banjarmasin', '2000-09-10', 'Jl. Jahri Jaleh Komp.Malken Temon No.01', 'Islam', 'Perempuan', '089980706651'),
+(23, 31, '172368912391823', 'Bayu S', 'bjm', '2023-08-01', 'asbdhasd', 'islam', 'Laki-Laki', '91273123');
 
 -- --------------------------------------------------------
 
@@ -109,8 +108,8 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`idNews`, `title`, `newsText`, `foto`, `tanggal`) VALUES
-(9, 'Silaturahmi dan Sosialisasi Perumda PALD Banjarmasin Bersama Tokoh Masyarakat Wilayah Kecamatan Kota Banjarmasin.', '\"Menyelamatkan Bumi dan Air Dengan Pengelolaan Sanitasi yang Baik untuk mencapai Kinerja Barasih wan Nyaman di Kota Banjarmasin Tahun 2023 di Aula Kecamatan Banjarmasin Timur', '../img/imgnews/photo1685958361.jpeg', '2023-03-21'),
-(10, 'RAKORCAM', 'Rapat Koordinasi Kecamatan Program Keluarga Harapan (PKH) Kota Banjarmasin th 2023 di Wilayah Banjarmasin Timur.', '../img/imgnews/photo1685958052.jpeg', '2023-05-31');
+(12, 'REMBUK STUNTING ', 'STRATEGI PENAGANAN DAN PENCEGAHAN STUNTING KECAMATAN BANJARMASIN TIMUR TAHUN 2023 dibuka oleh Camat Banjarmasin Timur Dra.Hj.Rusdiana,M.AP yang di hadiri oleh unsur PKK ,Dasawisma,Kader KPM(Kader Pembangunan Manusia), RW, RT dan Tokoh masyarakat di wilayah Kecamatan Banjarmasin Timur selaku sebagai pemateri dari Dinas Kesehatan Kota Banjarmasin Hj.Ariati,AM.KEB. ', '../img/imgnews/photo1685957557.jpeg', '2023-05-15'),
+(14, 'Forum Kota Banjarmasin', 'Silaturahmi dan Sosialisasi Perumda PALD Banjarmasin Bersama Tokoh Masyarakat Wilayah Kecamatan Kota Banjarmasin. \"Menyelamatkan Bumi dan Air Dengan Pengelolaan Sanitasi yang Baik untuk mencapai Kinerja Barasih wan Nyaman di Kota Banjarmasin Tahun 2023 di Aula Kecamatan Banjarmasin Timur.', '../img/imgnews/photo1685958361.jpeg', '2023-06-01');
 
 -- --------------------------------------------------------
 
@@ -142,8 +141,7 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`id_pegawai`, `id_user`, `id_jabatan`, `id_golongan`, `nm_pegawai`, `nip`, `tmpt_lahir`, `tgl_lahir`, `alamat`, `jk`, `status`, `agama`, `no_tlp`, `foto`, `instagram`, `email`) VALUES
-(15, 6, 2, 3, 'Annisa Yuliani', ' 001 009 29180 007 ', 'Bentok ', '2002-01-31', 'Jl. Kelapa Komp. Dahlia No. 4 ', 'Perempuan', 'Lajang', 'Islam', '08222900011 ', '../img/wxmceo7nudyy3zygvzb7.jpg', '@nisayulia ', '12376123@gmail.com '),
-(16, 19, 6, 5, 'Fitri Aulia', ' 089000 00811 900 ', 'Marabahan ', '1992-02-07', 'Jl. Handil Bakti Komp.Arum ', 'Perempuan', 'Single', 'Islam', '085276670001 ', '../img/wxmceo7nudyy3zygvzb7.jpg', '@aulia_fit ', 'aulia_fit@gmail.com ');
+(20, 29, 7, 5, 'Lutfi Muhammad', '19670711 001 002', 'Banjarbaru', '1997-01-03', 'Jl. HKSN Komp MD No.17', 'Laki-Laki', 'Lajang', 'Islam', '085251238469', '../img/8b167af653c2399dd93b952a48740620.jpg', '@lutfi.muhammad', 'lutfi.muhammad@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -179,19 +177,49 @@ CREATE TABLE `proposal` (
   `id_lp` int(11) NOT NULL,
   `id_msy` int(11) NOT NULL,
   `id_pelayanan` int(11) NOT NULL,
-  `s_pernyataan` varchar(99) DEFAULT NULL,
-  `s_permohonan` varchar(99) DEFAULT NULL,
-  `ktp_p` varchar(99) DEFAULT NULL,
-  `tgl` date NOT NULL
+  `s_pernyataan` varchar(225) DEFAULT NULL,
+  `s_permohonan` varchar(225) DEFAULT NULL,
+  `ktp_p` varchar(225) DEFAULT NULL,
+  `tgl` date NOT NULL,
+  `statusAdmin` varchar(15) NOT NULL DEFAULT 'Proses',
+  `statusCamat` varchar(15) NOT NULL DEFAULT 'Proses',
+  `qrCode` varchar(225) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `proposal`
 --
 
-INSERT INTO `proposal` (`id_lp`, `id_msy`, `id_pelayanan`, `s_pernyataan`, `s_permohonan`, `ktp_p`, `tgl`) VALUES
-(1, 2, 6, '63c40468becb4.pdf', '63c40440cb961.pdf', '63c40440cbbb6.jpg', '2023-01-02'),
-(3, 4, 6, '63cbb2bccd9dc.pdf', '63cbb2bccdf5d.pdf', '63cbb2bccec50.jpg', '2023-01-04');
+INSERT INTO `proposal` (`id_lp`, `id_msy`, `id_pelayanan`, `s_pernyataan`, `s_permohonan`, `ktp_p`, `tgl`, `statusAdmin`, `statusCamat`, `qrCode`) VALUES
+(16, 22, 6, '../pdf/pelayanan/Soal Tes Ujian Masuk HIT - Programmer 2 (1).pdf', '../pdf/pelayanan/Soal Tes Ujian Masuk HIT - Programmer 1 (1).pdf', '../img/imgpelayanan/8b167af653c2399dd93b952a48740620.jpg', '2023-08-01', 'Diterima', 'Diterima', '../img/imgpelayanan/hasil_qrcode (4).png'),
+(17, 23, 6, '../pdf/pelayanan/Soal Tes Ujian Masuk HIT - Programmer 2 (1).pdf', '../pdf/pelayanan/Soal Tes Ujian Masuk HIT - Programmer 1 (1).pdf', '../img/imgpelayanan/8b167af653c2399dd93b952a48740620.jpg', '2023-08-01', 'Proses', 'Proses', '');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `qrcode`
+--
+
+CREATE TABLE `qrcode` (
+  `idCode` int(11) NOT NULL,
+  `id_msy` int(11) NOT NULL,
+  `id_pelayanan` int(11) NOT NULL,
+  `namaTtd` varchar(39) NOT NULL,
+  `nip` varchar(29) NOT NULL,
+  `tanggalTtd` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `qrcode`
+--
+
+INSERT INTO `qrcode` (`idCode`, `id_msy`, `id_pelayanan`, `namaTtd`, `nip`, `tanggalTtd`) VALUES
+(11, 22, 4, 'Drs. Hj. Rusdiana, M.AP', '196709071990 2 001', '2023-08-02'),
+(12, 22, 5, 'Drs. Hj. Rusdiana, M.AP ', '196709071990 2 001', '2023-08-03'),
+(13, 22, 1, 'Drs. Hj. Rusdiana, M.AP ', '196709071990 2 001', '2023-08-02'),
+(14, 22, 3, 'Drs. Hj. Rusdiana, M.AP', '196709071990 2 001', '2023-08-01'),
+(15, 22, 6, 'Drs. Hj. Rusdiana, M.AP', '196709071990 2 001', '2023-08-02'),
+(20, 23, 1, 'Drs. Hj. Rusdiana, M.AP', '091231 001292 00 1', '2023-08-01');
 
 -- --------------------------------------------------------
 
@@ -206,16 +234,76 @@ CREATE TABLE `rdn` (
   `ktp_p` varchar(99) DEFAULT NULL,
   `kk_p` varchar(99) DEFAULT NULL,
   `s_kua` varchar(99) DEFAULT NULL,
-  `tgl` date NOT NULL
+  `tgl` date NOT NULL,
+  `statusAdmin` varchar(19) NOT NULL DEFAULT 'Proses',
+  `statusCamat` varchar(19) NOT NULL DEFAULT 'Proses',
+  `qrCode` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `rdn`
 --
 
-INSERT INTO `rdn` (`id_rdn`, `id_msy`, `id_pelayanan`, `ktp_p`, `kk_p`, `s_kua`, `tgl`) VALUES
-(3, 2, 5, '63c01099435ac.jpg', '63c0109943d00.jpg', '63c3f5043e60c.pdf', '2023-01-01'),
-(6, 5, 5, '63cbb084c78f5.png', '63cbb084c7b7b.png', '63cbb084c7d52.pdf', '2023-01-07');
+INSERT INTO `rdn` (`id_rdn`, `id_msy`, `id_pelayanan`, `ktp_p`, `kk_p`, `s_kua`, `tgl`, `statusAdmin`, `statusCamat`, `qrCode`) VALUES
+(11, 22, 5, '../img/imgpelayanan/wxmceo7nudyy3zygvzb7.jpg', '../img/imgpelayanan/Untitled-design-21.jpg', '../pdf/pelayanan/Soal Tes Ujian Masuk HIT - Programmer 1 (1).pdf', '2023-09-01', 'Diterima', 'Diterima', '../img/imgpelayanan/hasil_qrcode (1).png');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `skp`
+--
+
+CREATE TABLE `skp` (
+  `idSkp` int(11) NOT NULL,
+  `id_pegawai` int(11) NOT NULL,
+  `id_jabatan` int(11) NOT NULL,
+  `tgl_kinerja` date NOT NULL,
+  `nilai_skp` double DEFAULT NULL,
+  `orientasi_pelayanan` double DEFAULT NULL,
+  `komitmen` double DEFAULT NULL,
+  `kerjasama` double DEFAULT NULL,
+  `integritas` double DEFAULT NULL,
+  `disiplin` double DEFAULT NULL,
+  `nilai_perilaku_kerja` double DEFAULT NULL,
+  `nilai_prestasi_kerja` double DEFAULT NULL,
+  `status_verifikasi` varchar(19) NOT NULL DEFAULT 'Proses'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `skp`
+--
+
+INSERT INTO `skp` (`idSkp`, `id_pegawai`, `id_jabatan`, `tgl_kinerja`, `nilai_skp`, `orientasi_pelayanan`, `komitmen`, `kerjasama`, `integritas`, `disiplin`, `nilai_perilaku_kerja`, `nilai_prestasi_kerja`, `status_verifikasi`) VALUES
+(33, 18, 7, '2023-07-05', 90, 90, 85, 85, 88, 90, 87.6, 89.04, 'Proses'),
+(35, 20, 7, '2023-08-01', 100, 90, 99, 89, 91, 89.92, 91.78, 96.71, 'Diterima'),
+(37, 20, 7, '2023-08-03', 80, 90, 80, 90, 77, 79, 83.2, 81.28, 'Diterima');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `skpkecamatan`
+--
+
+CREATE TABLE `skpkecamatan` (
+  `idSkpKec` int(11) NOT NULL,
+  `id_msy` int(11) NOT NULL,
+  `tgl_kinerja` date NOT NULL,
+  `nilai_skp` double DEFAULT NULL,
+  `orientasi_pelayanan` double DEFAULT NULL,
+  `komitmen` double DEFAULT NULL,
+  `kerjasama` double DEFAULT NULL,
+  `integritas` double DEFAULT NULL,
+  `disiplin` double DEFAULT NULL,
+  `nilai_perilaku_kerja` double DEFAULT NULL,
+  `nilai_prestasi_kerja` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `skpkecamatan`
+--
+
+INSERT INTO `skpkecamatan` (`idSkpKec`, `id_msy`, `tgl_kinerja`, `nilai_skp`, `orientasi_pelayanan`, `komitmen`, `kerjasama`, `integritas`, `disiplin`, `nilai_perilaku_kerja`, `nilai_prestasi_kerja`) VALUES
+(33, 22, '2023-08-02', 90, 70, 76, 99, 99, 70, 82.8, 87.12);
 
 -- --------------------------------------------------------
 
@@ -227,20 +315,23 @@ CREATE TABLE `sktm` (
   `id_sktm` int(11) NOT NULL,
   `id_msy` int(11) NOT NULL,
   `id_pelayanan` int(11) NOT NULL,
-  `s_sktm` varchar(99) DEFAULT NULL,
-  `ktp` varchar(99) DEFAULT NULL,
-  `kk` varchar(99) DEFAULT NULL,
-  `s_pernyataan` varchar(99) DEFAULT NULL,
-  `tgl` date NOT NULL
+  `s_sktm` varchar(225) DEFAULT NULL,
+  `ktp` varchar(225) DEFAULT NULL,
+  `kk` varchar(225) DEFAULT NULL,
+  `s_pernyataan` varchar(225) DEFAULT NULL,
+  `tgl` date NOT NULL,
+  `statusAdmin` varchar(25) NOT NULL DEFAULT 'Proses',
+  `statusCamat` varchar(19) NOT NULL DEFAULT 'Proses',
+  `qrCode` varchar(225) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `sktm`
 --
 
-INSERT INTO `sktm` (`id_sktm`, `id_msy`, `id_pelayanan`, `s_sktm`, `ktp`, `kk`, `s_pernyataan`, `tgl`) VALUES
-(5, 2, 1, '63bd74940deeb.pdf', '63bd74940e391.jpg', '63bd74940e594.jpg', '63bd74940e18c.pdf', '2023-01-01'),
-(7, 6, 1, '63cbac2e4b07e.pdf', '63cbac2e4c266.png', '63cbac2e4cf04.jpg', '63cbac2e4c061.pdf', '2023-01-11');
+INSERT INTO `sktm` (`id_sktm`, `id_msy`, `id_pelayanan`, `s_sktm`, `ktp`, `kk`, `s_pernyataan`, `tgl`, `statusAdmin`, `statusCamat`, `qrCode`) VALUES
+(17, 22, 1, '../pdf/pelayanan/Soal Tes Ujian Masuk HIT - Programmer 1 (1).pdf', '../img/imgpelayanan/8b167af653c2399dd93b952a48740620.jpg', '../img/imgpelayanan/Classic-Marvel-Superheroes.jpg', '../pdf/pelayanan/Soal Tes Ujian Masuk HIT - Programmer 2 (1).pdf', '2023-08-01', 'Diterima', 'Diterima', '../img/imgpelayanan/hasil_qrcode (2).png'),
+(18, 23, 1, '../pdf/pelayanan/Soal Tes Ujian Masuk HIT - Programmer 1 (1).pdf', '../img/imgpelayanan/8b167af653c2399dd93b952a48740620.jpg', '../img/imgpelayanan/Classic-Marvel-Superheroes.jpg', '../pdf/pelayanan/Soal Tes Ujian Masuk HIT - Programmer 2 (1).pdf', '2023-08-01', 'Proses', 'Proses', '');
 
 -- --------------------------------------------------------
 
@@ -258,16 +349,43 @@ CREATE TABLE `spn` (
   `akte_c` varchar(250) DEFAULT NULL,
   `sk` varchar(250) DEFAULT NULL,
   `skwn` varchar(250) DEFAULT NULL,
-  `tgl` date NOT NULL
+  `tgl` date NOT NULL,
+  `statusAdmin` varchar(15) NOT NULL DEFAULT 'Proses',
+  `statusCamat` varchar(19) NOT NULL DEFAULT 'Proses',
+  `qrCode` varchar(225) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `spn`
 --
 
-INSERT INTO `spn` (`id_spn`, `id_msy`, `id_pelayanan`, `spn`, `ktp`, `pas_foto`, `akte_c`, `sk`, `skwn`, `tgl`) VALUES
-(35, 4, 3, '63bd73028a270.pdf', '63bd5e6bb6305.png', '63bd5e56ca6ff.jpg', '63bd5f2437c48.pdf', '63bd5f2437f57.pdf', '63bd5e97791af.pdf', '2023-01-01'),
-(47, 6, 3, '63cbacc425e66.pdf', '63cbacc4260e9.png', '63cbacc4264f1.jpg', '63cbacc426796.pdf', '63cbacc426953.pdf', '63cbacc42705d.', '2023-01-03');
+INSERT INTO `spn` (`id_spn`, `id_msy`, `id_pelayanan`, `spn`, `ktp`, `pas_foto`, `akte_c`, `sk`, `skwn`, `tgl`, `statusAdmin`, `statusCamat`, `qrCode`) VALUES
+(53, 22, 3, '../pdf/pelayanan/Soal Tes Ujian Masuk HIT - Programmer 1 (1).pdf', '../img/imgpelayanan/wxmceo7nudyy3zygvzb7.jpg', '../img/imgpelayanan/Manzone.jpg', '', '', '../pdf/pelayanan/Soal Tes Ujian Masuk HIT - Programmer 2 (1).pdf', '2023-08-01', 'Diterima', 'Diterima', '../img/imgpelayanan/hasil_qrcode (3).png'),
+(54, 23, 3, '../pdf/pelayanan/Soal Tes Ujian Masuk HIT - Programmer 1 (1).pdf', '../img/imgpelayanan/8b167af653c2399dd93b952a48740620.jpg', '../img/imgpelayanan/wxmceo7nudyy3zygvzb7.jpg', '', '', '../pdf/pelayanan/Soal Tes Ujian Masuk HIT - Programmer 2 (1).pdf', '2023-08-01', 'Proses', 'Proses', '');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `surat_perjalanan_dinas`
+--
+
+CREATE TABLE `surat_perjalanan_dinas` (
+  `idSuratPerjalanan` int(11) NOT NULL,
+  `id_pegawai` int(11) NOT NULL,
+  `perihal` varchar(255) NOT NULL,
+  `tujuan` varchar(35) NOT NULL,
+  `budgetTransportasi` float NOT NULL,
+  `budgetPenginapan` float NOT NULL,
+  `tglPergi` date NOT NULL,
+  `tglPulang` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `surat_perjalanan_dinas`
+--
+
+INSERT INTO `surat_perjalanan_dinas` (`idSuratPerjalanan`, `id_pegawai`, `perihal`, `tujuan`, `budgetTransportasi`, `budgetPenginapan`, `tglPergi`, `tglPulang`) VALUES
+(5, 20, 'Melakukan perencanaan kerjasama antar kecamatan banjarmasin timur dengan banjarbaru utara', 'Kantor Kecamatan Banjarbaru Utara', 500000, 600000, '2023-08-01', '2023-08-03');
 
 -- --------------------------------------------------------
 
@@ -282,16 +400,18 @@ CREATE TABLE `s_keluarga` (
   `p_ktp` varchar(99) DEFAULT NULL,
   `p_kk` varchar(99) DEFAULT NULL,
   `ktp_k` varchar(99) DEFAULT NULL,
-  `tgl` date NOT NULL
+  `tgl` date NOT NULL,
+  `statusAdmin` varchar(19) DEFAULT 'Proses',
+  `statusCamat` varchar(19) NOT NULL DEFAULT 'Proses',
+  `qrCode` varchar(225) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `s_keluarga`
 --
 
-INSERT INTO `s_keluarga` (`id_sk`, `id_msy`, `id_pelayanan`, `p_ktp`, `p_kk`, `ktp_k`, `tgl`) VALUES
-(6, 2, 4, '63c013133f820.png', '63c013133fb57.jpg', '63c013133fdef.png', '2023-01-01'),
-(8, 7, 4, '63ca96a823a5f.png', '63ca96a823d04.png', '63ca96a823ed0.jpg', '2023-01-02');
+INSERT INTO `s_keluarga` (`id_sk`, `id_msy`, `id_pelayanan`, `p_ktp`, `p_kk`, `ktp_k`, `tgl`, `statusAdmin`, `statusCamat`, `qrCode`) VALUES
+(27, 22, 4, '../img/imgpelayanan/wxmceo7nudyy3zygvzb7.jpg', '../img/imgpelayanan/Untitled-design-21.jpg', '../img/imgpelayanan/8b167af653c2399dd93b952a48740620.jpg', '2023-08-01', 'Diterima', 'Diterima', '../img/imgpelayanan/hasil_qrcode.png');
 
 -- --------------------------------------------------------
 
@@ -313,8 +433,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id_user`, `level`, `nm_lengkap`, `username`, `password`) VALUES
 (6, 0, 'Annisa Yuliani', 'Annisa', '5fad30428811fe378fd389cd7659a33c'),
-(18, 2, 'Raisa Noor Islami', 'raisa008', '4b8ed057e4f0960d8413e37060d4c175'),
-(19, 1, 'Fitri Aulia', 'aulia_fit', '614913bc360cdfd1c56758cb87eb9e8f');
+(27, 3, 'Drs. Hj. Rusdiana, M.AP', 'camat', 'e0dc1c969db5fa159c0e3ccc290e2314'),
+(29, 1, 'Lutfi', 'lutfi', 'cdb0b6889f4def26f43951b2d5b7a9e3'),
+(30, 2, 'Laila', 'laila', 'f30618ed64655812746272636a992b95'),
+(31, 2, 'Bayu', 'bayu', 'a430e06de5ce438d499c2e4063d60fd6');
 
 --
 -- Indexes for dumped tables
@@ -365,10 +487,28 @@ ALTER TABLE `proposal`
   ADD PRIMARY KEY (`id_lp`);
 
 --
+-- Indeks untuk tabel `qrcode`
+--
+ALTER TABLE `qrcode`
+  ADD PRIMARY KEY (`idCode`);
+
+--
 -- Indeks untuk tabel `rdn`
 --
 ALTER TABLE `rdn`
   ADD PRIMARY KEY (`id_rdn`);
+
+--
+-- Indeks untuk tabel `skp`
+--
+ALTER TABLE `skp`
+  ADD PRIMARY KEY (`idSkp`);
+
+--
+-- Indeks untuk tabel `skpkecamatan`
+--
+ALTER TABLE `skpkecamatan`
+  ADD PRIMARY KEY (`idSkpKec`);
 
 --
 -- Indeks untuk tabel `sktm`
@@ -380,8 +520,13 @@ ALTER TABLE `sktm`
 -- Indeks untuk tabel `spn`
 --
 ALTER TABLE `spn`
-  ADD PRIMARY KEY (`id_spn`),
-  ADD UNIQUE KEY `id_msy` (`id_msy`);
+  ADD PRIMARY KEY (`id_spn`);
+
+--
+-- Indeks untuk tabel `surat_perjalanan_dinas`
+--
+ALTER TABLE `surat_perjalanan_dinas`
+  ADD PRIMARY KEY (`idSuratPerjalanan`);
 
 --
 -- Indeks untuk tabel `s_keluarga`
@@ -409,67 +554,91 @@ ALTER TABLE `golongan`
 -- AUTO_INCREMENT untuk tabel `jabatan`
 --
 ALTER TABLE `jabatan`
-  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `masyarakat`
 --
 ALTER TABLE `masyarakat`
-  MODIFY `id_msy` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_msy` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT untuk tabel `news`
 --
 ALTER TABLE `news`
-  MODIFY `idNews` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idNews` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `pelayanan`
 --
 ALTER TABLE `pelayanan`
-  MODIFY `id_pelayanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_pelayanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `proposal`
 --
 ALTER TABLE `proposal`
-  MODIFY `id_lp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_lp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT untuk tabel `qrcode`
+--
+ALTER TABLE `qrcode`
+  MODIFY `idCode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT untuk tabel `rdn`
 --
 ALTER TABLE `rdn`
-  MODIFY `id_rdn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_rdn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT untuk tabel `skp`
+--
+ALTER TABLE `skp`
+  MODIFY `idSkp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT untuk tabel `skpkecamatan`
+--
+ALTER TABLE `skpkecamatan`
+  MODIFY `idSkpKec` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT untuk tabel `sktm`
 --
 ALTER TABLE `sktm`
-  MODIFY `id_sktm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_sktm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT untuk tabel `spn`
 --
 ALTER TABLE `spn`
-  MODIFY `id_spn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id_spn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+
+--
+-- AUTO_INCREMENT untuk tabel `surat_perjalanan_dinas`
+--
+ALTER TABLE `surat_perjalanan_dinas`
+  MODIFY `idSuratPerjalanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `s_keluarga`
 --
 ALTER TABLE `s_keluarga`
-  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
