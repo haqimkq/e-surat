@@ -1,53 +1,5 @@
 <?php
 
-$sbp = mysqli_query($link, "SELECT COUNT(*) AS total FROM skp where nilai_prestasi_kerja between  80 and 100   ");
-$hitungsbp = mysqli_fetch_array($sbp);
-
-$bp = mysqli_query($link, "SELECT COUNT(*) AS total FROM skp where nilai_prestasi_kerja between   70 and 79  ");
-$hitungbp = mysqli_fetch_array($bp);
-
-$cp = mysqli_query($link, "SELECT COUNT(*) AS total FROM skp where nilai_prestasi_kerja between   60 and 69  ");
-$hitungc = mysqli_fetch_array($cp);
-
-$kp = mysqli_query($link, "SELECT COUNT(*) AS total FROM skp where nilai_prestasi_kerja between   40 and 59  ");
-$hitungkp = mysqli_fetch_array($kp);
-
-$brkp = mysqli_query($link, "SELECT COUNT(*) AS total FROM skp where nilai_prestasi_kerja between   0 and 39  ");
-$hitungbrkp = mysqli_fetch_array($brkp);
-
-$skpkec = mysqli_query($link, "SELECT COUNT(*) AS total FROM skpkecamatan ");
-$hitungskpkec = mysqli_fetch_array($skpkec);
-
-$spn = mysqli_query($link, "SELECT COUNT(*) AS total FROM spn ");
-$hitungspn = mysqli_fetch_array($spn);
-
-$sktm = mysqli_query($link, "SELECT COUNT(*) AS total FROM sktm ");
-$hitungsktm = mysqli_fetch_array($sktm);
-
-$sk = mysqli_query($link, "SELECT COUNT(*) AS total FROM s_keluarga ");
-$hitungsk = mysqli_fetch_array($sk);
-
-$rdn = mysqli_query($link, "SELECT COUNT(*) AS total FROM rdn ");
-$hitungrdn = mysqli_fetch_array($rdn);
-
-$lp = mysqli_query($link, "SELECT COUNT(*) AS total FROM proposal ");
-$hitunglp = mysqli_fetch_array($lp);
-
-$sb = mysqli_query($link, "SELECT COUNT(*) AS total FROM skpkecamatan where nilai_prestasi_kerja between  80 and 100   ");
-$hitungsb = mysqli_fetch_array($sb);
-
-$b = mysqli_query($link, "SELECT COUNT(*) AS total FROM skpkecamatan where nilai_prestasi_kerja between   70 and 79  ");
-$hitungb = mysqli_fetch_array($b);
-
-$c = mysqli_query($link, "SELECT COUNT(*) AS total FROM skpkecamatan where nilai_prestasi_kerja between   60 and 69  ");
-$hitungc = mysqli_fetch_array($c);
-
-$k = mysqli_query($link, "SELECT COUNT(*) AS total FROM skpkecamatan where nilai_prestasi_kerja between   40 and 59  ");
-$hitungk = mysqli_fetch_array($k);
-
-$brk = mysqli_query($link, "SELECT COUNT(*) AS total FROM skpkecamatan where nilai_prestasi_kerja between   0 and 39  ");
-$hitungbrk = mysqli_fetch_array($brk);
-
 
 function tgl($tanggal)
 {
@@ -115,40 +67,7 @@ function tgl($tanggal)
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                $i = 1;
-                                $query = mysqli_query($link, "SELECT * FROM  skpkecamatan s 
-                                join masyarakat m on s.id_msy = m.id_msy order by tgl_kinerja DESC LIMIT 6 
-                                ");
-
-                                while ($row = $query->fetch_array()) {
-                                ?>
-                                <tr>
-                                    <td class="w-3" align="center"><?= $i++ ?></td>
-                                    <td align="left"><?= $row['nama']; ?></td>
-                                    <td align="center"><?= tgl($row['tgl_kinerja']) ?></td>
-                                    <td class="w-5" align="center"><?= $row['nilai_prestasi_kerja']; ?></td>
-                                    <td align=" center">
-                                        <?php
-
-                                            if ($row['nilai_prestasi_kerja'] >= 80 && $row['nilai_prestasi_kerja'] <= 100) {
-                                                echo "Sangat Baik";
-                                            } else if ($row['nilai_prestasi_kerja'] >= 70 && $row['nilai_prestasi_kerja'] <= 80) {
-                                                echo "Baik";
-                                            } else if ($row['nilai_prestasi_kerja'] >= 60 && $row['nilai_prestasi_kerja'] <= 70) {
-                                                echo "Cukup";
-                                            } else if ($row['nilai_prestasi_kerja'] >= 40 && $row['nilai_prestasi_kerja'] <= 60) {
-                                                echo "Kurang";
-                                            } else if ($row['nilai_prestasi_kerja'] >= 0 && $row['nilai_prestasi_kerja'] <= 39) {
-                                                echo "Buruk";
-                                            }
-
-                                            ?>
-                                </tr>
-
-                                <?php
-                                }
-                                ?>
+                               
 
                             </tbody>
 
@@ -160,7 +79,7 @@ function tgl($tanggal)
         <div class="col-lg-4 col-md-10">
             <div class="card h-100">
                 <div class="card-header pb-0">
-                    <h6 align="center">PELAYANAN ADMINISTRASI TERPADU KECAMATAN BANJARMASIN TIMUR</h6>
+                    <h6 align="center"> DINAS PERHUBUNGAN <br> PROVINSI KALIMANTAN SELATAN</h6>
 
                     <i class="fa fa-check text-info" aria-hidden="true"></i>
                     <span class="font-weight-bold"></span> Visi - Misi
@@ -173,8 +92,7 @@ function tgl($tanggal)
                             </span>
                             <div class="timeline-content">
                                 <h6 class="text-dark text-sm font-weight-bold mb-0">Visi</h6>
-                                <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">Pelayanan Prima Dan
-                                    Berkualitas Bagi Publik.</p>
+                                <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">“Terwujudnya Pelayanan Transportasi Berkelanjutan Dan Berintegrasi Di Kalimantan Selatan Yang Aman, Nyaman dan Terjangkau””</p>
                             </div>
                         </div>
                         <div class="timeline-block mb-2 ">
@@ -184,11 +102,8 @@ function tgl($tanggal)
                             <div class="timeline-content">
                                 <h6 class="text-dark text-sm font-weight-bold mb-0">Misi</h6>
                                 <p align="justify" class="text-secondary font-weight-bold text-xs mt-1 mb-0">
-                                    1.Meningkatkan Kualitas Pelayanan Yang Berorientasi Publik. <br><br>
-                                    2.Meningkatkan Kualitas Prasarana Dan Sarana Ruang Pelayanan. <br><br>
-                                    3.Mengembangkan Sistem Pelayanan Berbasis Informasi Teknologi. <br><br>
-                                    4.Meningkatkan Kualitas Serta Kemampuan Problem Solving Petugas ( PATEN ) Dalam
-                                    Memberikan Pelayanan.
+                                    1.Mewujudkan Penyelenggaraan Transportasi Yang Efektif Dan Efisien Yang Berorientasi Pada Pelayanan Publik. <br><br>
+                                    2.Mewujudkan Fasilitas Keselamatan Bidang Perhubungan Yang Merata Guna Mendukung Percepatan Pengembangan Ekonomi dan Sosial Budaya. <br><br>
                                 </p>
                             </div>
                         </div>

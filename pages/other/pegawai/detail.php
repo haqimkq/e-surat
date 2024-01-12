@@ -4,11 +4,11 @@ include "../db/koneksi.php";
 
 if (!isset($_SESSION['nama'])) {
     echo "<script> alert('Silahkan login terlebih dahulu'); </script>";
-    echo "<meta http-equiv='refresh' content='0; url=../aev/index.php'>";
+    echo "<meta http-equiv='refresh' content='0; url=../e-surat/index.php'>";
 } else {
 
     $id = $_GET['id'];
-    $query = $link->query("SELECT * FROM masyarakat WHERE id_msy = '$id'");
+    $query = $link->query("SELECT * FROM pegawai p join jabatan j on j.id_jabatan = p.id_jabatan WHERE id_pegawai = '$id'");
     $data = $query->fetch_array();
 
 
@@ -17,21 +17,22 @@ if (!isset($_SESSION['nama'])) {
 <div class="container-fluid px-2 px-md-4">
     <div class="page-header min-height-300 border-radius-xl mt-4"
         style="background-image: url('https://i.ytimg.com/vi/bd4ENPsn8BI/maxresdefault.jpg');">
-        <span class="mask  bg-gradient-aev  opacity-3"></span>
+        <span class="mask  bg-gradient-aev  opacity-2"></span>
     </div>
     <div class="card card-body mx-3 mx-md-4 mt-n6">
         <div class="row gx-4">
             <div class="col-auto">
                 <div class="avatar avatar-xl position-relative">
-                    <img src="<?php echo "../image/bjm.png" ?>" alt="profile_image" class="w-100 pt-3">
+                    <img src="https://1.bp.blogspot.com/-x0XnjY4pIlY/W6XY0lAU3xI/AAAAAAAAD3o/JmngsUDBWVc2n_oijzaCpC8Vq1OPeLU9QCEwYBhgL/s1600/dishub%2Bpng.png" alt="profile_image" class="w-90 pt-3">
                 </div>
             </div>
             <div class="col-auto my-auto">
                 <div class="h-100">
                     <h5 class="mb-1">
-                        <?= $data['nama'] ?>
+                        <?= $data['nm_pegawai'] ?>
                     </h5>
-                    <p class="mb-0 font-weight-normal text-sm">Masyarakat
+                    <p class="mb-0 font-weight-normal text-sm">
+                        <?= $data['nm_jabatan'] ?>
                     </p>
                 </div>
             </div>
@@ -40,7 +41,7 @@ if (!isset($_SESSION['nama'])) {
 
     <div class="container-fluid py-4">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="col-lg-4 ms-sm-auto  mt-4">
                         <div class="nav-wrapper position-relative end-7">
@@ -63,40 +64,52 @@ if (!isset($_SESSION['nama'])) {
                     <div class="card-body">
                         <p class="text-uppercase text-sm">Informasi Lengkap</p>
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <div class="input-group input-group-dynamic">
                                     <label class="text-bold">Nama Lengkap :</label>
                                     <div class="input-group input-group-dynamic mb-4">
-                                        <input class="form-control" type="text" readonly value="<?= $data['nama'] ?>" />
+                                        <input class="form-control" type="text" readonly
+                                            value="<?= $data['nm_pegawai'] ?>" />
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <div class="input-group input-group-dynamic">
-                                    <label class="text-bold">NIK : </label>
+                                    <label class="text-bold">NIP : </label>
                                     <div class="input-group input-group-dynamic mb-4">
                                         <input class="form-control" type="text" readonly
-                                            value=" <?= $data['no_ktp'] ?> " />
+                                            value=" <?= $data['nip'] ?> " />
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            
+                            <div class="col-md-4">
+                                <div class="input-group input-group-dynamic">
+                                    <label class="text-bold">Jabatan :</label>
+                                    <div class="input-group input-group-dynamic mb-4">
+                                        <input class="form-control" type="text" readonly
+                                            value=" <?= $data['nm_jabatan'] ?> " />
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
                                 <div class="input-group input-group-dynamic">
                                     <label class="text-bold">Tanggal Lahir :</label>
                                     <div class="input-group input-group-dynamic mb-4">
-                                        <input class="form-control" readonly value="<?= $data['tgl_lhr'] ?> " />
+                                        <input class="form-control" readonly value="<?= $data['tgl_lahir'] ?> " />
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="input-group input-group-dynamic">
                                     <label class="text-bold">Tempat Lahir :</label>
                                     <div class="input-group input-group-dynamic mb-4">
                                         <input class="form-control" type="text" readonly
-                                            value="<?= $data['tmpt_lhr'] ?> " />
+                                            value="<?= $data['tmpt_lahir'] ?> " />
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -112,10 +125,24 @@ if (!isset($_SESSION['nama'])) {
                             </div>
                             <div class="col-md-4">
                                 <div class="input-group input-group-dynamic">
-                                    <label class="text-bold">agama :</label>
+                                    <label class="text-bold">Status :</label>
                                     <div class="input-group input-group-dynamic mb-4">
                                         <input class="form-control" type="text" readonly
-                                            value="<?= $data['agama'] ?> " />
+                                            value="<?= $data['status'] ?> " />
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <hr class="horizontal dark"> -->
+                        <p class="text-uppercase text-sm">Contact Information</p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input-group input-group-dynamic">
+                                    <label class="text-bold">Alamat Lengkap</label>
+                                    <div class="input-group input-group-dynamic mb-4">
+                                        <input class="form-control" type="text" readonly
+                                            value="<?= $data['alamat'] ?> " />
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -130,15 +157,64 @@ if (!isset($_SESSION['nama'])) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="input-group input-group-dynamic">
-                                    <label class="text-bold">Alamat Lengkap</label>
+                                    <label class="text-bold">Email</label>
                                     <div class="input-group input-group-dynamic mb-4">
                                         <input class="form-control" type="text" readonly
-                                            value="<?= $data['alamat'] ?> " />
+                                            value="<?= $data['email'] ?> " />
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group input-group-dynamic">
+                                    <label class="text-bold">Instagram</label>
+                                    <div class="input-group input-group-dynamic mb-4">
+                                        <input class="form-control" type="text" readonly
+                                            value="<?= $data['instagram'] ?> " />
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-profile">
+                    <img src="https://images.unsplash.com/photo-1461360228754-6e81c478b882?q=80&w=1774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Image placeholder" class="card-img-top ">
+                    <div class="row justify-content-center">
+                        <div class="col-4 col-lg-4 order-lg-2">
+                            <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
+                                <a href="javascript:;">
+                                    <img src="<?php echo "../img/$data[foto]" ?>"
+                                        class="rounded-circle img-fluid border border-2 border-white ">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body pt-0">
+                        <div class="text-center mt-4">
+                            <h5>
+                                <?= $data['nm_pegawai'] ?> <span class="font-weight-light">,<?php $lahir = new DateTime($data['tgl_lahir']);
+                                                                                                $today = new DateTime();
+                                                                                                $umur = $today->diff($lahir);
+                                                                                                echo $umur->y;
+                                                                                                echo " Tahun. ";
+                                                                                                ?>
+                                </span>
+                            </h5>
+                            <div class="h6 font-weight-300">
+                                <span class="font-weight-light"><?= $data['alamat'] ?> </span>
+                            </div>
+                            <div class="h6 mt-4">
+                                <i class="ni business_briefcase-24 mr-2"></i> <?= $data['email'] ?> -
+                                <?= $data['instagram'] ?>
+                            </div>
+                            <div>
+                                <i class="text-bold"></i> E-Surat <br> Dinas Perhubungan Provinsi <br> Kalimantan Selatan
                             </div>
                         </div>
                     </div>

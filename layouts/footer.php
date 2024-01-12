@@ -36,10 +36,10 @@
 </script>
 
 <!--   Core JS Files   -->
-<script src="/aev/assets/js/core/popper.min.js"></script>
-<script src="/aev/assets/js/core/bootstrap.min.js"></script>
-<script src="/aev/assets/js/plugins/perfect-scrollbar.min.js"></script>
-<script src="/aev/assets/js/plugins/smooth-scrollbar.min.js"></script>
+<script src="/e-surat/assets/js/core/popper.min.js"></script>
+<script src="/e-surat/assets/js/core/bootstrap.min.js"></script>
+<script src="/e-surat/assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="/e-surat/assets/js/plugins/smooth-scrollbar.min.js"></script>
 
 
 
@@ -110,7 +110,7 @@ $(document).ready(function() {
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 
 
-<script src="/aev/assets/js/material-dashboard.min.js?v=3.0.4"></script>
+<script src="/e-surat/assets/js/material-dashboard.min.js?v=3.0.4"></script>
 
 <script src="../../assets/js/modal-enable-otp.js"></script>
 

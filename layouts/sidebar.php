@@ -8,16 +8,15 @@
                 2000,
                 strftime("%Y", time())
             ); ?>
-        <div class="sidenav-header mb-2">
+        <div class="sidenav-header mb-4 text-center ">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand" href="" target="_blank">
-                <img src="<?php echo "
-                    ../image/bjm.png" ?>" class="navbar-brand-img h-100" alt="main_logo" />
-                <span class=" font-weight-bold  text-white ms-3 ">
-                    Pelayanan Terpadu<br>
-                    <i class="ms-2">
-                        Kecamatan Banjarmasin Timur</i>
+                <img src="https://1.bp.blogspot.com/-x0XnjY4pIlY/W6XY0lAU3xI/AAAAAAAAD3o/JmngsUDBWVc2n_oijzaCpC8Vq1OPeLU9QCEwYBhgL/s1600/dishub%2Bpng.png" class="navbar-brand-img h-100" alt="main_logo" />
+                <span class=" font-weight-bold  text-white ms-2 text-center ">
+                    E - SURAT<br>
+                    <i class="ms-1">
+                    Dinas Perhubungan Provinsi <br> Kalimantan Selatan</i>
                 </span>
             </a>
         </div>
@@ -29,7 +28,7 @@
                     mysqli_query($link, "SELECT * FROM users WHERE id_user = '$id' ");
                 $data =
                     $query->fetch_array(); ?>
-            <span class="ms-1 text-black"><?= $data['username'] ?></span>
+            <span class="ms-1 text-black"><?= $data['nm_lengkap'] ?></span>
         </div>
         <hr class="horizontal light mt-0 mb-2 nav-link-text text-center ms-1" />
 
@@ -46,187 +45,89 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-master">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">square</i>
+                            <i class="material-icons opacity-10">art_track</i>
                         </div>
                         <span class="nav-link-text ms-1">Data Master</span>
                     </a>
                     <div class="collapse" id="data-master">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             <li>
-                                <a class="nav-link text-white " href="?page=data_user">
+                                <a class="nav-link text-white" href="?page=data_user">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">people</i>
                                     </div>
                                     <span class="nav-link-text ms-1">Users</span>
                                 </a>
-                                <a class="nav-link text-white " href="?page=data_golongan">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Data Golongan</span>
-                                </a>
+                                
                                 <a class="nav-link text-white " href="?page=data_jabatan">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
+                                        <i class="material-icons opacity-10">library_books</i>
                                     </div>
-                                    <span class="nav-link-text ms-1">Data Jabatan</span>
+                                    
+                                    <span class="nav-link-text ms-1"> Jabatan</span>
                                 </a>
                                 <a class="nav-link text-white " href="?page=data_pegawai">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <i class="material-icons opacity-10"><span class="material-symbols-outlined">diversity_3</span></i>
+                                    </div>
+                                    <span class="nav-link-text ms-1"> Pegawai</span>
+                                </a>
+                                <a class="nav-link text-white " href="?page=data_keperluan">
+                                    <div
+                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">assignment_ind</i>
                                     </div>
-                                    <span class="nav-link-text ms-1">Data Pegawai</span>
+                                    <span class="nav-link-text ms-1">Jenis Keperluan</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="?page=data_tamu">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">group_add</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Tamu</span>
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-pelayanan">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">announcement</i>
+                            <i class="material-icons opacity-10">border_color</i>
                         </div>
-                        <span class="nav-link-text ms-1">Data Pelayanan</span>
+                        <span class="nav-link-text ms-1">Data Surat</span>
                     </a>
                     <div class="collapse" id="data-pelayanan">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             <li>
-                                <a class="nav-link text-white " href="?page=data_susunanKeluarga">
+                                <a class="nav-link text-white " href="?page=data_suratMasuk">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
+                                        <i class="material-icons opacity-10">skip_next</i>
                                     </div>
-                                    <span class="nav-link-text ms-1">Susunan Keluarga</span>
+                                    <span class="nav-link-text ms-1">Surat Masuk</span>
                                 </a>
-                                <a class="nav-link text-white " href="?page=data_dispensasiNikah">
+                                <a class="nav-link text-white " href="?page=data_suratKeluar">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
+                                        <i class="material-icons opacity-10">skip_previous</i>
                                     </div>
-                                    <span class="nav-link-text ms-1">Rekomendasi Dispensasi
-                                        <br>
-                                        Nikah</span>
-                                </a>
-                                <a class="nav-link text-white " href="?page=data_sktm">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Legalisasi Surat
-                                        <br>
-                                        Keterangan Tidak Mampu</span>
-                                </a>
-                                <a class="nav-link text-white " href="?page=data_pengantarNikah">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Legalisasi Surat
-                                        <br>
-                                        Pengantar Nikah</span>
-                                </a>
-                                <a class="nav-link text-white " href="?page=data_proposal">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">assignment</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Legalisasi Proposal</span>
+                                    <span class="nav-link-text ms-1">Surat Keluar</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-penilaian">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">insert_chart</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Data Penilaian</span>
-                    </a>
-                    <div class="collapse" id="data-penilaian">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li>
-                                <a class="nav-link text-white " href="?page=data_KinerjaPegawai">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">beenhere</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Penilai Kinerja Pegawai</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="nav-link text-white " href="?page=data_kinerjaKecamatan">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">beenhere</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Penilai Kinerja Pelayanan
-                                        <br>
-                                        Kecamatan</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="?page=data_masyarakat">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">group_add</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Data Masyarakat</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="?page=data_berita">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">fiber_new</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Data Portal Berita</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="" data-bs-toggle="collapse"
-                        data-bs-target="#data-perjalanandinas">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">directions_car</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Data Perjalanan Dinas</span>
-                    </a>
-                    <div class="collapse" id="data-perjalanandinas">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li>
-                                <a class="nav-link text-white " href="?page=data_suratPerjalananDinas">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">beenhere</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Surat Perintah Tugas </span>
-                                </a>
-                            </li>
-                            <!-- <li class="nav-item">
-                                    <a class="nav-link text-white" href="?page=data_perjalananDinas">
-                                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                            <i class="material-icons opacity-10">directions_car</i>
-                                        </div>
-                                        <span class="nav-link-text ms-1">Data Perjalana <br> Dinas Pegawai</span>
-                                    </a>
-                                </li> -->
-                        </ul>
-                    </div>
-
-                </li>
-
                 <li class="nav-item">
                     <a class="nav-link text-white" href="#" data-bs-toggle="collapse" data-bs-target="#laporan-laporan">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">book</i>
+                            <i class="material-icons opacity-10">library_books</i>
                         </div>
-                        <span class="nav-link-text ms-1">Laporan-Laporan</span>
+                        <span class="nav-link-text ms-1">Laporan</span>
                     </a>
                     <div class="collapse" id="laporan-laporan">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -234,10 +135,8 @@
                                 <a class="nav-link text-white ">
                                     <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
                                         data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                                        <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Surat
-                                            <br>
-                                            Pengantar Nikah</span>
+                                        <i class="material-icons opacity-10">turned_in_not</i>
+                                        <span class="nav-link-text ms-3">Surat Masuk</span>
                                     </div>
                                 </a>
                                 <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
@@ -245,8 +144,7 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Surat Pengantar
-                                                    Nikah</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Surat</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -285,484 +183,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white ">
-                                    <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                                        <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Legalisasi
-                                            <br>
-                                            Surat Keterangan Tidak
-                                            <br>
-                                            Mampu</span>
-                                    </div>
-                                </a>
-                                <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabe4" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Legalisasi Surat
-                                                    Keterangan Tidak Mampu</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="POST" target="_blank" action="../laporan/l_sktm.php">
-                                                    <div class="form-group row">
-                                                        <div class="col-md-4">
-                                                            <label>Dari Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl1"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <label>Sampai Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl2"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4" style="margin-top: 31px;">
-                                                            <button align="center" type="submit" name="cetak2"
-                                                                class="btn btn-info btn-md">
-                                                                <i class="fa fa-print"></i>
-                                                                Cetak</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                                <hr>
-                                                <div class="form-group text-center">
-                                                    <a href="../laporan/l_sktm.php" target="_blank"
-                                                        class="btn btn-info btn-md">
-                                                        <i class="fa fa-print"></i>
-                                                        Cetak Semua</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white ">
-                                    <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                                        <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Legalisasi
-                                            <br>
-                                            Susunan Keluarga</span>
-                                    </div>
-                                </a>
-                                <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabe4" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Legalisasi
-                                                    Susunan Keluarga</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="POST" target="_blank" action="../laporan/l_sk.php">
-                                                    <div class="form-group row">
-                                                        <div class="col-md-4">
-                                                            <label>Dari Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl1"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <label>Sampai Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl2"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4" style="margin-top: 31px;">
-                                                            <button align="center" type="submit" name="cetak3"
-                                                                class="btn btn-info btn-md">
-                                                                <i class="fa fa-print"></i>
-                                                                Cetak</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                                <hr>
-                                                <div class="form-group text-center">
-                                                    <a href="../laporan/l_sk.php" target="_blank"
-                                                        class="btn btn-info btn-md">
-                                                        <i class="fa fa-print"></i>
-                                                        Cetak Semua</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white ">
-                                    <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal4">
-                                        <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Rekomendasi
-                                            <br>
-                                            Dispensasi Nikah</span>
-                                    </div>
-                                </a>
-                                <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabe4" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Rekomendasi
-                                                    Dispensasi Nikah</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="POST" target="_blank" action="../laporan/l_rdn.php">
-                                                    <div class="form-group row">
-                                                        <div class="col-md-4">
-                                                            <label>Dari Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl1"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <label>Sampai Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl2"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4" style="margin-top: 31px;">
-                                                            <button align="center" type="submit" name="cetak4"
-                                                                class="btn btn-info btn-md">
-                                                                <i class="fa fa-print"></i>
-                                                                Cetak</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                                <hr>
-                                                <div class="form-group text-center">
-                                                    <a href="../laporan/l_rdn.php" target="_blank"
-                                                        class="btn btn-info btn-md">
-                                                        <i class="fa fa-print"></i>
-                                                        Cetak Semua</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white ">
-                                    <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal5">
-                                        <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Legalisasi Proposal</span>
-                                    </div>
-                                </a>
-                                <div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabe4" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Legalisasi
-                                                    Proposal</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="POST" target="_blank" action="../laporan/l_lp.php">
-                                                    <div class="form-group row">
-                                                        <div class="col-md-4">
-                                                            <label>Dari Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl1"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <label>Sampai Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl2"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4" style="margin-top: 31px;">
-                                                            <button align="center" type="submit" name="cetak5"
-                                                                class="btn btn-info btn-md">
-                                                                <i class="fa fa-print"></i>
-                                                                Cetak</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                                <hr>
-                                                <div class="form-group text-center">
-                                                    <a href="../laporan/l_lp.php" target="_blank"
-                                                        class="btn btn-info btn-md">
-                                                        <i class="fa fa-print"></i>
-                                                        Cetak Semua</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white ">
-                                    <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal6">
-                                        <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Berita
-                                            <br>
-                                            Kegiatan Kecamatan</span>
-                                    </div>
-                                </a>
-                                <div class="modal fade" id="exampleModal6" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabe4" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Berita Kegiatan
-                                                    Kecamatan</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="POST" target="_blank" action="../laporan/l_news.php">
-                                                    <div class="form-group row">
-                                                        <div class="col-md-4">
-                                                            <label>Dari Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl1"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <label>Sampai Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl2"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4" style="margin-top: 31px;">
-                                                            <button align="center" type="submit" name="cetak6"
-                                                                class="btn btn-info btn-md">
-                                                                <i class="fa fa-print"></i>
-                                                                Cetak</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                                <hr>
-                                                <div class="form-group text-center">
-                                                    <a href="../laporan/l_news.php" target="_blank"
-                                                        class="btn btn-info btn-md">
-                                                        <i class="fa fa-print"></i>
-                                                        Cetak Semua</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white ">
-                                    <div class="text-white me-2 d-flex " type="button" class="btn bg-gradient-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal7">
-                                        <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Data Diri
-                                            <br>
-                                            Masyarakat</span>
-                                    </div>
-                                </a>
-                                <div class="modal fade" id="exampleModal7" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabe4" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Data Pribadi
-                                                    Masyarakat</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="form-group text-center">
-                                                    <a href="../laporan/l_msy.php" target="_blank"
-                                                        class="btn btn-info btn-md">
-                                                        <i class="fa fa-print"></i>
-                                                        Cetak Semua</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white ">
-                                    <div class="text-white me-2 d-flex" type="button" class="btn bg-gradient-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal8">
-                                        <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Data Kinerja
-                                            <br>
-                                            Pelayanan Kecamatan</span>
-                                    </div>
-                                </a>
-                                <div class="modal fade" id="exampleModal8" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabe4" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Kinerja Pelayanan
-                                                    Kecamatan</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="POST" target="_blank"
-                                                    action="../laporan/l_KinerjaKec.php">
-                                                    <div class="form-group row">
-                                                        <div class="col-md-4">
-                                                            <label>Dari Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl1"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <label>Sampai Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl2"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4" style="margin-top: 31px;">
-                                                            <button align="center" type="submit" name="cetak8"
-                                                                class="btn btn-info btn-md">
-                                                                <i class="fa fa-print"></i>
-                                                                Cetak</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                                <hr>
-                                                <div class="form-group text-center">
-                                                    <a href="../laporan/l_KinerjaKec.php" target="_blank"
-                                                        class="btn btn-info btn-md">
-                                                        <i class="fa fa-print"></i>
-                                                        Cetak Semua</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white ">
-                                    <div class="text-white me-2 d-flex" type="button" class="btn bg-gradient-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal9">
-                                        <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Data
-                                            <br>
-                                            Kinerja Pegawai</span>
-                                    </div>
-                                </a>
-                                <div class="modal fade" id="exampleModal9" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabe4" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Kinerja Pegawai
-                                                </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="POST" target="_blank"
-                                                    action="../laporan/l_KinerjaPegawai.php">
-                                                    <div class="form-group row">
-                                                        <div class="col-md-4">
-                                                            <label>Dari Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl1"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <label>Sampai Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl2"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4" style="margin-top: 31px;">
-                                                            <button align="center" type="submit" name="cetak9"
-                                                                class="btn btn-info btn-md">
-                                                                <i class="fa fa-print"></i>
-                                                                Cetak</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                                <hr>
-                                                <div class="form-group text-center">
-                                                    <a href="../laporan/l_KinerjaPegawai.php" target="_blank"
-                                                        class="btn btn-info btn-md">
-                                                        <i class="fa fa-print"></i>
-                                                        Cetak Semua</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white ">
-                                    <div class="text-white me-2 d-flex" type="button" class="btn bg-gradient-primary"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal10">
-                                        <i class="material-icons opacity-10">print</i>
-                                        <span class="nav-link-text ms-1">Laporan Data
-                                            <br>
-                                            Perjalanan Dinas</span>
-                                    </div>
-                                </a>
-                                <div class="modal fade" id="exampleModal10" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabe4" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Laporan Perjalanan DInas
-                                                </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="POST" target="_blank"
-                                                    action="../laporan/l_PerjalananDinas.php">
-                                                    <div class="form-group row">
-                                                        <div class="col-md-4">
-                                                            <label>Dari Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl1"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <label>Sampai Tanggal</label>
-                                                            <input type="date" class="form-control" name="tgl2"
-                                                                required>
-                                                        </div>
-                                                        <div class="col-md-4" style="margin-top: 31px;">
-                                                            <button align="center" type="submit" name="cetak10"
-                                                                class="btn btn-info btn-md">
-                                                                <i class="fa fa-print"></i>
-                                                                Cetak</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                                <hr>
-                                                <div class="form-group text-center">
-                                                    <a href="../laporan/l_PerjalananDinas.php" target="_blank"
-                                                        class="btn btn-info btn-md">
-                                                        <i class="fa fa-print"></i>
-                                                        Cetak Semua</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                            
                         </ul>
                     </div>
                 </li>
@@ -917,16 +338,15 @@
             2000,
             strftime("%Y", time())
         ); ?>
-        <div class="sidenav-header mb-2">
+        <div class="sidenav-header mb-4 text-center ">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand" href="" target="_blank">
-                <img src="<?php echo "
-                    ../image/bjm.png" ?>" class="navbar-brand-img h-100" alt="main_logo" />
-                <span class=" font-weight-bold  text-white ms-3 ">
-                    Pelayanan Terpadu<br>
-                    <i class="ms-2">
-                        Kecamatan Banjarmasin Timur</i>
+                <img src="https://1.bp.blogspot.com/-x0XnjY4pIlY/W6XY0lAU3xI/AAAAAAAAD3o/JmngsUDBWVc2n_oijzaCpC8Vq1OPeLU9QCEwYBhgL/s1600/dishub%2Bpng.png" class="navbar-brand-img h-100" alt="main_logo" />
+                <span class=" font-weight-bold  text-white ms-1 text-center ">
+                    E-Surat<br>
+                    <i class="ms-1">
+                    Dinas Perhubungan Provinsi <br> Kalimantan Selatan</i>
                 </span>
             </a>
         </div>
@@ -975,20 +395,7 @@
                                     </div>
                                     <span class="nav-link-text ms-1">Data Pribadi</span>
                                 </a>
-                                <a class="nav-link text-white " href="?page=dataPerjalananDinas">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">directions_car</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Perjalanan Dinas</span>
-                                </a>
-                                <a class="nav-link text-white " href="?page=dataKinerjaPegawai">
-                                    <div
-                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">equalizer</i>
-                                    </div>
-                                    <span class="nav-link-text ms-1">Penilaian Kinerja</span>
-                                </a>
+                                
                             </li>
                         </ul>
                     </div>

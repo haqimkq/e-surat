@@ -32,19 +32,7 @@ if (!isset($_SESSION['nama'])) {
 
 
             /////////////////////////////////////////////// START ADMIN PAGE
-            //PORTAL BERITA
-        case "data_berita";
-            include "../pages/admin/news/data.php";
-            break;
-        case "tambah_berita";
-            include "../pages/admin/news/add.php";
-            break;
-        case "edit_berita";
-            include "../pages/admin/news/edit.php";
-            break;
-        case "hapus_berita";
-            include "../pages/admin/news/delete.php";
-            break;
+           
 
             // PEGAWAI
         case "data_pegawai";
@@ -68,17 +56,6 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/admin/profile/data.php";
             break;
 
-            // GOLONGAN
-        case "data_golongan";
-            include "../pages/admin/golongan/data.php";
-            break;
-        case "edit_golongan";
-            include "../pages/admin/golongan/edit.php";
-            break;
-        case "hapus_golongan";
-            include "../pages/admin/golongan/delete.php";
-            break;
-
             // JABATAN
         case "data_jabatan";
             include "../pages/admin/jabatan/data.php";
@@ -90,22 +67,16 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/admin/jabatan/delete.php";
             break;
 
-            // MASYARAKAT
-        case "data_masyarakat";
-            include "../pages/admin/masyarakat/data.php";
-            break;
-        case "tambah_masyarakat";
-            include "../pages/admin/masyarakat/add.php";
-            break;
-        case "detail_masyarakat";
-            include "../pages/admin/masyarakat/detail.php";
-            break;
-        case "edit_masyarakat";
-            include "../apages/dmin/masyarakat/edit.php";
-            break;
-        case "hapus_masyarakat";
-            include "../pages/admin/masyarakat/delete.php";
-            break;
+             // KEPERLUAN
+        case "data_keperluan";
+            include "../pages/admin/keperluan/data.php";
+        break;
+        case "edit_keperluan";
+            include "../pages/admin/keperluan/edit.php";
+        break;
+        case "hapus_keperluan";
+             include "../pages/admin/keperluan/delete.php";
+        break;
 
             // USERS
         case "data_user";
@@ -124,94 +95,32 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/admin/user/delete.php";
             break;
 
-            //LEGALISASI PROPOSAL
-        case "data_proposal":
-            include "../pages/admin/legalisasi-proposal/data.php";
+             // TAMU
+            case "data_tamu";
+                include "../pages/admin/tamu/data.php";
+                break;
+            case "tambah_tamu";
+                include "../pages/admin/tamu/add.php";
+                break;
+            case "edit_tamu";
+                include "../pages/admin/tamu/edit.php";
+                break;
+            case "hapus_tamu";
+                include "../pages/admin/tamu/delete.php";
+                break;
+                
+            //SURAT MASUK
+        case "data_suratMasuk";
+            include "../pages/admin/surat-masuk/data.php";
             break;
-        case "edit_proposal":
-            include "../pages/admin/legalisasi-proposal/edit.php";
+        case "tambah_suratMasuk";
+            include "../pages/admin/surat-masuk/add.php";
             break;
-
-            //LEGALISASI SKTM
-        case "data_sktm":
-            include "../pages/admin/surat-keterangan-tidak-mampu/data.php";
+        case "edit_suratMasuk";
+            include "../pages/admin/surat-masuk/edit.php";
             break;
-        case "edit_sktm":
-            include "../pages/admin/surat-keterangan-tidak-mampu/edit.php";
-            break;
-
-            //Legalisasi Susunan Keluarga
-        case "data_susunanKeluarga";
-            include "../pages/admin/legalisasi-susunan-keluarga/data.php";
-            break;
-        case "edit_susunanKeluarga";
-            include "../pages/admin/legalisasi-susunan-keluarga/edit.php";
-            break;
-            //Legalisasi Pengantar Nikah
-        case "data_pengantarNikah";
-            include "../pages/admin/legalisasi-pengantar-nikah/data.php";
-            break;
-        case "edit_pengantarNikah";
-            include "../pages/admin/legalisasi-pengantar-nikah/edit.php";
-            break;
-            //Rekomendasi Dispenasi Nikah
-        case "data_dispensasiNikah";
-            include "../pages/admin/dispensasi-nikah/data.php";
-            break;
-        case "edit_dispensasiNikah";
-            include "../pages/admin/dispensasi-nikah/edit.php";
-            break;
-
-            //SURAT REKOMENDASI DISPENSASI NIKAH
-        case "data_SuratDispensasiNikah":
-            include "../pages/admin/surat-dispensasi-nikah/data.php";
-            break;
-        case "hapus_SuratDispensasiNikah":
-            include "../pages/admin/surat-dispensasi-nikah/delete.php";
-            break;
-
-            // PENILAIAN KINERJA PEGAWAI
-        case "data_KinerjaPegawai":
-            include "../pages/admin/kinerja-pegawai/data.php";
-            break;
-        case "tambah_KinerjaPegawai":
-            include "../pages/admin/kinerja-pegawai/add.php";
-            break;
-        case "edit_KinerjaPegawai":
-            include "../pages/admin/kinerja-pegawai/edit.php";
-            break;
-        case "hapus_KinerjaPegawai":
-            include "../pages/admin/kinerja-pegawai/delete.php";
-            break;
-
-            // PENILAIAN KINERJA KECAMATAN
-        case "data_kinerjaKecamatan":
-            include "../pages/admin/kinerja-kecamatan/data.php";
-            break;
-        case "hapus_kinerjaKecamatan":
-            include "../pages/admin/kinerja-kecamatan/delete.php";
-            break;
-
-            //     //PERJALANAN DINAS
-            // case "data_perjalananDinas";
-            //     include "../pages/admin/perjalanan-dinas/data.php";
-            //     break;
-            // case "hapus_perjalananDinas";
-            //     include "../pages/admin/perjalanan-dinas/delete.php";
-            //     break;
-
-            //SURAY PERJALANAN DINAS
-        case "data_suratPerjalananDinas";
-            include "../pages/admin/surat-perjalanan-dinas/data.php";
-            break;
-        case "tambah_suratPerjalananDinas";
-            include "../pages/admin/surat-perjalanan-dinas/add.php";
-            break;
-        case "edit_suratPerjalananDinas";
-            include "../pages/admin/surat-perjalanan-dinas/edit.php";
-            break;
-        case "hapus_suratPerjalananDinas";
-            include "../pages/admin/surat-perjalanan-dinas/delete.php";
+        case "hapus_suratMasuk";
+            include "../pages/admin/surat-masuk/delete.php";
             break;
             //////////////////////////////////////////////////////////////////////// END ADMIN PAGE -----------
 
@@ -229,6 +138,9 @@ if (!isset($_SESSION['nama'])) {
             break;
         case "hapusPegawai";
             include "../pages/other/pegawai/delete.php";
+            break;
+            case "detail_Pegawai";
+            include "../pages/other/pegawai/detail.php";
             break;
 
             //PERJALANAN DINAS

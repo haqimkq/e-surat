@@ -85,7 +85,6 @@ if (!isset($_SESSION['nama'])) {
                                                                     <option>-- PILIH --</option>
                                                                     <option value="0">Admin</option>
                                                                     <option value="1">Pegawai</option>
-                                                                    <option value="3">Camat</option>
                                                                 </select>
                                                                 <div class="help-block with-errors"></div>
                                                             </div>

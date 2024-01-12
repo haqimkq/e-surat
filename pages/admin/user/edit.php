@@ -101,12 +101,7 @@ if (!isset($_SESSION['nama'])) {
                                                                     <option value="1" <?php if ($data['level'] == '1') {
                                                                                                 echo "selected";
                                                                                             } ?>>Pegawai</option>
-                                                                    <option value="2" <?php if ($data['level'] == '2') {
-                                                                                                echo "selected";
-                                                                                            } ?>>Masyarakat</option>
-                                                                    <option value="3" <?php if ($data['level'] == '3') {
-                                                                                                echo "selected";
-                                                                                            } ?>>Camat</option>
+                                                                    
                                                                 </select>
                                                                 <div class="help-block with-errors"></div>
                                                             </div>

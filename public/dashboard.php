@@ -1,52 +1,5 @@
 <?php
 
-$sbp = mysqli_query($link, "SELECT COUNT(*) AS total FROM skp where nilai_prestasi_kerja between  80 and 100   ");
-$hitungsbp = mysqli_fetch_array($sbp);
-
-$bp = mysqli_query($link, "SELECT COUNT(*) AS total FROM skp where nilai_prestasi_kerja between   70 and 79  ");
-$hitungbp = mysqli_fetch_array($bp);
-
-$cp = mysqli_query($link, "SELECT COUNT(*) AS total FROM skp where nilai_prestasi_kerja between   60 and 69  ");
-$hitungc = mysqli_fetch_array($cp);
-
-$kp = mysqli_query($link, "SELECT COUNT(*) AS total FROM skp where nilai_prestasi_kerja between   40 and 59  ");
-$hitungkp = mysqli_fetch_array($kp);
-
-$brkp = mysqli_query($link, "SELECT COUNT(*) AS total FROM skp where nilai_prestasi_kerja between   0 and 39  ");
-$hitungbrkp = mysqli_fetch_array($brkp);
-
-$skpkec = mysqli_query($link, "SELECT COUNT(*) AS total FROM skpkecamatan ");
-$hitungskpkec = mysqli_fetch_array($skpkec);
-
-$spn = mysqli_query($link, "SELECT COUNT(*) AS total FROM spn ");
-$hitungspn = mysqli_fetch_array($spn);
-
-$sktm = mysqli_query($link, "SELECT COUNT(*) AS total FROM sktm ");
-$hitungsktm = mysqli_fetch_array($sktm);
-
-$sk = mysqli_query($link, "SELECT COUNT(*) AS total FROM s_keluarga ");
-$hitungsk = mysqli_fetch_array($sk);
-
-$rdn = mysqli_query($link, "SELECT COUNT(*) AS total FROM rdn ");
-$hitungrdn = mysqli_fetch_array($rdn);
-
-$lp = mysqli_query($link, "SELECT COUNT(*) AS total FROM proposal ");
-$hitunglp = mysqli_fetch_array($lp);
-
-$sb = mysqli_query($link, "SELECT COUNT(*) AS total FROM skpkecamatan where nilai_prestasi_kerja between  80 and 100   ");
-$hitungsb = mysqli_fetch_array($sb);
-
-$b = mysqli_query($link, "SELECT COUNT(*) AS total FROM skpkecamatan where nilai_prestasi_kerja between   70 and 79  ");
-$hitungb = mysqli_fetch_array($b);
-
-$c = mysqli_query($link, "SELECT COUNT(*) AS total FROM skpkecamatan where nilai_prestasi_kerja between   60 and 69  ");
-$hitungc = mysqli_fetch_array($c);
-
-$k = mysqli_query($link, "SELECT COUNT(*) AS total FROM skpkecamatan where nilai_prestasi_kerja between   40 and 59  ");
-$hitungk = mysqli_fetch_array($k);
-
-$brk = mysqli_query($link, "SELECT COUNT(*) AS total FROM skpkecamatan where nilai_prestasi_kerja between   0 and 39  ");
-$hitungbrk = mysqli_fetch_array($brk);
 
 
 function tgl($tanggal)
@@ -174,161 +127,14 @@ function tgl($tanggal)
             </div>
         </div>
     </div>
-    <div class="row mt-4">
-        <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
-            <div class="card">
-                <div class="card-header pb-0">
-                    <div class="row">
-                        <div class="col-lg-12 col-12">
-                            <h6 align="center">Data Penilaian Kinerja Pelayanan Dari Masyarakat</h6>
-                            <p class="text-sm mb-0">
-                                <i class="fa fa-check text-info" aria-hidden="true"></i>
-                                <span class="font-weight-bold ms-1"> Total : <?php echo $hitungskpkec['total'] ?></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body px-0 pb-2 ">
-                    <div class="table-responsive">
-                        <table class="table align-items-center mb-0 ">
-                            <thead>
-                                <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No.
-                                    </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Nama
-                                    </th>
-                                    <th
-                                        class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Tanggal Input
-                                    </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Nilai Kinerja
-                                    </th>
-                                    <th
-                                        class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Keterangan Kinerja
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $i = 1;
-                                $query = mysqli_query($link, "SELECT * FROM  skpkecamatan s 
-                                join masyarakat m on s.id_msy = m.id_msy order by tgl_kinerja DESC LIMIT 6 
-                                ");
-
-                                while ($row = $query->fetch_array()) {
-                                ?>
-                                <tr>
-                                    <td class="w-3" align="center"><?= $i++ ?></td>
-                                    <td align="left"><?= $row['nama']; ?></td>
-                                    <td align="center"><?= tgl($row['tgl_kinerja']) ?></td>
-                                    <td class="w-5" align="center"><?= $row['nilai_prestasi_kerja']; ?></td>
-                                    <td align=" center">
-                                        <?php
-
-                                            if ($row['nilai_prestasi_kerja'] >= 80 && $row['nilai_prestasi_kerja'] <= 100) {
-                                                echo "Sangat Baik";
-                                            } else if ($row['nilai_prestasi_kerja'] >= 70 && $row['nilai_prestasi_kerja'] <= 80) {
-                                                echo "Baik";
-                                            } else if ($row['nilai_prestasi_kerja'] >= 60 && $row['nilai_prestasi_kerja'] <= 70) {
-                                                echo "Cukup";
-                                            } else if ($row['nilai_prestasi_kerja'] >= 40 && $row['nilai_prestasi_kerja'] <= 60) {
-                                                echo "Kurang";
-                                            } else if ($row['nilai_prestasi_kerja'] >= 0 && $row['nilai_prestasi_kerja'] <= 39) {
-                                                echo "Buruk";
-                                            }
-
-                                            ?>
-                                </tr>
-
-                                <?php
-                                }
-                                ?>
-
-                            </tbody>
-
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-10">
-            <div class="card h-100">
-                <div class="card-header pb-0">
-                    <h6 align="center">PELAYANAN ADMINISTRASI TERPADU KECAMATAN BANJARMASIN TIMUR</h6>
-
-                    <i class="fa fa-check text-info" aria-hidden="true"></i>
-                    <span class="font-weight-bold"></span> Visi - Misi
-                </div>
-                <div class="card-body p-3">
-                    <div class="timeline timeline-one-side">
-                        <div class="timeline-block mb-2">
-                            <span class="timeline-step">
-                                <i class="material-icons text-success text-gradient"></i>
-                            </span>
-                            <div class="timeline-content">
-                                <h6 class="text-dark text-sm font-weight-bold mb-0">Visi</h6>
-                                <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">Pelayanan Prima Dan
-                                    Berkualitas Bagi Publik.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-block mb-2 ">
-                            <span class="timeline-step ">
-                                <i class="material-icons text-success text-gradient"></i>
-                            </span>
-                            <div class="timeline-content">
-                                <h6 class="text-dark text-sm font-weight-bold mb-0">Misi</h6>
-                                <p align="justify" class="text-secondary font-weight-bold text-xs mt-1 mb-0">
-                                    1.Meningkatkan Kualitas Pelayanan Yang Berorientasi Publik. <br><br>
-                                    2.Meningkatkan Kualitas Prasarana Dan Sarana Ruang Pelayanan. <br><br>
-                                    3.Mengembangkan Sistem Pelayanan Berbasis Informasi Teknologi. <br><br>
-                                    4.Meningkatkan Kualitas Serta Kemampuan Problem Solving Petugas ( PATEN ) Dalam
-                                    Memberikan Pelayanan.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
     <div class="row">
         <div class="col-12 col-md-6">
-            <div class="card mt-3">
-                <div class="card-header mb-xl- pb-0">
-                    <div class="row">
-                        <h6 align="center">Grafik Penilaian Kinerja Pelayanan Pada <br> Kecamatan Banjarmasin Timur</h6>
-                        <div class="col-md-12">
-                            <div class="control-panel">
-                                <style>
-                                canvas {
-                                    -moz-user-select: none;
-                                    -webkit-user-select: none;
-                                    -ms-user-select: none;
-                                }
-                                </style>
-                                <center><strong>
-                                        <div style="width: 100% ">
-                                            <canvas id="chartId"></canvas>
-                                        </div>
-                                    </strong></center>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body px-0 pb-1">
-                    <div class="table-responsive">
-                        <table class="table align-items-center mb-0">
-                        </table>
-                    </div>
-                </div>
-            </div>
+          
         </div>
         <div class="col-12 col-md-6">
-            <div class="card mt-3">
+            <!-- <div class="card mt-3">
                 <div class="card-header mb-xl- pb-0">
                     <div class="row">
                         <h6 align="center">Grafik Penilaian Kinerja Pegawai </h6>
@@ -356,7 +162,7 @@ function tgl($tanggal)
                         </table>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 

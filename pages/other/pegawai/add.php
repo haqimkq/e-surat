@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['nama'])) {
     echo "<script> alert('Silahkan login terlebih dahulu'); </script>";
-    echo "<meta http-equiv='refresh' content='0; url=../aev/index.php'>";
+    echo "<meta http-equiv='refresh' content='0; url=../e-surat/index.php'>";
 } else {
 
 ?>
@@ -42,61 +42,7 @@ if (!isset($_SESSION['nama'])) {
                                                     <?php
                                                         }
                                                         ?>
-                                                    <!-- START MODAL -->
-                                                    <div class="modal fade" id="modal" tabindex="-1" role="dialog"
-                                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog" role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Pilih
-                                                                        Username</h5>
-                                                                    <button type="button" class="btn-close"
-                                                                        data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class="table-responsive">
-                                                                        <table id="example1"
-                                                                            class="table table-bordered">
-                                                                            <thead class="bg-lightblue">
-                                                                                <tr align="center">
-                                                                                    <th>No</th>
-                                                                                    <th>Username</th>
-                                                                                    <th>Aksi</th>
-                                                                                </tr>
-                                                                            </thead>
-
-                                                                            <tbody>
-                                                                                <?php
-                                                                                    $no = 1;
-                                                                                    $data = $link->query("SELECT * FROM users WHERE id_user = '$id'  ");
-                                                                                    while ($row = $data->fetch_array()) {
-                                                                                    ?>
-                                                                                <tr>
-                                                                                    <td align="center" width="5%">
-                                                                                        <?= $no++ ?></td>
-                                                                                    <td><?= $row['username'] ?></td>
-                                                                                    <td align="center" width="18%">
-                                                                                        <button
-                                                                                            class="btn btn-xs btn-success"
-                                                                                            id="select"
-                                                                                            data-id_user="<?= $row['id_user'] ?>"
-                                                                                            data-username="<?= $row['username'] ?>">
-                                                                                            Pilih
-                                                                                        </button>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <?php } ?>
-                                                                            </tbody>
-
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- END MODAL -->
+                                                   
 
                                                     <h5> Data Kepegawaian</h5>
                                                     <!-- <hr class="horizontal dark"> -->
@@ -151,31 +97,7 @@ if (!isset($_SESSION['nama'])) {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div class="input-group input-group-dynamic">
-                                                            <div class="input-group input-group-dynamic mb-4">
-                                                                <select class="form-control" aria-label="golongan"
-                                                                    type="text" name="id_golongan" required>
-                                                                    <option>-- PILIH GOLONGAN -- </option>
-                                                                    <?php
-                                                                        $sql = ("SELECT * FROM  golongan");
-                                                                        $hasil = mysqli_query($link, $sql);
-                                                                        $no = 0;
-                                                                        while ($data = mysqli_fetch_array($hasil)) {
-                                                                            $no++;
-                                                                        ?>
-                                                                    <option value="<?php echo
-                                                                                            $data['id_golongan']; ?>">
-                                                                        <?php echo
-                                                                                $data['nm_golongan']; ?>
-                                                                    </option>
-                                                                    <?php
-                                                                        }
-                                                                        ?>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    
                                                     <div class="col-md-6">
                                                         <div class="input-group input-group-dynamic">
                                                             <div class="input-group input-group-dynamic mb-4">
@@ -349,30 +271,11 @@ if (!isset($_SESSION['nama'])) {
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
-</script>
-<!-- JAVASCRIPT MODAL -->
-<script type="text/javascript">
-$(document).ready(function() {
-    $(document).on('click', '#select', function() {
-        var id_user = $(this).data('id_user');
-        var username = $(this).data('username');
-        $('#id_user').val(id_user);
-        $('#username').val(username);
-        $('#modal').modal('hide');
-    });
-})
-</script>
 
 <?php
     if (isset($_POST['simpan'])) {
         $id_user = $_POST['id_user'];
         $id_jabatan = $_POST['id_jabatan'];
-        $id_golongan = $_POST['id_golongan'];
         $nm_pegawai = $_POST['nm_pegawai'];
         $nip = $_POST['nip'];
         $tmpt_lahir = $_POST['tmpt_lahir'];
@@ -420,7 +323,6 @@ $(document).ready(function() {
             '', 
             '$id_user',
             '$id_jabatan',
-            '$id_golongan',
             '$nm_pegawai',
             '$nip',
             '$tmpt_lahir',

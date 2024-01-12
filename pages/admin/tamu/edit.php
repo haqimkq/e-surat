@@ -4,13 +4,11 @@ include "../db/koneksi.php";
 
 if (!isset($_SESSION['nama'])) {
     echo "<script> alert('Silahkan login terlebih dahulu'); </script>";
-    echo "<meta http-equiv='refresh' content='0; url=../e-surat/index.php'>";
+    echo "<meta http-equiv='refresh' content='0; url=../aev/index.php'>";
 } else {
 
     $id = $_GET['id'];
-    $query = $link->query("SELECT * FROM pegawai p 
-    join jabatan j on j.id_jabatan = p.id_jabatan 
-     WHERE id_pegawai = '$id'");
+    $query = $link->query("SELECT * FROM pegawai p join jabatan j on j.id_jabatan = p.id_jabatan join golongan g on p.id_golongan = g.id_golongan WHERE id_pegawai = '$id'");
     $data = $query->fetch_array();
 
 
@@ -112,7 +110,34 @@ if (!isset($_SESSION['nama'])) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+                                            <div class="col-md-4">
+                                                <div class="input-group input-group-dynamic">
+                                                    <label class="text-bold">Golongan :</label>
+                                                    <div class="input-group input-group-dynamic mb-4">
+                                                        <select class="form-control" aria-label="Golongan" type="text"
+                                                            name="id_golongan" required>
+                                                            <?php $q = $link->query("SELECT * FROM golongan ");
+                                                                while ($d =
+                                                                    $q->fetch_array()
+                                                                ) {
+                                                                    if ($d['id_golongan'] == $data['id_golongan']) { ?>
+                                                            <option value="<?= $d['id_golongan']; ?>"
+                                                                selected="<?= $d['id_golongan']; ?>">
+                                                                <?= $d['nm_golongan'] ?>
+                                                            </option>
+                                                            <?php
+                                                                    } else {
+                                                                    ?>
+                                                            <option value="<?= $d['id_golongan'] ?>">
+                                                                <?= $d['nm_golongan'] ?>
+                                                            </option>
+                                                            <?php }
+                                                                } ?>
+                                                        </select>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="col-md-3">
                                                 <div class="input-group input-group-dynamic">
                                                     <label class="text-bold">Jabatan :</label>
@@ -266,6 +291,7 @@ if (!isset($_SESSION['nama'])) {
     if (isset($_POST['edit'])) {
         $id_user = $_POST['id_user'];
         $jabatan = $_POST['id_jabatan'];
+        $golongan = $_POST['id_golongan'];
         $namaPegawai = $_POST['nm_pegawai'];
         $nip = $_POST['nip'];
         $tempatLahir = $_POST['tmpt_lahir'];
@@ -316,6 +342,7 @@ if (!isset($_SESSION['nama'])) {
         $edit = $link->query("UPDATE pegawai SET 
 id_user = '$id_user',
 id_jabatan = '$jabatan',
+id_golongan = '$golongan',
 nm_pegawai = '$namaPegawai', 
 nip = '$nip', 
 tmpt_lahir = '$tempatLahir',
@@ -333,10 +360,10 @@ WHERE id_pegawai = '$id'");
 
         if ($edit) {
             echo "<script>alert('Data berhasil diedit')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=dataPegawai'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=data_pegawai'>";
         } else {
             echo "<script>alert('Data anda gagal diedit. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=editPegawai'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=edit_pegawai'>";
         }
     }
 }

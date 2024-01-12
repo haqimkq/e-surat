@@ -90,7 +90,7 @@ if (!isset($_SESSION['nama'])) {
                                                         <?php echo "<img src='$row[foto]' width='70' height='70' style='border-radius: 50%;' />"; ?>
                                                     </td>
                                                     <td align="center">
-                                                        <a href="?page=data_profile&id=<?= $row[0]; ?>" class="btn btn-sm btn-success" title="Detail">Detail</a>
+                                                        <a href="?page=detail_Pegawai&id=<?= $row[0]; ?>" class="btn btn-sm btn-success" title="Detail">Detail</a>
                                                     </td>
                                                 </tr>
                                             <?php } ?>

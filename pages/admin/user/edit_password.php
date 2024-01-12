@@ -63,7 +63,7 @@ if (!isset($_SESSION['nama'])) {
                                                             <label>Password</label>
                                                             <div class="input-group input-group-dynamic mb-4">
                                                                 <input class="form-control" aria-label="Password"
-                                                                    type="text" name="password" data-minlength="4"
+                                                                    type="password" name="password" data-minlength="4"
                                                                     data-error="Tidak Boleh Kurang dari 4" required>
                                                                 <div class="help-block with-errors"></div>
                                                             </div>

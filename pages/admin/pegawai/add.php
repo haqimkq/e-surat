@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['nama'])) {
     echo "<script> alert('Silahkan login terlebih dahulu'); </script>";
-    echo "<meta http-equiv='refresh' content='0; url=../aev/index.php'>";
+    echo "<meta http-equiv='refresh' content='0; url=../e-surat/index.php'>";
 } else {
 
 ?>
@@ -111,7 +111,7 @@ if (!isset($_SESSION['nama'])) {
                                                                             <option value="<?php echo
                                                                                             $data['id_user']; ?>">
                                                                                 <?php echo
-                                                                                $data['username']; ?>
+                                                                                $data['nm_lengkap']; ?>
                                                                             </option>
                                                                         <?php
                                                                         }
@@ -139,30 +139,7 @@ if (!isset($_SESSION['nama'])) {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <div class="input-group input-group-dynamic">
-                                                                <div class="input-group input-group-dynamic mb-4">
-                                                                    <select class="form-control" aria-label="golongan" type="text" name="id_golongan" required>
-                                                                        <option>-- PILIH GOLONGAN -- </option>
-                                                                        <?php
-                                                                        $sql = ("SELECT * FROM  golongan");
-                                                                        $hasil = mysqli_query($link, $sql);
-                                                                        $no = 0;
-                                                                        while ($data = mysqli_fetch_array($hasil)) {
-                                                                            $no++;
-                                                                        ?>
-                                                                            <option value="<?php echo
-                                                                                            $data['id_golongan']; ?>">
-                                                                                <?php echo
-                                                                                $data['nm_golongan']; ?>
-                                                                            </option>
-                                                                        <?php
-                                                                        }
-                                                                        ?>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        
                                                         <div class="col-md-6">
                                                             <div class="input-group input-group-dynamic">
                                                                 <div class="input-group input-group-dynamic mb-4">
@@ -337,7 +314,6 @@ if (!isset($_SESSION['nama'])) {
     if (isset($_POST['simpan'])) {
         $id_user = $_POST['id_user'];
         $id_jabatan = $_POST['id_jabatan'];
-        $id_golongan = $_POST['id_golongan'];
         $nm_pegawai = $_POST['nm_pegawai'];
         $nip = $_POST['nip'];
         $tmpt_lahir = $_POST['tmpt_lahir'];
@@ -385,7 +361,6 @@ if (!isset($_SESSION['nama'])) {
             '', 
             '$id_user',
             '$id_jabatan',
-            '$id_golongan',
             '$nm_pegawai',
             '$nip',
             '$tmpt_lahir',
