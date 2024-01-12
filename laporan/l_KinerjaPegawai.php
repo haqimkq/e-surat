@@ -221,7 +221,7 @@ function tgl($tanggal)
 
     <br>
     <div style="text-align: center; display: inline-block; float: right;">
-        <h5>
+        <h1>
             Banjarmasin, <?php echo date('d') . ' ' . $bln[date('m')] . ' ' . date('Y') ?><br>
             Mengetahui,<br>
             Camat<br>
@@ -229,7 +229,7 @@ function tgl($tanggal)
             <br><br>
             <u><b>Drs. Hj. Rusdiana, M.AP </b></u><br>
             <b>NIP. 196709071990 2 001</b><br>
-        </h5>
+        </h1>
     </div>
 
 

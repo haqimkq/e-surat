@@ -1,397 +1,143 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <meta name="author" content="Untree.co">
-    <link rel="shortcut icon" href="favico.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../e-surat/assets/img/apple-icon.png" />
+    <link rel="icon" type="image/png" href="https://1.bp.blogspot.com/-x0XnjY4pIlY/W6XY0lAU3xI/AAAAAAAAD3o/JmngsUDBWVc2n_oijzaCpC8Vq1OPeLU9QCEwYBhgL/s1600/dishub%2Bpng.png">
 
-    <meta name="description" content="" />
-    <meta name="keywords" content="bootstrap, bootstrap5" />
+    <title>Login - E-Surat</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
 
-    <link rel="stylesheet" href="css/aos.css" />
+    <!-- Nucleo Icons -->
+    <link href="../e-arsip/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="../e-arsip/assets/css/nucleo-svg.css" rel="stylesheet" />
 
-    <!-- <link rel="stylesheet" href="css/bootstarp-grid.css" />
-    <link rel="stylesheet" href="css/bootstarp-reboot.css" />
-    <link rel="stylesheet" href="css/bootstarp-utillities.css" />
-    <link rel="stylesheet" href="css/bootstarp.css" />
-    <link rel="stylesheet" href="css/flatpickr.css" /> -->
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="css/glightbox.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/tiny-slider.css" />
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
 
+    <!-- CSS Files -->
 
-    <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
-
-
-
-    <link rel="icon" type="image/png" href="<?php echo "image/bjm.png" ?>">
-
-    <title>Banjarmasin Timur &mdash; Kantor Kecamatan </title>
+    <link id="pagestyle" href="/e-arsip/assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
 </head>
 
-<body>
-    <div class="site-mobile-menu site-navbar-target">
-        <div class="site-mobile-menu-header">
-            <div class="site-mobile-menu-close">
-                <span class="icofont-close js-menu-toggle"></span>
-            </div>
-        </div>
-        <div class="site-mobile-menu-body"></div>
-    </div>
-    <nav class="site-nav mt-3">
-        <div class="container">
-            <div class="site-navigation">
+<body class="bg-gray-200">
+    <main class="main-content  mt-0">
+        <div class="page-header align-items-start min-vh-100"
+            style="background-image: url('https://images.unsplash.com/photo-1461360228754-6e81c478b882?q=80&w=1774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+
+            <span class="mask bg-gradient-dark opacity-6"></span>
+            <nav class="social">
+                <ul>
+                    <li><a target="_blank" href="https://twitter.com"> Twitter <i class="fa fa-twitter "></i>
+                        </a></li>
+                    <li><a target="_blank" href="https://instagram.com">Instagram <i class=" fa fa-instagram"></i></a>
+                    </li>
+                    <li><a target="_blank" href="https://google.com">Gmail <i class="fa fa-google"></i></a></li>
+                </ul>
+            </nav>
+            <div class="container my-auto">
+
                 <div class="row">
-                    <div class="col-8 col-lg-6">
-                        <img src="image/bjm.png" width="62px" height="62px" alt="Logo">
-                        <a href="index.php" class="logo p-0 float-none align-middle">Banjarmasin Timur</a>
-                    </div>
-                    <div class="col-md-6 d-none d-lg-inline-block text-end ">
-                        <ul class="js-clone-nav  text-end site-menu p-0 m-0 align-middle">
-                            <li class="active"><a href="#">Home</a></li>
-                            <li><a href="public/signup-msy.php">Daftar </a></li>
-                            <li><a href="indexLoginMsy.php">Login</a></li>
-                            <!-- <li><a href="services.html">Services</a></li>
-                            <li><a href="blog.html">Blog</a></li> -->
-                        </ul>
-                    </div>
-                    <div class="col-4 col-lg-2 text-lg-end ">
-                        <a href="#"
-                            class="burger ms-auto mt-2 float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light "
-                            data-toggle="collapse" data-target="#main-navbar">
-                            <span></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+                    <div class="col-lg-4 col-md-8 col-12 mx-auto">
+                        <div class="cardd z-index-0 fadeIn3 fadeInBottom">
+                            <div class=" p-0 position-relative mt-n4 mx-3 z-index-2">
+                                <div class="bg-gradient-info border-radius-lg py-3 pe-1">
+                                    <div style="text-align: center;">
+                                        <img src="https://1.bp.blogspot.com/-x0XnjY4pIlY/W6XY0lAU3xI/AAAAAAAAD3o/JmngsUDBWVc2n_oijzaCpC8Vq1OPeLU9QCEwYBhgL/s1600/dishub%2Bpng.png" width="150px" height="170px"
+                                            alt="Logo">
+                                    </div>
+                                    <div class="row mt-0 text-center">
+                                        <h3 class="text-white font-weight-bolder text-center mt-3 ">
+                                            E-SURAT </h3>
+                                        <p class="text-white  text-center ">Dinas Perhubungan <br> Provinsi Kalimantan Selatan</p>
+                                        <!-- <h6 class="text-white font-weight-bolder text-center mt-2 mb-0"> DASHBOARD FOR YOUR BUSINESS </h6> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="text-white font-weight-bolder text-center mt-2 mb-0 text-uppercase">LOGIN
+                                </h6>
+                                <form action="db/cek_login.php" method="post">
+                                    <div class=" input-group input-group-outline my-3">
+                                        <input name="username" type="text " class="form-control text-light"
+                                            placeholder="Username">
+                                    </div>
+                                    <div class="input-group input-group-outline mb-3">
+                                        <input name="password" type="password" class="form-control text-light"
+                                            placeholder="Password">
+                                    </div>
 
+                                    <div class="text-center">
+                                        <button name="log" type="submit"
+                                            class="btn bg-gradient-info w-100 my-4 mb-2">Sign in</button>
+                                    </div>
+                                    <!-- <p class="text-white mt-4 text-sm text-center">
+                                        <a href="index.php" class="text-warning text-gradient font-weight-bold">Kembali
+                                            Ke Portal Berita</a>
+                                    </p> -->
+                                    <p class="text-white mt-4 text-sm text-center">
+                                        Don't have an account?
+                                        <a href="../e-surat/public/signup-pegawai.php"
+                                            class="text-warning text-gradient font-weight-bold">Sign Up</a>
+                                    </p>
+                                </form>
 
-
-    <div class="hero overlay">
-        <div class="img-bg rellax">
-            <img src="https://i.pinimg.com/originals/59/53/2b/59532bc48a22c946029bd5a7b7b0f555.jpg" alt="Image"
-                class="img-fluidd">
-        </div>
-        <div class="container">
-            <div class="row align-items-center justify-content-start">
-                <div class="col-lg-7">
-                    <h1 class="heading" data-aos="fade-up">Kantor Kecamatan Banjarmasin Timur</h1>
-                    <p class="mb-5" data-aos="fade-up">Siap Melayani Segala Keperluan Masyarakat Dengan Sepenuh Hati.
-                    </p>
-                    <div data-aos="fade-up">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="section service-section-1 ">
-        <div class="container">
-            <div class="row ">
-                <div class="col-lg-3 mb-4 mb-lg-0 text-center mb-6 mb-lg-0 text-lg-start ">
-                    <div class="heading-content" data-aos="fade-up">
-                        <h2 class="text-center mt-5">Pelayanan Kami</h2>
-                        <p class="text-center">Untuk mewujudkan layanan bagi masyarakat secara transparan, profesional,
-                            efektif & efisien serta di era digitalisasi saat ini adalah menjadi sebuah tuntutan dengan
-                            menghadirkan inovasi pelayanan yang berbasis Teknologi Informasi</p>
-                        <!-- <p class="my-4" data-aos="fade-up" data-aos-delay="300"><a href="indexLoginMsy.php"
-                                class="btn btn-warning text-black ">Login ..</a></p> -->
-                        <!-- <a href="indexLoginMsy.php" class="more d-flex align-items-center float-start">
-                            <span class="label">Login ..</span> -->
-                        <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="row">
-                        <div class="col-6 col-lg-4 col-lg-2 mb-6 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
-                            <div class="service-1">
-                                <span class="icon">
-                                    <img src="image/svg/02.svg" alt="Image" class="img-flui">
-                                </span>
-                                <div>
-                                    <h3>Data Susunan Keluarga</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" col-6 col-lg-4 col-lg-2 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="400">
-                            <div class="service-1">
-                                <span class="icon">
-                                    <img src="image/svg/02.svg" alt="Image" class="img-flui">
-                                </span>
-                                <div>
-                                    <h3>Data Legalisasi Proposal <br> <br> <br></h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-lg-4 col-lg-2 mb-4 mb-lg-0 " data-aos="fade-up" data-aos-delay="200">
-                            <div class="service-1">
-                                <span class="icon">
-                                    <img src="image/svg/02.svg" alt="Image" class="img-flui">
-                                </span>
-                                <div>
-                                    <h3>Data Surat Pengantar Nikah</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" col-6 col-lg-5  col-lg-2  mb-4  mb-lg-0" data-aos="fade-up" data-aos-delay="400">
-                            <div class="service-1">
-                                <span class="icon">
-                                    <img src="image/svg/02.svg" alt="Image" class="img-flui">
-                                </span>
-                                <div>
-                                    <h3>Data Rekomendasi Dispensasi Nikah</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-lg-6 col-lg-2 mb-4 mb-lg-0 " data-aos="fade-up" data-aos-delay="300">
-                            <div class="service-1 ">
-                                <span class="icon">
-                                    <img src="image/svg/02.svg" alt="Image" class="img-flui">
-                                </span>
-                                <div>
-                                    <h3>Data Legalisasi Surat Keterangan Tidak Mampu</h3>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12" data-aos="fade-up" data-aos-delay="0">
-                    <h2 class="heading mb-5 text-center">Kegiatan Kantor Kecamatan Banjarmasin Timur</h2>
-                </div>
-            </div>
-            <div class="row align-items-stretch">
-                <?php
-                $host = "localhost";
-                $user = "root";
-                $pass = "";
-                $DB = "db_pelayanan";
-                $link = new mysqli($host, $user, $pass, $DB);
-
-                if ($link->connect_error) {
-                    echo "Gagal Koneksi MySQL";
-                }
-
-                function tgl($tanggal)
-                {
-                    $bulan = array(
-                        1 =>   'Januari',
-                        'Februari',
-                        'Maret',
-                        'April',
-                        'Mei',
-                        'Juni',
-                        'Juli',
-                        'Agustus',
-                        'September',
-                        'Oktober',
-                        'November',
-                        'Desember'
-                    );
-                    $pecahkan = explode('-', $tanggal);
-
-                    // variabel pecahkan 0 = tanggal
-                    // variabel pecahkan 1 = bulan
-                    // variabel pecahkan 2 = tahun
-
-                    return $pecahkan[2] . ' ' . $bulan[(int) $pecahkan[1]] . ' ' . $pecahkan[0];
-                }
-                $no = 1;
-                $query = mysqli_query($link, "SELECT * FROM news order by tanggal DESC LIMIT 10 ");
-                $i = 1;
-                while ($row = $query->fetch_array()) {
-                ?>
-
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="media-entry">
-                        <div class="text-center">
-                            <?php echo "<img src='aev/$row[foto]' width='280' height='280' style='border-radius: 5%;' />"; ?>
+            <footer class="footer position-absolute bottom-2 py-2 w-100">
+                <div class="container">
+                    <div class="row align-items-center justify-content-lg-between">
+                        <div class="col-12 col-md-6 my-auto">
+                            <div class="copyright text-center text-sm text-white text-lg-start">
+                                © <script>
+                                document.write(new Date().getFullYear())
+                                </script></i> by
+                               Gina Rahmah Yulia | E-Surat DISHUB
+                            </div>
                         </div>
-                        <div class="bg-white m-body">
-                            <span class="date"><?= tgl($row['tanggal']) ?></span>
-                            <h3><a href="#"><?php
-                                                $newsText = $row['title'];
-                                                $maxtitle = 250; // Tentukan panjang maksimum yang diinginkan
-                                                if (strlen($newsText) > $maxtitle) {
-                                                    $trimmedText = substr($newsText, 0, $maxtitle) . ' ...';
-                                                    echo $trimmedText;
-                                                } else {
-                                                    echo $newsText;
-                                                }
-                                                ?></a></h3>
-                            <p> <?php
-                                    $newsText = $row['newsText'];
-                                    $maxLength = 250; // Tentukan panjang maksimum yang diinginkan
-                                    if (strlen($newsText) > $maxLength) {
-                                        $trimmedText = substr($newsText, 0, $maxLength) . ' ...';
-                                        echo $trimmedText;
-                                    } else {
-                                        echo $newsText;
-                                    }
-                                    ?>.</p>
-
-                            <!-- <a href="single.html" class="more d-flex align-items-center float-start">
-                                <span class="label">Read More</span>
-                                <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
-                            </a> -->
+                        <div class="col-12 col-md-6">
+                            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                                <li class="nav-item">
+                                    <a href="" class="nav-link text-white" target="_blank">Let's build your ideas
+                                        together with us.</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-
-                <?php
-                }
-                ?>
-                <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-                    <div class="media-entry">
-                        <a href="#">
-                            <img src="images/gal_2.jpg" alt="Image" class="img-fluid">
-                        </a>
-                        <div class="bg-white m-body">
-                            <span class="date">May 14, 2020</span>
-                            <h3><a href="#">Far far away, behind the word mountains</a></h3>
-                            <p>Vokalia and Consonantia, there live the blind texts. Separated they live.</p>
-
-                            <a href="single.html" class="more d-flex align-items-center float-start">
-                                <span class="label">Read More</span>
-                                <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                    <div class="media-entry">
-                        <a href="#">
-                            <img src="images/gal_3.jpg" alt="Image" class="img-fluid">
-                        </a>
-                        <div class="bg-white m-body">
-                            <span class="date">May 14, 2020</span>
-                            <h3><a href="#">Far far away, behind the word mountains</a></h3>
-                            <p>Vokalia and Consonantia, there live the blind texts. Separated they live.</p>
-                            <a href="single.html" class="more d-flex align-items-center float-start">
-                                <span class="label">Read More</span>
-                                <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-                    <div class="media-entry">
-                        <a href="#">
-                            <img src="images/gal_4.jpg" alt="Image" class="img-fluid">
-                        </a>
-                        <div class="bg-white m-body">
-                            <span class="date">May 14, 2020</span>
-                            <h3><a href="#">Far far away, behind the word mountains</a></h3>
-                            <p>Vokalia and Consonantia, there live the blind texts. Separated they live.</p>
-                            <a href="single.html" class="more d-flex align-items-center float-start">
-                                <span class="label">Read More</span>
-                                <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
-                            </a>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
+            </footer>
         </div>
-    </div>
-    <div class="col-12">
-        <div class="peta-responsive">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15932.445608394995!2d114.6104762!3d-3.3226411!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de42400eac392b1%3A0x43a230715243a141!2sKecamatan%20Banjarmasin%20Timur!5e0!3m2!1sid!2sid!4v1681329035239!5m2!1sid!2sid"
-                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-    </div>
-    <div class="py-5 bg-dark">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 text-center mb-3 mb-lg-0 text-lg-start">
-                    <h3 class="text-white m-0">Nikmati Layanan Yang Kami Sediakan.</h3>
-                </div>
-                <div class="col-lg-5 text-center text-lg-end">
-                    <a href="indexLoginMsy.php" class="btn btn-outline-white text-white">Login ..</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="site-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="widget">
-                        <h3>Kantor &mdash; <br> Kecamatan Banjarmasin Timur</h3>
-                        <p>Siap Melayani Segala Keperluan Masyarakat Dengan Sepenuh Hati.</p>
-                    </div> <!-- /.widget -->
-                    <!-- <div class="widget">
-                        <h3>Connect</h3>
-                        <ul class="list-unstyled social">
-                            <li><a href=""><span class="icon-instagram"></span></a></li>
-                            <li><a href=""><span class="icon-twitter"></span></a></li>
-                            <li><a href=""><span class="icon-facebook"></span></a></li>
-                            <li><a href=""><span class="icon-linkedin"></span></a></li>
-                            <li><a href=""><span class="icon-pinterest"></span></a></li>
-                            <li><a href=""><span class="icon-dribbble"></span></a></li>
-                        </ul>
-                    </div> /.widget -->
-                </div> <!-- /.col-lg-3 -->
-                <div class="col-lg-3">
-                    <div class="widget">
-                        <h3>Contact</h3>
-                        <address>Jl. Manggis No.20, Kuripan, Kec. Banjarmasin Tim., Kota Banjarmasin, Kalimantan Selatan
-                            70236</address>
-                        <ul class="list-unstyled links mb-4">
-                            <li><a href="#">(0511) 3252129</a></li>
-                            <li><a href=""></a></li>
-                        </ul>
-                    </div> <!-- /.widget -->
-                </div> <!-- /.col-lg-3 -->
-            </div> <!-- /.row -->
-            <div class="row ">
-                <div class="col-12 text-center">
-                    <p class="mb-0">Copyright &copy;<script>
-                        document.write(new Date().getFullYear());
-                        </script>. All Rights Reserved. &mdash;
-                    </p>
-                </div>
-            </div> <!-- /.container -->
-        </div> <!-- /.site-footer -->
-
-
-
-
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/tiny-slider.js"></script>
-        <script src="js/aos.js"></script>
-        <script src="js/navbar.js"></script>
-        <script src="js/counter.js"></script>
-        <script src="js/rellax.js"></script>
-        <script src="js/flatpickr.js"></script>
-        <script src="js/glightbox.min.js"></script>
-        <script src="js/custom.js"></script>
-
-
-
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.4/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js"></script>
+    </main>
+    <!--   Core JS Files   -->
+    <script src="../dashfix/assets/js/core/popper.min.js"></script>
+    <script src="../dashfix/assets/js/core/bootstrap.min.js"></script>
+    <script src="../dashfix/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="../dashfix/assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+            damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+    </script>
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="../dashfix/assets/js/material-dashboard.min.js?v=3.0.4"></script>
 
 
 </body>
