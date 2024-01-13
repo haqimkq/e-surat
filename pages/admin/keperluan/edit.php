@@ -4,11 +4,11 @@ include "../db/koneksi.php";
 
 if (!isset($_SESSION['nama'])) {
     echo "<script> alert('Silahkan login terlebih dahulu'); </script>";
-    echo "<meta http-equiv='refresh' content='0; url=../aev/index.php'>";
+    echo "<meta http-equiv='refresh' content='0; url=../e-surat/index.php'>";
 } else {
 
     $id = $_GET['id'];
-    $query = $link->query("SELECT * FROM keperluan WHERE id_keperluan = '$id'");
+    $query = $link->query("SELECT * FROM keperluan WHERE idKeperluan = '$id'");
     $data = $query->fetch_array();
 
 
@@ -80,7 +80,7 @@ if (!isset($_SESSION['nama'])) {
         $jns_keperluan = $_POST['jns_keperluan'];
 
 
-        $edit = $link->query("UPDATE keperluan SET jns_keperluan = '$jns_keperluan' WHERE id_keperluan = '$id'");
+        $edit = $link->query("UPDATE keperluan SET jns_keperluan = '$jns_keperluan' WHERE idKeperluan = '$id'");
 
         if ($edit) {
             echo "<script>alert('Data berhasil diedit')</script>";

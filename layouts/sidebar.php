@@ -95,6 +95,34 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-keperluan">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">contacts</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Keperluan</span>
+                    </a>
+                    <div class="collapse" id="data-keperluan">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li>
+                                <a class="nav-link text-white " href="?page=data_tamuMasuk">
+                                    <div
+                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <i class="material-icons opacity-10">rotate_right</i>
+                                    </div>
+                                    <span class="nav-link-text ms-1">Tamu Masuk</span>
+                                </a>
+                                <a class="nav-link text-white " href="?page=data_tamuKeluar">
+                                    <div
+                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <i class="material-icons opacity-10">rotate_left</i>
+                                    </div>
+                                    <span class="nav-link-text ms-1">Tamu Keluar</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-pelayanan">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">border_color</i>

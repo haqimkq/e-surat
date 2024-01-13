@@ -6,7 +6,7 @@ if (!isset($_SESSION['nama'])) {
     echo "<meta http-equiv='refresh' content='0; url=../aev/index.php'>";
 } else {
     $id = $_SESSION['id_user'];
-    $query = mysqli_query($link, "SELECT * FROM keperluan WHERE id_keperluan = '$id' ");
+    $query = mysqli_query($link, "SELECT * FROM keperluan WHERE idKeperluan = '$id' ");
     $data = $query->fetch_array();
 ?>
 

@@ -115,9 +115,8 @@ if (!isset($_SESSION['nama'])) {
 
 <?php
     if (isset($_POST['simpan'])) {
-       
+        $nik = $_POST['nik'];       
         $nama = $_POST['nama'];
-        $nik = $_POST['nik'];
         $alamat = $_POST['alamat'];
         $jk = $_POST['jk'];
         $tlp = $_POST['tlp'];
@@ -125,8 +124,8 @@ if (!isset($_SESSION['nama'])) {
 
         $simpan = $link->query("INSERT INTO tamu VALUES (
             '', 
-            '$nama',
             '$nik',
+            '$nama',
             '$alamat',
             '$jk',
             '$tlp'

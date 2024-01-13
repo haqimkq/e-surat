@@ -23,7 +23,7 @@ if (!isset($_SESSION['nama'])) {
         <div class="row gx-4">
             <div class="col-auto">
                 <div class="avatar avatar-xl position-relative">
-                    <img src="<?php echo "../image/bjm.png" ?>" alt="profile_image" class="w-100 pt-3">
+                <img src="https://1.bp.blogspot.com/-x0XnjY4pIlY/W6XY0lAU3xI/AAAAAAAAD3o/JmngsUDBWVc2n_oijzaCpC8Vq1OPeLU9QCEwYBhgL/s1600/dishub%2Bpng.png" alt="profile_image" class="w-90 pt-3">
                 </div>
             </div>
             <div class="col-auto my-auto">
@@ -183,7 +183,7 @@ if (!isset($_SESSION['nama'])) {
             </div>
             <div class="col-md-4">
                 <div class="card card-profile">
-                    <img src="https://i.pinimg.com/originals/6c/2d/fb/6c2dfbaad8570f79f7f3ee4ab13fe42a.jpg"
+                    <img src="https://images.unsplash.com/photo-1461360228754-6e81c478b882?q=80&w=1774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         alt="Image placeholder" class="card-img-top ">
                     <div class="row justify-content-center">
                         <div class="col-4 col-lg-4 order-lg-2">
@@ -214,8 +214,7 @@ if (!isset($_SESSION['nama'])) {
                                 <?= $data['instagram'] ?>
                             </div>
                             <div>
-                                <i class="text-bold"></i>PELAYANAN ADMINISTRASI TERPADU KECAMATAN
-                                BANJARMASIN TIMUR
+                            <i class="text-bold"></i> E-Surat <br> Dinas Perhubungan Provinsi <br> Kalimantan Selatan
                             </div>
                         </div>
                     </div>

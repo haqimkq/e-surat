@@ -109,18 +109,18 @@ if (!isset($_SESSION['nama'])) {
                 include "../pages/admin/tamu/delete.php";
                 break;
                 
-            //SURAT MASUK
-        case "data_suratMasuk";
-            include "../pages/admin/surat-masuk/data.php";
+            //TAMU MASUK
+        case "data_tamuMasuk";
+            include "../pages/admin/tamu-masuk/data.php";
             break;
-        case "tambah_suratMasuk";
-            include "../pages/admin/surat-masuk/add.php";
+        case "tambah_tamuMasuk";
+            include "../pages/admin/tamu-masuk/add.php";
             break;
-        case "edit_suratMasuk";
-            include "../pages/admin/surat-masuk/edit.php";
+        case "edit_tamuMasuk";
+            include "../pages/admin/tamu-masuk/edit.php";
             break;
-        case "hapus_suratMasuk";
-            include "../pages/admin/surat-masuk/delete.php";
+        case "hapus_tamuMasuk";
+            include "../pages/admin/tamu-masuk/delete.php";
             break;
             //////////////////////////////////////////////////////////////////////// END ADMIN PAGE -----------
 

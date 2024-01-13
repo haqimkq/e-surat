@@ -4,14 +4,12 @@ include "../db/koneksi.php";
 
 if (!isset($_SESSION['nama'])) {
     echo "<script> alert('Silahkan login terlebih dahulu'); </script>";
-    echo "<meta http-equiv='refresh' content='0; url=../aev/index.php'>";
+    echo "<meta http-equiv='refresh' content='0; url=../e-surat/index.php'>";
 } else {
 
     $id = $_GET['id'];
-    $query = $link->query("SELECT * FROM pegawai p join jabatan j on j.id_jabatan = p.id_jabatan join golongan g on p.id_golongan = g.id_golongan WHERE id_pegawai = '$id'");
+    $query = $link->query("SELECT * FROM tamu WHERE idTamu = '$id'");
     $data = $query->fetch_array();
-
-
 
 ?>
 
@@ -21,7 +19,7 @@ if (!isset($_SESSION['nama'])) {
             <div class="col-auto my-auto ">
                 <div class=" h-100 ">
                     <h5 class=" mb-1 ">
-                        Edit Data Pegawai
+                        Edit Data Tamu
                     </h5>
                 </div>
             </div>
@@ -66,28 +64,49 @@ if (!isset($_SESSION['nama'])) {
                                             </ul>
                                         </div>
                                     </div>
-                                    <input type="hidden" class="form-control" name="id_user" id="id_user" required
-                                        value="<?= $data['id_user'] ?>">
+
                                     <div class="card-body">
-                                        <p class="text-uppercase text-sm">Informasi Lengkap</p>
+                                        <p class="text-uppercase text-sm">Informasi Tamu</p>
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="input-group input-group-dynamic">
                                                     <label class="text-bold">Nama Lengkap :</label>
                                                     <div class="input-group input-group-dynamic mb-4">
-                                                        <input class="form-control" type="text" name="nm_pegawai"
-                                                            value="<?= $data['nm_pegawai'] ?>" />
+                                                        <input class="form-control" type="text" name="nama"
+                                                            value="<?= $data['nama'] ?>" />
                                                         <div class="help-block with-errors"></div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="input-group input-group-dynamic">
-                                                    <label class="text-bold">NIP :
+                                                    <label class="text-bold">NIK :
                                                     </label>
                                                     <div class="input-group input-group-dynamic mb-4">
-                                                        <input class="form-control" type="text" name="nip"
-                                                            value=" <?= $data['nip'] ?> " />
+                                                        <input class="form-control" type="text" name="nik"
+                                                            value=" <?= $data['nik'] ?> " />
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="input-group input-group-dynamic">
+                                                    <label class="text-bold">Alamat :
+                                                    </label>
+                                                    <div class="input-group input-group-dynamic mb-4">
+                                                        <input class="form-control" type="text" name="alamat"
+                                                            value=" <?= $data['alamat'] ?> " />
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="input-group input-group-dynamic">
+                                                    <label class="text-bold">Telepon :
+                                                    </label>
+                                                    <div class="input-group input-group-dynamic mb-4">
+                                                        <input class="form-control" type="text" name="tlp"
+                                                            value=" <?= $data['tlp'] ?> " />
                                                         <div class="help-block with-errors"></div>
                                                     </div>
                                                 </div>
@@ -110,167 +129,6 @@ if (!isset($_SESSION['nama'])) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="input-group input-group-dynamic">
-                                                    <label class="text-bold">Golongan :</label>
-                                                    <div class="input-group input-group-dynamic mb-4">
-                                                        <select class="form-control" aria-label="Golongan" type="text"
-                                                            name="id_golongan" required>
-                                                            <?php $q = $link->query("SELECT * FROM golongan ");
-                                                                while ($d =
-                                                                    $q->fetch_array()
-                                                                ) {
-                                                                    if ($d['id_golongan'] == $data['id_golongan']) { ?>
-                                                            <option value="<?= $d['id_golongan']; ?>"
-                                                                selected="<?= $d['id_golongan']; ?>">
-                                                                <?= $d['nm_golongan'] ?>
-                                                            </option>
-                                                            <?php
-                                                                    } else {
-                                                                    ?>
-                                                            <option value="<?= $d['id_golongan'] ?>">
-                                                                <?= $d['nm_golongan'] ?>
-                                                            </option>
-                                                            <?php }
-                                                                } ?>
-                                                        </select>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="input-group input-group-dynamic">
-                                                    <label class="text-bold">Jabatan :</label>
-                                                    <div class="input-group input-group-dynamic mb-4">
-                                                        <select class="form-control " aria-label="Jabatan"
-                                                            name="id_jabatan" required>
-                                                            <?php $q = $link->query("SELECT * FROM jabatan ");
-                                                                while ($d =
-                                                                    $q->fetch_array()
-                                                                ) {
-                                                                    if ($d['id_jabatan'] == $data['id_jabatan']) { ?>
-                                                            <option value="<?= $d['id_jabatan']; ?>"
-                                                                selected="<?= $d['id_jabatan']; ?>">
-                                                                <?= $d['nm_jabatan'] ?></option>
-                                                            <?php
-                                                                    } else {
-                                                                    ?>
-                                                            <option value="<?= $d['id_jabatan'] ?>">
-                                                                <?= $d['nm_jabatan'] ?></option>
-                                                            <?php }
-                                                                } ?>
-                                                        </select>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="input-group input-group-dynamic">
-                                                    <label class="text-bold">Status :</label>
-                                                    <div class="input-group input-group-dynamic mb-4">
-                                                        <input class="form-control" type="text" name="status"
-                                                            value="<?= $data['status'] ?>" />
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="input-group input-group-dynamic">
-                                                    <label class="text-bold">Agama :</label>
-                                                    <div class="input-group input-group-dynamic mb-4">
-                                                        <input class="form-control" type="text" name="agama"
-                                                            value="<?= $data['agama'] ?>" />
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-3 text-center me-7 mt-4">
-                                                <?php
-                                                    if (!empty($data['foto'])) {
-                                                        echo "<img src='../img/" . $data['foto'] . "' width='170' height='170' style='border-radius: 20%;'>";
-                                                    }
-                                                    ?>
-                                                <div class="input-group input-group-dynamic m-5">
-                                                    <label class="text-bold">Foto Pegawai :</label>
-                                                    <div class="input-group input-group-dynamic ">
-                                                        <input class="form-control" aria-label="Foto Pegawai :"
-                                                            type="file" name="foto" data-minlength="4"
-                                                            data-error="Tidak Boleh Kurang dari 4">
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                                <input type="hidden" name="foto_lama" value="<?= $data['foto'] ?>">
-                                            </div>
-                                            <br>
-                                            <div class="col-md-4">
-                                                <div class="input-group input-group-dynamic">
-                                                    <label class="text-bold">Tanggal Lahir :</label>
-                                                    <div class="input-group input-group-dynamic mb-4">
-                                                        <input class="form-control" aria-label="Tanggal Lahir"
-                                                            type="date" name="tgl_lahir" data-minlength="4"
-                                                            data-error="Tidak Boleh Kurang dari 4" required
-                                                            value="<?= $data['tgl_lahir'] ?>">
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="input-group input-group-dynamic">
-                                                    <label class="text-bold">Tempat Lahir :</label>
-                                                    <div class="input-group input-group-dynamic mb-4">
-                                                        <input class="form-control" type="text" name="tmpt_lahir"
-                                                            value="<?= $data['tmpt_lahir'] ?> " />
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- <hr class="horizontal dark"> -->
-                                        <p class="text-uppercase text-sm">Contact Information</p>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="input-group input-group-dynamic">
-                                                    <label class="text-bold">Alamat Lengkap</label>
-                                                    <div class="input-group input-group-dynamic mb-4">
-                                                        <input class="form-control" type="text" name="alamat"
-                                                            value="<?= $data['alamat'] ?> " />
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="input-group input-group-dynamic">
-                                                    <label class="text-bold">No Telepon</label>
-                                                    <div class="input-group input-group-dynamic mb-4">
-                                                        <input class="form-control" type="text" name="no_tlp"
-                                                            value="<?= $data['no_tlp'] ?> " />
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="input-group input-group-dynamic">
-                                                    <label class="text-bold">Email</label>
-                                                    <div class="input-group input-group-dynamic mb-4">
-                                                        <input class="form-control" type="text" name="email"
-                                                            value="<?= $data['email'] ?> " />
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="input-group input-group-dynamic">
-                                                    <label class="text-bold">Instagram</label>
-                                                    <div class="input-group input-group-dynamic mb-4">
-                                                        <input class="form-control" type="text" name="instagram"
-                                                            value="<?= $data['instagram'] ?> " />
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <br>
                                         <div class="form-group">
                                             <div class="col-md-12">
                                                 <input type="submit" class="btn btn-primary" value="Edit" name="edit">
@@ -289,118 +147,31 @@ if (!isset($_SESSION['nama'])) {
 
     <?php
     if (isset($_POST['edit'])) {
-        $id_user = $_POST['id_user'];
-        $jabatan = $_POST['id_jabatan'];
-        $golongan = $_POST['id_golongan'];
-        $namaPegawai = $_POST['nm_pegawai'];
-        $nip = $_POST['nip'];
-        $tempatLahir = $_POST['tmpt_lahir'];
-        $tglLahir = $_POST['tgl_lahir'];
+        $nik = $_POST['nik'];
+        $nama = $_POST['nama'];
         $alamat = $_POST['alamat'];
-        $jenisKelamin = $_POST['jk'];
-        $stts = $_POST['status'];
-        $agama = $_POST['agama'];
-        $noTelepon = $_POST['no_tlp'];
-
-        // Proses pembaruan data
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Menerima data form
-            $uploadedFile = $_FILES['foto'];
-            // $foto = $_FILES['foto']['name'];
-            $foto_lama = $_POST['foto_lama'];
-
-            // Cek apakah pengguna mengunggah foto baru
-            if ($uploadedFile['error'] === 4) {
-                // Tidak ada file foto baru yang diunggah, gunakan foto lama
-                $foto = $foto_lama;
-            } else {
-                // Ada file foto baru yang diunggah, proses unggah foto
-                $uploadedFilePath = upload($uploadedFile);
-                if ($uploadedFilePath) {
-                    // File berhasil diunggah
-                    $foto = $uploadedFilePath;
-                } else {
-                    // Gagal mengunggah file
-                    echo "Gagal mengunggah file.";
-                    // Lakukan tindakan yang sesuai jika gagal mengunggah file, seperti menampilkan pesan error atau menghentikan pembaruan data.
-                    // Misalnya: die("Gagal mengunggah file. Pembaruan data dibatalkan.");
-                }
-            }
-
-            echo "Data berhasil diperbarui.";
-        }
+        $jk = $_POST['jk'];
+        $tlp = $_POST['tlp'];
 
 
-
-
-        $instagram = $_POST['instagram'];
-        $email = $_POST['email'];
-
-
-
-
-        $edit = $link->query("UPDATE pegawai SET 
-id_user = '$id_user',
-id_jabatan = '$jabatan',
-id_golongan = '$golongan',
-nm_pegawai = '$namaPegawai', 
-nip = '$nip', 
-tmpt_lahir = '$tempatLahir',
-tgl_lahir = '$tglLahir',
+        $edit = $link->query("UPDATE tamu SET 
+nik = '$nik', 
+nama = '$nama', 
 alamat = '$alamat',
-jk = '$jenisKelamin',
-status = '$stts',
-agama = '$agama',
-no_tlp = '$noTelepon',
-foto = '$foto',
-instagram = '$instagram',
-email = '$email'
+jk = '$jk',
+tlp = '$tlp'
 
-WHERE id_pegawai = '$id'");
+WHERE idTamu = '$id'");
 
         if ($edit) {
             echo "<script>alert('Data berhasil diedit')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=data_pegawai'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=data_tamu'>";
         } else {
             echo "<script>alert('Data anda gagal diedit. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=edit_pegawai'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=edit_tamu'>";
         }
     }
 }
 
-
-
-function upload($file)
-{
-    // Tentukan folder penyimpanan file
-    $targetDir = '../img/';
-
-    // Mendapatkan nama file asli
-    $fileName = basename($file['name']);
-
-    // Mendapatkan path file tujuan
-    $targetPath = $targetDir . $fileName;
-
-    // Mendapatkan ekstensi file
-    $fileExtension = pathinfo($targetPath, PATHINFO_EXTENSION);
-
-    // Daftar ekstensi file yang diperbolehkan
-    $allowedExtensions = array('jpg', 'jpeg', 'png');
-
-    // Cek apakah ekstensi file valid
-    if (in_array($fileExtension, $allowedExtensions)) {
-        // Pindahkan file ke folder tujuan
-        if (move_uploaded_file($file['tmp_name'], $targetPath)) {
-            // Jika berhasil diunggah, kembalikan path file
-            return $targetPath;
-        } else {
-            // Jika gagal mengunggah
-            return false;
-        }
-    } else {
-        // Jika ekstensi file tidak valid
-        return false;
-    }
-}
 
     ?>

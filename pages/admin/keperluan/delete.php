@@ -1,7 +1,7 @@
 <?php
 $id = $_GET['id'];
 
-$query = $link->query(" DELETE FROM keperluan WHERE id_keperluan = '$id' ");
+$query = $link->query(" DELETE FROM keperluan WHERE idKeperluan = '$id' ");
 if ($query) {
     echo "<script>alert('Data berhasil dihapus')</script>";
     echo "<meta http-equiv='refresh' content='0; url=?page=data_keperluan'>";

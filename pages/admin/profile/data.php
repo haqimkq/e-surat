@@ -4,11 +4,11 @@ include "../db/koneksi.php";
 
 if (!isset($_SESSION['nama'])) {
     echo "<script> alert('Silahkan login terlebih dahulu'); </script>";
-    echo "<meta http-equiv='refresh' content='0; url=../aev/index.php'>";
+    echo "<meta http-equiv='refresh' content='0; url=../e-surat/index.php'>";
 } else {
 
     $id = $_SESSION['id_user'];
-    $query = mysqli_query($link, "SELECT * FROM pegawai p JOIN jabatan j ON j.id_jabatan = p.id_jabatan JOIN golongan g ON p.id_golongan = g.id_golongan WHERE id_user = '$id' ");
+    $query = mysqli_query($link, "SELECT * FROM pegawai p JOIN jabatan j ON j.id_jabatan = p.id_jabatan  WHERE id_user = '$id' ");
     $data = $query->fetch_array();
 
 
@@ -109,7 +109,7 @@ if (!isset($_SESSION['nama'])) {
                                 <div class="input-group input-group-dynamic">
                                     <label class="text-bold">Tanggal Lahir :</label>
                                     <div class="input-group input-group-dynamic mb-4">
-                                        <input class="form-control" readonly value="<?= $data['tgl_lahir'] ?> " />
+                                        <input class="form-control" readonly value=" -" />
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -224,8 +224,7 @@ if (!isset($_SESSION['nama'])) {
                                 <?= $data['instagram'] ?>
                             </div>
                             <div>
-                                <i class="text-bold"></i>PELAYANAN ADMINISTRASI TERPADU KECAMATAN
-                                BANJARMASIN TIMUR
+                            <i class="text-bold"></i> E-Surat <br> Dinas Perhubungan Provinsi <br> Kalimantan Selatan
                             </div>
                         </div>
                     </div>
