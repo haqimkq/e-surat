@@ -122,6 +122,20 @@ if (!isset($_SESSION['nama'])) {
         case "hapus_tamuMasuk";
             include "../pages/admin/tamu-masuk/delete.php";
             break;
+
+            //TAMU KELUAR
+        case "data_tamuKeluar";
+        include "../pages/admin/tamu-keluar/data.php";
+        break;
+    case "tambah_tamuKeluar";
+        include "../pages/admin/tamu-keluar/add.php";
+        break;
+    case "edit_tamuKeluar";
+        include "../pages/admin/tamu-keluar/edit.php";
+        break;
+    case "hapus_tamuKeluar";
+        include "../pages/admin/tamu-keluar/delete.php";
+        break;
             //////////////////////////////////////////////////////////////////////// END ADMIN PAGE -----------
 
 

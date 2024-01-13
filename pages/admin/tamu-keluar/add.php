@@ -14,7 +14,7 @@ if (!isset($_SESSION['nama'])) {
                 <div class="card mb-4">
                     <div class=" position-relative mt-n4 mx-3 ps-0  ">
                         <div class="bg-gradient-info shadow border-radius-lg pt-3 pb-3 ">
-                            <h3 class=" text-white text-capitalize text-center py-1 ">Tambah Keperluan Tamu Masuk</h3>
+                            <h3 class=" text-white text-capitalize text-center py-1 ">Tambah Keperluan Tamu Keluar</h3>
                         </div>
                     </div>
                     <div class="card-body p-3">
@@ -172,7 +172,7 @@ if (!isset($_SESSION['nama'])) {
         }
         $keterangan = $_POST['keterangan'];
 
-        $simpan = $link->query("INSERT INTO tamu_masuk VALUES (
+        $simpan = $link->query("INSERT INTO tamu_keluar VALUES (
             '', 
             '$idTamu',
             '$idKeperluan',
@@ -183,10 +183,10 @@ if (!isset($_SESSION['nama'])) {
             )");
         if ($simpan) {
             echo "<script>alert('Data berhasil disimpan')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=data_tamuMasuk'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=data_tamuKeluar'>";
         } else {
             echo "<script>alert('Data anda gagal disimpan. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=tambah_tamuMasuk'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=tambah_tamuKeluar'>";
         }
     }
 }
