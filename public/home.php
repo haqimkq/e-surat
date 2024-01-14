@@ -150,6 +150,20 @@ if (!isset($_SESSION['nama'])) {
         case "hapus_suratMasuk";
             include "../pages/admin/surat-masuk/delete.php";
             break;
+
+            //SURAT KELUAR
+        case "data_suratKeluar";
+        include "../pages/admin/surat-keluar/data.php";
+        break;
+    case "tambah_suratKeluar";
+        include "../pages/admin/surat-keluar/add.php";
+        break;
+    case "edit_suratKeluar";
+        include "../pages/admin/surat-keluar/edit.php";
+        break;
+    case "hapus_suratKeluar";
+        include "../pages/admin/surat-keluar/delete.php";
+        break;
             //////////////////////////////////////////////////////////////////////// END ADMIN PAGE -----------
 
 
