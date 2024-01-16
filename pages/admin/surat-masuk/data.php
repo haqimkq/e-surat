@@ -59,7 +59,7 @@ if (!isset($_SESSION['nama'])) {
                                             $query = mysqli_query($link, "SELECT sm.*, tm.*, t.nama
                                             FROM surat_masuk sm
                                             JOIN tamu_masuk tm ON tm.idTamuMasuk = sm.idTamuMasuk
-                                            JOIN tamu t ON t.idTamu = tm.idTamu;
+                                            JOIN tamu t ON t.idTamu = tm.idTamu
                                              ");
                                             $i = 1;
                                             while ($row = $query->fetch_array()) {

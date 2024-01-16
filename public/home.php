@@ -164,6 +164,20 @@ if (!isset($_SESSION['nama'])) {
     case "hapus_suratKeluar";
         include "../pages/admin/surat-keluar/delete.php";
         break;
+
+        //DISPOSISI
+        case "data_disposisi";
+        include "../pages/admin/disposisi/data.php";
+        break;
+    case "tambah_disposisi";
+        include "../pages/admin/disposisi/add.php";
+        break;
+    case "edit_disposisi";
+        include "../pages/admin/disposisi/edit.php";
+        break;
+    case "hapus_disposisi";
+        include "../pages/admin/disposisi/delete.php";
+        break;
             //////////////////////////////////////////////////////////////////////// END ADMIN PAGE -----------
 
 

@@ -139,6 +139,13 @@
                                     </div>
                                     <span class="nav-link-text ms-1">Surat Masuk</span>
                                 </a>
+                                <a class="nav-link text-white " href="?page=data_disposisi">
+                                    <div
+                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <i class="material-icons opacity-10">compare_arrows</i>
+                                    </div>
+                                    <span class="nav-link-text ms-1">Disposisi Surat</span>
+                                </a>
                                 <a class="nav-link text-white " href="?page=data_suratKeluar">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
