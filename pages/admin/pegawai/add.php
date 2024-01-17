@@ -65,7 +65,7 @@ if (!isset($_SESSION['nama'])) {
                                                                                 <tbody>
                                                                                     <?php
                                                                                     $no = 1;
-                                                                                    $data = $link->query("SELECT * FROM users WHERE id_user = '$id'  ");
+                                                                                    $data = $link->query("SELECT * FROM users ");
                                                                                     while ($row = $data->fetch_array()) {
                                                                                     ?>
                                                                                         <tr>
@@ -93,16 +93,16 @@ if (!isset($_SESSION['nama'])) {
                                                         <!-- <hr class="horizontal dark"> -->
                                                         <br>
                                                         <br>
-                                                        <input type="hidden" class="form-control" name="id_user" id="id_user" required>
+<input type="hidden" class="form-control" name="id_user" id="id_user" required>
 
-                                                        <div class="col-md-12">
+                                                        <!-- <div class="col-md-12">
                                                             <div class="input-group input-group-dynamic">
                                                                 <div class="input-group input-group-dynamic mb-4">
                                                                     <select class="form-control" aria-label="Username" type="text" name="id_user" required>
                                                                         <option>-- PILIH USERNAME -- </option>
                                                                         <?php
                                                                         $id = $_SESSION['id_user'];
-                                                                        $sql = ("SELECT * FROM  users WHERE id_user = '$id'");
+                                                                        $sql = ("SELECT * FROM  users ");
                                                                         $hasil = mysqli_query($link, $sql);
                                                                         $no = 0;
                                                                         while ($data = mysqli_fetch_array($hasil)) {
@@ -120,7 +120,7 @@ if (!isset($_SESSION['nama'])) {
                                                                     <div class="help-block with-errors"></div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div> -->
                                                         <div class="col-md-6">
                                                             <div class="input-group input-group-dynamic">
                                                                 <div class="input-group input-group-dynamic mb-4">
