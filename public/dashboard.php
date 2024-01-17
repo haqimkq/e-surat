@@ -30,7 +30,7 @@ function tgl($tanggal)
         Data Entry Masuk Pada Dashboard ..
         <!-- <a href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard ">this link</a> -->
     </h6>
-    <div class="row py-3">
+    <!-- <div class="row py-3">
         <div class="col-xl-4 col-sm-4 mt-2 mb-3">
             <div class="card ">
                 <div class="card-header p-3 pt-2">
@@ -87,8 +87,8 @@ function tgl($tanggal)
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row py-3">
+    </div> -->
+    <!-- <div class="row py-3">
         <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
             <div class="card">
                 <div class="card-header p-3 pt-2">
@@ -126,7 +126,7 @@ function tgl($tanggal)
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     
 
     <div class="row">

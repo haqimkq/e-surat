@@ -8,8 +8,12 @@ if (!isset($_SESSION['nama'])) {
 } else {
 
     $id = $_GET['id'];
-    $query = $link->query("SELECT * FROM surat_keluar sk
-    JOIN tamu t ON t.idTamu = sk.idTamu WHERE idSuratKeluar = '$id'");
+    $query = $link->query("SELECT d.*, sm.*, tm.idTamuMasuk, t.nama, p.nm_pegawai
+    FROM disposisi d
+    JOIN surat_masuk sm ON sm.idSuratMasuk = d.idSuratMasuk
+    JOIN tamu_masuk tm ON tm.idTamuMasuk = sm.idTamuMasuk
+    JOIN tamu t ON t.idTamu = tm.idTamu
+    JOIN pegawai p ON p.id_pegawai = d.idPegawai WHERE idDisposisi = '$id'");
     $data = $query->fetch_array();
 
 
@@ -21,7 +25,7 @@ if (!isset($_SESSION['nama'])) {
                 <div class="col-auto my-auto ">
                     <div class=" h-100 ">
                         <h5 class=" mb-1 ">
-                            Edit Data Tamu
+                            Edit Data Disposisi Surat
                         </h5>
                     </div>
                 </div>
@@ -55,7 +59,7 @@ if (!isset($_SESSION['nama'])) {
                                                     <li class="nav-item">
                                                         <a class="nav-link mb-0 px-0 py-1 active " data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="true">
                                                             <i class="material-icons text-lg position-relative">people</i>
-                                                            <span class="ms-1">Profile</span>
+                                                            <span class="ms-1">DISPOSISI</span>
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
@@ -64,30 +68,15 @@ if (!isset($_SESSION['nama'])) {
                                                 </ul>
                                             </div>
                                         </div>
-
+                                        <input type="hidden" class="form-control" name="idSuratMasuk" value="<?= $data['idSuratMasuk'] ?>" required readonly>
                                         <div class="card-body">
                                             <p class="text-uppercase text-sm">Informasi Tamu</p>
                                             <div class="row">
                                                 <div class="col-md-6">
+                                                    <label class="form-label">Nama Tamu</label>
                                                     <div class="input-group input-group-dynamic">
-                                                        <label class="text-bold">Nama Tamu :</label>
                                                         <div class="input-group input-group-dynamic mb-4">
-                                                            <select class="form-control " aria-label="Tamu " name="idTamu" required>
-                                                                <?php $q = $link->query("SELECT * FROM tamu");
-                                                                while ($d =
-                                                                    $q->fetch_array()
-                                                                ) {
-                                                                    if ($d['idTamu'] == $data['idTamu']) { ?>
-                                                                        <option value="<?= $d['idTamu']; ?>" selected="<?= $d['idTamu']; ?>">
-                                                                            <?= $d['nama'] ?></option>
-                                                                    <?php
-                                                                    } else {
-                                                                    ?>
-                                                                        <option value="<?= $d['idTamu'] ?>">
-                                                                            <?= $d['nama'] ?></option>
-                                                                <?php }
-                                                                } ?>
-                                                            </select>
+                                                            <input class="form-control" aria-label="Nama Tamu" type="text" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required value="<?= $data['nama'] ?>" readonly>
                                                             <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
@@ -96,7 +85,7 @@ if (!isset($_SESSION['nama'])) {
                                                     <label class="form-label">Nomor Surat</label>
                                                     <div class="input-group input-group-dynamic">
                                                         <div class="input-group input-group-dynamic mb-4">
-                                                            <input class="form-control" aria-label="Nomor Surat" type="text" name="noSurat" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required value="<?= $data['noSurat'] ?>">
+                                                            <input class="form-control" aria-label="Perihal" type="text" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required value="<?= $data['noSurat'] ?>" readonly>
                                                             <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
@@ -105,12 +94,37 @@ if (!isset($_SESSION['nama'])) {
                                                     <label class="form-label">Perihal</label>
                                                     <div class="input-group input-group-dynamic">
                                                         <div class="input-group input-group-dynamic mb-4">
-                                                            <input class="form-control" aria-label="Perihal" type="text" name="perihal" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required value="<?= $data['perihal'] ?>">
+                                                            <input class="form-control" aria-label="Tanggal" type="text" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required value="<?= $data['perihal'] ?>" readonly>
                                                             <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5">
+                                                    <div class="input-group input-group-dynamic">
+                                                        <label class="text-bold">Pegawai :</label>
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <select class="form-control" aria-label="Pegawai" name="idPegawai" required>
+                                                                <?php
+                                                                $q = $link->query("SELECT p.id_pegawai, p.nm_pegawai
+                                                                                FROM pegawai p");
+                                                                while ($d = $q->fetch_array()) {
+                                                                    if ($d['id_pegawai'] == $data['idPegawai']) {
+                                                                ?>
+                                                                        <option value="<?= $d['id_pegawai']; ?>" selected><?= $d['nm_pegawai'] ?></option>
+                                                                    <?php
+                                                                    } else {
+                                                                    ?>
+                                                                        <option value="<?= $d['id_pegawai'] ?>"><?= $d['nm_pegawai'] ?></option>
+                                                                <?php
+                                                                    }
+                                                                }
+                                                                ?>
+                                                            </select>
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
                                                     <label class="form-label">Tanggal</label>
                                                     <div class="input-group input-group-dynamic">
                                                         <div class="input-group input-group-dynamic mb-4">
@@ -119,32 +133,13 @@ if (!isset($_SESSION['nama'])) {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6 ">
-                                                    <div class="input-group input-group-dynamic ">
-                                                        <label class="text-bold">File Surat:</label>
-                                                        <div class="input-group input-group-dynamic mb-2">
-                                                            <input class="form-control" aria-label="Berkas" type="file" name="file" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" accept=".pdf,.PDF,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                                                <div class="col-md-5">
+                                                    <label class="form-label">keterangan</label>
+                                                    <div class="input-group input-group-dynamic">
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <input class="form-control" aria-label="keterangan" type="text" name="keterangan" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required value="<?= $data['keterangan'] ?>">
                                                             <div class="help-block with-errors"></div>
                                                         </div>
-                                                        <input name="file_lama" type="hidden" class="form-control input-sm" value="<?= $data['file'] ?>">
-                                                        <?php
-                                                        $file_lama = $data['file'];
-                                                        $fileName = !empty($file_lama) ? basename($file_lama) : '';
-                                                        ?>
-                                                        <div class="mt-2">
-                                                            <?php if (!empty($fileName)) : ?>
-                                                                <strong>File Saat Ini:</strong> <?= $fileName ?>
-                                                                <!-- <a href="javascript:void(0)" class="text-danger" onclick="deleteFile()"><i class="ti ti-x"></i></a> -->
-                                                                <input name="file_lama" type="hidden" class="form-control input-sm" value="<?= $file_lama ?>">
-                                                                <input name="deleteFile" type="hidden" value="1">
-                                                            <?php else : ?>
-                                                                <span>Tidak ada file yang diunggah</span>
-                                                                <input name="file_lama" type="hidden" class="form-control input-sm" value="">
-                                                            <?php endif; ?> <br>
-                                                            <em class="text-danger text-sm text-italic">*Upload berkas pendukung
-                                                                (PDF, maksimal 2Mb)</em>
-                                                        </div>
-
                                                     </div>
                                                 </div>
                                                 <br>
@@ -166,66 +161,27 @@ if (!isset($_SESSION['nama'])) {
 
     <?php
     if (isset($_POST['edit'])) {
-        $idTamu = $_POST['idTamu'];
+        $idSuratMasuk = $_POST['idSuratMasuk'];
+        $idPegawai = $_POST['idPegawai'];
         $tanggal = $_POST['tanggal'];
-        $noSurat = $_POST['noSurat'];
-        $perihal = $_POST['perihal'];
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $uploadedFile = $_FILES['file'];
-            $file_lama = $_POST['file_lama'];
-
-            if ($uploadedFile['error'] === 4) {
-                $file = $file_lama;
-            } else {
-                $uploadedFilePath = upload($uploadedFile, '../pdf/e-surat/');
-                if ($uploadedFilePath) {
-                    $file = $uploadedFilePath;
-                } else {
-                    echo "Gagal mengunggah file surat";
-                }
-            }
-            echo "Data berhasil diperbarui.";
-        }
+        $keterangan = $_POST['keterangan'];
 
 
-        $edit = $link->query("UPDATE surat_keluar SET 
-idTamu = '$idTamu',
+        $edit = $link->query("UPDATE disposisi SET 
+idSuratMasuk = '$idSuratMasuk',
+idPegawai = '$idPegawai', 
 tanggal = '$tanggal', 
-noSurat = '$noSurat', 
-perihal = '$perihal', 
-file = '$file'
+keterangan = '$keterangan'
 
-WHERE idSuratKeluar = '$id'");
+WHERE idDisposisi = '$id'");
 
         if ($edit) {
             echo "<script>alert('Data berhasil diedit')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=data_suratKeluar'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=data_disposisi'>";
         } else {
             echo "<script>alert('Data anda gagal diedit. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=edit_suratKeluar'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=edit_disposisi'>";
         }
     }
 }
-
-
-
-
-function upload($file, $targetDir)
-{
-    $fileName = basename($file['name']);
-    $targetPath = $targetDir . $fileName;
-    $fileExtension = pathinfo($targetPath, PATHINFO_EXTENSION);
-    $allowedExtensions = array('jpg', 'jpeg', 'JPG', 'png', 'pdf');
-    if (in_array($fileExtension, $allowedExtensions)) {
-        if (move_uploaded_file($file['tmp_name'], $targetPath)) {
-            return $targetPath;
-        } else {
-            return false;
-        }
-    } else {
-        return false;
-    }
-}
-
     ?>
