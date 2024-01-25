@@ -181,22 +181,22 @@ if (!isset($_SESSION['nama'])) {
             //////////////////////////////////////////////////////////////////////// END ADMIN PAGE -----------
 
 
-            //////////////////////////////////////////////////////// START  PAGAWAI PAGE--------------
+            //////////////////////////////////////////////////////// START  SEKERTARIS PAGE--------------
             // PEGAWAI
         case "dataPegawai";
-            include "../pages/other/pegawai/data.php";
+            include "../pages/sekertaris/pegawai/data.php";
             break;
         case "tambahPegawai";
-            include "../pages/other/pegawai/add.php";
+            include "../pages/sekertaris/pegawai/add.php";
             break;
         case "editPegawai";
-            include "../pages/other/pegawai/edit.php";
+            include "../pages/sekertaris/pegawai/edit.php";
             break;
         case "hapusPegawai";
-            include "../pages/other/pegawai/delete.php";
+            include "../pages/sekertaris/pegawai/delete.php";
             break;
             case "detail_Pegawai";
-            include "../pages/other/pegawai/detail.php";
+            include "../pages/sekertaris/pegawai/detail.php";
             break;
 
             //PERJALANAN DINAS
@@ -220,16 +220,16 @@ if (!isset($_SESSION['nama'])) {
 
             // USERS
         case "dataUser";
-            include "../pages/other/user/data.php";
+            include "../pages/sekertaris/user/data.php";
             break;
         case "editUser";
-            include "../pages/other/user/edit.php";
+            include "../pages/sekertaris/user/edit.php";
             break;
         case "edit_User_password";
-            include "../pages/other/user/edit_password.php";
+            include "../pages/sekertaris/user/edit_password.php";
             break;
         case "hapusUser";
-            include "../pages/other/user/delete.php";
+            include "../pages/sekertaris/user/delete.php";
             break;
 
             ///////////////////////////////////////////////////////////////// END PEGAWAI PAGE ---------

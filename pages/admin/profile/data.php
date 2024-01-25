@@ -24,7 +24,7 @@ if (!isset($_SESSION['nama'])) {
         <div class="row gx-4">
             <div class="col-auto">
                 <div class="avatar avatar-xl position-relative">
-                    <img src="<?php echo "../image/bjm.png" ?>" alt="profile_image" class="w-100 pt-3">
+                    <img src="https://1.bp.blogspot.com/-x0XnjY4pIlY/W6XY0lAU3xI/AAAAAAAAD3o/JmngsUDBWVc2n_oijzaCpC8Vq1OPeLU9QCEwYBhgL/s1600/dishub%2Bpng.png" alt="profile_image" class="w-100 pt-3">
                 </div>
             </div>
             <div class="col-auto my-auto">

@@ -57,7 +57,7 @@
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">people</i>
                                     </div>
-                                    <span class="nav-link-text ms-1">Users</span>
+                                    <span class="nav-link-text ms-1">Pengguna</span>
                                 </a>
                                 
                                 <a class="nav-link text-white " href="?page=data_jabatan">
@@ -421,12 +421,12 @@
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                         <i class="material-icons opacity-10">people</i>
                                     </div>
-                                    <span class="nav-link-text ms-1">Users</span>
+                                    <span class="nav-link-text ms-1">Pengguna</span>
                                 </a>
                                 <a class="nav-link text-white " href="?page=dataPegawai">
                                     <div
                                         class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="material-icons opacity-10">people</i>
+                                        <i class="material-icons opacity-10">person</i>
                                     </div>
                                     <span class="nav-link-text ms-1">Data Pribadi</span>
                                 </a>
@@ -434,6 +434,41 @@
                             </li>
                         </ul>
                     </div>
+                    <li class="nav-item">
+                    <a class="nav-link text-white" href="" data-bs-toggle="collapse" data-bs-target="#data-surat">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">border_color</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Data Surat</span>
+                    </a>
+                    <div class="collapse" id="data-surat">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li>
+                                <a class="nav-link text-white " href="?page=dataSuratMasuk">
+                                    <div
+                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <i class="material-icons opacity-10">skip_next</i>
+                                    </div>
+                                    <span class="nav-link-text ms-1">Surat Masuk</span>
+                                </a>
+                                <a class="nav-link text-white " href="?page=dataDisposisi">
+                                    <div
+                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <i class="material-icons opacity-10">compare_arrows</i>
+                                    </div>
+                                    <span class="nav-link-text ms-1">Disposisi Surat</span>
+                                </a>
+                                <a class="nav-link text-white " href="?page=dataSuratKeluar">
+                                    <div
+                                        class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <i class="material-icons opacity-10">skip_previous</i>
+                                    </div>
+                                    <span class="nav-link-text ms-1">Surat Keluar</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 </li>
             </ul>
         </div>

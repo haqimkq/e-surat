@@ -54,12 +54,13 @@ if (!isset($_SESSION['nama'])) {
                                         <tbody>
                                             <?php
                                             $no = 1;
-                                            // $id = $_SESSION['idTamuMasu'];
-                                            $query = mysqli_query($link, "SELECT d.*, sm.*, tm.idTamuMasuk, t.nama, p.nm_pegawai
+                                            $query = mysqli_query($link, "SELECT d.*, sm.*, tm.idTamuMasuk, t.nama , p.nm_pegawai
                                             FROM disposisi d
                                             JOIN surat_masuk sm ON sm.idSuratMasuk = d.idSuratMasuk
+
                                             JOIN tamu_masuk tm ON tm.idTamuMasuk = sm.idTamuMasuk
                                             JOIN tamu t ON t.idTamu = tm.idTamu
+
                                             JOIN pegawai p ON p.id_pegawai = d.idPegawai
                                              ");
                                             $i = 1;

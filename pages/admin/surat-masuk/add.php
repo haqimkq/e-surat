@@ -95,18 +95,16 @@ if (!isset($_SESSION['nama'])) {
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
-                                                        <div class="input-group input-group-dynamic">
-                                                            <label>FIle Surat</label>
-                                                            <div class="input-group input-group-dynamic mb-4">
-                                                                <input class="form-control" aria-label="Foto "
-                                                                    type="file" name="file" data-minlength="4"
-                                                                    data-error="Tidak Boleh Kurang dari 4" required>
-                                                                <div class="help-block with-errors"></div>
+                                                            <div class="input-group input-group-dynamic">
+                                                                <label>FIle Surat</label>
+                                                                <div class="input-group input-group-dynamic mb-4">
+                                                                    <input class="form-control" aria-label="Foto " type="file" name="file" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
+                                                                    <div class="help-block with-errors"></div>
+                                                                </div>
+                                                                <em class="text-danger text-sm text-italic">*Upload
+                                                                    berkas pendukung (PDF, maksimal 2Mb)</em>
                                                             </div>
-                                                            <em class="text-danger text-sm text-italic">*Upload
-                                                                berkas pendukung (PDF, maksimal 2Mb)</em>
                                                         </div>
-                                                    </div>
                                                     </div>
                                                 </div>
                                                 <div class="col ms-4">

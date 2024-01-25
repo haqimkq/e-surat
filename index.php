@@ -26,7 +26,7 @@
 
     <!-- CSS Files -->
 
-    <link id="pagestyle" href="/e-arsip/assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
+    <link id="pagestyle" href="../e-surat/assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
 </head>
 
 <body class="bg-gray-200">
@@ -121,10 +121,10 @@
         </div>
     </main>
     <!--   Core JS Files   -->
-    <script src="../dashfix/assets/js/core/popper.min.js"></script>
-    <script src="../dashfix/assets/js/core/bootstrap.min.js"></script>
-    <script src="../dashfix/assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="../dashfix/assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="../e-surat/assets/js/core/popper.min.js"></script>
+    <script src="../e-surat/assets/js/core/bootstrap.min.js"></script>
+    <script src="../e-surat/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="../e-surat/assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -137,7 +137,7 @@
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="../dashfix/assets/js/material-dashboard.min.js?v=3.0.4"></script>
+    <script src="../e-surat/assets/js/material-dashboard.min.js?v=3.0.4"></script>
 
 
 </body>

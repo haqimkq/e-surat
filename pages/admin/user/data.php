@@ -51,7 +51,6 @@ if (!isset($_SESSION['nama'])) {
                                                 Username</th>
                                             <th class=" text-righ text-secondary text-s font-weight-bolder opacity-7">
                                                 Password Terenkripsi</th>
-
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -90,7 +89,7 @@ if (!isset($_SESSION['nama'])) {
                                                         if ($row['level'] == 0) {
                                                             echo "Admin";
                                                         } elseif ($row['level'] == 1) {
-                                                            echo "Pegawai";
+                                                            echo "Sekertaris";
                                                         } elseif ($row['level'] == 2) {
                                                             echo "Masyarakat";
                                                         } elseif ($row['level'] == 3) {
