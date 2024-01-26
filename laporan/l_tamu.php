@@ -14,10 +14,8 @@ if (isset($_POST['cetak1'])) {
     $label = 'LAPORAN DATA LEGALISASI SURAT PENGANTAR NIKAH  <br> Tanggal : ' . tgl($tgl1) . ' s/d ' . tgl($tgl2);
     /* $label = 'LAPORAN DATA BARANG MASUK <br> JENIS : ' . $kec; */
 } else {
-    $sql = mysqli_query($link, "SELECT * FROM spn sn
-  join masyarakat m on sn.id_msy = m.id_msy 
-  join pelayanan p on sn.id_pelayanan = p.id_pelayanan ORDER BY sn.tgl  ");
-    $label = 'LAPORAN DATA LEGALISASI SURAT PENGANTAR NIKAH';
+    $sql = mysqli_query($link, "SELECT * FROM tamu  ");
+    $label = 'LAPORAN DATA TAMU';
 }
 
 $bln = array(
@@ -155,17 +153,16 @@ function tgl($tanggal)
         }
     </style>
 
-    <link rel="icon" type="image/png" href="<?php echo "../image/bjm.png" ?>">
-    <title>Laporan Legalisasi Surat Pengantar Nikah </title>
+    <link rel="icon" type="image/png" href="https://1.bp.blogspot.com/-x0XnjY4pIlY/W6XY0lAU3xI/AAAAAAAAD3o/JmngsUDBWVc2n_oijzaCpC8Vq1OPeLU9QCEwYBhgL/s1600/dishub%2Bpng.png">
+    <title>Laporan Data Tamu </title>
 </head>
 
 <body>
-    <img src="../image/bjm.png" alt="Logo" align="left" width="90" height="120">
+    <img src="../img/dishub.png" alt="Logo" align="left" width="120" height="90">
     <p align="center"><b>
             <br>
-            <font size="5">Pelayanan Terpadu <br> Kecamatan Banjarmasin Timur </font><br>
-            <font size="2">Jl. Manggis No.20, Kuripan, Kec. Banjarmasin Tim., Kota Banjarmasin, Kalimantan Selatan
-                70236, Indonesia </font><br>
+            <font size="5">DINAS PERHUBUNGAN <br> Provinsi Kalimantan Selatan </font><br>
+            <font size="2">Jl. Zafri Zam Zam No.10, Belitung Sel., Kec. Banjarmasin Bar., Kota Banjarmasin, Kalimantan Selatan 70231 </font><br>
             <br>
             <hr size="3px" color="black">
         </b></p>
@@ -179,20 +176,14 @@ function tgl($tanggal)
         <div class="col-sm-12">
             <div class="card-box table-responsive">
                 <table border="1" cellspacing="1" cellpadding="6" width="100%">
-                    <thead style="background-color: #5F9EA0">
+                    <thead style="background-color: #FDE767">
                         <tr>
                             <th style="text-align: center; font-size: 18px;">No</th>
-                            <th style="text-align: center; font-size: 18px;">Nama Masyarakat</th>
-                            <th style="text-align: center; font-size: 18px; width:15%;">Jenis Pelayanan</th>
-                            <th style="text-align: center; font-size: 18px; width:8%;">Surat Dari Lurah</th>
-                            <th style="text-align: center; font-size: 18px; width:8%;">Akte Cerai (Meniggal)</th>
-                            <th style="text-align: center; font-size: 18px; width:8%;">Akte Cerai (Hidup)</th>
-                            <th style="text-align: center; font-size: 18px; width:8%;">Surat Wali Nilah</th>
-                            <th style="text-align: center; font-size: 18px; width:10%;">Foto KTP</th>
-                            <th style="text-align: center; font-size: 18px; width:10%;">Pas Foto</th>
-                            <th style="text-align: center; font-size: 18px;">Tanggal Pengajuan</th>
-                            <th style="text-align: center; font-size: 18px;">Verifikasi Admin</th>
-                            <th style="text-align: center; font-size: 18px;">Verifikasi Camat</th>
+                            <th style="text-align: center; font-size: 18px;">Nama</th>
+                            <th style="text-align: center; font-size: 18px;">NIK</th>
+                            <th style="text-align: center; font-size: 18px;">Alamat</th>
+                            <th style="text-align: center; font-size: 18px;">Jenis Kelamin</th>
+                            <th style="text-align: center; font-size: 18px;">Nomor Telepon</th>
                         </tr>
                     </thead>
 
@@ -201,60 +192,13 @@ function tgl($tanggal)
                             <tr>
                                 <td align="center"><?php echo $no++; ?></td>
                                 <td align="left"><?= $data['nama']; ?></td>
-                                <td align="center"> <?= $data['j_pelayanan']; ?></td>
-                                <td class="w-10" align="center">
-                                    <?php
-                                    if (!empty($data['spn'])) {
-                                        $pdfPath = '../pelayanan/' . $data['spn'];
-                                        echo "<a class='badge bg-gradient-success ' href='$pdfPath' download>√</a>";
-                                    } else {
-                                        echo "File PDF tidak tersedia";
-                                    }
-                                    ?>
-                                </td>
-                                <td class="w-10" align="center">
-                                    <?php
-                                    if (!empty($data['akte_c'])) {
-                                        $pdfPath = '../pelayanan/' . $data['akte_c'];
-                                        echo "<a class='badge bg-gradient-success ' href='$pdfPath' download>√</a>";
-                                    } else {
-                                        echo "File PDF tidak tersedia";
-                                    }
-                                    ?>
-                                </td>
-                                <td class="w-10" align="center">
-                                    <?php
-                                    if (!empty($data['sk'])) {
-                                        $pdfPath = '../pelayanan/' . $data['sk'];
-                                        echo "<a class='badge bg-gradient-success ' href='$pdfPath' download>√</a>";
-                                    } else {
-                                        echo "File PDF tidak tersedia";
-                                    }
-                                    ?>
-                                </td>
-                                <td class="w-10" align="center">
-                                    <?php
-                                    if (!empty($data['skwn'])) {
-                                        $pdfPath = '../pelayanan/' . $data['skwn'];
-                                        echo "<a class='badge bg-gradient-success ' href='$pdfPath' download>√</a>";
-                                    } else {
-                                        echo "File PDF tidak tersedia";
-                                    }
-                                    ?>
-                                </td>
-                                <td class="w-7" align="center">
-                                    <?php echo "<a href='$data[ktp]' download><img src='$data[ktp]' width='100' height='70' style='border-radius: 5%;' /></a>"; ?>
-                                </td>
-                                <td class="w-10" align="center">
-                                    <?php echo "<a href='$data[pas_foto]' download><img src='$data[pas_foto]' width='100' height='70' style='border-radius: 5%;' /></a>"; ?>
-                                </td>
-                                <td align="center"><?= tgl($data['tgl']) ?></td>
-                                <td align="center"><?php echo $data['statusAdmin']; ?></td>
-                                <td align="center"><?php echo $data['statusCamat']; ?></td>
+                                <td align="center"> <?= $data['nik']; ?></td>
+                                <td align="center"> <?= $data['alamat']; ?></td>
+                                <td align="center"> <?= $data['jk']; ?></td>
+                                <td align="center"> <?= $data['tlp']; ?></td>
                             </tr>
                         <?php } ?>
                     </tbody>
-                    * Klik ( √ ) Untuk Download Berkas
                 </table>
 
             </div>
@@ -268,11 +212,11 @@ function tgl($tanggal)
         <h5>
             Banjarmasin, <?php echo date('d') . ' ' . $bln[date('m')] . ' ' . date('Y') ?><br>
             Mengetahui,<br>
-            Camat<br>
+            Kepala Dinas<br>
             <br><br>
             <br><br>
-            <u><b>Drs. Hj. Rusdiana, M.AP </b></u><br>
-            <b>NIP. 196709071990 2 001</b><br>
+            <u><b>M. FITRI HERNADI, A.P.,M.Si. </b></u><br>
+            <b>NIP. 19751102 199412 1 001</b><br>
         </h5>
     </div>
 
