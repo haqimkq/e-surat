@@ -177,10 +177,10 @@ WHERE idDisposisi = '$id'");
 
         if ($edit) {
             echo "<script>alert('Data berhasil diedit')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=data_disposisi'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=dataDisposisi'>";
         } else {
             echo "<script>alert('Data anda gagal diedit. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=edit_disposisi'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=editDisposisi'>";
         }
     }
 }

@@ -200,10 +200,10 @@ WHERE idSuratKeluar = '$id'");
 
         if ($edit) {
             echo "<script>alert('Data berhasil diedit')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=data_suratKeluar'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=dataSuratKeluar'>";
         } else {
             echo "<script>alert('Data anda gagal diedit. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=edit_suratKeluar'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=editSuratKeluar'>";
         }
     }
 }

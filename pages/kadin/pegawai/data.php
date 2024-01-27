@@ -28,9 +28,9 @@ if (!isset($_SESSION['nama'])) {
                     </div>
                 </div>
                 <div class="card-body p-3 mt-3">
-                    <div class="col-2 ">
+                    <!-- <div class="col-2 ">
                             <a href="?page=tambah_pegawai" class="btn btn-info">Tambah Data</a>
-                        </div>
+                        </div> -->
                     <hr class="horizontal dark">
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
@@ -76,14 +76,14 @@ if (!isset($_SESSION['nama'])) {
                                                         role="menu">
                                                         <li>
                                                             <a class="dropdown-item border-radius-md"
-                                                                href="?page=edit_pegawai&id=<?= $row[0]; ?>">
+                                                                href="?page=editpegawai&id=<?= $row[0]; ?>">
                                                                 <i class="fa fa-edit"></i>
                                                                 Edit Data</a>
                                                         </li>
                                                         <li>
                                                             <a class="dropdown-item border-radius-md"
                                                                 onclick="return confirm ('Anda yakin ingin menghapus data ?');"
-                                                                href="?page=hapus_pegawai&id=<?= $row[0]; ?>">
+                                                                href="?page=hapuspegawai&id=<?= $row[0]; ?>">
                                                                 <i class="fa fa-trash-o"></i>
                                                                 Hapus</a>
                                                         </li>

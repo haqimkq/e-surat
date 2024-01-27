@@ -84,10 +84,10 @@ if (!isset($_SESSION['nama'])) {
 
         if ($edit) {
             echo "<script>alert('Data berhasil diedit')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=data_keperluan'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=datakeperluan'>";
         } else {
             echo "<script>alert('Data anda gagal diedit. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=edit_keperluan'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=editkeperluan'>";
         }
     }
 }

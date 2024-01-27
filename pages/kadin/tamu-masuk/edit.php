@@ -227,10 +227,10 @@ WHERE idTamuMasuk = '$id'");
 
         if ($edit) {
             echo "<script>alert('Data berhasil diedit')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=data_tamuMasuk'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=datatamuMasuk'>";
         } else {
             echo "<script>alert('Data anda gagal diedit. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=edit_tamuMasuk'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=edittamuMasuk'>";
         }
     }
 }

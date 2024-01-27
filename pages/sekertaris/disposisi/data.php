@@ -25,7 +25,7 @@ if (!isset($_SESSION['nama'])) {
                     </div>
                     <div class="card-body p-3 mt-3">
                         <div class="col-2 ">
-                            <a href="?page=tambah_disposisi" class="btn btn-info">Tambah Data</a>
+                            <a href="?page=tambahDisposisi" class="btn btn-info">Tambah Data</a>
                         </div>
                         <hr class="horizontal dark">
                         <div class="row">
@@ -74,12 +74,12 @@ if (!isset($_SESSION['nama'])) {
                                                             </button>
                                                             <ul class="dropdown-menu shadow-lg mt-2  dropdown-menu-end px-2 py-2 me-sm-n4" role="menu">
                                                                 <li>
-                                                                    <a class="dropdown-item border-radius-md" href="?page=edit_disposisi&id=<?= $row[0]; ?>">
+                                                                    <a class="dropdown-item border-radius-md" href="?page=editDisposisi&id=<?= $row[0]; ?>">
                                                                         <i class="fa fa-edit"></i>
                                                                         Edit Data</a>
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item border-radius-md" onclick="return confirm ('Anda yakin ingin menghapus data ?');" href="?page=hapus_disposisi&id=<?= $row[0]; ?>">
+                                                                    <a class="dropdown-item border-radius-md" onclick="return confirm ('Anda yakin ingin menghapus data ?');" href="?page=hapusDisposisi&id=<?= $row[0]; ?>">
                                                                         <i class="fa fa-trash-o"></i>
                                                                         Hapus</a>
                                                                 </li>

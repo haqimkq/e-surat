@@ -64,11 +64,11 @@ if (!isset($_SESSION['nama'])) {
                                                     <ul class="dropdown-menu shadow-lg mt-2  dropdown-menu-end px-2 py-2 me-sm-n4"
                                                         role="menu">
                                                         <li><a class="dropdown-item border-radius-md"
-                                                                href="?page=edit_keperluan&id=<?= $row[0]; ?>"><i
+                                                                href="?page=editkeperluan&id=<?= $row[0]; ?>"><i
                                                                     class="fa fa-edit"></i> Edit Data</a></li>
                                                         <li><a class="dropdown-item border-radius-md"
                                                                 onclick="return confirm ('Anda yakin ingin menghapus data ?');"
-                                                                href="?page=hapus_keperluan&id=<?= $row[0]; ?>"><i
+                                                                href="?page=hapuskeperluan&id=<?= $row[0]; ?>"><i
                                                                     class="fa fa-trash-o"></i> Hapus</a></li>
                                                     </ul>
                                                 </div>

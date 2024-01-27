@@ -133,10 +133,10 @@ if (!isset($_SESSION['nama'])) {
 
         if ($simpan) {
             echo "<script>alert('Data berhasil disimpan')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=data_tamu'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=datatamu'>";
         } else {
             echo "<script>alert('Data anda gagal disimpan. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=tambah_tamu'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=tambahtamu'>";
         }
     }
 }

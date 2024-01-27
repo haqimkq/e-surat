@@ -4,7 +4,7 @@ include "../db/koneksi.php";
 
 if (!isset($_SESSION['nama'])) {
     echo "<script> alert('Silahkan login terlebih dahulu'); </script>";
-    echo "<meta http-equiv='refresh' content='0; url=../aev/index.php'>";
+    echo "<meta http-equiv='refresh' content='0; url=../e-surat/index.php'>";
 } else {
 
     $id = $_GET['id'];
@@ -84,10 +84,10 @@ if (!isset($_SESSION['nama'])) {
 
         if ($edit) {
             echo "<script>alert('Data berhasil diedit')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=data_jabatan'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=datajabatan'>";
         } else {
             echo "<script>alert('Data anda gagal diedit. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=edit_jabatan'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=editjabatan'>";
         }
     }
 }

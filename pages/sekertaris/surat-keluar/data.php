@@ -26,7 +26,7 @@ if (!isset($_SESSION['nama'])) {
                 </div>
                 <div class="card-body p-3 mt-3">
                     <div class="col-2 ">
-                            <a href="?page=tambah_suratKeluar" class="btn btn-info">Tambah Data</a>
+                            <a href="?page=tambahSuratKeluar" class="btn btn-info">Tambah Data</a>
                         </div>
                     <hr class="horizontal dark">
                     <div class="row">
@@ -74,14 +74,14 @@ if (!isset($_SESSION['nama'])) {
                                                         role="menu">
                                                         <li>
                                                             <a class="dropdown-item border-radius-md"
-                                                                href="?page=edit_suratKeluar&id=<?= $row[0]; ?>">
+                                                                href="?page=editSuratKeluar&id=<?= $row[0]; ?>">
                                                                 <i class="fa fa-edit"></i>
                                                                 Edit Data</a>
                                                         </li>
                                                         <li>
                                                             <a class="dropdown-item border-radius-md"
                                                                 onclick="return confirm ('Anda yakin ingin menghapus data ?');"
-                                                                href="?page=hapus_suratKeluar&id=<?= $row[0]; ?>">
+                                                                href="?page=hapusSuratKeluar&id=<?= $row[0]; ?>">
                                                                 <i class="fa fa-trash-o"></i>
                                                                 Hapus</a>
                                                         </li>

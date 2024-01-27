@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['nama'])) {
     echo "<script> alert('Silahkan login terlebih dahulu'); </script>";
-    echo "<meta http-equiv='refresh' content='0; url=../aev/index.php'>";
+    echo "<meta http-equiv='refresh' content='0; url=../e-surat/index.php'>";
 } else {
 
 ?>
@@ -125,7 +125,7 @@ if (!isset($_SESSION['nama'])) {
         $result = mysqli_query($link, "SELECT * FROM users WHERE username = '$username'");
         if (mysqli_fetch_assoc($result)) {
             echo "<script>alert ('username sudah terdaftar!')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=tambah_user'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=tambahuser'>";
             return false;
         }
         $pass = md5($password);
@@ -135,10 +135,10 @@ if (!isset($_SESSION['nama'])) {
 
         if ($simpan) {
             echo "<script>alert('Data berhasil disimpan')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=data_user'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=datauser'>";
         } else {
             echo "<script>alert('Data anda gagal disimpan. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=tambah_user'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=tambahuser'>";
         }
     }
 }

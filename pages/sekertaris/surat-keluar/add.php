@@ -157,10 +157,10 @@ if (!isset($_SESSION['nama'])) {
             )");
         if ($simpan) {
             echo "<script>alert('Data berhasil disimpan')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=data_suratKeluar'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=dataSuratKeluar'>";
         } else {
             echo "<script>alert('Data anda gagal disimpan. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=tambah_suratKeluar'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=tambahSuratKeluar'>";
         }
     }
 }

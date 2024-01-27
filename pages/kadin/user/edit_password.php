@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['nama'])) {
     echo "<script> alert('Silahkan login terlebih dahulu'); </script>";
-    echo "<meta http-equiv='refresh' content='0; url=../aev/index.php'>";
+    echo "<meta http-equiv='refresh' content='0; url=../e-surat/index.php'>";
 } else {
     $id = $_GET['id'];
     $query = mysqli_query($link, "SELECT * FROM users WHERE id_user = '$id' ");
@@ -101,10 +101,10 @@ if (!isset($_SESSION['nama'])) {
 
         if ($edit) {
             echo "<script>alert('Data berhasil diedit')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=data_user'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=datauser'>";
         } else {
             echo "<script>alert('Data anda gagal diedit. Ulangi sekali lagi')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=?page=edit_user'>";
+            echo "<meta http-equiv='refresh' content='0; url=?page=edituser'>";
         }
     }
 }
