@@ -1,5 +1,13 @@
 <?php
 
+$suratmasuk = mysqli_query($link, "SELECT COUNT(*) AS total FROM surat_masuk ");
+$hitungsuratmasuk = mysqli_fetch_array($suratmasuk);
+
+$suratkeluar = mysqli_query($link, "SELECT COUNT(*) AS total FROM surat_keluar ");
+$hitungsuratkeluar = mysqli_fetch_array($suratkeluar);
+
+$disposisi = mysqli_query($link, "SELECT COUNT(*) AS total FROM disposisi ");
+$hitungdisposisi = mysqli_fetch_array($disposisi);
 
 function tgl($tanggal)
 {
@@ -32,48 +40,34 @@ function tgl($tanggal)
     <div class="row mt-4">
         <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
             <div class="card">
-                <div class="card-header pb-0">
+            <div class="card-header mb-xl- pb-0">
                     <div class="row">
-                        <div class="col-lg-12 col-12">
-                            <h6 align="center">Data Penilaian Kinerja Pelayanan Dari Masyarakat</h6>
-                            <p class="text-sm mb-0">
-                                <i class="fa fa-check text-info" aria-hidden="true"></i>
-                                <span class="font-weight-bold ms-1"> Total : <?php echo $hitungskpkec['total'] ?></span>
-                            </p>
+                        <h6 align="center">Grafik Surat Menyurat </h6>
+                        <div class="col-md-12">
+                            <div class="control-panel">
+                                <style>
+                                    canvas {
+                                        -moz-user-select: none;
+                                        -webkit-user-select: none;
+                                        -ms-user-select: none;
+                                    }
+                                </style>
+                                <center><strong>
+                                        <div style="width: 100%">
+                                            <canvas class="mt-3 mb-2" id="myChart"></canvas>
+                                        </div>
+                                    </strong></center>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="card-body px-0 pb-2 ">
+                <div class="card-body px-0 pb-1 ">
                     <div class="table-responsive">
-                        <table class="table align-items-center mb-0 ">
-                            <thead>
-                                <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No.
-                                    </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Nama
-                                    </th>
-                                    <th
-                                        class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Tanggal Input
-                                    </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Nilai Kinerja
-                                    </th>
-                                    <th
-                                        class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Keterangan Kinerja
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                               
-
-                            </tbody>
-
+                        <table class="table align-items-center mb-0">
                         </table>
                     </div>
                 </div>
+                
             </div>
         </div>
         <div class="col-lg-4 col-md-10">
@@ -112,69 +106,32 @@ function tgl($tanggal)
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-12 col-md-12">
-            <div class="card mt-3">
-                <div class="card-header mb-xl- pb-0">
-                    <div class="row">
-                        <h6 align="center">Grafik Penilaian Kinerja Pelayanan Pada Kecamatan Banjarmasin Timur</h6>
-                        <div class="col-md-12">
-                            <div class="control-panel">
-                                <style>
-                                canvas {
-                                    -moz-user-select: none;
-                                    -webkit-user-select: none;
-                                    -ms-user-select: none;
-                                }
-                                </style>
-                                <center><strong>
-                                        <div style="width: 100% ">
-                                            <canvas id="chartId"></canvas>
-                                        </div>
-                                    </strong></center>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body px-0 pb-1">
-                    <div class="table-responsive">
-                        <table class="table align-items-center mb-0">
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-var chrt = document.getElementById("chartId").getContext("2d");
-var chartId = new Chart(chrt, {
-    type: 'polarArea',
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'doughnut',
     data: {
-        labels: ['Sangat Baik',
-            'Baik',
-            'Cukup',
-            'Kurang ',
-            'Buruk ',
+        labels: [
+            'Surat Masuk',
+            'Surat Keluar',
+            'Disposisi',
         ],
         datasets: [{
-            label: "Akumulasi Jumlah data penilaian",
-            data: [<?php echo $hitungsb['total'] ?>, <?php echo $hitungb['total'] ?>,
-                <?php echo $hitungc['total'] ?>, <?php echo $hitungk['total'] ?>,
-                <?php echo $hitungbrk['total'] ?>,
+            label: 'Akumulasi Jumlah data Surat Menyurat',
+            data: [<?php echo $hitungsuratmasuk['total'] ?>, <?php echo $hitungsuratkeluar['total'] ?>,
+                <?php echo $hitungdisposisi['total'] ?>,
             ],
             backgroundColor: [
                 'rgb(25, 205, 77)',
                 'rgb(54, 162, 235)',
-                'rgb(255, 99, 132)',
-                'rgb(255, 205, 86)',
                 'rgb(19, 17, 0)',
             ],
-        }],
+            hoverOffset: 4
+        }]
     },
     options: {
         responsive: false,

@@ -232,6 +232,48 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/sekertaris/user/delete.php";
             break;
 
+            //SURAT MASUK
+        case "data_suratMasuk";
+        include "../pages/sekertaris/surat-masuk/data.php";
+        break;
+    case "tambah_suratMasuk";
+        include "../pages/sekertaris/surat-masuk/add.php";
+        break;
+    case "edit_suratMasuk";
+        include "../pages/sekertaris/surat-masuk/edit.php";
+        break;
+    case "hapus_suratMasuk";
+        include "../pages/sekertaris/surat-masuk/delete.php";
+        break;
+
+        //SURAT KELUAR
+    case "data_suratKeluar";
+    include "../pages/sekertaris/surat-keluar/data.php";
+    break;
+case "tambah_suratKeluar";
+    include "../pages/sekertaris/surat-keluar/add.php";
+    break;
+case "edit_suratKeluar";
+    include "../pages/sekertaris/surat-keluar/edit.php";
+    break;
+case "hapus_suratKeluar";
+    include "../pages/sekertaris/surat-keluar/delete.php";
+    break;
+
+    //DISPOSISI
+    case "data_disposisi";
+    include "../pages/sekertaris/disposisi/data.php";
+    break;
+case "tambah_disposisi";
+    include "../pages/sekertaris/disposisi/add.php";
+    break;
+case "edit_disposisi";
+    include "../pages/sekertaris/disposisi/edit.php";
+    break;
+case "hapus_disposisi";
+    include "../pages/sekertaris/disposisi/delete.php";
+    break;
+
             ///////////////////////////////////////////////////////////////// END PEGAWAI PAGE ---------
 
             ///////////////////////////////////////////////////////////// START MASYARAKAT PAGE------------------

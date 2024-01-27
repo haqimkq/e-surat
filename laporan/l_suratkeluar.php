@@ -3,21 +3,19 @@
 include "../db/koneksi.php";
 
 $no = 1;
-if (isset($_POST['cetak5'])) {
+if (isset($_POST['cetak6'])) {
     /* $kec = $_POST['jenis']; */
     $tgl1 = $_POST['tgl1'];
     $tgl2 = $_POST['tgl2'];
 
-    $sql = mysqli_query($link, "SELECT * FROM proposal  pr
-  join masyarakat m on pr.id_msy = m.id_msy 
-  join pelayanan p on pr.id_pelayanan = p.id_pelayanan WHERE pr.tgl BETWEEN '$tgl1' AND '$tgl2' ORDER BY pr.tgl ");
-    $label = 'LAPORAN DATA LEGALISASI PROPOSAL  <br> Tanggal : ' . tgl($tgl1) . ' s/d ' . tgl($tgl2);
+    $sql = mysqli_query($link, "SELECT * FROM surat_keluar sk
+    JOIN tamu t ON t.idTamu = sk.idTamu WHERE sk.tanggal BETWEEN '$tgl1' AND '$tgl2' ORDER BY sk.tanggal ");
+    $label = 'LAPORAN DATA SURAT KELUAR  <br> Tanggal : ' . tgl($tgl1) . ' s/d ' . tgl($tgl2);
     /* $label = 'LAPORAN DATA BARANG MASUK <br> JENIS : ' . $kec; */
 } else {
-    $sql = mysqli_query($link, "SELECT * FROM proposal  pr
-  join masyarakat m on pr.id_msy = m.id_msy 
-  join pelayanan p on pr.id_pelayanan = p.id_pelayanan ORDER BY pr.tgl  ");
-    $label = 'LAPORAN DATA LEGALISASI PROPOSAL';
+    $sql = mysqli_query($link, "SELECT * FROM surat_keluar sk
+    JOIN tamu t ON t.idTamu = sk.idTamu ORDER BY sk.tanggal  ");
+    $label = 'LAPORAN DATA SURAT KELUAR';
 }
 
 $bln = array(
@@ -154,18 +152,16 @@ function tgl($tanggal)
             color: #4caf50;
         }
     </style>
-
-    <link rel="icon" type="image/png" href="<?php echo "../image/bjm.png" ?>">
-    <title>Laporan Legalisasi Proposal </title>
+    <link rel="icon" type="image/png" href="https://1.bp.blogspot.com/-x0XnjY4pIlY/W6XY0lAU3xI/AAAAAAAAD3o/JmngsUDBWVc2n_oijzaCpC8Vq1OPeLU9QCEwYBhgL/s1600/dishub%2Bpng.png">
+    <title>Laporan Data Surat Keluar </title>
 </head>
 
 <body>
-    <img src="../image/bjm.png" alt="Logo" align="left" width="90" height="120">
+    <img src="../img/dishub.png" alt="Logo" align="left" width="120" height="90">
     <p align="center"><b>
             <br>
-            <font size="5">Pelayanan Terpadu <br> Kecamatan Banjarmasin Timur </font><br>
-            <font size="2">Jl. Manggis No.20, Kuripan, Kec. Banjarmasin Tim., Kota Banjarmasin, Kalimantan Selatan
-                70236, Indonesia </font><br>
+            <font size="5">DINAS PERHUBUNGAN <br> Provinsi Kalimantan Selatan </font><br>
+            <font size="2">Jl. Zafri Zam Zam No.10, Belitung Sel., Kec. Banjarmasin Bar., Kota Banjarmasin, Kalimantan Selatan 70231 </font><br>
             <br>
             <hr size="3px" color="black">
         </b></p>
@@ -182,76 +178,53 @@ function tgl($tanggal)
                     <thead style="background-color: #5F9EA0">
                         <tr>
                             <th style="text-align: center; font-size: 18px;">No</th>
-                            <th style="text-align: center; font-size: 18px;">Nama Masyarakat</th>
-                            <th style="text-align: center; font-size: 18px; width:15%;">Jenis Pelayanan</th>
-                            <th style="text-align: center; font-size: 18px; width:10%;">Surat Pernyataan</th>
-                            <th style="text-align: center; font-size: 18px; width:10%;">Surat Permohonan</th>
-                            <th style="text-align: center; font-size: 18px; width:15%;">Foto KTP Pemohon</th>
-                            <th style="text-align: center; font-size: 18px;">Tanggal Pengajuan</th>
-                            <th style="text-align: center; font-size: 18px;">Verifikasi Admin</th>
-                            <th style="text-align: center; font-size: 18px;">Verifikasi Camat</th>
+                            <th style="text-align: center; font-size: 18px;">Nama Tamu</th>
+                            <th style="text-align: center; font-size: 18px;">Tanggal</th>
+                            <th style="text-align: center; font-size: 18px;">Nomor Surat</th>
+                            <th style="text-align: center; font-size: 18px;">Perihal</th>
+                            <th style="text-align: center; font-size: 18px;">File Surat</th>
                         </tr>
                     </thead>
-
                     <tbody>
                         <?php while ($data = mysqli_fetch_array($sql)) { ?>
                             <tr>
                                 <td align="center"><?php echo $no++; ?></td>
-                                <td align="left"><?= $data['nama']; ?></td>
-                                <td align="center"> <?= $data['j_pelayanan']; ?></td>
+                                <td align="center"><?= $data['nama']; ?></td>
+                                <td align="center"><?= tgl($data['tanggal']) ?></td>
+                                <td align="center"> <?= $data['noSurat']; ?></td>
+                                <td align="center"> <?= $data['perihal']; ?></td>
                                 <td class="w-10" align="center">
-                                    <?php
-                                    if (!empty($data['s_pernyataan'])) {
-                                        $pdfPath = '../pelayanan/' . $data['s_pernyataan'];
+                                <?php
+                                    if (!empty($data['file'])) {
+                                        $pdfPath = '../e-surat/' . $data['file'];
                                         echo "<a class='badge bg-gradient-success ' href='$pdfPath' download>√</a>";
                                     } else {
                                         echo "File PDF tidak tersedia";
                                     }
                                     ?>
-                                </td>
-                                <td class="w-5" align="center">
-                                    <?php
-                                    if (!empty($data['s_permohonan'])) {
-                                        $pdfPath = '../pelayanan/' . $data['s_permohonan'];
-                                        echo "<a class='badge bg-gradient-success ' href='$pdfPath' download>√</a>";
-                                    } else {
-                                        echo "File PDF tidak tersedia";
-                                    }
-                                    ?>
-                                </td>
-                                <td class="w-10" align="center">
-                                    <?php echo "<a href='$data[ktp_p]' download><img src='$data[ktp_p]' width='100' height='70' style='border-radius: 5%;' /></a>"; ?>
-                                </td>
-                                <td align="center"><?= tgl($data['tgl']) ?></td>
-                                <td align="center"><?php echo $data['statusAdmin']; ?></td>
-                                <td align="center"><?php echo $data['statusCamat']; ?></td>
+                            </td>
                             </tr>
                         <?php } ?>
                     </tbody>
                     * Klik ( √ ) Untuk Download Berkas
                 </table>
-
             </div>
         </div>
     </div>
     <br>
     <br>
-
     <br>
     <div style="text-align: center; display: inline-block; float: right;">
         <h5>
             Banjarmasin, <?php echo date('d') . ' ' . $bln[date('m')] . ' ' . date('Y') ?><br>
             Mengetahui,<br>
-            Camat<br>
+            Kepala Dinas<br>
             <br><br>
             <br><br>
-            <u><b>Drs. Hj. Rusdiana, M.AP </b></u><br>
-            <b>NIP. 196709071990 2 001</b><br>
+            <u><b>M. FITRI HERNADI, A.P.,M.Si. </b></u><br>
+            <b>NIP. 19751102 199412 1 001</b><br>
         </h5>
     </div>
-
-
-
 </body>
 
 </html>

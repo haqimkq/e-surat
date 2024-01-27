@@ -21,12 +21,12 @@ if (!isset($_SESSION['nama'])) {
                 </div>
                 <div class=" p-0 position-relative mt-n6 mx-4 z-index-4 ps-6">
                     <div class="bg-gradient-info shadow border-radius-lg pt-3 pb-3 ">
-                        <h6 class="text-white text-capitalize ps-3">Data Surat Masuk</h6>
+                        <h6 class="text-white text-capitalize ps-3">Data Surat Keluar</h6>
                     </div>
                 </div>
                 <div class="card-body p-3 mt-3">
                     <div class="col-2 ">
-                            <a href="?page=tambah_suratMasuk" class="btn btn-info">Tambah Data</a>
+                            <a href="?page=tambah_suratKeluar" class="btn btn-info">Tambah Data</a>
                         </div>
                     <hr class="horizontal dark">
                     <div class="row">
@@ -56,10 +56,8 @@ if (!isset($_SESSION['nama'])) {
                                         <?php
                                             $no = 1;
                                             // $id = $_SESSION['idTamuMasu'];
-                                            $query = mysqli_query($link, "SELECT sm.*, tm.idTamu, t.nama
-                                            FROM surat_masuk sm
-                                            JOIN tamu_masuk tm ON tm.idTamuMasuk = sm.idTamuMasuk
-                                            JOIN tamu t ON t.idTamu = tm.idTamu
+                                            $query = mysqli_query($link, "SELECT * FROM surat_keluar sk
+                                            JOIN tamu t ON t.idTamu = sk.idTamu
                                              ");
                                             $i = 1;
                                             while ($row = $query->fetch_array()) {
@@ -76,14 +74,14 @@ if (!isset($_SESSION['nama'])) {
                                                         role="menu">
                                                         <li>
                                                             <a class="dropdown-item border-radius-md"
-                                                                href="?page=edit_suratMasuk&id=<?= $row[0]; ?>">
+                                                                href="?page=edit_suratKeluar&id=<?= $row[0]; ?>">
                                                                 <i class="fa fa-edit"></i>
                                                                 Edit Data</a>
                                                         </li>
                                                         <li>
                                                             <a class="dropdown-item border-radius-md"
                                                                 onclick="return confirm ('Anda yakin ingin menghapus data ?');"
-                                                                href="?page=hapus_suratMasuk&id=<?= $row[0]; ?>">
+                                                                href="?page=hapus_suratKeluar&id=<?= $row[0]; ?>">
                                                                 <i class="fa fa-trash-o"></i>
                                                                 Hapus</a>
                                                         </li>

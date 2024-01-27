@@ -124,7 +124,7 @@ function tgl($tanggal)
     
 
     <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-12 mt-3 col-md-6">
             <div class="card ">
                 <div class="card-header mb-xl- pb-0">
                     <div class="row">
@@ -151,6 +151,41 @@ function tgl($tanggal)
                     <div class="table-responsive">
                         <table class="table align-items-center mb-0">
                         </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mt-3 col-md-10">
+            <div class="card h-100">
+                <div class="card-header pb-0">
+                    <h6 align="center"> DINAS PERHUBUNGAN <br> PROVINSI KALIMANTAN SELATAN</h6>
+
+                    <i class="fa fa-check text-info" aria-hidden="true"></i>
+                    <span class="font-weight-bold"></span> Visi - Misi
+                </div>
+                <div class="card-body p-3">
+                    <div class="timeline timeline-one-side">
+                        <div class="timeline-block mb-2">
+                            <span class="timeline-step">
+                                <i class="material-icons text-success text-gradient"></i>
+                            </span>
+                            <div class="timeline-content">
+                                <h6 class="text-dark text-sm font-weight-bold mb-0">Visi</h6>
+                                <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">“Terwujudnya Pelayanan Transportasi Berkelanjutan Dan Berintegrasi Di Kalimantan Selatan Yang Aman, Nyaman dan Terjangkau””</p>
+                            </div>
+                        </div>
+                        <div class="timeline-block mb-2 ">
+                            <span class="timeline-step ">
+                                <i class="material-icons text-success text-gradient"></i>
+                            </span>
+                            <div class="timeline-content">
+                                <h6 class="text-dark text-sm font-weight-bold mb-0">Misi</h6>
+                                <p align="justify" class="text-secondary font-weight-bold text-xs mt-1 mb-0">
+                                    1.Mewujudkan Penyelenggaraan Transportasi Yang Efektif Dan Efisien Yang Berorientasi Pada Pelayanan Publik. <br><br>
+                                    2.Mewujudkan Fasilitas Keselamatan Bidang Perhubungan Yang Merata Guna Mendukung Percepatan Pengembangan Ekonomi dan Sosial Budaya. <br><br>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
