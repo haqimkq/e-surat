@@ -3,7 +3,7 @@
 session_start();
 if (!isset($_SESSION['nama'])) {
     echo "<script> alert('Silahkan login terlebih dahulu'); </script>";
-    echo "<meta http-equiv='refresh' content='0; url=../aev/index.php'>";
+    echo "<meta http-equiv='refresh' content='0; url=../e-surat/index.php'>";
 } else {
 
     include '../layouts/header.php';
@@ -24,7 +24,7 @@ if (!isset($_SESSION['nama'])) {
             } elseif ($level === '1') {
                 include "../public/dashboard-pegawai.php";
             } elseif ($level === '2') {
-                include "../public/dashboard-masyarakat.php";
+                include "../public/dashboard-kadin.php";
             } elseif ($level === '3') {
                 include "../public/dashboard-camat.php";
             }
@@ -32,7 +32,6 @@ if (!isset($_SESSION['nama'])) {
 
 
             /////////////////////////////////////////////// START ADMIN PAGE
-           
 
             // PEGAWAI
         case "data_pegawai";
@@ -67,16 +66,16 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/admin/jabatan/delete.php";
             break;
 
-             // KEPERLUAN
+            // KEPERLUAN
         case "data_keperluan";
             include "../pages/admin/keperluan/data.php";
-        break;
+            break;
         case "edit_keperluan";
             include "../pages/admin/keperluan/edit.php";
-        break;
+            break;
         case "hapus_keperluan";
-             include "../pages/admin/keperluan/delete.php";
-        break;
+            include "../pages/admin/keperluan/delete.php";
+            break;
 
             // USERS
         case "data_user";
@@ -95,20 +94,20 @@ if (!isset($_SESSION['nama'])) {
             include "../pages/admin/user/delete.php";
             break;
 
-             // TAMU
-            case "data_tamu";
-                include "../pages/admin/tamu/data.php";
-                break;
-            case "tambah_tamu";
-                include "../pages/admin/tamu/add.php";
-                break;
-            case "edit_tamu";
-                include "../pages/admin/tamu/edit.php";
-                break;
-            case "hapus_tamu";
-                include "../pages/admin/tamu/delete.php";
-                break;
-                
+            // TAMU
+        case "data_tamu";
+            include "../pages/admin/tamu/data.php";
+            break;
+        case "tambah_tamu";
+            include "../pages/admin/tamu/add.php";
+            break;
+        case "edit_tamu";
+            include "../pages/admin/tamu/edit.php";
+            break;
+        case "hapus_tamu";
+            include "../pages/admin/tamu/delete.php";
+            break;
+
             //TAMU MASUK
         case "data_tamuMasuk";
             include "../pages/admin/tamu-masuk/data.php";
@@ -125,19 +124,19 @@ if (!isset($_SESSION['nama'])) {
 
             //TAMU KELUAR
         case "data_tamuKeluar";
-        include "../pages/admin/tamu-keluar/data.php";
-        break;
-    case "tambah_tamuKeluar";
-        include "../pages/admin/tamu-keluar/add.php";
-        break;
-    case "edit_tamuKeluar";
-        include "../pages/admin/tamu-keluar/edit.php";
-        break;
-    case "hapus_tamuKeluar";
-        include "../pages/admin/tamu-keluar/delete.php";
-        break;
+            include "../pages/admin/tamu-keluar/data.php";
+            break;
+        case "tambah_tamuKeluar";
+            include "../pages/admin/tamu-keluar/add.php";
+            break;
+        case "edit_tamuKeluar";
+            include "../pages/admin/tamu-keluar/edit.php";
+            break;
+        case "hapus_tamuKeluar";
+            include "../pages/admin/tamu-keluar/delete.php";
+            break;
 
-        //SURAT MASUK
+            //SURAT MASUK
         case "data_suratMasuk";
             include "../pages/admin/surat-masuk/data.php";
             break;
@@ -153,31 +152,31 @@ if (!isset($_SESSION['nama'])) {
 
             //SURAT KELUAR
         case "data_suratKeluar";
-        include "../pages/admin/surat-keluar/data.php";
-        break;
-    case "tambah_suratKeluar";
-        include "../pages/admin/surat-keluar/add.php";
-        break;
-    case "edit_suratKeluar";
-        include "../pages/admin/surat-keluar/edit.php";
-        break;
-    case "hapus_suratKeluar";
-        include "../pages/admin/surat-keluar/delete.php";
-        break;
+            include "../pages/admin/surat-keluar/data.php";
+            break;
+        case "tambah_suratKeluar";
+            include "../pages/admin/surat-keluar/add.php";
+            break;
+        case "edit_suratKeluar";
+            include "../pages/admin/surat-keluar/edit.php";
+            break;
+        case "hapus_suratKeluar";
+            include "../pages/admin/surat-keluar/delete.php";
+            break;
 
-        //DISPOSISI
+            //DISPOSISI
         case "data_disposisi";
-        include "../pages/admin/disposisi/data.php";
-        break;
-    case "tambah_disposisi";
-        include "../pages/admin/disposisi/add.php";
-        break;
-    case "edit_disposisi";
-        include "../pages/admin/disposisi/edit.php";
-        break;
-    case "hapus_disposisi";
-        include "../pages/admin/disposisi/delete.php";
-        break;
+            include "../pages/admin/disposisi/data.php";
+            break;
+        case "tambah_disposisi";
+            include "../pages/admin/disposisi/add.php";
+            break;
+        case "edit_disposisi";
+            include "../pages/admin/disposisi/edit.php";
+            break;
+        case "hapus_disposisi";
+            include "../pages/admin/disposisi/delete.php";
+            break;
             //////////////////////////////////////////////////////////////////////// END ADMIN PAGE -----------
 
 
@@ -195,27 +194,8 @@ if (!isset($_SESSION['nama'])) {
         case "hapusPegawai";
             include "../pages/sekertaris/pegawai/delete.php";
             break;
-            case "detail_Pegawai";
+        case "detail_Pegawai";
             include "../pages/sekertaris/pegawai/detail.php";
-            break;
-
-            //PERJALANAN DINAS
-        case "dataPerjalananDinas";
-            include "../pages/other/perjalanan-dinas/data.php";
-            break;
-            // case "tambahPerjalananDinas";
-            //     include "../pages/other/perjalanan-dinas/add.php";
-            //     break;
-            // case "editPerjalananDinas";
-            //     include "../pages/other/perjalanan-dinas/edit.php";
-            //     break;
-            // case "hapusPerjalananDinas";
-            //     include "../pages/other/perjalanan-dinas/delete.php";
-            //     break;
-
-            // PENILAIAN KINERJA PEGAWAI
-        case "dataKinerjaPegawai":
-            include "../pages/other/kinerja-pegawai/data.php";
             break;
 
             // USERS
@@ -234,45 +214,45 @@ if (!isset($_SESSION['nama'])) {
 
             //SURAT MASUK
         case "data_suratMasuk";
-        include "../pages/sekertaris/surat-masuk/data.php";
-        break;
-    case "tambah_suratMasuk";
-        include "../pages/sekertaris/surat-masuk/add.php";
-        break;
-    case "edit_suratMasuk";
-        include "../pages/sekertaris/surat-masuk/edit.php";
-        break;
-    case "hapus_suratMasuk";
-        include "../pages/sekertaris/surat-masuk/delete.php";
-        break;
+            include "../pages/sekertaris/surat-masuk/data.php";
+            break;
+        case "tambah_suratMasuk";
+            include "../pages/sekertaris/surat-masuk/add.php";
+            break;
+        case "edit_suratMasuk";
+            include "../pages/sekertaris/surat-masuk/edit.php";
+            break;
+        case "hapus_suratMasuk";
+            include "../pages/sekertaris/surat-masuk/delete.php";
+            break;
 
-        //SURAT KELUAR
-    case "data_suratKeluar";
-    include "../pages/sekertaris/surat-keluar/data.php";
-    break;
-case "tambah_suratKeluar";
-    include "../pages/sekertaris/surat-keluar/add.php";
-    break;
-case "edit_suratKeluar";
-    include "../pages/sekertaris/surat-keluar/edit.php";
-    break;
-case "hapus_suratKeluar";
-    include "../pages/sekertaris/surat-keluar/delete.php";
-    break;
+            //SURAT KELUAR
+        case "data_suratKeluar";
+            include "../pages/sekertaris/surat-keluar/data.php";
+            break;
+        case "tambah_suratKeluar";
+            include "../pages/sekertaris/surat-keluar/add.php";
+            break;
+        case "edit_suratKeluar";
+            include "../pages/sekertaris/surat-keluar/edit.php";
+            break;
+        case "hapus_suratKeluar";
+            include "../pages/sekertaris/surat-keluar/delete.php";
+            break;
 
-    //DISPOSISI
-    case "data_disposisi";
-    include "../pages/sekertaris/disposisi/data.php";
-    break;
-case "tambah_disposisi";
-    include "../pages/sekertaris/disposisi/add.php";
-    break;
-case "edit_disposisi";
-    include "../pages/sekertaris/disposisi/edit.php";
-    break;
-case "hapus_disposisi";
-    include "../pages/sekertaris/disposisi/delete.php";
-    break;
+            //DISPOSISI
+        case "data_disposisi";
+            include "../pages/sekertaris/disposisi/data.php";
+            break;
+        case "tambah_disposisi";
+            include "../pages/sekertaris/disposisi/add.php";
+            break;
+        case "edit_disposisi";
+            include "../pages/sekertaris/disposisi/edit.php";
+            break;
+        case "hapus_disposisi";
+            include "../pages/sekertaris/disposisi/delete.php";
+            break;
 
             ///////////////////////////////////////////////////////////////// END PEGAWAI PAGE ---------
 
@@ -396,105 +376,152 @@ case "hapus_disposisi";
             break;
             /////////////////////////////////////////////////////////////////END PAGE MASYARAKAT --------
 
-            ///////////START PAGE CAMAT---------------------
-            //LEGALISASI PROPOSAL
-        case "dProposal":
-            include "../pages/camat/legalisasi-proposal/data.php";
+            ///////////START PAGE KEPALA DINAS---------------------
+
+            // PEGAWAI
+        case "data_pegawai";
+            include "../pages/kadin/pegawai/data.php";
             break;
-        case "eProposal":
-            include "../pages/camat/legalisasi-proposal/edit.php";
+        case "tambah_pegawai";
+            include "../pages/kadin/pegawai/add.php";
             break;
-            //LEGALISASI SURAT KETERANGAN TIDAK MAMPU
-        case "dSktm":
-            include "../pages/camat/surat-keterangan-tidak-mampu/data.php";
+        case "edit_pegawai";
+            include "../pages/kadin/pegawai/edit.php";
             break;
-        case "eSktm":
-            include "../pages/camat/surat-keterangan-tidak-mampu/edit.php";
+        case "hapus_pegawai";
+            include "../pages/kadin/pegawai/delete.php";
             break;
-            //LEGALISASI SURAT PENGANTAR NIKAH
-        case "dPengantarNikah":
-            include "../pages/camat/legalisasi-pengantar-nikah/data.php";
-            break;
-        case "ePengantarNikah":
-            include "../pages/camat/legalisasi-pengantar-nikah/edit.php";
-            break;
-            //LEGALISASI DISPENSASI NIKAH
-        case "dDispensasiNikah":
-            include "../pages/camat/dispensasi-nikah/data.php";
-            break;
-        case "eDispensasiNikah":
-            include "../pages/camat/dispensasi-nikah/edit.php";
+        case "detailPegawai";
+            include "../pages/kadin/pegawai/detail.php";
             break;
 
-            //LEGALISASI SUSUNAN KELUARGA
-        case "dSusunanKeluarga":
-            include "../pages/camat/legalisasi-susunan-keluarga/data.php";
-            break;
-        case "eSusunanKeluarga":
-            include "../pages/camat/legalisasi-susunan-keluarga/edit.php";
+            // PROFILE
+        case "data_profile";
+            include "../pages/kadin/profile/data.php";
             break;
 
-            // PENILAIAN KINERJA PEGAWAI
-        case "dKinerjaPegawai":
-            include "../pages/camat/kinerja-pegawai/data.php";
+            // JABATAN
+        case "data_jabatan";
+            include "../pages/kadin/jabatan/data.php";
             break;
-        case "eKinerjaPegawai":
-            include "../pages/camat/kinerja-pegawai/edit.php";
+        case "edit_jabatan";
+            include "../pages/kadin/jabatan/edit.php";
             break;
-
-            //////////// QRCODE PREVIEW //////////////////////
-            ## QRCODE LEGALISASI PROPOSAL
-        case "qrCodeProposal":
-            include "../pages/camat/qrcode-proposal/data.php";
-            break;
-        case "tambah_qrProposal":
-            include "../pages/camat/qrcode-proposal/add.php";
-            break;
-        case "hapus_qrProposal":
-            include "../pages/camat/qrcode-proposal/delete.php";
-            break;
-            ## QRCODE LEGALISASI SKTM
-        case "qrCodeSktm":
-            include "../pages/camat/qrcode-sktm/data.php";
-            break;
-        case "tambah_qrSktm":
-            include "../pages/camat/qrcode-sktm/add.php";
-            break;
-        case "hapus_qrSktm":
-            include "../pages/camat/qrcode-sktm/delete.php";
-            break;
-            ## QRCODE LEGALISASI PENGANTAR NIKAH
-        case "qrCodeSpn":
-            include "../pages/camat/qrcode-spn/data.php";
-            break;
-        case "tambah_qrSpn":
-            include "../pages/camat/qrcode-spn/add.php";
-            break;
-        case "hapus_qrSpn":
-            include "../pages/camat/qrcode-spn/delete.php";
-            break;
-            ## QRCODE LEGALISASI PENGANTAR NIKAH
-        case "qrCodeSk":
-            include "../pages/camat/qrcode-sk/data.php";
-            break;
-        case "tambah_qrSk":
-            include "../pages/camat/qrcode-sk/add.php";
-            break;
-        case "hapus_qrSk":
-            include "../pages/camat/qrcode-sk/delete.php";
-            break;
-            ## QRCODE REKOMENDASI DISPENSASI NIKAH
-        case "qrCodeRdn":
-            include "../pages/camat/qrcode-rdn/data.php";
-            break;
-        case "tambah_qrRdn":
-            include "../pages/camat/qrcode-rdn/add.php";
-            break;
-        case "hapus_qrRdn":
-            include "../pages/camat/qrcode-rdn/delete.php";
+        case "hapus_jabatan";
+            include "../pages/kadin/jabatan/delete.php";
             break;
 
-            //////////// END QRCODE PREVIEW ////////////////////
+            // KEPERLUAN
+        case "data_keperluan";
+            include "../pages/kadin/keperluan/data.php";
+            break;
+        case "edit_keperluan";
+            include "../pages/kadin/keperluan/edit.php";
+            break;
+        case "hapus_keperluan";
+            include "../pages/kadin/keperluan/delete.php";
+            break;
+
+            // USERS
+        case "data_user";
+            include "../pages/kadin/user/data.php";
+            break;
+        case "tambah_user";
+            include "../pages/kadin/user/add.php";
+            break;
+        case "edit_user";
+            include "../pages/kadin/user/edit.php";
+            break;
+        case "edit_user_password";
+            include "../pages/kadin/user/edit_password.php";
+            break;
+        case "hapus_user";
+            include "../pages/kadin/user/delete.php";
+            break;
+
+            // TAMU
+        case "data_tamu";
+            include "../pages/kadin/tamu/data.php";
+            break;
+        case "tambah_tamu";
+            include "../pages/kadin/tamu/add.php";
+            break;
+        case "edit_tamu";
+            include "../pages/kadin/tamu/edit.php";
+            break;
+        case "hapus_tamu";
+            include "../pages/kadin/tamu/delete.php";
+            break;
+
+            //TAMU MASUK
+        case "data_tamuMasuk";
+            include "../pages/kadin/tamu-masuk/data.php";
+            break;
+        case "tambah_tamuMasuk";
+            include "../pages/kadin/tamu-masuk/add.php";
+            break;
+        case "edit_tamuMasuk";
+            include "../pages/kadin/tamu-masuk/edit.php";
+            break;
+        case "hapus_tamuMasuk";
+            include "../pages/kadin/tamu-masuk/delete.php";
+            break;
+
+            //TAMU KELUAR
+        case "data_tamuKeluar";
+            include "../pages/kadin/tamu-keluar/data.php";
+            break;
+        case "tambah_tamuKeluar";
+            include "../pages/kadin/tamu-keluar/add.php";
+            break;
+        case "edit_tamuKeluar";
+            include "../pages/kadin/tamu-keluar/edit.php";
+            break;
+        case "hapus_tamuKeluar";
+            include "../pages/kadin/tamu-keluar/delete.php";
+            break;
+
+            //SURAT MASUK
+        case "data_suratMasuk";
+            include "../pages/kadin/surat-masuk/data.php";
+            break;
+        case "tambah_suratMasuk";
+            include "../pages/kadin/surat-masuk/add.php";
+            break;
+        case "edit_suratMasuk";
+            include "../pages/kadin/surat-masuk/edit.php";
+            break;
+        case "hapus_suratMasuk";
+            include "../pages/kadin/surat-masuk/delete.php";
+            break;
+
+            //SURAT KELUAR
+        case "data_suratKeluar";
+            include "../pages/kadin/surat-keluar/data.php";
+            break;
+        case "tambah_suratKeluar";
+            include "../pages/kadin/surat-keluar/add.php";
+            break;
+        case "edit_suratKeluar";
+            include "../pages/kadin/surat-keluar/edit.php";
+            break;
+        case "hapus_suratKeluar";
+            include "../pages/kadin/surat-keluar/delete.php";
+            break;
+
+            //DISPOSISI
+        case "data_disposisi";
+            include "../pages/kadin/disposisi/data.php";
+            break;
+        case "tambah_disposisi";
+            include "../pages/kadin/disposisi/add.php";
+            break;
+        case "edit_disposisi";
+            include "../pages/kadin/disposisi/edit.php";
+            break;
+        case "hapus_disposisi";
+            include "../pages/kadin/disposisi/delete.php";
+            break;
     }
 ?>
 
