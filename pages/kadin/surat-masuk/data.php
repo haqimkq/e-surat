@@ -49,6 +49,8 @@ if (!isset($_SESSION['nama'])) {
                                                     Perihal</th>
                                                 <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                     File Surat</th>
+                                                <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
+                                                    Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -73,13 +75,13 @@ if (!isset($_SESSION['nama'])) {
                                                                 <li>
                                                                     <a class="dropdown-item border-radius-md" href="?page=editsuratMasuk&id=<?= $row[0]; ?>">
                                                                         <i class="fa fa-edit"></i>
-                                                                        Edit Data</a>
+                                                                        Verifikasi Data</a>
                                                                 </li>
-                                                                <li>
+                                                                <!-- <li>
                                                                     <a class="dropdown-item border-radius-md" onclick="return confirm ('Anda yakin ingin menghapus data ?');" href="?page=hapussuratMasuk&id=<?= $row[0]; ?>">
                                                                         <i class="fa fa-trash-o"></i>
                                                                         Hapus</a>
-                                                                </li>
+                                                                </li> -->
                                                             </ul>
                                                         </div>
                                                     </td>
@@ -98,6 +100,30 @@ if (!isset($_SESSION['nama'])) {
                                                         }
                                                         ?>
                                                     </td>
+                                                    <td align="center">
+                                                        <?php
+                                                        $status = $row['verifikasi'];
+                                                        $badgeColor = '';
+
+                                                        if (empty($status)) {
+                                                            $status = "Belum diverifikasi";
+                                                            $badgeColor = 'bg-gradient-warning'; // Atur warna badge sesuai kebutuhan
+                                                        } else {
+                                                            switch ($status) {
+                                                                case 'Terverifikasi':
+                                                                    $status = 'Terverifikasi';
+                                                                    $badgeColor = 'bg-gradient-success';
+                                                                    break;
+                                                                default:
+                                                                    $status = "Belum diverifikasi";
+                                                                    $badgeColor = 'bg-gradient-warning';
+                                                                    break;
+                                                            }
+                                                        }
+                                                        echo "<span class='badge $badgeColor'>$status</span>";
+                                                        ?>
+                                                    </td>
+
                                                 </tr>
                                             <?php
                                             }

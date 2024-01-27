@@ -45,7 +45,7 @@ if (!isset($_SESSION['nama'])) {
                                                 <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                     NIK</th>
                                                 <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                    Foto KTP</th>
+                                                    Nomor Telepon</th>
                                                 <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                     Keperluan</th>
                                                 <th class=" text-secondary text-s font-weight-bolder opacity-7">
@@ -90,9 +90,7 @@ if (!isset($_SESSION['nama'])) {
                                                     <td align="left"><?= $i++ ?></td>
                                                     <td><?= $row['nama']; ?></td>
                                                     <td><?= $row['nik']; ?></td>
-                                                    <td align="left">
-                                                        <?php echo "<img src='$row[ktp]' width='100' height='70' style='border-radius: 5%;' />"; ?>
-                                                    </td>
+                                                    <td><?= $row['tlp']; ?></td>
                                                     <td><?= $row['jns_keperluan']; ?></td>
                                                     <td><?= $row['tanggal']; ?></td>
                                                     <td><?= $row['jam']; ?></td>

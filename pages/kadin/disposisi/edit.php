@@ -142,6 +142,24 @@ if (!isset($_SESSION['nama'])) {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group input-group-dynamic">
+                                                        <label class="text-bold">Status :</label>
+                                                        <div class="input-group input-group-dynamic mb-4 ">
+                                                            <select name="verifikasi" class="form-control ">
+                                                                <option>-- pilih --
+                                                                </option>
+                                                                <option value="Terverifikasi" <?php if ($data['verifkasi'] == 'Terverifikasi') {
+                                                                                                    echo "selected";
+                                                                                                } ?>>Verifikasi
+                                                                </option>
+                                                            </select>
+                                                            <em class="text-danger text-sm text-italic"> <br> *Pilih
+                                                                Status</em>
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <br>
                                                 <div class="form-group">
                                                     <div class="col-md-12">
@@ -161,17 +179,11 @@ if (!isset($_SESSION['nama'])) {
 
     <?php
     if (isset($_POST['edit'])) {
-        $idSuratMasuk = $_POST['idSuratMasuk'];
-        $idPegawai = $_POST['idPegawai'];
-        $tanggal = $_POST['tanggal'];
-        $keterangan = $_POST['keterangan'];
+        $verifikasi = $_POST['verifikasi'];
 
 
         $edit = $link->query("UPDATE disposisi SET 
-idSuratMasuk = '$idSuratMasuk',
-idPegawai = '$idPegawai', 
-tanggal = '$tanggal', 
-keterangan = '$keterangan'
+verifikasi = '$verifikasi'
 
 WHERE idDisposisi = '$id'");
 

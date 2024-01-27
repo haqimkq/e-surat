@@ -120,16 +120,6 @@ if (!isset($_SESSION['nama'])) {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        
-                                                        <div class="col-md-6">
-                                                            <div class="input-group input-group-dynamic">
-                                                                <label>Foto KTP TAMU</label>
-                                                                <div class="input-group input-group-dynamic mb-4">
-                                                                    <input class="form-control" aria-label="Foto KTP Tamu" type="file" name="ktp" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required>
-                                                                    <div class="help-block with-errors"></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col ms-4">
@@ -155,21 +145,7 @@ if (!isset($_SESSION['nama'])) {
         $idKeperluan = $_POST['idKeperluan'];
         $tanggal = $_POST['tanggal'];
         $jam = $_POST['jam'];
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $uploadedFile = $_FILES['ktp'];
-            $ktp_lama = $_POST['ktp_lama'];
-            if ($uploadedFile['error'] === 4) {
-                $ktp = $ktp_lama;
-            } else {
-                $uploadedFilePath = upload($uploadedFile);
-                if ($uploadedFilePath) {
-                    $ktp = $uploadedFilePath;
-                } else {
-                    echo "Gagal mengunggah file.";
-                }
-            }
-            echo "Data berhasil diperbarui.";
-        }
+        
         $keterangan = $_POST['keterangan'];
 
         $simpan = $link->query("INSERT INTO tamu_keluar VALUES (
@@ -178,7 +154,6 @@ if (!isset($_SESSION['nama'])) {
             '$idKeperluan',
             '$tanggal',
             '$jam',
-            '$ktp',
             '$keterangan'
             )");
         if ($simpan) {
@@ -192,37 +167,4 @@ if (!isset($_SESSION['nama'])) {
 }
 
 
-
-function upload($file)
-{
-    // Tentukan folder penyimpanan file
-    $targetDir = '../img/';
-
-    // Mendapatkan nama file asli
-    $fileName = basename($file['name']);
-
-    // Mendapatkan path file tujuan
-    $targetPath = $targetDir . $fileName;
-
-    // Mendapatkan ekstensi file
-    $fileExtension = pathinfo($targetPath, PATHINFO_EXTENSION);
-
-    // Daftar ekstensi file yang diperbolehkan
-    $allowedExtensions = array('jpg', 'jpeg', 'png', 'JPG');
-
-    // Cek apakah ekstensi file valid
-    if (in_array($fileExtension, $allowedExtensions)) {
-        // Pindahkan file ke folder tujuan
-        if (move_uploaded_file($file['tmp_name'], $targetPath)) {
-            // Jika berhasil diunggah, kembalikan path file
-            return $targetPath;
-        } else {
-            // Jika gagal mengunggah
-            return false;
-        }
-    } else {
-        // Jika ekstensi file tidak valid
-        return false;
-    }
-}
 ?>

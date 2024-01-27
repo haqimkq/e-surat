@@ -181,7 +181,7 @@ function tgl($tanggal)
                             <th style="text-align: center; font-size: 18px;">No</th>
                             <th style="text-align: center; font-size: 18px;">Nama</th>
                             <th style="text-align: center; font-size: 18px;">NIK</th>
-                            <th style="text-align: center; font-size: 18px;">Foto KTP</th>
+                            <th style="text-align: center; font-size: 18px;">No Telepon</th>
                             <th style="text-align: center; font-size: 18px;">Keperluan</th>
                             <th style="text-align: center; font-size: 18px;">Tanggal</th>
                             <th style="text-align: center; font-size: 18px;">Jam</th>
@@ -195,9 +195,7 @@ function tgl($tanggal)
                                 <td align="center"><?php echo $no++; ?></td>
                                 <td align="center"><?= $data['nama']; ?></td>
                                 <td align="center"> <?= $data['nik']; ?></td>
-                                <td align="center">
-                                    <?php echo "<a href='$data[ktp]' download><img src='$data[ktp]' width='100' height='70' style='border-radius: 5%;' /></a>"; ?>
-                                </td>
+                                <td align="center"> <?= $data['tlp']; ?></td>
                                 <td align="center"> <?= $data['jns_keperluan']; ?></td>
                                 <td align="center"><?= tgl($data['tanggal']) ?></td>
                                 <td align="center"> <?= $data['jam']; ?></td>

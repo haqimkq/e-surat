@@ -144,7 +144,24 @@ if (!isset($_SESSION['nama'])) {
                                                             <em class="text-danger text-sm text-italic">*Upload berkas pendukung
                                                                 (PDF, maksimal 2Mb)</em>
                                                         </div>
-
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group input-group-dynamic">
+                                                        <label class="text-bold">Status :</label>
+                                                        <div class="input-group input-group-dynamic mb-4 ">
+                                                            <select name="verifikasi" class="form-control ">
+                                                                <option>-- pilih --
+                                                                </option>
+                                                                <option value="Terverifikasi" <?php if ($data['verifkasi'] == 'Terverifikasi') {
+                                                                                                    echo "selected";
+                                                                                                } ?>>Verifikasi
+                                                                </option>
+                                                            </select>
+                                                            <em class="text-danger text-sm text-italic"> <br> *Pilih
+                                                                Status</em>
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -166,35 +183,12 @@ if (!isset($_SESSION['nama'])) {
 
     <?php
     if (isset($_POST['edit'])) {
-        $idTamu = $_POST['idTamu'];
-        $tanggal = $_POST['tanggal'];
-        $noSurat = $_POST['noSurat'];
-        $perihal = $_POST['perihal'];
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $uploadedFile = $_FILES['file'];
-            $file_lama = $_POST['file_lama'];
-
-            if ($uploadedFile['error'] === 4) {
-                $file = $file_lama;
-            } else {
-                $uploadedFilePath = upload($uploadedFile, '../pdf/e-surat/');
-                if ($uploadedFilePath) {
-                    $file = $uploadedFilePath;
-                } else {
-                    echo "Gagal mengunggah file surat";
-                }
-            }
-            echo "Data berhasil diperbarui.";
-        }
+        $verifikasi = $_POST['verifikasi'];
+        
 
 
         $edit = $link->query("UPDATE surat_keluar SET 
-idTamu = '$idTamu',
-tanggal = '$tanggal', 
-noSurat = '$noSurat', 
-perihal = '$perihal', 
-file = '$file'
+verifikasi = '$verifikasi'
 
 WHERE idSuratKeluar = '$id'");
 
@@ -205,26 +199,6 @@ WHERE idSuratKeluar = '$id'");
             echo "<script>alert('Data anda gagal diedit. Ulangi sekali lagi')</script>";
             echo "<meta http-equiv='refresh' content='0; url=?page=editsuratKeluar'>";
         }
-    }
-}
-
-
-
-
-function upload($file, $targetDir)
-{
-    $fileName = basename($file['name']);
-    $targetPath = $targetDir . $fileName;
-    $fileExtension = pathinfo($targetPath, PATHINFO_EXTENSION);
-    $allowedExtensions = array('jpg', 'jpeg', 'JPG', 'png', 'pdf');
-    if (in_array($fileExtension, $allowedExtensions)) {
-        if (move_uploaded_file($file['tmp_name'], $targetPath)) {
-            return $targetPath;
-        } else {
-            return false;
-        }
-    } else {
-        return false;
     }
 }
 

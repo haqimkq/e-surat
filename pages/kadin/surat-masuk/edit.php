@@ -74,7 +74,7 @@ if (!isset($_SESSION['nama'])) {
                                                     <div class="input-group input-group-dynamic">
                                                         <label class="text-bold">Nama Tamu :</label>
                                                         <div class="input-group input-group-dynamic mb-4">
-                                                            <select class="form-control " aria-label="Tamu Masuk" name="idTamuMasuk" required>
+                                                            <select class="form-control " aria-label="Tamu Masuk" readonly>
                                                                 <?php $q = $link->query("SELECT * FROM tamu_masuk tm 
                                                                         join tamu t on t.idTamu  = tm.idTamu ");
                                                                 while ($d =
@@ -99,7 +99,7 @@ if (!isset($_SESSION['nama'])) {
                                                     <label class="form-label">Nomor Surat</label>
                                                     <div class="input-group input-group-dynamic">
                                                         <div class="input-group input-group-dynamic mb-4">
-                                                            <input class="form-control" aria-label="Nomor Surat" type="text" name="noSurat" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required value="<?= $data['noSurat'] ?>">
+                                                            <input class="form-control" aria-label="Nomor Surat" type="text" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" readonly value="<?= $data['noSurat'] ?>">
                                                             <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
@@ -108,7 +108,7 @@ if (!isset($_SESSION['nama'])) {
                                                     <label class="form-label">Perihal</label>
                                                     <div class="input-group input-group-dynamic">
                                                         <div class="input-group input-group-dynamic mb-4">
-                                                            <input class="form-control" aria-label="Perihal" type="text" name="perihal" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required value="<?= $data['perihal'] ?>">
+                                                            <input class="form-control" aria-label="Perihal" type="text" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" readonly value="<?= $data['perihal'] ?>">
                                                             <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
@@ -117,19 +117,19 @@ if (!isset($_SESSION['nama'])) {
                                                     <label class="form-label">Tanggal</label>
                                                     <div class="input-group input-group-dynamic">
                                                         <div class="input-group input-group-dynamic mb-4">
-                                                            <input class="form-control" aria-label="Tanggal" type="date" name="tanggal" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" required value="<?= $data['tanggal'] ?>">
+                                                            <input class="form-control" aria-label="Tanggal" type="date" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" readonly value="<?= $data['tanggal'] ?>">
                                                             <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6 ">
+                                                <div class="col-md-6 mt-5 ">
                                                     <div class="input-group input-group-dynamic ">
-                                                        <label class="text-bold">File Surat:</label>
+                                                        <!-- <label class="text-bold">File Surat:</label> -->
                                                         <div class="input-group input-group-dynamic mb-2">
-                                                            <input class="form-control" aria-label="Berkas" type="file" name="file" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" accept=".pdf,.PDF,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
-                                                            <div class="help-block with-errors"></div>
+                                                            <!-- <input class="form-control" aria-label="Berkas" type="file" name="file" data-minlength="4" data-error="Tidak Boleh Kurang dari 4" accept=".pdf,.PDF,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                                                            <div class="help-block with-errors"></div> -->
                                                         </div>
-                                                        <input name="file_lama" type="hidden" class="form-control input-sm" value="<?= $data['file'] ?>">
+                                                        <input type="hidden" class="form-control input-sm" value="<?= $data['file'] ?>">
                                                         <?php
                                                         $file_lama = $data['file'];
                                                         $fileName = !empty($file_lama) ? basename($file_lama) : '';
@@ -138,16 +138,33 @@ if (!isset($_SESSION['nama'])) {
                                                             <?php if (!empty($fileName)) : ?>
                                                                 <strong>File Saat Ini:</strong> <?= $fileName ?>
                                                                 <!-- <a href="javascript:void(0)" class="text-danger" onclick="deleteFile()"><i class="ti ti-x"></i></a> -->
-                                                                <input name="file_lama" type="hidden" class="form-control input-sm" value="<?= $file_lama ?>">
+                                                                <input type="hidden" class="form-control input-sm" value="<?= $file_lama ?>">
                                                                 <input name="deleteFile" type="hidden" value="1">
                                                             <?php else : ?>
                                                                 <span>Tidak ada file yang diunggah</span>
-                                                                <input name="file_lama" type="hidden" class="form-control input-sm" value="">
+                                                                <input type="hidden" class="form-control input-sm" value="">
                                                             <?php endif; ?> <br>
-                                                            <em class="text-danger text-sm text-italic">*Upload berkas pendukung
-                                                                (PDF, maksimal 2Mb)</em>
+                                                            <!-- <em class="text-danger text-sm text-italic">*Upload berkas pendukung
+                                                                (PDF, maksimal 2Mb)</em> -->
                                                         </div>
-
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group input-group-dynamic">
+                                                        <label class="text-bold">Status :</label>
+                                                        <div class="input-group input-group-dynamic mb-4 ">
+                                                            <select name="verifikasi" class="form-control ">
+                                                                <option>-- pilih --
+                                                                </option>
+                                                                <option value="Terverifikasi" <?php if ($data['verifkasi'] == 'Terverifikasi') {
+                                                                                                    echo "selected";
+                                                                                                } ?>>Verifikasi
+                                                                </option>
+                                                            </select>
+                                                            <em class="text-danger text-sm text-italic"> <br> *Pilih
+                                                                Status</em>
+                                                            <div class="help-block with-errors"></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -169,35 +186,12 @@ if (!isset($_SESSION['nama'])) {
 
     <?php
     if (isset($_POST['edit'])) {
-        $idTamuMasuk = $_POST['idTamuMasuk'];
-        $tanggal = $_POST['tanggal'];
-        $noSurat = $_POST['noSurat'];
-        $perihal = $_POST['perihal'];
+        $verifikasi = $_POST['verifikasi'];
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $uploadedFile = $_FILES['file'];
-            $file_lama = $_POST['file_lama'];
-
-            if ($uploadedFile['error'] === 4) {
-                $file = $file_lama;
-            } else {
-                $uploadedFilePath = upload($uploadedFile, '../pdf/e-surat/');
-                if ($uploadedFilePath) {
-                    $file = $uploadedFilePath;
-                } else {
-                    echo "Gagal mengunggah file surat_pernyataan.";
-                }
-            }
-            echo "Data berhasil diperbarui.";
-        }
 
 
         $edit = $link->query("UPDATE surat_masuk SET 
-idTamuMasuk = '$idTamuMasuk',
-tanggal = '$tanggal', 
-noSurat = '$noSurat', 
-perihal = '$perihal', 
-file = '$file'
+verifikasi = '$verifikasi'
 
 WHERE idSuratMasuk = '$id'");
 
