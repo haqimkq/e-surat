@@ -36,7 +36,7 @@
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="material-icons opacity-10">dashboard</i>
                             </div>
-                            <span class="nav-link-text ms-1">Dashboard</span>
+                            <span class="nav-link-text ms-1">Beranda</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -428,7 +428,16 @@
                                     </div>
                                 </li>
                             </ul>
+
                         </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="../logout.php">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">close</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Keluar</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -457,12 +466,12 @@
                     </div>
                     <ul class="navbar-nav justify-content-end">
 
-                        <li class="nav-item d-flex align-items-center">
+                        <!-- <li class="nav-item d-flex align-items-center">
                             <a href="../logout.php" class="nav-link text-body font-weight-bold px-0">
                                 <i class="fa fa-close me-sm-1"></i>
                                 <span class="d-sm-inline d-none">Logout</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item d-flex ps-3 align-items-center">
                             <a href="?page=data_profile" class="nav-link text-body font-weight-bold px-0">
                                 <i class="fa fa-user me-sm-1"></i>
@@ -478,7 +487,7 @@
                                 </div>
                             </a>
                         </li>
-                        <li class="nav-item dropdown pe-2 ps-3 d-flex align-items-center">
+                        <!-- <li class="nav-item dropdown pe-2 ps-3 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-bell cursor-pointer"></i>
                             </a>
@@ -554,7 +563,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -600,7 +609,7 @@
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">dashboard</i>
                         </div>
-                        <span class="nav-link-text ms-1">Dashboard</span>
+                        <span class="nav-link-text ms-1">Beranda</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -658,10 +667,18 @@
                                     <span class="nav-link-text ms-1">Surat Keluar</span>
                                 </a>
                             </li>
+
                         </ul>
                     </div>
                 </li>
-                </li>
+                <li class="nav-item">
+                        <a class="nav-link text-white" href="../logout.php">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">close</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Keluar</span>
+                        </a>
+                    </li>
             </ul>
         </div>
         <!-- <div class="row align-items-center justify-content-start mt-8 px-3">

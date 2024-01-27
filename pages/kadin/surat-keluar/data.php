@@ -6,9 +6,6 @@ if (!isset($_SESSION['nama'])) {
     echo "<script> alert('Silahkan login terlebih dahulu'); </script>";
     echo "<meta http-equiv='refresh' content='0; url=../e-surat/index.php'>";
 } else {
-    $id = $_SESSION['id_user'];
-    $query = mysqli_query($link, "SELECT * FROM users WHERE id_user = '$id' ");
-    $data = $query->fetch_array();
 ?>
 
 
@@ -24,14 +21,14 @@ if (!isset($_SESSION['nama'])) {
                 </div>
                 <div class=" p-0 position-relative mt-n6 mx-4 z-index-4 ps-6">
                     <div class="bg-gradient-info shadow border-radius-lg pt-3 pb-3 ">
-                        <h6 class="text-white text-capitalize ps-3">Data Users</h6>
+                        <h6 class="text-white text-capitalize ps-3">Data Surat Keluar</h6>
                     </div>
                 </div>
-                <div class="card-body p-3">
+                <div class="card-body p-3 mt-3">
                     <div class="col-2 ">
-                        <a href="?page=tambah_user" class="btn btn-info">Tambah Data</a>
-                    </div>
-                    <!-- <hr class="horizontal dark"> -->
+                            <a href="?page=tambah_suratKeluar" class="btn btn-info">Tambah Data</a>
+                        </div>
+                    <hr class="horizontal dark">
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <table id="example" class="table align-items-center">
@@ -44,24 +41,29 @@ if (!isset($_SESSION['nama'])) {
                                                 No.
                                             </th>
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                Hak</th>
+                                                Nama Tamu</th>
                                             <th class=" text-secondary text-s font-weight-bolder opacity-7">
-                                                Nama Lengkap</th>
-                                            <th class="  text-secondary text-s font-weight-bolder opacity-7">
-                                                Username</th>
-                                            <th class=" text-righ text-secondary text-s font-weight-bolder opacity-7">
-                                                Password Terenkripsi</th>
+                                                Tanggal</th>
+                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
+                                                No Surat</th>
+                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
+                                                Perihal</th>
+                                            <th class=" text-secondary text-s font-weight-bolder opacity-7">
+                                                File Surat</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                             $no = 1;
-                                            $query = mysqli_query($link, "SELECT * FROM users");
+                                            // $id = $_SESSION['idTamuMasu'];
+                                            $query = mysqli_query($link, "SELECT * FROM surat_keluar sk
+                                            JOIN tamu t ON t.idTamu = sk.idTamu
+                                             ");
                                             $i = 1;
                                             while ($row = $query->fetch_array()) {
                                             ?>
                                         <tr>
-                                            <td class="w-5">
+                                            <td>
                                                 <div class=" mt-3">
                                                     <button type="button"
                                                         class="btn btn-info dropdown-toggle border-radius-lg px-3 py-1 "
@@ -70,36 +72,37 @@ if (!isset($_SESSION['nama'])) {
                                                     </button>
                                                     <ul class="dropdown-menu shadow-lg mt-2  dropdown-menu-end px-2 py-2 me-sm-n4"
                                                         role="menu">
-                                                        <li><a class="dropdown-item border-radius-md"
-                                                                href="?page=edit_user_password&id=<?= $row[0]; ?>"><i
-                                                                    class="fa fa-edit"></i> Edit Password</a></li>
-                                                        <li><a class="dropdown-item border-radius-md"
-                                                                href="?page=edit_user&id=<?= $row[0]; ?>"><i
-                                                                    class="fa fa-edit"></i> Edit Data</a></li>
-                                                        <li><a class="dropdown-item border-radius-md"
+                                                        <li>
+                                                            <a class="dropdown-item border-radius-md"
+                                                                href="?page=edit_suratKeluar&id=<?= $row[0]; ?>">
+                                                                <i class="fa fa-edit"></i>
+                                                                Edit Data</a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item border-radius-md"
                                                                 onclick="return confirm ('Anda yakin ingin menghapus data ?');"
-                                                                href="?page=hapus_user&id=<?= $row[0]; ?>"><i
-                                                                    class="fa fa-trash-o"></i> Hapus</a></li>
+                                                                href="?page=hapus_suratKeluar&id=<?= $row[0]; ?>">
+                                                                <i class="fa fa-trash-o"></i>
+                                                                Hapus</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </td>
-                                            <td class="w-0" align="left"><?= $i++ ?></td>
-                                            <td class="w-5" align="left">
+                                            <td align="left"><?= $i++ ?></td>
+                                            <td><?= $row['nama']; ?></td>
+                                            <td><?= $row['tanggal']; ?></td>
+                                            <td><?= $row['noSurat']; ?></td>
+                                            <td><?= $row['perihal']; ?></td>
+                                            <td class="w-2" align="center">
                                                 <?php
-                                                        if ($row['level'] == 0) {
-                                                            echo "Admin";
-                                                        } elseif ($row['level'] == 1) {
-                                                            echo "Sekertaris";
-                                                        } elseif ($row['level'] == 2) {
-                                                            echo "Kepala Dinas";
-                                                        } elseif ($row['level'] == 3) {
-                                                            echo "Masyarakat";
+                                                        if (!empty($row['file'])) {
+                                                            $pdfPath = '../e-surat/' . $row['file'];
+                                                            echo "<a class='badge bg-gradient-success ' href='$pdfPath' download>Download</a>";
+                                                        } else {
+                                                            echo "File PDF tidak tersedia";
                                                         }
                                                         ?>
                                             </td>
-                                            <td class="w-30"><?= $row['nm_lengkap']; ?></td>
-                                            <td class="w-5" align="left"><?= $row['username']; ?></td>
-                                            <td><?= $row['password']; ?></td>
                                         </tr>
                                         <?php
                                             }
