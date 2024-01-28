@@ -146,6 +146,8 @@ if (!isset($_SESSION['nama'])) {
             }
             echo "Data berhasil diperbarui.";
         }
+        $verifikasi = $_POST['verifikasi'];
+
 
         $simpan = $link->query("INSERT INTO surat_keluar VALUES (
             '', 
@@ -153,7 +155,8 @@ if (!isset($_SESSION['nama'])) {
             '$tanggal',
             '$noSurat',
             '$perihal',
-            '$surat'
+            '$surat',
+            '$verifikasi'
             )");
         if ($simpan) {
             echo "<script>alert('Data berhasil disimpan')</script>";

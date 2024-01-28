@@ -165,13 +165,15 @@ if (!isset($_SESSION['nama'])) {
         $idPegawai = $_POST['idPegawai'];
         $tanggal = $_POST['tanggal'];
         $keterangan = $_POST['keterangan'];
+        $verifikasi = $_POST['verifikasi'];
 
 
         $edit = $link->query("UPDATE disposisi SET 
 idSuratMasuk = '$idSuratMasuk',
 idPegawai = '$idPegawai', 
 tanggal = '$tanggal', 
-keterangan = '$keterangan'
+keterangan = '$keterangan',
+verifikasi = '$verifikasi'
 
 WHERE idDisposisi = '$id'");
 

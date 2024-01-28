@@ -49,6 +49,8 @@ if (!isset($_SESSION['nama'])) {
                                                     Tanggal</th>
                                                 <th class=" text-secondary text-s font-weight-bolder opacity-7">
                                                     Keterangan</th>
+                                                <th class=" text-secondary text-center text-s font-weight-bolder opacity-7">
+                                                    Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -92,7 +94,29 @@ if (!isset($_SESSION['nama'])) {
                                                     <td><?= $row['nm_pegawai']; ?></td>
                                                     <td><?= $row['tanggal']; ?></td>
                                                     <td><?= $row['keterangan']; ?></td>
-                                                   
+                                                    <td align="center">
+                                                        <?php
+                                                        $status = $row['verifikasi'];
+                                                        $badgeColor = '';
+
+                                                        if (empty($status)) {
+                                                            $status = "Belum diverifikasi";
+                                                            $badgeColor = 'bg-gradient-warning'; // Atur warna badge sesuai kebutuhan
+                                                        } else {
+                                                            switch ($status) {
+                                                                case 'Terverifikasi':
+                                                                    $status = 'Terverifikasi';
+                                                                    $badgeColor = 'bg-gradient-success';
+                                                                    break;
+                                                                default:
+                                                                    $status = "Belum diverifikasi";
+                                                                    $badgeColor = 'bg-gradient-warning';
+                                                                    break;
+                                                            }
+                                                        }
+                                                        echo "<span class='badge $badgeColor'>$status</span>";
+                                                        ?>
+                                                    </td>
                                                 </tr>
                                             <?php
                                             }
