@@ -191,13 +191,16 @@ if (!isset($_SESSION['nama'])) {
             echo "Data berhasil diperbarui.";
         }
 
+        $verifikasi = $_POST['verifikasi'];
+
 
         $edit = $link->query("UPDATE surat_masuk SET 
 idTamuMasuk = '$idTamuMasuk',
 tanggal = '$tanggal', 
 noSurat = '$noSurat', 
 perihal = '$perihal', 
-file = '$file'
+file = '$file',
+verifikasi = '$verifikasi'
 
 WHERE idSuratMasuk = '$id'");
 

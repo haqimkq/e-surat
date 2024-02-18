@@ -17,7 +17,7 @@ if (isset($_POST['cetak5'])) {
 
     JOIN pegawai p ON p.id_pegawai = d.idPegawai WHERE d.tanggal BETWEEN '$tgl1' AND '$tgl2' ORDER BY d.tanggal ");
     $label = 'LAPORAN DATA DISPOSISI SURAT  <br> Tanggal : ' . tgl($tgl1) . ' s/d ' . tgl($tgl2);
-    /* $label = 'LAPORAN DATA BARANG MASUK <br> JENIS : ' . $kec; */
+
 } else {
     $sql = mysqli_query($link, "SELECT d.*, sm.idSuratMasuk ,sm.noSurat , tm.idTamuMasuk, t.nama , p.nm_pegawai
     FROM disposisi d

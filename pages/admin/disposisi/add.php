@@ -228,13 +228,16 @@ if (!isset($_SESSION['nama'])) {
         $idPegawai = $_POST['idPegawai'];
         $tanggal = $_POST['tanggal'];
         $keterangan = $_POST['keterangan'];
+        $verifikasi = $_POST['verifikasi'];
+
 
         $simpan = $link->query("INSERT INTO disposisi VALUES (
             '', 
             '$idSuratMasuk',
             '$idPegawai',
             '$tanggal',
-            '$keterangan'
+            '$keterangan',
+            '$verifikasi'
             )");
         if ($simpan) {
             echo "<script>alert('Data berhasil disimpan')</script>";

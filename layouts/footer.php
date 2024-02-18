@@ -53,29 +53,6 @@ if (win && document.querySelector("#sidenav-scrollbar")) {
     Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
 }
 
-// $(document).ready(function() {
-//     $('#example').DataTable({
-//         "paging": true, // memungkinkan pagination
-//         "searching": true, // memungkinkan pencarian
-//         "pageLength": 5, // menentukan jumlah data per halaman
-//         "lengthMenu": [5, 10, 25, 50, 75, 100], // menentukan opsi jumlah data per halaman
-//         "language": { // konfigurasi bahasa
-//             "lengthMenu": "Tampilkan _MENU_ data per halaman",
-//             "zeroRecords": "Data tidak ditemukan",
-//             "info": "Menampilkan halaman _PAGE_ dari _PAGES_",
-//             "infoEmpty": "Data tidak tersedia",
-//             "infoFiltered": "(difilter dari _MAX_ total data)",
-//             "search": "Cari:",
-//             "paginate": {
-//                 "first": "Awal",
-//                 "last": "Akhir",
-//                 "next": "Berikutnya",
-//                 "previous": "Sebelumnya"
-//             }
-//         }
-//     });
-// });
-
 $(document).ready(function() {
     $('#example').DataTable({
         "paging": true,
@@ -99,6 +76,7 @@ $(document).ready(function() {
         responsive: true
     });
 });
+
 </script>
 
 
